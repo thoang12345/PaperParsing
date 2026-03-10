@@ -4,12 +4,13 @@ import time
 fun.clear_terminal()
 start = time.time()
 
-lePath = r"C:\Users\mayhe\OneDrive\Documents\PaperParsing\Docling Parsing\Epstein Files\Motor Skid"
-lePaperPath = r"C:\Users\mayhe\OneDrive\Documents\PaperParsing\Docling Parsing\Epstein Files\Papers"
-outputPath = r"C:\Users\mayhe\OneDrive\Documents\PaperParsing\Docling Parsing\Output"
+lePath = r"D:\Research Program thing\McNair\Navy stuff\DocLing Parsing\Epstein Files\Motor Skid"
+lePaperPath = r"D:\Research Program thing\McNair\Navy stuff\DocLing Parsing\Epstein Files\Papers"
+outputPath = r"D:\Research Program thing\McNair\Navy stuff\DocLing Parsing\Output"
+outputPathMotor = r"D:\Research Program thing\McNair\Navy stuff\DocLing Parsing\Output Motor Skid"
 
-gimmeFileNames = fun.gimmeFileNames(lePaperPath)
-file_paths = fun.buildFilePaths(lePaperPath)
+gimmeFileNames = fun.gimmeFileNames(lePath)
+file_paths = fun.buildFilePaths(lePath)
 addElements = True
 
 pipelineOptions = fun.pipelineOptions(ImageScale=6.9444444444,
@@ -19,9 +20,9 @@ pipelineOptions = fun.pipelineOptions(ImageScale=6.9444444444,
 
 for i, file in enumerate(file_paths):
     convertedFile = fun.convertFile(file, pipelineOptions)
-    fun.writeItDown(convertedFile, outputPath, gimmeFileNames[i], addElements)
-    fun.returnFormulas(outputPath, gimmeFileNames[i], convertedFile)
+    fun.writeItDown(convertedFile, outputPathMotor, gimmeFileNames[i], addElements)
+    fun.returnFormulas(outputPathMotor, gimmeFileNames[i], convertedFile)
 
 end = time.time()
 
-fun.printRunStats(lePaperPath, outputPath, start, end)
+fun.printRunStats(lePath, outputPathMotor, start, end)

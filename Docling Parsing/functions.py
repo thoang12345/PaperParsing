@@ -1,13 +1,14 @@
 import os
 from pathlib import Path
 import re
-import pandas as pd
+import torch
 
 # Importing the DocumentConverter class from the docling library
 from docling.document_converter import DocumentConverter
 from docling_core.types.doc import ImageRefMode, PictureItem, TableItem, DocItemLabel
 from docling.datamodel.base_models import InputFormat
-from docling.datamodel.pipeline_options import PdfPipelineOptions, RapidOcrOptions, TableStructureOptions, EasyOcrOptions, TesseractOcrOptions
+from docling.datamodel.accelerator_options import AcceleratorOptions, AcceleratorDevice
+from docling.datamodel.pipeline_options import PdfPipelineOptions, RapidOcrOptions, TableStructureOptions, EasyOcrOptions, TesseractOcrOptions, ThreadedPdfPipelineOptions
 from docling.document_converter import DocumentConverter, PdfFormatOption
 
 
@@ -36,13 +37,17 @@ def buildFilePaths(path):
     return filePath
 
 def pipelineOptions(ImageScale, generatePictureImages, doFormulas, doOcr):
-    pipelineOptions = PdfPipelineOptions()
+    pipelineOptions = ThreadedPdfPipelineOptions()
     pipelineOptions.images_scale = ImageScale
     pipelineOptions.generate_picture_images = generatePictureImages
     pipelineOptions.do_formula_enrichment = doFormulas
     pipelineOptions.do_table_structure = True
     pipelineOptions.table_structure_options = TableStructureOptions(do_cell_matching=True)
-    pipelineOptions.do_ocr = doOcr
+    pipelineOptions.do_ocr = doOcr 
+    pipelineOptions.accelerator_options = AcceleratorOptions(AcceleratorDevice.AUTO, num_threads=4)
+    pipelineOptions.ocr_batch_size = 48       
+    pipelineOptions.layout_batch_size = 48    
+    pipelineOptions.table_batch_size = 4
     #pipelineOptions.ocr_options = TesseractOcrOptions(force_full_page_ocr=True)
     #pipelineOptions.ocr_options = RapidOcrOptions(force_full_page_ocr=True)
     #pipelineOptions.ocr_options = EasyOcrOptions(force_full_page_ocr=True)
@@ -50,6 +55,9 @@ def pipelineOptions(ImageScale, generatePictureImages, doFormulas, doOcr):
     return pipelineOptions
 
 def convertFile(source, pipelineOptions):
+    print(f"CUDA available: {torch.cuda.is_available()}")
+    print(f"GPU: {torch.cuda.get_device_name(0)}")
+    
     converter = DocumentConverter(format_options={InputFormat.PDF: PdfFormatOption(pipeline_options=pipelineOptions)})
     result = converter.convert(source) 
                 
@@ -83,6 +91,8 @@ def printRunStats(inputPath, outputPath, startTime, endTime):
     print("=" * 100)
     print(f"Successful Conversions: {successOutOfTotal}")
     print(f"Time taken to convert files: {mins:2.0f} m and {secs:2.2f} s")
+    print(f"CUDA Used? {torch.cuda.is_available()}")
+    print(f"GPU: {torch.cuda.get_device_name(0)}")
     print("=" * 100)
     
 def returnFormulas(path, Name, convertedFile):
