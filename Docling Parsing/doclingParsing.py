@@ -1,7 +1,7 @@
 import functions as fun
 import time
+from dataclasses import dataclass
 
-fun.clear_terminal()
 start = time.time()
 
 lePath = r"D:\Research Program thing\McNair\Navy stuff\DocLing Parsing\Epstein Files\Motor Skid"
@@ -11,18 +11,27 @@ outputPathMotor = r"D:\Research Program thing\McNair\Navy stuff\DocLing Parsing\
 
 gimmeFileNames = fun.gimmeFileNames(lePath)
 file_paths = fun.buildFilePaths(lePath)
-addElements = True
 
-pipelineOptions = fun.pipelineOptions(ImageScale=6.9444444444,
-                                      generatePictureImages=addElements,
-                                      doFormulas=addElements,
-                                      doOcr = True)
+# Set the options for the pipeline
+@dataclass
+class PipelineConfig:
+    addElements: bool = True
+    ImageScale: float = 12
+    doOcr: bool = True
+    tableStructure: bool = True
+    ocrBatchSize: int = 32
+    layoutBatchSize: int = 32
+    tableBatchSize: int = 4
+
+config = PipelineConfig()
+
+pix2texModel, pipelineOptions = fun.initializeStuff(config)
 
 for i, file in enumerate(file_paths):
-    convertedFile = fun.convertFile(file, pipelineOptions)
-    fun.writeItDown(convertedFile, outputPathMotor, gimmeFileNames[i], addElements)
-    fun.returnFormulas(outputPathMotor, gimmeFileNames[i], convertedFile)
+    convertedFile = fun.convertFile(file, gimmeFileNames[i], pipelineOptions)
+    fun.writeItDown(convertedFile, outputPathMotor, gimmeFileNames[i], config.addElements)
+    fun.returnFormulas(pix2texModel, outputPathMotor, gimmeFileNames[i], convertedFile)
 
 end = time.time()
 
-fun.printRunStats(lePath, outputPathMotor, start, end)
+fun.printRunStats(lePath, outputPathMotor, start, end, config)
