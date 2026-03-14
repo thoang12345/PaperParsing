@@ -16,21 +16,20 @@ file_paths = fun.buildFilePaths(lePath)
 @dataclass
 class PipelineConfig:
     addElements: bool = True
-    ImageScale: float = 12
+    ImageScale: float = 7
     doOcr: bool = True
     tableStructure: bool = True
     ocrBatchSize: int = 32
     layoutBatchSize: int = 32
     tableBatchSize: int = 4
-
+    
 config = PipelineConfig()
-
-pix2texModel, pipelineOptions = fun.initializeStuff(config)
+pipelineOptions = fun.initializeStuff(config)
 
 for i, file in enumerate(file_paths):
     convertedFile = fun.convertFile(file, gimmeFileNames[i], pipelineOptions)
     fun.writeItDown(convertedFile, outputPathMotor, gimmeFileNames[i], config.addElements)
-    fun.returnFormulas(pix2texModel, outputPathMotor, gimmeFileNames[i], convertedFile)
+    fun.returnFormulas(outputPathMotor, gimmeFileNames[i], file, convertedFile)
 
 end = time.time()
 

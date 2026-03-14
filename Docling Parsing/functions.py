@@ -2,13 +2,14 @@ import os
 from pathlib import Path
 import torch
 import time
-from pix2tex.cli import LatexOCR
-from PIL import Image, ImageOps, ImageChops
+import fitz
+from PIL import Image
 
 # Importing the DocumentConverter class from the docling library
 from docling.document_converter import DocumentConverter
-from docling_core.types.doc import ImageRefMode, PictureItem, TableItem, DocItemLabel
-from docling.datamodel.base_models import InputFormat
+from docling_core.types.doc import ImageRefMode, PictureItem, TableItem, DocItemLabel, DoclingDocument, NodeItem, TextItem
+from docling.datamodel.base_models import InputFormat, ItemAndImageEnrichmentElement
+from docling.models.base_model import BaseItemAndImageEnrichmentModel
 from docling.datamodel.accelerator_options import AcceleratorOptions, AcceleratorDevice
 from docling.datamodel.pipeline_options import LayoutOptions, RapidOcrOptions, TableStructureOptions, EasyOcrOptions, TesseractOcrOptions, ThreadedPdfPipelineOptions
 from docling.document_converter import DocumentConverter, PdfFormatOption
@@ -55,26 +56,17 @@ def buildPipelineOptions(configPiplineConfig):
     pipelineOptions.table_batch_size = configPiplineConfig.tableBatchSize
     #pipelineOptions.ocr_options = TesseractOcrOptions(force_full_page_ocr=True) #Buns
     #pipelineOptions.ocr_options = RapidOcrOptions(force_full_page_ocr=True) #Better Equations
-    pipelineOptions.ocr_options = EasyOcrOptions(force_full_page_ocr=True) #Better 
+    pipelineOptions.ocr_options = EasyOcrOptions(force_full_page_ocr=True) #Better Test
     pipelineOptions.layout_options = LayoutOptions(model_spec=DOCLING_LAYOUT_EGRET_LARGE, batch_size=configPiplineConfig.layoutBatchSize)
 
     return pipelineOptions
-
-def getLatexModel():
-    global pix2texModel
-    if pix2texModel is None:
-        print("Initializing pix2tex model...")
-        pix2texModel = LatexOCR()
-        print("pix2tex model ready!")
-    return pix2texModel
 
 def initializeStuff(config):
     clear_terminal()
     pipelineOptions = buildPipelineOptions(config)
     checkAccelerator()
-    model = getLatexModel()
     
-    return model, pipelineOptions
+    return pipelineOptions
 
 def checkAccelerator():
     if torch.cuda.is_available():
@@ -141,37 +133,29 @@ def printRunStats(inputPath, outputPath, startTime, endTime, config):
     print(f"Layout Batch Size: {config.layoutBatchSize}")
     print(f"Table Batch Size: {config.tableBatchSize}")
     print("=" * 100)
+    
 
-def returnFormulas(model, path, Name, convertedFile):
-    formulas = []
-    stemName = Path(str(Name)).stem
-    folder = Path(path) / stemName
-    folder.mkdir(parents=True, exist_ok=True)
-    mdFilename = folder / f"{stemName}_output.md"
+def returnFormulas(path, Name, file, convertedFile):
+    padding = 10
+    filePath = folderFind(path, Path(str(Name)).stem)
+    formulaImages = folderFind(path, Path(str(Name)).stem) / "Formulas"
+    formulaImages.mkdir(exist_ok=True)
+    pdf = fitz.open(file)
+    formulaCount = 1
+    
+    for item, _ in convertedFile.document.iterate_items():
+        if isinstance(item, TextItem) and item.label == DocItemLabel.FORMULA:
+            pageNum = item.prov[0].page_no
+            pageImage = convertedFile.document.pages[pageNum].image.pil_image
+            
+            bbox = item.prov[0].bbox
+            print(f"Found formula at: Top={bbox.t}, Left={bbox.l}")
+            print(f"Content: {item.text}")
 
-    for element, _level in convertedFile.document.iterate_items():
-        if element.label == DocItemLabel.FORMULA:
-            try:
-                formulaImage = element.get_image(convertedFile.document)  # ← back to this
-                if formulaImage is not None:
-                    betterLatex = model(formulaImage)
-                    formulas.append(betterLatex)
-                else:
-                    formulas.append(element.text)
-            except Exception as e:
-                print(f"pix2tex failed on a formula, using Docling output: {e}")
-                formulas.append(element.text)
-
-    mdContent = mdFilename.read_text(encoding="utf-8")
-
-    if not formulas:
-        print(f"No formulas found for {stemName}")
-    else:
-        for formula in formulas:
-            mdContent = mdContent.replace("<!-- formula-not-decoded -->", f"$${formula}$$", 1)
-        print(f"{len(formulas)} formulas returned for {stemName}")
-
-    mdFilename.write_text(mdContent, encoding="utf-8")
+            croppedImage = pageImage.crop((bbox.l, bbox.b, bbox.r, bbox.t))
+            
+            croppedImage.save(formulaImages / f"{Path(str(Name)).stem}_formula_{formulaCount}.png")
+            formulaCount += 1
     
 def folderFind(path, Name):
     folder = Path(path) / Name
