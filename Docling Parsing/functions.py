@@ -2,8 +2,15 @@ import os
 from pathlib import Path
 import torch
 import time
+<<<<<<< Updated upstream
 import fitz
 from PIL import Image
+=======
+from pix2tex.cli import LatexOCR
+from PIL import Image, ImageOps, ImageChops
+import tiktoken
+
+>>>>>>> Stashed changes
 
 # Importing the DocumentConverter class from the docling library
 from docling.document_converter import DocumentConverter
@@ -14,6 +21,8 @@ from docling.datamodel.accelerator_options import AcceleratorOptions, Accelerato
 from docling.datamodel.pipeline_options import LayoutOptions, RapidOcrOptions, TableStructureOptions, EasyOcrOptions, TesseractOcrOptions, ThreadedPdfPipelineOptions
 from docling.document_converter import DocumentConverter, PdfFormatOption
 from docling.datamodel.layout_model_specs import DOCLING_LAYOUT_EGRET_LARGE
+from docling_core.transforms.chunker.tokenizer.openai import OpenAITokenizer    
+from docling.chunking import HybridChunker
 
 pix2texModel = None
 
@@ -135,6 +144,7 @@ def printRunStats(inputPath, outputPath, startTime, endTime, config):
     print("=" * 100)
     
 
+<<<<<<< Updated upstream
 def returnFormulas(path, Name, file, convertedFile):
     padding = 10
     filePath = folderFind(path, Path(str(Name)).stem)
@@ -156,9 +166,63 @@ def returnFormulas(path, Name, file, convertedFile):
             
             croppedImage.save(formulaImages / f"{Path(str(Name)).stem}_formula_{formulaCount}.png")
             formulaCount += 1
+=======
+'''def returnFormulas(model, path, Name, convertedFile):
+    formulas = []
+    stemName = Path(str(Name)).stem
+    folder = Path(path) / stemName
+    folder.mkdir(parents=True, exist_ok=True)
+    mdFilename = folder / f"{stemName}_output.md"
+
+    for element, _level in convertedFile.document.iterate_items():
+        if element.label == DocItemLabel.FORMULA:
+            try:
+                formulaImage = element.get_image(convertedFile.document)  # ← back to this
+                if formulaImage is not None:
+                    betterLatex = model(formulaImage)
+                    formulas.append(betterLatex)
+                else:
+                    formulas.append(element.text)
+            except Exception as e:
+                print(f"pix2tex failed on a formula, using Docling output: {e}")
+                formulas.append(element.text)
+
+    mdContent = mdFilename.read_text(encoding="utf-8")
+
+    if not formulas:
+        print(f"No formulas found for {stemName}")
+    else:
+        for formula in formulas:
+            mdContent = mdContent.replace("<!-- formula-not-decoded -->", f"$${formula}$$", 1)
+        print(f"{len(formulas)} formulas returned for {stemName}")
+
+    mdFilename.write_text(mdContent, encoding="utf-8")'''
+>>>>>>> Stashed changes
     
 def folderFind(path, Name):
     folder = Path(path) / Name
     folder.mkdir(parents=True, exist_ok=True)
     
     return folder 
+
+def intitChunker():
+    tokenizer = OpenAITokenizer(tokenizer=tiktoken.encoding_for_model("gpt-4o"), max_tokens=128)
+    chunker = HybridChunker(tokenizer=tokenizer)
+    print("Initialized chunker.")
+    return chunker, tokenizer
+
+def chunkDocument(document, chunker, tokenizer, name, outputPath):
+    chunk_iter = chunker.chunk(dl_doc=document.document)
+    folder = Path(outputPath) / Path(str(name)).stem
+    folder.mkdir(parents=True, exist_ok=True)
+
+    mdFolder = folder / f"{Path(str(name)).stem}_chunks.md"
+    with open(mdFolder, "w", encoding="utf-8") as f:
+        for i, chunk in enumerate(chunk_iter):
+            txtTokens = tokenizer.count_tokens(chunk.text)
+            serText = chunker.contextualize(chunk)
+            serTokens = tokenizer.count_tokens(serText)
+            f.write(f"=== {i} ===\n")
+            f.write(f"chunk.text ({txtTokens} tokens):\n{chunk.text!r}")
+            f.write(f"chunker.contextualize(chunk) ({serTokens} tokens):\n{serText!r}")
+            f.write("\n")
