@@ -10,8 +10,8 @@ outputPath = r"F:\Research Program thing\McNair\Navy stuff\DocLing Parsing\Outpu
 outputPathMotor = r"F:\Research Program thing\McNair\Navy stuff\DocLing Parsing\Output Motor Skid"
 document = r"F:\Research Program thing\McNair\Navy stuff\DocLing Parsing\Output\acoustics-08-00006-v2\acoustics-08-00006-v2_output.md"
 
-chosenPath = lePaperPath
-chosenOutputPath = outputPath
+chosenPath = lePath
+chosenOutputPath = outputPathMotor
 
 gimmeFileNames = fun.gimmeFileNames(chosenPath)
 file_paths = fun.buildFilePaths(chosenPath)
@@ -28,25 +28,14 @@ class PipelineConfig:
     tableBatchSize: int = 4
     
 config = PipelineConfig()
-<<<<<<< Updated upstream
-pipelineOptions = fun.initializeStuff(config)
-=======
 chunker, tokenizer = fun.intitChunker()
 Parse = False
+pipelineOptions = fun.initializeStuff(config)
 
-pix2texModel, pipelineOptions = fun.initializeStuff(config)
->>>>>>> Stashed changes
-
-for i, file in enumerate(file_paths[0:5]):
+for i, file in enumerate(file_paths):
     convertedFile = fun.convertFile(file, gimmeFileNames[i], pipelineOptions)
-<<<<<<< Updated upstream
-    fun.writeItDown(convertedFile, outputPathMotor, gimmeFileNames[i], config.addElements)
-    fun.returnFormulas(outputPathMotor, gimmeFileNames[i], file, convertedFile)
-=======
-    fun.chunkDocument(convertedFile, chunker, tokenizer, gimmeFileNames[i], chosenOutputPath)
     fun.writeItDown(convertedFile, chosenOutputPath, gimmeFileNames[i], config.addElements)
-    #fun.returnFormulas(pix2texModel, chosenOutputPath, gimmeFileNames[i], convertedFile)
->>>>>>> Stashed changes
+    fun.writeChunksDown(chosenOutputPath, chosenOutputPath, gimmeFileNames[i])
 
 end = time.time()
 

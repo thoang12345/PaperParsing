@@ -1,16 +1,12 @@
 import os
 from pathlib import Path
+import token
 import torch
 import time
-<<<<<<< Updated upstream
-import fitz
-from PIL import Image
-=======
 from pix2tex.cli import LatexOCR
 from PIL import Image, ImageOps, ImageChops
 import tiktoken
 
->>>>>>> Stashed changes
 
 # Importing the DocumentConverter class from the docling library
 from docling.document_converter import DocumentConverter
@@ -23,6 +19,7 @@ from docling.document_converter import DocumentConverter, PdfFormatOption
 from docling.datamodel.layout_model_specs import DOCLING_LAYOUT_EGRET_LARGE
 from docling_core.transforms.chunker.tokenizer.openai import OpenAITokenizer    
 from docling.chunking import HybridChunker
+from langchain_text_splitters import MarkdownHeaderTextSplitter, RecursiveCharacterTextSplitter
 
 pix2texModel = None
 
@@ -144,29 +141,6 @@ def printRunStats(inputPath, outputPath, startTime, endTime, config):
     print("=" * 100)
     
 
-<<<<<<< Updated upstream
-def returnFormulas(path, Name, file, convertedFile):
-    padding = 10
-    filePath = folderFind(path, Path(str(Name)).stem)
-    formulaImages = folderFind(path, Path(str(Name)).stem) / "Formulas"
-    formulaImages.mkdir(exist_ok=True)
-    pdf = fitz.open(file)
-    formulaCount = 1
-    
-    for item, _ in convertedFile.document.iterate_items():
-        if isinstance(item, TextItem) and item.label == DocItemLabel.FORMULA:
-            pageNum = item.prov[0].page_no
-            pageImage = convertedFile.document.pages[pageNum].image.pil_image
-            
-            bbox = item.prov[0].bbox
-            print(f"Found formula at: Top={bbox.t}, Left={bbox.l}")
-            print(f"Content: {item.text}")
-
-            croppedImage = pageImage.crop((bbox.l, bbox.b, bbox.r, bbox.t))
-            
-            croppedImage.save(formulaImages / f"{Path(str(Name)).stem}_formula_{formulaCount}.png")
-            formulaCount += 1
-=======
 '''def returnFormulas(model, path, Name, convertedFile):
     formulas = []
     stemName = Path(str(Name)).stem
@@ -197,7 +171,6 @@ def returnFormulas(path, Name, file, convertedFile):
         print(f"{len(formulas)} formulas returned for {stemName}")
 
     mdFilename.write_text(mdContent, encoding="utf-8")'''
->>>>>>> Stashed changes
     
 def folderFind(path, Name):
     folder = Path(path) / Name
@@ -211,18 +184,40 @@ def intitChunker():
     print("Initialized chunker.")
     return chunker, tokenizer
 
-def chunkDocument(document, chunker, tokenizer, name, outputPath):
-    chunk_iter = chunker.chunk(dl_doc=document.document)
-    folder = Path(outputPath) / Path(str(name)).stem
-    folder.mkdir(parents=True, exist_ok=True)
+def chunkDocument(inputPath, Name):
+    folder = Path(inputPath) / Path(str(Name)).stem
+    text = Path(folder / f"{Path(Name).stem}_output.md").read_text(encoding="utf-8")
 
-    mdFolder = folder / f"{Path(str(name)).stem}_chunks.md"
-    with open(mdFolder, "w", encoding="utf-8") as f:
-        for i, chunk in enumerate(chunk_iter):
-            txtTokens = tokenizer.count_tokens(chunk.text)
-            serText = chunker.contextualize(chunk)
-            serTokens = tokenizer.count_tokens(serText)
-            f.write(f"=== {i} ===\n")
-            f.write(f"chunk.text ({txtTokens} tokens):\n{chunk.text!r}")
-            f.write(f"chunker.contextualize(chunk) ({serTokens} tokens):\n{serText!r}")
-            f.write("\n")
+    splitText = [('#', "H1"), ('##', "H2"), ('###', "H3"), ('####', "H4"), ('#####', "H5"), ('######', "H6")]
+    mdSplitter = MarkdownHeaderTextSplitter(headers_to_split_on=splitText, strip_headers=False)
+    headerChunks = mdSplitter.split_text(text)
+
+    enc = tiktoken.encoding_for_model("gpt-4o")
+    recursiveSplitter = RecursiveCharacterTextSplitter(
+        chunk_size=512,
+        chunk_overlap=50,
+        length_function=lambda t: len(enc.encode(t)),
+        separators=["\n\n", "\n", " ", ""]
+    )
+    finalChunks = recursiveSplitter.split_documents(headerChunks)
+
+    for chunk in finalChunks:
+        headers = " > ".join(v for v in chunk.metadata.values() if v)
+        if headers:
+            chunk.page_content = f"[{headers}]\n\n{chunk.page_content}"
+            
+    return finalChunks
+
+def writeChunksDown(input, outputPath, Name):
+        chunks = chunkDocument(input, Name)
+        folder = Path(outputPath) / Path(str(Name)).stem
+
+        with open(folder / f"{Path(Name).stem}_chunks.md", "w", encoding="utf-8") as f:
+            for i, chunk in enumerate(chunks):
+                f.write(f"=== Chunk {i} ===\n\n")
+                f.write(chunk.page_content)
+                f.write("\n\n")
+    
+        print(f"Wrote {len(chunks)} chunks to {outputPath}")
+
+
