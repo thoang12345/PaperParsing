@@ -3,6 +3,7 @@ from pathlib import Path
 import torch
 import time
 import tiktoken
+from transformers import pipeline
 
 # Importing the DocumentConverter class from the docling library
 from docling.document_converter import DocumentConverter
@@ -62,16 +63,26 @@ def buildPipelineOptions(configPiplineConfig):
 def initializeStuff(config):
     clear_terminal()
     pipelineOptions = buildPipelineOptions(config)
-    checkAccelerator()
+    tokenizer = OpenAITokenizer(tokenizer=tiktoken.encoding_for_model("gpt-4o"), max_tokens=128)
+    print("Initialized tokenizer.")
+    generator = pipeline("text-generation", model="gpt-4o", device=0 if torch.cuda.is_available() else -1)
+    
+    if checkAccelerator() == True:
+        print("CUDA is available. Using GPU acceleration for conversion.")
+        print(f"GPU: {torch.cuda.get_device_name(0)}")
+    else:
+        print("CUDA is not available. Using CPU for conversion, which may be slower.")
+        
     converter = DocumentConverter(format_options={InputFormat.PDF: PdfFormatOption(pipeline_options=pipelineOptions)})
     
-    return converter
+    return converter, generator, tokenizer
 
 def checkAccelerator():
+    accelerator = False
     if torch.cuda.is_available():
-        print(f"CUDA is available.\nUsing GPU: {torch.cuda.get_device_name(0)}\n")
-    else:
-        print("CUDA is not available. Using CPU.")
+        accelerator = True
+    
+    return accelerator
 
 def convertFile(source, names, converter):
     start = time.time()
@@ -123,22 +134,22 @@ def printRunStats(inputPath, outputPath, startTime, endTime, config):
     successOutOfTotal = successfulConversions(inputPath, outputPath)
     
     print("=" * 100)
-    print(f"Successful Conversions: {successOutOfTotal}")
-    print(f"Time taken to convert files: {hours:2.0f} h : {mins:2.0f} m : {secs:2.2f} s")
-    print(f"CUDA Used? {torch.cuda.is_available()}")
-    print(f"GPU: {torch.cuda.get_device_name(0)}")
-    print("=" * 100)
-    print("Pipeline Options:")
-    print("=" * 100)
-    print(f"Images Scale: {config.ImageScale}")
-    print(f"Generate Picture Images: {config.addElements}")
-    print(f"Do Formula Enrichment: {config.addElements}")
-    print(f"Do Table Structure: {config.tableStructure}")
-    print(f"Do OCR: {config.doOcr}")
-    print(f"OCR Batch Size: {config.ocrBatchSize}")
-    print(f"Layout Batch Size: {config.layoutBatchSize}")
-    print(f"Table Batch Size: {config.tableBatchSize}")
-    print("=" * 100)
+    print(f"""Successful Conversions: {successOutOfTotal}
+    Time taken to convert files: {hours:2.0f} h : {mins:2.0f} m : {secs:2.2f} s
+    CUDA Used? {torch.cuda.is_available()}
+    GPU: {torch.cuda.get_device_name(0)}
+    {"=" * 100}
+    Pipeline Options:
+    {"=" * 100}
+    Images Scale: {config.ImageScale}
+    Generate Picture Images: {config.addElements}
+    Do Formula Enrichment: {config.addElements}          
+    Do Table Structure: {config.tableStructure}
+    Do OCR: {config.doOcr}
+    OCR Batch Size: {config.ocrBatchSize}
+    Layout Batch Size: {config.layoutBatchSize}
+    Table Batch Size: {config.tableBatchSize}
+    {"=" * 100}""")
     
 def folderFind(path, Name):
     folder = Path(path) / Name
@@ -146,11 +157,20 @@ def folderFind(path, Name):
     
     return folder 
 
-def intitChunker():
-    tokenizer = OpenAITokenizer(tokenizer=tiktoken.encoding_for_model("gpt-4o"), max_tokens=128)
-    chunker = HybridChunker(tokenizer=tokenizer)
-    print("Initialized chunker.")
-    return chunker, tokenizer
+
+
+def filterParsed(file_paths, names, outputPath):
+    filtered_paths = []
+    filtered_names = []
+    for i, name in enumerate(names):
+        expected = Path(outputPath) / Path(name).stem / f"{Path(name).stem}_output.md"
+        if expected.exists():
+            print(f"Skipping {Path(name).stem} — already parsed.")
+        else:
+            filtered_paths.append(file_paths[i])
+            filtered_names.append(name)
+    print(f"{len(filtered_names)} files to convert, {len(names) - len(filtered_names)} skipped.\n")
+    return filtered_paths, filtered_names
 
 def chunkDocument(inputPath, Name):
     folder = Path(inputPath) / Path(str(Name)).stem
@@ -162,8 +182,8 @@ def chunkDocument(inputPath, Name):
 
     enc = tiktoken.encoding_for_model("gpt-4o")
     recursiveSplitter = RecursiveCharacterTextSplitter(
-        chunk_size=1000,
-        chunk_overlap=200,
+        chunk_size=512,
+        chunk_overlap=128,
         length_function=lambda t: len(enc.encode(t)),
         separators=["\n\n", "\n", " ", ""]
     )
@@ -179,6 +199,7 @@ def chunkDocument(inputPath, Name):
 def writeChunksDown(input, outputPath, Name):
         chunks = chunkDocument(input, Name)
         folder = Path(outputPath) / Path(str(Name)).stem
+        folder.mkdir(parents=True, exist_ok=True)
 
         with open(folder / f"{Path(Name).stem}_chunks.md", "w", encoding="utf-8") as f:
             for i, chunk in enumerate(chunks):
