@@ -13,14 +13,14 @@ document = r"F:\Research Program thing\McNair\Navy stuff\DocLing Parsing\Output\
 chosenPath = lePath
 chosenOutputPath = outputPathMotor
 
-gimmeFileNames = fun.gimmeFileNames(chosenPath)
+names = fun.gimmeFileNames(chosenPath)
 file_paths = fun.buildFilePaths(chosenPath)
 
 # Set the options for the pipeline
 @dataclass
 class PipelineConfig:
     addElements: bool = True
-    ImageScale: float = 7
+    ImageScale: float = 2.7
     doOcr: bool = True
     tableStructure: bool = True
     ocrBatchSize: int = 32
@@ -30,12 +30,19 @@ class PipelineConfig:
 config = PipelineConfig()
 chunker, tokenizer = fun.intitChunker()
 Parse = False
-pipelineOptions = fun.initializeStuff(config)
+converter = fun.initializeStuff(config)
 
-for i, file in enumerate(file_paths):
-    convertedFile = fun.convertFile(file, gimmeFileNames[i], pipelineOptions)
-    fun.writeItDown(convertedFile, chosenOutputPath, gimmeFileNames[i], config.addElements)
-    fun.writeChunksDown(chosenOutputPath, chosenOutputPath, gimmeFileNames[i])
+BATCH_SIZE = 5
+
+for i in range(0, len(file_paths), BATCH_SIZE):
+    batch_paths = file_paths[i:i+BATCH_SIZE]
+    batch_names = names[i:i+BATCH_SIZE]
+
+    results = fun.convertFile(batch_paths, batch_names, converter)
+
+    for j, result in enumerate(results):
+        fun.writeItDown(result, chosenOutputPath, batch_names[j], config.addElements)
+        fun.writeChunksDown(chosenOutputPath, chosenOutputPath, batch_names[j])
 
 end = time.time()
 

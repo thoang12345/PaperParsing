@@ -1,12 +1,8 @@
 import os
 from pathlib import Path
-import token
 import torch
 import time
-from pix2tex.cli import LatexOCR
-from PIL import Image, ImageOps, ImageChops
 import tiktoken
-
 
 # Importing the DocumentConverter class from the docling library
 from docling.document_converter import DocumentConverter
@@ -20,8 +16,6 @@ from docling.datamodel.layout_model_specs import DOCLING_LAYOUT_EGRET_LARGE
 from docling_core.transforms.chunker.tokenizer.openai import OpenAITokenizer    
 from docling.chunking import HybridChunker
 from langchain_text_splitters import MarkdownHeaderTextSplitter, RecursiveCharacterTextSplitter
-
-pix2texModel = None
 
 def clear_terminal():
     # Check the operating system
@@ -60,8 +54,6 @@ def buildPipelineOptions(configPiplineConfig):
     pipelineOptions.ocr_batch_size = configPiplineConfig.ocrBatchSize       
     pipelineOptions.layout_batch_size = configPiplineConfig.layoutBatchSize    
     pipelineOptions.table_batch_size = configPiplineConfig.tableBatchSize
-    #pipelineOptions.ocr_options = TesseractOcrOptions(force_full_page_ocr=True) #Buns
-    #pipelineOptions.ocr_options = RapidOcrOptions(force_full_page_ocr=True) #Better Equations
     pipelineOptions.ocr_options = EasyOcrOptions(force_full_page_ocr=True) #Better Test
     pipelineOptions.layout_options = LayoutOptions(model_spec=DOCLING_LAYOUT_EGRET_LARGE, batch_size=configPiplineConfig.layoutBatchSize)
 
@@ -71,8 +63,9 @@ def initializeStuff(config):
     clear_terminal()
     pipelineOptions = buildPipelineOptions(config)
     checkAccelerator()
+    converter = DocumentConverter(format_options={InputFormat.PDF: PdfFormatOption(pipeline_options=pipelineOptions)})
     
-    return pipelineOptions
+    return converter
 
 def checkAccelerator():
     if torch.cuda.is_available():
@@ -80,32 +73,39 @@ def checkAccelerator():
     else:
         print("CUDA is not available. Using CPU.")
 
-def convertFile(source, Name, pipelineOptions):
+def convertFile(source, names, converter):
     start = time.time()
     
-    print(f"\nStarting conversion of {Path(str(Name)).stem}...")
-    
-    converter = DocumentConverter(format_options={InputFormat.PDF: PdfFormatOption(pipeline_options=pipelineOptions)})
-    result = converter.convert(source) 
-    
+    print(f"\nStarting conversion of {len(source)} files...")
+    print(f"Files being converted: {', '.join(Path(name).stem for name in names)}")
+    results = list(converter.convert_all(source))
+
     end = time.time()
     elapsed = end - start
     hours = int(elapsed // 3600)
     mins = int((elapsed % 3600) // 60)
     secs = elapsed % 60
     
-    print(f"Time taken to convert {Path(str(Name)).stem}: {hours:2.0f} h : {mins:2.0f} m : {secs:2.2f} s")
+    print(f"Time taken to convert {len(source)} files: {hours:2.0f} h : {mins:2.0f} m : {secs:2.2f} s")
                 
-    return result
+    return results
 
 def writeItDown(result, outputPath, Name, addElements):
     folder = Path(outputPath) / Path(str(Name)).stem
     folder.mkdir(parents=True, exist_ok=True)
     
+    mdPath = folder / f"{Path(Name).stem}_output.md"
+    
     if addElements:
-        result.document.save_as_markdown(folder / f"{Path(Name).stem}_output.md", image_mode=ImageRefMode.REFERENCED)
-    else:    
-        result.document.save_as_markdown(folder / f"{Path(Name).stem}_output.md")
+        print(f"Saving {Name} with elements as markdown...")
+        try:
+            result.document.save_as_markdown(mdPath, image_mode=ImageRefMode.REFERENCED)
+        except OSError as e:
+            print(f"Warning: Could not save images for {Name} ({e}), saving without image references...")
+            result.document.save_as_markdown(mdPath)
+    else:
+        print(f"Saving {Name} as markdown...")
+        result.document.save_as_markdown(mdPath)
     
 def successfulConversions(inputPath, outputPath):
     totalFiles = len(gimmeFileNames(inputPath))
@@ -140,38 +140,6 @@ def printRunStats(inputPath, outputPath, startTime, endTime, config):
     print(f"Table Batch Size: {config.tableBatchSize}")
     print("=" * 100)
     
-
-'''def returnFormulas(model, path, Name, convertedFile):
-    formulas = []
-    stemName = Path(str(Name)).stem
-    folder = Path(path) / stemName
-    folder.mkdir(parents=True, exist_ok=True)
-    mdFilename = folder / f"{stemName}_output.md"
-
-    for element, _level in convertedFile.document.iterate_items():
-        if element.label == DocItemLabel.FORMULA:
-            try:
-                formulaImage = element.get_image(convertedFile.document)  # ← back to this
-                if formulaImage is not None:
-                    betterLatex = model(formulaImage)
-                    formulas.append(betterLatex)
-                else:
-                    formulas.append(element.text)
-            except Exception as e:
-                print(f"pix2tex failed on a formula, using Docling output: {e}")
-                formulas.append(element.text)
-
-    mdContent = mdFilename.read_text(encoding="utf-8")
-
-    if not formulas:
-        print(f"No formulas found for {stemName}")
-    else:
-        for formula in formulas:
-            mdContent = mdContent.replace("<!-- formula-not-decoded -->", f"$${formula}$$", 1)
-        print(f"{len(formulas)} formulas returned for {stemName}")
-
-    mdFilename.write_text(mdContent, encoding="utf-8")'''
-    
 def folderFind(path, Name):
     folder = Path(path) / Name
     folder.mkdir(parents=True, exist_ok=True)
@@ -194,8 +162,8 @@ def chunkDocument(inputPath, Name):
 
     enc = tiktoken.encoding_for_model("gpt-4o")
     recursiveSplitter = RecursiveCharacterTextSplitter(
-        chunk_size=512,
-        chunk_overlap=50,
+        chunk_size=1000,
+        chunk_overlap=200,
         length_function=lambda t: len(enc.encode(t)),
         separators=["\n\n", "\n", " ", ""]
     )
