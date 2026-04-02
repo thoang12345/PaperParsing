@@ -65,7 +65,7 @@ def initializeStuff(config):
     pipelineOptions = buildPipelineOptions(config)
     tokenizer = OpenAITokenizer(tokenizer=tiktoken.encoding_for_model("gpt-4o"), max_tokens=128)
     print("Initialized tokenizer.")
-    generator = pipeline("text-generation", model="gpt-4o", device=0 if torch.cuda.is_available() else -1)
+    generator = pipeline("text-generation", model="Qwen/Qwen2.5-3B-Instruct", device=0 if torch.cuda.is_available() else -1)
     
     if checkAccelerator() == True:
         print("CUDA is available. Using GPU acceleration for conversion.")
@@ -157,8 +157,6 @@ def folderFind(path, Name):
     
     return folder 
 
-
-
 def filterParsed(file_paths, names, outputPath):
     filtered_paths = []
     filtered_names = []
@@ -172,7 +170,7 @@ def filterParsed(file_paths, names, outputPath):
     print(f"{len(filtered_names)} files to convert, {len(names) - len(filtered_names)} skipped.\n")
     return filtered_paths, filtered_names
 
-def chunkDocument(inputPath, Name):
+def chunkDocument(inputPath, generator, Name):
     folder = Path(inputPath) / Path(str(Name)).stem
     text = Path(folder / f"{Path(Name).stem}_output.md").read_text(encoding="utf-8")
 
@@ -189,15 +187,28 @@ def chunkDocument(inputPath, Name):
     )
     finalChunks = recursiveSplitter.split_documents(headerChunks)
 
-    for chunk in finalChunks:
+    for i, chunk in enumerate(finalChunks):
         headers = " > ".join(v for v in chunk.metadata.values() if v)
+        
+        prevSection = finalChunks[i - 1].page_content[-300:] if i > 0 else ""
+        nextSection = finalChunks[i + 1].page_content[:300] if i < len(finalChunks) - 1 else ""
+        prompt = (f"Previous Context: \n {prevSection}\n\n Current Context: \n {chunk.page_content}\n\n Next Context: \n {nextSection}\n\n"
+                    f"In 2 sentences, write a summary of the current section informed by both the previous and next chunk."
+                    if prevSection or nextSection else
+                    f"Current Context: \n {chunk.page_content}\n\n In 2 sentences, write a summary of the current section."
+                    )
+
+        contextSummary = generator(prompt, max_new_tokens = 128, truncation=True)[0]['generated_text'].strip()
+        
         if headers:
-            chunk.page_content = f"[{headers}]\n\n{chunk.page_content}"
+            chunk.page_content = f"[{headers}]\nContext: {contextSummary} \n\n{chunk.page_content}"
+        else:
+            chunk.page_content = f"Context: {contextSummary} \n\n{chunk.page_content}"
             
     return finalChunks
 
-def writeChunksDown(input, outputPath, Name):
-        chunks = chunkDocument(input, Name)
+def writeChunksDown(input, outputPath, Name, generator):
+        chunks = chunkDocument(input, generator, Name)
         folder = Path(outputPath) / Path(str(Name)).stem
         folder.mkdir(parents=True, exist_ok=True)
 
