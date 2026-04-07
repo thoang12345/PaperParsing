@@ -30,9 +30,10 @@ class PipelineConfig:
 config = PipelineConfig()
 converter, generator, tokenizer = fun.initializeStuff(config)
 
-BATCH_SIZE = 5
+BATCH_SIZE = 8
+results = []
 
-parsedPaths, parsedNames = fun.filterParsed(file_paths, names, chosenOutputPath)
+parsedPaths, parsedNames, numParsed = fun.filterParsed(file_paths, names, chosenOutputPath)
 
 for i in range(0, len(parsedPaths), BATCH_SIZE):
     batch_paths = parsedPaths[i:i+BATCH_SIZE]
@@ -41,9 +42,33 @@ for i in range(0, len(parsedPaths), BATCH_SIZE):
     results = fun.convertFile(batch_paths, batch_names, converter)
 
     for j, result in enumerate(results):
-        fun.writeItDown(result, chosenOutputPath, batch_names[j], config.addElements)
-        fun.writeChunksDown(chosenOutputPath, chosenOutputPath, batch_names[j], generator)
-
+        fun.writeItDown(result, chosenOutputPath, batch_names[j], config.addElements)    
+    
+    allChunks = []
+    allPrompts = []
+    chunkCounts = []
+    allStartTimes = []
+    
+    
+    for name in batch_names:
+        chunks, startTime, prompts = fun.chunkDocument(chosenOutputPath, name)
+        allChunks.append(chunks)
+        allStartTimes.append(startTime)
+        allPrompts.append(prompts)
+        chunkCounts.append(len(chunks))
+        
+    flatPrompts = [p for prompts in allPrompts for p in prompts]
+    print(f"\nGenerating summaries for {len(flatPrompts)} chunks across {len(batch_names)} files...\n")
+    flatSummaries = generator(flatPrompts, truncation=True, return_full_text=False, batch_size=8)
+    
+    idx = 0
+    for k, name in enumerate(batch_names):
+        count = chunkCounts[k]
+        fileSummaries = flatSummaries[idx:idx+count]
+        filePrompts = allPrompts[k]
+        fun.writeChunksDown(allChunks[k], fileSummaries, filePrompts, chosenOutputPath, name, allStartTimes[k])
+        idx += count
+        
 end = time.time()
 
-fun.printRunStats(chosenPath, chosenOutputPath, start, end, config)
+fun.printRunStats(start, end, config, numParsed, len(results))
