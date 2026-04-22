@@ -1,7 +1,7 @@
 import os
-os.environ["TRANSFORMERS_OFFLINE"] = "1"
-os.environ["HF_DATASETS_OFFLINE"] = "1"
-os.environ["HF_HUB_OFFLINE"] = "1"  # also block huggingface_hub specifically
+#os.environ["TRANSFORMERS_OFFLINE"] = "1"
+#os.environ["HF_DATASETS_OFFLINE"] = "1"
+#os.environ["HF_HUB_OFFLINE"] = "1"  # also block huggingface_hub specifically
 
 from pathlib import Path
 import torch
@@ -27,6 +27,7 @@ from docling.datamodel.layout_model_specs import DOCLING_LAYOUT_EGRET_LARGE
 from docling_core.transforms.chunker.tokenizer.openai import OpenAITokenizer    
 from docling.chunking import HybridChunker
 from langchain_text_splitters import MarkdownHeaderTextSplitter, RecursiveCharacterTextSplitter
+from docling.datamodel.pipeline_options import granite_picture_description
 
 def clear_terminal():
     # Check the operating system
@@ -67,7 +68,9 @@ def buildPipelineOptions(configPiplineConfig):
     pipelineOptions.table_batch_size = configPiplineConfig.tableBatchSize
     pipelineOptions.ocr_options = EasyOcrOptions(force_full_page_ocr=True) #Better Test
     pipelineOptions.layout_options = LayoutOptions(model_spec=DOCLING_LAYOUT_EGRET_LARGE, batch_size=configPiplineConfig.layoutBatchSize)
-    pipelineOptions.allow_external_plugins = True
+    pipelineOptions.allow_external_plugins = configPiplineConfig.allowExternalPlugins
+    pipelineOptions.do_picture_description = configPiplineConfig.doPictureDescriptions 
+    pipelineOptions.picture_description_options.prompt = configPiplineConfig.pictureDescriptionPrompt
 
     return pipelineOptions
 
@@ -201,12 +204,25 @@ def filterParsed(file_paths, names, outputPath):
     print(f"{len(filtered_names)} files to convert, {len(names) - len(filtered_names)} skipped.")
     return filtered_paths, filtered_names, len(filtered_names)
 
-def chunkDocument(inputPath, Name):
+def chunkDocument(inputPath, Name, document):
+    import re
     print(f"Chunking {Name}...")
     
     folder = Path(inputPath) / Path(str(Name)).stem
     text = Path(folder / f"{Path(Name).stem}_output.md").read_text(encoding="utf-8")
     startTime = time.time()
+
+    # Inject image descriptions BEFORE splitting
+    for pic in document.pictures:
+        if pic.meta and pic.meta.description:
+            uri = Path(str(pic.image.uri)).name
+            description = f"[Image Description: {pic.meta.description.text}]"
+            text = re.sub(
+                rf'!\[.*?\]\([^)]*{re.escape(uri)}[^)]*\)',
+                description,
+                text
+            )
+
     splitText = [('#', "H1"), ('##', "H2"), ('###', "H3"), ('####', "H4"), ('#####', "H5"), ('######', "H6")]
     mdSplitter = MarkdownHeaderTextSplitter(headers_to_split_on=splitText, strip_headers=False)
     headerChunks = mdSplitter.split_text(text)
@@ -216,7 +232,7 @@ def chunkDocument(inputPath, Name):
         chunk_size=1024,
         chunk_overlap=256,
         length_function=lambda t: len(enc.encode(t)),
-        separators=["\n\n", "\n", " ", ""]
+        separators=["\n\n", "\n", " ", "", r"!\["]
     )
     finalChunks = recursiveSplitter.split_documents(headerChunks)
     promptBatch = batchPrompts(finalChunks)
@@ -239,10 +255,9 @@ def writeChunksDown(chunks, summaries, prompts, outputPath, Name, startTime):
             f.write(f"\n=== Chunk {i}===\n\n")
 
             if headers:
-                meta = makeMetaData(chunk, Name, page_start=1, page_end=1)  # replace with real values
-                f.write(f"[{meta}]\n")
-
-            f.write(f"Context:\n{raw}\n\n")
+                meta = makeMetaData(chunk, Name, i, raw, page_start=1, page_end=1)  # replace with real values
+                f.write(f"{meta}\n\n")
+                
             f.write(chunk.page_content)
             f.write("\n")
 
@@ -257,15 +272,18 @@ def batchPrompts(chunks):
     for i, chunk in enumerate(chunks):
         prevSection = chunks[i - 1].page_content[-300:] if i > 0 else ""
         nextSection = chunks[i + 1].page_content[:300] if i < len(chunks) - 1 else ""
-        prompt = (f"Previous Context: \n {prevSection}\n\nCurrent Context: \n {chunk.page_content}\n\nNext Context: \n {nextSection}\n\n"
-                    f"In 1 uninterrupted section consisting of 3 sentences, write a summary of the current section informed by both the previous and next chunk." 
-                    f"Just add the summary, no other preamble, or repeated information. Make a clean paragraph with no newlines, no enters, or no nextlines. Next lines will be handled in post processing. If there is no previous or next section, just summarize the current section.`"
-                    f"When writing something about headers, only use the header text itself, not the markdown syntax. For example, if the header is '## Introduction', just use 'Introduction' in your summary and do not include the '##' markdown syntax."
-                    f"Do not mention your instructions or anything about the prompt in the summary. Just write a clean summary paragraph that could be easily read on its own without any context about the prompt or instructions."
-                    f"Do not include your internal thoughts or reasoning steps in the summary. Just write the final summary paragraph that directly summarizes the content of the current chunk, informed by the previous and next chunks if they exist."
-                    if prevSection or nextSection else
-                    f"Current Context: \n {chunk.page_content}\n\n In 3 sentences, write a summary of the current section."
-                    )
+        prompt = (f"<|im_start|>system\n"
+                f"You are a precise academic summarizer. Your only job is to write a single, clean 2-3 sentence summary of the current chunk. "
+                f"Use the previous and next chunks only to inform your understanding — do not summarize them. "
+                f"Rules: no markdown, no bullet points, no headers, no newlines, no internal thoughts, no meta-commentary, no repetition of these instructions. "
+                f"Output only the summary paragraph and nothing else.<|im_end|>\n"
+                f"<|im_start|>user\n"
+                f"Previous chunk:\n{prevSection}\n\n"
+                f"Current chunk:\n{chunk.page_content}\n\n"
+                f"Next chunk:\n{nextSection}\n"
+                f"<|im_end|>\n"
+                f"<|im_start|>assistant\n"
+                )
         promptBatch.append(prompt)
 
     return promptBatch
@@ -277,7 +295,7 @@ def convertTime(start, end):
     secs = seconds % 60
     return f"{hours:2.0f} h : {mins:2.0f} m : {secs:2.2f} s"
 
-def makeMetaData(chunk, name, page_start=None, page_end=None):
+def makeMetaData(chunk, name, i, raw, page_start=None, page_end=None):
     headers = " > ".join(str(v) for v in chunk.metadata.values() if v)
 
     parts = []
@@ -292,6 +310,9 @@ def makeMetaData(chunk, name, page_start=None, page_end=None):
         else:
             parts.append(f"[Pages: {page_start}-{page_end}]")
 
+    parts.append(f"[Chunk #: {i}]")
+    parts.append(f"[Context: {raw}]")
+    
     return "".join(parts)
 
 def extract_item_pages(result):
