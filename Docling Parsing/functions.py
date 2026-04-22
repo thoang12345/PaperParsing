@@ -127,6 +127,33 @@ def writeItDown(result, outputPath, Name, addElements):
     else:
         print(f"Saving {Name} as markdown...")
         result.document.save_as_markdown(mdPath)
+        
+    add_page_tags(mdPath, result)
+
+def add_page_tags(mdPath, result):
+    text = Path(mdPath).read_text(encoding="utf-8")
+    text = Path(mdPath).read_text(encoding="utf-8")
+
+    pages = result.document.pages
+    page_count = len(pages)
+
+    # Split markdown roughly into pages by length
+    # (Docling markdown is already in reading order)
+    chunk_size = len(text) // page_count
+
+    new_text = ""
+    start = 0
+
+    for i in range(page_count):
+        end = start + chunk_size if i < page_count - 1 else len(text)
+
+        # ✅ Insert page marker
+        new_text += f"\n<!-- PAGE {i+1} -->\n"
+        new_text += text[start:end]
+
+        start = end
+
+    Path(mdPath).write_text(new_text, encoding="utf-8")
     
 def successfulConversions(numResults, numParsed):
     successOutofTotal = f"{numResults}/{numParsed}"
@@ -197,32 +224,32 @@ def chunkDocument(inputPath, Name):
     return finalChunks, startTime, promptBatch
 
 def writeChunksDown(chunks, summaries, prompts, outputPath, Name, startTime):
-        folder = Path(outputPath) / Path(str(Name)).stem
-        folder.mkdir(parents=True, exist_ok=True)
-        
-        contextSummary = ""
-        
+    folder = Path(outputPath) / Path(str(Name)).stem
+    folder.mkdir(parents=True, exist_ok=True)
+
+    with open(folder / f"{Path(Name).stem}_chunks.md", "w", encoding="utf-8") as f:
         for i, chunk in enumerate(chunks):
-                headers = " > ".join(v for v in chunk.metadata.values() if v)
-                raw = summaries[i][0]['generated_text'].strip()
-                if prompts[i] in raw:
-                    contextSummary = raw[len(prompts[i]):].strip()
-                if headers:
-                    chunk.page_content = f"[{headers}][Paper Name: {Name}]\nContext:\n{contextSummary} \n\n{chunk.page_content}"
-                else:
-                    chunk.page_content = f"Context: {contextSummary} \n\n{chunk.page_content}"
+            headers = " > ".join(str(v) for v in chunk.metadata.values() if v)
 
-        with open(folder / f"{Path(Name).stem}_chunks.md", "w", encoding="utf-8") as f:
-            for i, chunk in enumerate(chunks):
-                f.write("\n"+("=" * 100))
-                f.write(f"\n=== Chunk {i}===\n\n")
-                f.write(chunk.page_content)
-                f.write("\n")
+            raw = summaries[i][0]["generated_text"].strip()
+            if raw.startswith(prompts[i]):
+                raw = raw[len(prompts[i]):].strip()
 
-        endTime = time.time()
-        timeTaken = convertTime(startTime, endTime)
-        print(f"Wrote {len(chunks)} chunks to {outputPath}/{Name}!\n")
-        print(f"Time taken to chunk and write {Name}: {timeTaken}")
+            f.write("\n" + ("=" * 100))
+            f.write(f"\n=== Chunk {i}===\n\n")
+
+            if headers:
+                meta = makeMetaData(chunk, Name, page_start=1, page_end=1)  # replace with real values
+                f.write(f"[{meta}]\n")
+
+            f.write(f"Context:\n{raw}\n\n")
+            f.write(chunk.page_content)
+            f.write("\n")
+
+    endTime = time.time()
+    timeTaken = convertTime(startTime, endTime)
+    print(f"Wrote {len(chunks)} chunks to {outputPath}/{Name}!\n")
+    print(f"Time taken to chunk and write {Name}: {timeTaken}")
 
 def batchPrompts(chunks):
     promptBatch = []
@@ -250,6 +277,38 @@ def convertTime(start, end):
     secs = seconds % 60
     return f"{hours:2.0f} h : {mins:2.0f} m : {secs:2.2f} s"
 
+def makeMetaData(chunk, name, page_start=None, page_end=None):
+    headers = " > ".join(str(v) for v in chunk.metadata.values() if v)
+
+    parts = []
+    if headers:
+        parts.append(f"[{headers}]")
+
+    parts.append(f"[Paper Name: {Path(name).stem}]")
+
+    if page_start is not None:
+        if page_end is None or page_end == page_start:
+            parts.append(f"[Page: {page_start}]")
+        else:
+            parts.append(f"[Pages: {page_start}-{page_end}]")
+
+    return "".join(parts)
+
+def extract_item_pages(result):
+    items = []
+    for item, _level in result.document.iterate_items(with_groups=False, traverse_pictures=True):
+        prov = getattr(item, "prov", []) or []
+        pages = sorted({p.page_no for p in prov if getattr(p, "page_no", None) is not None})
+        if not pages:
+            continue
+
+        items.append({
+            "start_page": pages[0],
+            "end_page": pages[-1],
+            "label": getattr(item, "label", None),
+            "text": getattr(item, "text", ""),
+        })
+    return items
 
 
 
