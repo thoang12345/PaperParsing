@@ -11,6 +11,7 @@ from transformers import pipeline
 import warnings
 from transformers import logging as hf_logging
 import chromadb
+import re
 
 hf_logging.set_verbosity_error()
 warnings.filterwarnings("ignore", message=".*max_new_tokens.*max_length.*")
@@ -204,35 +205,23 @@ def filterParsed(file_paths, names, outputPath):
     print(f"{len(filtered_names)} files to convert, {len(names) - len(filtered_names)} skipped.")
     return filtered_paths, filtered_names, len(filtered_names)
 
-def chunkDocument(inputPath, Name, document):
-    import re
+def chunkDocument(inputPath, Name):
     print(f"Chunking {Name}...")
     
     folder = Path(inputPath) / Path(str(Name)).stem
     text = Path(folder / f"{Path(Name).stem}_output.md").read_text(encoding="utf-8")
+    text = re.sub(r'(!\[Image\]\([^)]+\))', r'\n\n\1\n\n', text)
     startTime = time.time()
-
-    # Inject image descriptions BEFORE splitting
-    for pic in document.pictures:
-        if pic.meta and pic.meta.description:
-            uri = Path(str(pic.image.uri)).name
-            description = f"[Image Description: {pic.meta.description.text}]"
-            text = re.sub(
-                rf'!\[.*?\]\([^)]*{re.escape(uri)}[^)]*\)',
-                description,
-                text
-            )
-
     splitText = [('#', "H1"), ('##', "H2"), ('###', "H3"), ('####', "H4"), ('#####', "H5"), ('######', "H6")]
     mdSplitter = MarkdownHeaderTextSplitter(headers_to_split_on=splitText, strip_headers=False)
     headerChunks = mdSplitter.split_text(text)
-
+    
     enc = tiktoken.encoding_for_model("gpt-4o")
     recursiveSplitter = RecursiveCharacterTextSplitter(
         chunk_size=1024,
         chunk_overlap=256,
         length_function=lambda t: len(enc.encode(t)),
-        separators=["\n\n", "\n", " ", "", r"!\["]
+        separators=["\n\n", "\n", " ", "", "!"]
     )
     finalChunks = recursiveSplitter.split_documents(headerChunks)
     promptBatch = batchPrompts(finalChunks)
