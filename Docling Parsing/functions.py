@@ -210,18 +210,26 @@ def chunkDocument(inputPath, Name):
     
     folder = Path(inputPath) / Path(str(Name)).stem
     text = Path(folder / f"{Path(Name).stem}_output.md").read_text(encoding="utf-8")
-    text = re.sub(r'(!\[Image\]\([^)]+\))', r'\n\n\1\n\n', text)
     startTime = time.time()
+
+    # Ensure image tags and page tags are isolated by double newlines
+    text = re.sub(
+    r'\n\n(!\[Image\]\([^)]+\))\n\n',
+    r'\n\n## [Figure]\n\1\n\n',
+    text
+)
+    text = re.sub(r'(<!-- PAGE \d+ -->)', r'\n\n\1\n\n', text)
+
     splitText = [('#', "H1"), ('##', "H2"), ('###', "H3"), ('####', "H4"), ('#####', "H5"), ('######', "H6")]
     mdSplitter = MarkdownHeaderTextSplitter(headers_to_split_on=splitText, strip_headers=False)
     headerChunks = mdSplitter.split_text(text)
-    
+
     enc = tiktoken.encoding_for_model("gpt-4o")
     recursiveSplitter = RecursiveCharacterTextSplitter(
         chunk_size=1024,
         chunk_overlap=256,
         length_function=lambda t: len(enc.encode(t)),
-        separators=["\n\n", "\n", " ", "", "!"]
+        separators=["\n\n", "\n", " ", ""]
     )
     finalChunks = recursiveSplitter.split_documents(headerChunks)
     promptBatch = batchPrompts(finalChunks)

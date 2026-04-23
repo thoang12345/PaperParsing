@@ -27,7 +27,7 @@ class PipelineConfig:
     layoutBatchSize: int = 32
     tableBatchSize: int = 4
     allowExternalPlugins: bool = True
-    doPictureDescriptions: bool = True
+    doPictureDescriptions: bool = False
     pictureDescriptionPrompt: str = "Describe the image in 2-3 sentences. Be concise and accurate. No markdown syntax."
     
     
