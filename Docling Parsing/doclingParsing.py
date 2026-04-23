@@ -56,7 +56,7 @@ for i in range(0, len(parsedPaths), BATCH_SIZE):
     allStartTimes = []
 
     for docIdx, name in enumerate(batch_names):
-        chunks, startTime, prompts = fun.chunkDocument(chosenOutputPath, name, batchDocuments[docIdx])
+        chunks, startTime, prompts = fun.chunkDocument(chosenOutputPath, name)
         allChunks.append(chunks)
         allStartTimes.append(startTime)
         allPrompts.append(prompts)
