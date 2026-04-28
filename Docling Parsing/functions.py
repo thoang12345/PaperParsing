@@ -122,7 +122,7 @@ def writeItDown(result, outputPath, Name, addElements):
     mdPath = folder / f"{Path(Name).stem}_output.md"
     
     if addElements:
-        print(f"Saving {Name} with elements as markdown...")
+        print(f"Saving {Name} with elements as markdown...\n")
         try:
             result.document.save_as_markdown(mdPath, image_mode=ImageRefMode.REFERENCED)
         except OSError as e:
@@ -206,7 +206,7 @@ def filterParsed(file_paths, names, outputPath):
     return filtered_paths, filtered_names, len(filtered_names)
 
 def chunkDocument(inputPath, Name):
-    print(f"Chunking {Name}...")
+    print(f"Chunking {Name}...\n")
     
     folder = Path(inputPath) / Path(str(Name)).stem
     text = Path(folder / f"{Path(Name).stem}_output.md").read_text(encoding="utf-8")
@@ -230,8 +230,12 @@ def chunkDocument(inputPath, Name):
     )
     finalChunks = recursiveSplitter.split_documents(headerChunks)
     promptBatch = batchPrompts(finalChunks)
-            
-    return finalChunks, startTime, promptBatch
+    
+    endTime = time.time()
+    timeTaken = convertTime(startTime, endTime)
+    print(f"Chunked {Name}! Time taken: {timeTaken}\n")
+    
+    return finalChunks, promptBatch
 
 def writeChunksDown(chunks, summaries, prompts, outputPath, Name, startTime):
     folder = Path(outputPath) / Path(str(Name)).stem
@@ -249,8 +253,8 @@ def writeChunksDown(chunks, summaries, prompts, outputPath, Name, startTime):
             f.write(f"\n=== Chunk {i}===\n\n")
 
             if headers:
-                meta = makeMetaData(chunk, Name, i, raw, page_start=1, page_end=1)  # replace with real values
-                f.write(f"{meta}\n\n")
+                header, docName, pageNum, chunkNum, context = makeMetaData(chunk, Name, i, raw, page_start=1, page_end=1)  # replace with real values
+                f.write(f"[Header: {header}][Paper Name: {docName}][Page: {pageNum}][Chunk #: {chunkNum}][Context: {context}]\n\n")
                 
             f.write(chunk.page_content)
             f.write("\n")
@@ -258,7 +262,7 @@ def writeChunksDown(chunks, summaries, prompts, outputPath, Name, startTime):
     endTime = time.time()
     timeTaken = convertTime(startTime, endTime)
     print(f"Wrote {len(chunks)} chunks to {outputPath}/{Name}!\n")
-    print(f"Time taken to chunk and write {Name}: {timeTaken}")
+    print(f"Time taken to chunk and write {Name}: {timeTaken}\n")
 
 def batchPrompts(chunks):
     promptBatch = []
@@ -291,39 +295,27 @@ def convertTime(start, end):
 
 def makeMetaData(chunk, name, i, raw, page_start=None, page_end=None):
     headers = " > ".join(str(v) for v in chunk.metadata.values() if v)
-
-    parts = []
-    if headers:
-        parts.append(f"[{headers}]")
-
-    parts.append(f"[Paper Name: {Path(name).stem}]")
-
+    docName = name
     if page_start is not None:
         if page_end is None or page_end == page_start:
-            parts.append(f"[Page: {page_start}]")
+            pageStart = page_start
         else:
-            parts.append(f"[Pages: {page_start}-{page_end}]")
-
-    parts.append(f"[Chunk #: {i}]")
-    parts.append(f"[Context: {raw}]")
+            pageStart = page_start - page_end
+    chunkNum = i
+    context = raw
     
-    return "".join(parts)
+    return headers, docName, pageStart, chunkNum, context
 
-def extract_item_pages(result):
-    items = []
-    for item, _level in result.document.iterate_items(with_groups=False, traverse_pictures=True):
-        prov = getattr(item, "prov", []) or []
-        pages = sorted({p.page_no for p in prov if getattr(p, "page_no", None) is not None})
-        if not pages:
-            continue
+def hawkTuah(names, outputPath, generator):
+    chunksForDataBase = {}
+    
+    for i, name in enumerate(names):
+        chunks, prompts = chunkDocument(outputPath, name)
+        summaries = generator(prompts, truncation=True, return_full_text=False, batch_size=8)
+        
+        for j, chunk in enumerate(chunks):
+            header, docName, pageNum, chunkNum, context = makeMetaData(chunk, name, j, summaries[j][0]["generated_text"].strip(), page_start=1, page_end=1)
+            key = f"[Header: {header}][Paper Name: {docName}][Page: {pageNum}][Chunk #: {chunkNum}][Context: {context}]"
+            chunksForDataBase[key] = chunk
 
-        items.append({
-            "start_page": pages[0],
-            "end_page": pages[-1],
-            "label": getattr(item, "label", None),
-            "text": getattr(item, "text", ""),
-        })
-    return items
-
-
-
+    return chunksForDataBase
