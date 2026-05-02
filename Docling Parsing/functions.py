@@ -25,8 +25,8 @@ from docling.datamodel.accelerator_options import AcceleratorOptions, Accelerato
 from docling.datamodel.pipeline_options import LayoutOptions, RapidOcrOptions, TableStructureOptions, EasyOcrOptions, TesseractOcrOptions, ThreadedPdfPipelineOptions
 from docling.document_converter import DocumentConverter, PdfFormatOption
 from docling.datamodel.layout_model_specs import DOCLING_LAYOUT_EGRET_LARGE
-from docling_core.transforms.chunker.tokenizer.openai import OpenAITokenizer    
-from docling.chunking import HybridChunker
+from docling_core.transforms.chunker.tokenizer.huggingface import HuggingFaceTokenizer
+from transformers import AutoTokenizer
 from langchain_text_splitters import MarkdownHeaderTextSplitter, RecursiveCharacterTextSplitter
 from docling.datamodel.pipeline_options import granite_picture_description
 
@@ -78,7 +78,10 @@ def buildPipelineOptions(configPiplineConfig):
 def initializeStuff(config):
     clear_terminal()
     pipelineOptions = buildPipelineOptions(config)
-    tokenizer = OpenAITokenizer(tokenizer=tiktoken.encoding_for_model("gpt-4o"), max_tokens=128)
+    tokenizer = HuggingFaceTokenizer(
+    tokenizer=AutoTokenizer.from_pretrained("sentence-transformers/all-MiniLM-L6-v2"),
+    max_tokens=512,  # optional, by default derived from `tokenizer` for HF case
+)
     print("Initialized tokenizer.")
     generator = pipeline("text-generation", model="Qwen/Qwen2.5-3B-Instruct", device=0 if torch.cuda.is_available() else -1)
     databaseClient = chromadb.PersistentClient(path="./chroma_db")
@@ -92,7 +95,7 @@ def initializeStuff(config):
         
     converter = DocumentConverter(format_options={InputFormat.PDF: PdfFormatOption(pipeline_options=pipelineOptions)})
     
-    return converter, generator, tokenizer
+    return converter, generator, tokenizer, databaseClient
 
 def checkAccelerator():
     accelerator = False
@@ -237,7 +240,7 @@ def chunkDocument(inputPath, Name):
     
     return finalChunks, promptBatch
 
-def writeChunksDown(chunks, summaries, prompts, outputPath, Name, startTime):
+def writeChunksDown(chunks, summaries, prompts, outputPath, Name, startTime, tokenizer):
     folder = Path(outputPath) / Path(str(Name)).stem
     folder.mkdir(parents=True, exist_ok=True)
 
@@ -253,8 +256,8 @@ def writeChunksDown(chunks, summaries, prompts, outputPath, Name, startTime):
             f.write(f"\n=== Chunk {i}===\n\n")
 
             if headers:
-                header, docName, pageNum, chunkNum, context = makeMetaData(chunk, Name, i, raw, page_start=1, page_end=1)  # replace with real values
-                f.write(f"[Header: {header}][Paper Name: {docName}][Page: {pageNum}][Chunk #: {chunkNum}][Context: {context}]\n\n")
+                header, docName, pageNum, chunkNum, context, tokenCount = makeMetaData(chunk, Name, i, raw, tokenizer, page_start=1, page_end=1)
+                f.write(f"[Header: {header}][Paper Name: {docName}][Page: {pageNum}][Chunk #: {chunkNum}][Context: {context}][Tokens: {tokenCount}]\n\n")
                 
             f.write(chunk.page_content)
             f.write("\n")
@@ -293,20 +296,24 @@ def convertTime(start, end):
     secs = seconds % 60
     return f"{hours:2.0f} h : {mins:2.0f} m : {secs:2.2f} s"
 
-def makeMetaData(chunk, name, i, raw, page_start=None, page_end=None):
+def makeMetaData(chunk, name, i, raw, tokenizer, page_start=None, page_end=None):
     headers = " > ".join(str(v) for v in chunk.metadata.values() if v)
     docName = name
-    if page_start is not None:
-        if page_end is None or page_end == page_start:
-            pageStart = page_start
-        else:
-            pageStart = page_start - page_end
+    tokenCount = tokenizer.count_tokens(chunk.page_content)
+
+    if page_start is None:
+        pageStart = "N/A"
+    elif page_end is None or page_end == page_start:
+        pageStart = page_start
+    else:
+        pageStart = page_start - page_end
+
     chunkNum = i
     context = raw
     
-    return headers, docName, pageStart, chunkNum, context
+    return headers, docName, pageStart, chunkNum, context, tokenCount
 
-def hawkTuah(names, outputPath, generator):
+def hawkTuah(names, outputPath, generator, tokenizer):
     chunksForDataBase = {}
     
     for i, name in enumerate(names):
@@ -314,8 +321,12 @@ def hawkTuah(names, outputPath, generator):
         summaries = generator(prompts, truncation=True, return_full_text=False, batch_size=8)
         
         for j, chunk in enumerate(chunks):
-            header, docName, pageNum, chunkNum, context = makeMetaData(chunk, name, j, summaries[j][0]["generated_text"].strip(), page_start=1, page_end=1)
-            key = f"[Header: {header}][Paper Name: {docName}][Page: {pageNum}][Chunk #: {chunkNum}][Context: {context}]"
+            header, docName, pageNum, chunkNum, context, tokenCount = makeMetaData(chunk, name, j, summaries[j][0]["generated_text"].strip(), tokenizer, page_start=1, page_end=1)
+            key = f"[Header: {header}][Paper Name: {docName}][Page: {pageNum}][Chunk #: {chunkNum}][Context: {context}][Tokens: {tokenCount}]"
             chunksForDataBase[key] = chunk
 
     return chunksForDataBase
+
+def addToDataBase():
+
+    return None
