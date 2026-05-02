@@ -30,7 +30,7 @@ class PipelineConfig:
     pictureDescriptionPrompt: str = "Describe the image in 2-3 sentences. Be concise and accurate. No markdown syntax."
     
 config = PipelineConfig()
-converter, generator, tokenizer, databaseClient = fun.initializeStuff(config)
+converter, generator, tokenizer, databaseClient, theMass = fun.initializeStuff(config)
 
 BATCH_SIZE = 8
 results = []
@@ -47,6 +47,8 @@ for i in range(0, len(parsedPaths), BATCH_SIZE):
         fun.writeItDown(result, chosenOutputPath, batch_names[j], config.addElements)
 
     chunksForDataBase = fun.hawkTuah(batch_names, chosenOutputPath, generator, tokenizer)
+    print(chunksForDataBase)
+    
     
 endAll = time.time()
 

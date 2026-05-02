@@ -85,6 +85,7 @@ def initializeStuff(config):
     print("Initialized tokenizer.")
     generator = pipeline("text-generation", model="Qwen/Qwen2.5-3B-Instruct", device=0 if torch.cuda.is_available() else -1)
     databaseClient = chromadb.PersistentClient(path="./chroma_db")
+    theMass = databaseClient.get_or_create_collection(name= "The_Mass")
     print("Initialized generator and database client.")
     
     if checkAccelerator() == True:
@@ -95,7 +96,7 @@ def initializeStuff(config):
         
     converter = DocumentConverter(format_options={InputFormat.PDF: PdfFormatOption(pipeline_options=pipelineOptions)})
     
-    return converter, generator, tokenizer, databaseClient
+    return converter, generator, tokenizer, databaseClient, theMass
 
 def checkAccelerator():
     accelerator = False
@@ -311,7 +312,9 @@ def makeMetaData(chunk, name, i, raw, tokenizer, page_start=None, page_end=None)
     chunkNum = i
     context = raw
     
-    return headers, docName, pageStart, chunkNum, context, tokenCount
+    metadata = {"Headers" : headers, "Document Name" : docName, "Page Start" : pageStart, "Chunk Number" : chunkNum, "Context" : context, "Token Count" : tokenCount}
+    
+    return metadata
 
 def hawkTuah(names, outputPath, generator, tokenizer):
     chunksForDataBase = {}
@@ -321,12 +324,14 @@ def hawkTuah(names, outputPath, generator, tokenizer):
         summaries = generator(prompts, truncation=True, return_full_text=False, batch_size=8)
         
         for j, chunk in enumerate(chunks):
-            header, docName, pageNum, chunkNum, context, tokenCount = makeMetaData(chunk, name, j, summaries[j][0]["generated_text"].strip(), tokenizer, page_start=1, page_end=1)
-            key = f"[Header: {header}][Paper Name: {docName}][Page: {pageNum}][Chunk #: {chunkNum}][Context: {context}][Tokens: {tokenCount}]"
+            metadata = makeMetaData(chunk, name, j, summaries[j][0]["generated_text"].strip(), tokenizer, page_start=1, page_end=1)
+            key = f"[Header: {metadata.get("Headers")}][Paper Name: {metadata.get("Document Name")}][Page: {metadata.get("Page Start")}][Chunk #: {metadata.get("Chunk Number")}][Context: {metadata.get("Context")}][Tokens: {metadata.get("Token Count")}]"
             chunksForDataBase[key] = chunk
 
     return chunksForDataBase
 
-def addToDataBase():
+'''def addToDataBase(chunksForDatabase, collection):
+    for metadata, chunk in chunksForDatabase.values():
+         
 
-    return None
+    return None '''
