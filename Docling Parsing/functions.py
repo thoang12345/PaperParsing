@@ -330,8 +330,19 @@ def hawkTuah(names, outputPath, generator, tokenizer):
 
     return chunksForDataBase
 
-'''def addToDataBase(chunksForDatabase, collection):
-    for metadata, chunk in chunksForDatabase.values():
-         
+def addToDataBase(chunksForDatabase, collection):
+    print(f"Adding {len(chunksForDatabase)} chunks to {collection.name}")
 
-    return None '''
+    for meta, chunk in chunksForDatabase.values():
+        collection.add(
+            documents=[chunk],
+            metadatas=[{
+                "headers": meta.get("Headers"),
+                "docName": meta.get("Document Name"),
+                "pageStart": meta.get("Page Start"),
+                "chunkNum": meta.get("Chunk Number"),
+                "context": meta.get("Context"),
+                "tokenCount": meta.get("Token Count")
+            }],
+            ids=[str(meta.get("Chunk Number"))]
+        )
