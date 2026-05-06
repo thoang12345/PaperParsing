@@ -4,11 +4,11 @@ from dataclasses import dataclass
 
 startAll = time.time()
 
-lePath = r"F:\Research Program thing\McNair\Navy stuff\DocLing Parsing\Epstein Files\Motor Skid"
-lePaperPath = r"F:\Research Program thing\McNair\Navy stuff\DocLing Parsing\Epstein Files\Papers"
-outputPath = r"F:\Research Program thing\McNair\Navy stuff\DocLing Parsing\Output"
-outputPathMotor = r"F:\Research Program thing\McNair\Navy stuff\DocLing Parsing\Output Motor Skid"
-document = r"F:\Research Program thing\McNair\Navy stuff\DocLing Parsing\Output\acoustics-08-00006-v2\acoustics-08-00006-v2_output.md"
+lePath = r"D:\Research Program thing\McNair\Navy stuff\DocLing Parsing\Epstein Files\Motor Skid"
+lePaperPath = r"D:\Research Program thing\McNair\Navy stuff\DocLing Parsing\Epstein Files\Papers"
+outputPath = r"D:\Research Program thing\McNair\Navy stuff\DocLing Parsing\Output"
+outputPathMotor = r"D:\Research Program thing\McNair\Navy stuff\DocLing Parsing\Output Motor Skid"
+document = r"D:\Research Program thing\McNair\Navy stuff\DocLing Parsing\Output\acoustics-08-00006-v2\acoustics-08-00006-v2_output.md"
 
 chosenPath = lePath
 chosenOutputPath = outputPathMotor
@@ -35,7 +35,7 @@ converter, generator, tokenizer, databaseClient, theMass = fun.initializeStuff(c
 BATCH_SIZE = 8
 results = []
 
-parsedPaths, parsedNames, numParsed = fun.filterParsed(file_paths, names, chosenOutputPath)
+parsedPaths, parsedNames, numParsed = fun.filterParsed(file_paths, names, theMass)
 
 for i in range(0, len(parsedPaths), BATCH_SIZE):
     batch_paths = parsedPaths[i:i+BATCH_SIZE]                                                           

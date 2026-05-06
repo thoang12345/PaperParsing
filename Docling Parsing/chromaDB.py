@@ -1,67 +1,30 @@
 import chromadb
-import re
 import functions as fun
-from dataclasses import dataclass
 
-def split_chunks(file_path):
-    with open(file_path, "r", encoding="utf-8") as f:
-        text = f.read()
+fun.clear_terminal()
 
-    # Split on "=== Chunk X===" while keeping the chunk number
-    pattern = r"=== Chunk (\d+)==="
-    parts = re.split(pattern, text)
+# Connect to the existing database
+client = chromadb.PersistentClient(path=r"C:\Users\mayhe\OneDrive\Documents\GitHub\PaperParsing\Docling Parsing\chromadb")
+collection = client.get_collection(name="The_Mass")
 
-    chunks = {}
+print(f"Connected to '{collection.name}' — {collection.count()} chunks in database")
 
-    # parts will look like: [before, id1, content1, id2, content2, ...]
-    for i in range(1, len(parts), 2):
-        chunk_id = int(parts[i])
-        content = parts[i + 1].strip()
-        chunks[chunk_id] = content
+while True:
+    query = input("\nEnter query or 'quit' to exit. \n")
 
-    return chunks
-
-# Set the options for the pipeline
-@dataclass
-class PipelineConfig:
-    addElements: bool = True
-    ImageScale: float = 2.7
-    doOcr: bool = True
-    tableStructure: bool = True
-    ocrBatchSize: int = 32
-    layoutBatchSize: int = 32
-    tableBatchSize: int = 4
+    if query == "quit":
+        print("\nBye Bye!")
+        break
     
-config = PipelineConfig()
-converter, generator, tokenizer = fun.initializeStuff(config)
-client = chromadb.PersistentClient(r"F:\Research Program thing\McNair\Navy stuff\DocLing Parsing\chromaDB")
-collection = client.get_or_create_collection(name="my_papers")
-pathToFile = r"F:\Research Program thing\McNair\Navy stuff\DocLing Parsing\Output Motor Skid\2408.09869v5\2408.09869v5_chunks.md"
-chunks = split_chunks(pathToFile)
-sorted_items = sorted(chunks.items())
+    results = collection.query(
+        query_texts=[query],
+        n_results=3
+    )
 
-collection.add(
-    documents=[content for _, content in sorted_items],
-    ids=[f"chunk_{i:03d}" for i, _ in sorted_items]
-)
-
-
-results = collection.query(
-    query_texts=["What is Docling?"],
-    n_results=5
-)
-
-context = "\n\n".join(results["documents"][0])
-
-prompt = f"""
-Answer the question using the context below:
-
-{context}
-
-Question: What is Docling?
-"""
-print(prompt)
-
-answer = generator(prompt, truncation=True, return_full_text=False, batch_size=1)[0]
-
-print("\nAnswer:\n", answer)
+    for i, doc in enumerate(results["documents"][0]):
+        meta = results["metadatas"][0][i]
+        print(f"\n--- Result {i+1} ---")
+        print(f"Doc: {meta.get('docName')} | Page: {meta.get('pageStart')} | Chunk: {meta.get('chunkNum')}")
+        print(f"Headers: {meta.get('headers')}")
+        print(f"Context: {meta.get('context')}")
+        print(f"\n{doc}")

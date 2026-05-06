@@ -84,8 +84,16 @@ def initializeStuff(config):
 )
     print("Initialized tokenizer.")
     generator = pipeline("text-generation", model="Qwen/Qwen2.5-3B-Instruct", device=0 if torch.cuda.is_available() else -1)
-    databaseClient = chromadb.PersistentClient(path="./chroma_db")
-    theMass = databaseClient.get_or_create_collection(name= "The_Mass")
+    databaseClient = chromadb.PersistentClient(path=r"C:\Users\mayhe\OneDrive\Documents\GitHub\PaperParsing\Docling Parsing\chromadb")
+    theMass = databaseClient.get_or_create_collection(
+    name="The_Mass",
+    metadata={
+        "hnsw:space": "cosine",
+        "hnsw:construction_ef": 200,
+        "hnsw:search_ef": 100,
+        "hnsw:M": 16
+    }
+)
     print("Initialized generator and database client.")
     
     if checkAccelerator() == True:
@@ -196,16 +204,23 @@ def folderFind(path, Name):
     
     return folder 
 
-def filterParsed(file_paths, names, outputPath):
+def filterParsed(file_paths, names, collection):
     filtered_paths = []
     filtered_names = []
+    
     for i, name in enumerate(names):
-        expected = Path(outputPath) / Path(name).stem / f"{Path(name).stem}_output.md"
-        if expected.exists():
-            print(f"Skipping {Path(name).stem} — already parsed.")
-        else:
-            filtered_paths.append(file_paths[i])
-            filtered_names.append(name)
+        existing = collection.get(where={"docName": name})
+
+        if existing["ids"]:
+            redo = input(f"\n{Path(name).stem} already in database. Redo it? (yes/no): ").lower()
+            if redo != 'yes':
+                print(f"Skipping {Path(name).stem}.")
+                continue
+            collection.delete(where={"docName": name})
+
+    filtered_paths.append(file_paths[i])
+    filtered_names.append(name)
+    
     print(f"{len(filtered_names)} files to convert, {len(names) - len(filtered_names)} skipped.")
     return filtered_paths, filtered_names, len(filtered_names)
 
@@ -326,8 +341,8 @@ def hawkTuah(names, outputPath, generator, tokenizer):
         for j, chunk in enumerate(chunks):
             metadata = makeMetaData(chunk, name, j, summaries[j][0]["generated_text"].strip(), tokenizer, page_start=1, page_end=1)
             key = f"[Header: {metadata.get("Headers")}][Paper Name: {metadata.get("Document Name")}][Page: {metadata.get("Page Start")}][Chunk #: {metadata.get("Chunk Number")}][Context: {metadata.get("Context")}][Tokens: {metadata.get("Token Count")}]"
-            chunksForDataBase[key] = chunk
-
+            chunksForDataBase[key] = (metadata, chunk.page_content)
+            
     return chunksForDataBase
 
 def addToDataBase(chunksForDatabase, collection):
