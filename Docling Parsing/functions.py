@@ -85,9 +85,9 @@ def initializeStuff(config):
     print("Initialized tokenizer.")
     generator = pipeline("text-generation", model="Qwen/Qwen2.5-3B-Instruct", device=0 if torch.cuda.is_available() else -1)
     databaseClient = chromadb.PersistentClient(path=r"C:\Users\mayhe\OneDrive\Documents\GitHub\PaperParsing\Docling Parsing\chromadb")
-    theMass = databaseClient.get_or_create_collection(
+    theMass = databaseClient.gewhat_or_create_collection(
     name="The_Mass",
-    metadata={
+    configuration={
         "hnsw:space": "cosine",
         "hnsw:construction_ef": 200,
         "hnsw:search_ef": 100,

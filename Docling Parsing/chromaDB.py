@@ -18,6 +18,7 @@ while True:
     
     results = collection.query(
         query_texts=[query],
+        include=["documents", "metadatas", "distances"],
         n_results=3
     )
 
@@ -28,3 +29,4 @@ while True:
         print(f"Headers: {meta.get('headers')}")
         print(f"Context: {meta.get('context')}")
         print(f"\n{doc}")
+        print(f"\nDistance: {results['distances'][0][i]:.4f}\n")
