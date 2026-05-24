@@ -85,7 +85,7 @@ def initializeStuff(config):
     print("Initialized tokenizer.")
     generator = pipeline("text-generation", model="Qwen/Qwen2.5-3B-Instruct", device=0 if torch.cuda.is_available() else -1)
     databaseClient = chromadb.PersistentClient(path=r"C:\Users\mayhe\OneDrive\Documents\GitHub\PaperParsing\Docling Parsing\chromadb")
-    theMass = databaseClient.gewhat_or_create_collection(
+    theMass = databaseClient.get_or_create_collection(
     name="The_Mass",
     configuration={
         "hnsw:space": "cosine",
@@ -212,14 +212,14 @@ def filterParsed(file_paths, names, collection):
         existing = collection.get(where={"docName": name})
 
         if existing["ids"]:
-            redo = input(f"\n{Path(name).stem} already in database. Redo it? (yes/no): ").lower()
+            redo = input(f"{Path(name).stem} already in database. Redo it? (yes/no): ").lower()
             if redo != 'yes':
                 print(f"Skipping {Path(name).stem}.")
                 continue
             collection.delete(where={"docName": name})
 
-    filtered_paths.append(file_paths[i])
-    filtered_names.append(name)
+        filtered_paths.append(file_paths[i])  
+        filtered_names.append(name)           
     
     print(f"{len(filtered_names)} files to convert, {len(names) - len(filtered_names)} skipped.")
     return filtered_paths, filtered_names, len(filtered_names)
