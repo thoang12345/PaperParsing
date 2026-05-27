@@ -37,17 +37,7 @@ results = []
 
 parsedPaths, parsedNames, numParsed = fun.filterParsed(file_paths[0:50], names[0:50], theMass)
 
-for i in range(0, len(parsedPaths), BATCH_SIZE):
-    batch_paths = parsedPaths[i:i+BATCH_SIZE]                                                           
-    batch_names = parsedNames[i:i+BATCH_SIZE]
-
-    results = fun.convertFile(batch_paths, batch_names, converter)
-
-    for j, result in enumerate(results):
-        fun.writeItDown(result, chosenOutputPath, batch_names[j], config.addElements)
-
-    chunksForDataBase = fun.hawkTuah(batch_names, chosenOutputPath, generator, tokenizer)
-    fun.addToDataBase(chunksForDataBase, theMass)
+fun.batchInjection(parsedPaths, parsedNames, converter, BATCH_SIZE, config, chosenOutputPath, generator, tokenizer, theMass)
     
     
 endAll = time.time()
