@@ -1,0 +1,92 @@
+order_id,customer_name,shipping_address,order_details,status
+ORD-9021,"Smith, Jonathan A.","742 Evergreen Terrace, Springfield, IL 62704","{""item"": ""Laptop"", ""qty"": 1, ""price"": 1299.99}",Shipped
+ORD-9022,"Nguyen, Linh T.","88 Riverside Drive
+Apt 4B
+Austin, TX 73301","{""item"": ""Mechanical Keyboard"", ""qty"": 2, ""price"": 89.50}",Processing
+ORD-9023,"O'Brien, Colm","15 Harbour View, Dublin, D02 XY45","{""item"": ""Monitor"", ""qty"": 1, ""price"": 399.00}",
+ORD-9024,"García, María José","Calle de Alcalá, 50
+Piso 3, Puerta 7
+Madrid, 28014, Spain","{""item"": ""USB-C Hub"", ""qty"": 3, ""price"": 45.75, ""note"": ""Gift wrap requested""}",Delivered
+ORD-9025,"Lee, Sandra K.","901 Peachtree St NE, Atlanta, GA 30309","{""item"": ""Webcam"", ""qty"": 1, ""price"": 79.99, ""coupon"": ""SAVE10""}",Cancelled
+ORD-9026,"Patel, Rohan D.","22 Baker Street, London, W1U 3BW, UK","{""item"": ""Standing Desk"", ""qty"": 1, ""price"": 549.00, ""color"": ""Walnut""}",Shipped
+ORD-9027,"Fernández, Carlos","Av. Insurgentes Sur 1234, Col. Del Valle
+Ciudad de México, CDMX 03100","{""item"": ""Noise Cancelling Headphones"", ""qty"": 1, ""price"": 349.00}",Delivered
+ORD-9028,"Kim, Ji-Yeon","Seoul, Gangnam-gu, Teheran-ro 212
+Apt 1501, 06022","{""item"": ""Tablet"", ""qty"": 2, ""price"": 499.99, ""note"": ""Express delivery""}",Processing
+ORD-9029,"Moreau, Isabelle","14 Rue de Rivoli, Paris, 75001, France","{""item"": ""Laptop Stand"", ""qty"": 1, ""price"": 59.95}",
+ORD-9030,"Johansson, Erik L.","Storgatan 12, Lgh 3
+Stockholm, 111 23, Sweden","{""item"": ""Wireless Mouse"", ""qty"": 4, ""price"": 39.99, ""coupon"": ""BULK20""}",Shipped
+ORD-9031,"Williams, Tracy B.","3344 Magnolia Blvd, New Orleans, LA 70115","{""item"": ""Smart Speaker"", ""qty"": 1, ""price"": 129.00}",Delivered
+ORD-9032,"Tanaka, Hiroshi","2-3-4 Shinjuku, Tokyo, 160-0022, Japan","{""item"": ""External SSD"", ""qty"": 2, ""price"": 119.99, ""note"": ""No gift wrap""}",Shipped
+ORD-9033,"Al-Rashid, Fatima","King Fahd Road, Riyadh, 12271, Saudi Arabia","{""item"": ""Ergonomic Chair"", ""qty"": 1, ""price"": 799.00}",Processing
+ORD-9034,"Dubois, Pierre-Antoine","88 Avenue des Champs-Élysées
+Paris, 75008, France","{""item"": ""4K Webcam"", ""qty"": 1, ""price"": 199.99}",Cancelled
+ORD-9035,"Okonkwo, Chidera","15 Adeola Odeku Street, Victoria Island
+Lagos, Nigeria","{""item"": ""Power Bank"", ""qty"": 3, ""price"": 49.99, ""coupon"": ""WELCOME5""}",Shipped
+ORD-9036,"Hansen, Mette K.","Nørrebrogade 45, 2. th
+Copenhagen, 2200, Denmark","{""item"": ""Keyboard Cover"", ""qty"": 2, ""price"": 14.99}",Delivered
+ORD-9037,"Rossi, Marco","Via Roma 77, Piano 2
+Milan, 20121, Italy","{""item"": ""Monitor Arm"", ""qty"": 1, ""price"": 89.00, ""note"": ""Fragile item""}",
+ORD-9038,"Chen, Wei-Lin","No. 5, Xinyi Road, Sec. 5
+Taipei, 110, Taiwan","{""item"": ""USB Microphone"", ""qty"": 1, ""price"": 149.00}",Shipped
+ORD-9039,"Martínez, Alejandro","Carrera 7 # 32-16, Bogotá
+Cundinamarca, Colombia","{""item"": ""Ring Light"", ""qty"": 2, ""price"": 64.50}",Processing
+ORD-9040,"Müller, Greta H.","Kurfürstendamm 23
+Berlin, 10719, Germany","{""item"": ""Smart Thermostat"", ""qty"": 1, ""price"": 249.00, ""coupon"": ""GREENFRI""}",Delivered
+ORD-9041,"Jackson, Marcus D.","5050 Sunset Blvd, Los Angeles, CA 90028","{""item"": ""Portable Projector"", ""qty"": 1, ""price"": 399.00}",Shipped
+ORD-9042,"Kowalski, Agnieszka","ul. Marszałkowska 55, m. 12
+Warsaw, 00-676, Poland","{""item"": ""Cable Management Kit"", ""qty"": 5, ""price"": 19.99}",Cancelled
+ORD-9043,"Singh, Priya R.","Block 4, Sector 18, Noida
+Uttar Pradesh, 201301, India","{""item"": ""Laptop Bag"", ""qty"": 1, ""price"": 79.00, ""note"": ""Monogram: P.R.S.""}",Delivered
+ORD-9044,"Thompson, Eleanor","22 Queen Street, Auckland
+CBD, 1010, New Zealand","{""item"": ""Desk Mat"", ""qty"": 2, ""price"": 34.99}",
+ORD-9045,"Sousa, António F.","Rua Augusta 120, 3.º Esq.
+Lisbon, 1100-053, Portugal","{""item"": ""Stream Deck"", ""qty"": 1, ""price"": 149.99, ""coupon"": ""CREATOR15""}",Shipped
+ORD-9046,"Andersen, Lars","Vesterbrogade 3, 1. sal
+Copenhagen, 1620, Denmark","{""item"": ""Noise Cancelling Earbuds"", ""qty"": 1, ""price"": 179.99}",Processing
+ORD-9047,"Nakamura, Yuki","1-1-1 Shibuya, Tokyo, 150-0002, Japan","{""item"": ""Drawing Tablet"", ""qty"": 1, ""price"": 299.00, ""note"": ""Include stylus""}",Delivered
+ORD-9048,"Petrova, Natasha V.","Tverskaya Ulitsa 14, kv. 7
+Moscow, 125009, Russia","{""item"": ""VR Headset"", ""qty"": 1, ""price"": 499.99}",Shipped
+ORD-9049,"Alves, Beatriz","Rua Oscar Freire 800, Apto 32
+São Paulo, SP 01426-001, Brazil","{""item"": ""Smart Watch"", ""qty"": 1, ""price"": 329.00, ""coupon"": ""LAUNCH10""}",
+ORD-9050,"Robinson, Samuel T.","4200 Canal Street, New Orleans, LA 70119","{""item"": ""Mechanical Numpad"", ""qty"": 1, ""price"": 59.99}",Cancelled
+ORD-9051,"Becker, Wolfgang","Hauptstraße 88
+Munich, 80331, Germany","{""item"": ""Desk Lamp"", ""qty"": 2, ""price"": 44.99, ""note"": ""Warm white bulbs only""}",Shipped
+ORD-9052,"Tremblay, Sophie","1234 Rue Saint-Denis, Apt 5
+Montréal, QC H2X 3K4, Canada","{""item"": ""Graphic Card"", ""qty"": 1, ""price"": 849.00}",Processing
+ORD-9053,"Yamamoto, Kenji","3-7-2 Akihabara, Chiyoda
+Tokyo, 101-0021, Japan","{""item"": ""RAM Module 32GB"", ""qty"": 2, ""price"": 109.99}",Delivered
+ORD-9054,"Osei, Kwame","Independence Avenue, Accra
+Greater Accra, Ghana","{""item"": ""Wireless Charger"", ""qty"": 4, ""price"": 29.99, ""coupon"": ""AFRICA20""}",Shipped
+ORD-9055,"Nkosi, Thandiwe","14 Long Street, Cape Town
+Western Cape, 8001, South Africa","{""item"": ""Portable SSD"", ""qty"": 1, ""price"": 89.00}",
+ORD-9056,"Lefebvre, Camille","45 Rue du Faubourg Saint-Antoine
+Paris, 75011, France","{""item"": ""HDMI Switch"", ""qty"": 2, ""price"": 39.99}",Cancelled
+ORD-9057,"Ivanova, Olga","Khreshchatyk 22, kv. 3
+Kyiv, 01001, Ukraine","{""item"": ""Ergonomic Wrist Rest"", ""qty"": 3, ""price"": 24.50, ""note"": ""Gel, not foam""}",Processing
+ORD-9058,"Santos, Diego R.","Av. Corrientes 1234, Piso 8
+Buenos Aires, C1043, Argentina","{""item"": ""Capture Card"", ""qty"": 1, ""price"": 159.99, ""coupon"": ""STREAM25""}",Delivered
+ORD-9059,"Papadopoulos, Elena","Ermou 45, Syntagma
+Athens, 105 63, Greece","{""item"": ""Ethernet Switch"", ""qty"": 1, ""price"": 69.99}",Shipped
+ORD-9060,"Zhao, Wei","Building 3, No. 1 Zhongguancun St
+Haidian District, Beijing, 100080, China","{""item"": ""NVMe SSD 2TB"", ""qty"": 1, ""price"": 189.99, ""note"": ""Installation guide needed""}",
+ORD-9061,"Eriksson, Björn","Kungsgatan 5, 3tr
+Gothenburg, 411 19, Sweden","{""item"": ""USB Hub 10-Port"", ""qty"": 2, ""price"": 54.99}",Shipped
+ORD-9062,"Amara, Fanta","Rue 12, Quartier du Fleuve
+Bamako, Mali","{""item"": ""Solar Power Bank"", ""qty"": 2, ""price"": 44.99, ""coupon"": ""SOLAR10""}",Processing
+ORD-9063,"Mitchell, Olivia J.","221B Baker Street
+London, NW1 6XE, UK","{""item"": ""Smart Plug Set"", ""qty"": 1, ""price"": 34.99}",Delivered
+ORD-9064,"Park, Joon-Ho","Mapo-gu, World Cup Bukro 12
+Seoul, 03908, South Korea","{""item"": ""Mechanical Switch Tester"", ""qty"": 1, ""price"": 19.99, ""note"": ""Cherry MX variants""}",Cancelled
+ORD-9065,"Bautista, Isabella","826 Makati Avenue, Makati City
+Metro Manila, 1200, Philippines","{""item"": ""Cooling Pad"", ""qty"": 2, ""price"": 29.99}",Shipped
+ORD-9066,"Lindqvist, Astrid","Drottninggatan 15, Lgh 401
+Stockholm, 111 51, Sweden","{""item"": ""Thunderbolt 4 Dock"", ""qty"": 1, ""price"": 279.00, ""coupon"": ""DOCK30""}",
+ORD-9067,"Hernández, Luis F.","Calle 50, Marbella
+Panama City, Panama","{""item"": ""Bluetooth Adapter"", ""qty"": 5, ""price"": 12.99}",Delivered
+ORD-9068,"Reyes, Carmen L.","Av. Providencia 1234, Depto 6B
+Santiago, 7500000, Chile","{""item"": ""Keyboard Switches Kit"", ""qty"": 1, ""price"": 39.99, ""note"": ""Tactile, 68g actuation""}",Processing
+ORD-9069,"Nguyen, Thanh Hoa","123 Nguyen Hue Boulevard, District 1
+Ho Chi Minh City, 700000, Vietnam","{""item"": ""Laptop Cooling Stand"", ""qty"": 1, ""price"": 49.99}",Shipped
+ORD-9070,"Hassan, Mohamed","Zamalek, 26 July St
+Cairo, 11211, Egypt","{""item"": ""Wi-Fi 6 Router"", ""qty"": 1, ""price"": 229.99, ""coupon"": ""NETUP15""}",Delivered
