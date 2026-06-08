@@ -6,6 +6,6 @@ relativePaths = fun.buildRelativePaths(folders)
 inputFolder = relativePaths[0]
 outputFolder = relativePaths[1] 
 
-pages = fun.classifyPDFs(inputFolder)
+classifications = fun.classifyPDFs(inputFolder)
 
-print(type((pages[0])[1]))
+print(classifications)
