@@ -361,3 +361,46 @@ def addToDataBase(chunksForDatabase, collection):
             }],
             ids=[str(meta.get("Chunk Number"))]
         )
+
+def batchInjection(parsedPaths, parsedNames, converter, BATCH_SIZE, config, outputPath, generator, tokenizer, database):
+    for i in range(0, len(parsedPaths), BATCH_SIZE):
+        batch_paths = parsedPaths[i:i+BATCH_SIZE]                                                           
+        batch_names = parsedNames[i:i+BATCH_SIZE]
+
+        results = convertFile(batch_paths, batch_names, converter)
+
+        for j, result in enumerate(results):
+            writeItDown(result, outputPath, batch_names[j], config.addElements)
+
+        chunksForDataBase = hawkTuah(batch_names, outputPath, generator, tokenizer)
+        addToDataBase(chunksForDataBase, database)
+
+def queryDatabase(t, collection):
+    while True:
+        query = input("\nEnter query or 'quit' to exit. \n")
+
+        t.tic()
+        if query == "quit":
+            print("\nBye Bye!")
+            break
+        
+
+        results = collection.query(
+            query_texts=[query],
+            include=["documents", "metadatas", "distances"],
+            n_results=3,
+            where={
+                "headers":{"$nin":["References"]}
+            }
+        )
+
+        for i, doc in enumerate(results["documents"][0]):
+            meta = results["metadatas"][0][i]
+            print(f"\n--- Result {i+1} ---")
+            print(f"Doc: {meta.get('docName')} | Page: {meta.get('pageStart')} | Chunk: {meta.get('chunkNum')}")
+            print(f"Headers: {meta.get('headers')}")
+            print(f"Context: {meta.get('context')}")
+            print(f"\n{doc}")
+            print(f"\nDistance: {results['distances'][0][i]:.4f}\n")
+
+        t.toc()
