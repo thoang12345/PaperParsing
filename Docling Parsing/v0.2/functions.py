@@ -28,23 +28,11 @@ def separatePDFs(path : Path) -> tuple[list[Path], list[Path]]:
 
 def classifyPDFs(path : Path) -> dict[str : str]:
         pdfs, not_pdfs = separatePDFs(path)
-        specificPages = pageList(path, pdfs)
+        pageData = extractPageData(path, pdfs)
         
-        for i, pdf in enumerate(pdfs):
-                with fitz.open(path / pdf) as doc:
-                        for pageNum in specificPages[i]:
-                                page = doc[pageNum]
-        
-                                # 1. Count Words
-                                # returns a list of tuples: (x0, y0, x1, y1, "word", block_no, line_no, word_no)
-                                words_list = page.get_text("words")
-                                word_count = len(words_list)
+        return pageData
+                                             
                                 
-                                # 2. Count Images
-                                # returns a list of tuples containing image metadata and xref IDs
-                                images_list = page.get_images(full=True)
-                                image_count = len(images_list)
-
 def countPages(path : Path, pdfs : list[str]) -> list[int]:
         pageNumber = []
         for pdf in (pdfs):
@@ -63,5 +51,23 @@ def pageList(path : Path, pdfs : list[str]) -> list[list[int]]:
                         specificPages.append([0, 1, -1, -2, middle])
                 else:
                         specificPages.append([0, 1, -1, -2, middle, middle - 1, random.randint(2, middle - 2), random.randint(2, middle - 2), random. randint(middle + 1, pageNumber - 3), random. randint(middle + 1, pageNumber - 3)])
-                        
         return specificPages        
+
+def extractPageData(path: Path, pdfs: list[str]) -> list[list[str, dict[str]]]:
+        specificPages = pageList(path, pdfs)
+        pageData = []
+    
+        for i, pdf in enumerate(pdfs):
+                pdfData = [pdf]
+                with fitz.open(path / pdf) as doc:
+                        for pageNum in specificPages[i]:
+                                page = doc[pageNum]
+                                wordCount = len(page.get_text("words"))
+                                imageCount = len(page.get_images(full=True))
+                                pdfData.append({
+                                "page_number": page.number + 1,
+                                "words": wordCount,
+                                "images": imageCount
+                                })
+                        pageData.append(pdfData)
+        return pageData

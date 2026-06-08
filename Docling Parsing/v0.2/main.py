@@ -8,4 +8,4 @@ outputFolder = relativePaths[1]
 
 pages = fun.classifyPDFs(inputFolder)
 
-print(pages)
+print(type((pages[0])[1]))
