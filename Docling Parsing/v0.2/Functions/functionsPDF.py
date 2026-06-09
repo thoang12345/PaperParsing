@@ -5,6 +5,28 @@ from pathlib import Path
 import fitz
 import random
 
+def classify(pageDataPDFs: list[dict[str, str | list[dict[str, int]]]]) -> list[dict[str, str]]:
+    results = []
+
+    for pdf in pageDataPDFs:
+        fileName = pdf["file"]
+        pages = pdf["pages"]
+        text = pdf["text"]
+
+        features = build_content_features(text=text, pages=pages)
+        textType = classifyTextType(features)
+        contentDetails = classify_content_type_details(features)
+        
+        contentType = contentDetails["content_type"]
+
+        results.append({
+            "file": fileName,
+            "text_type": textType,
+            "content_type": contentType,
+        })
+
+    return results
+
 def summarizePDFPages(pages : list[dict[str, int]]) -> list[int]:
         totalWords = 0
         totalImages = 0

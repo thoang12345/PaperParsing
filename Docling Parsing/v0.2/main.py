@@ -1,4 +1,4 @@
-import functions as fun
+from Functions import functions as fun
 
 folders = ["Input", "Output"]
 relativePaths = fun.buildRelativePaths(folders)
