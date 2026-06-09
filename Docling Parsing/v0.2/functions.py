@@ -113,5 +113,10 @@ def classifyTextType(features : list[int]) -> str:
         pageCount = features[2]
         maxWordsOnPage = features[3]
         imageHeavyPages = features[4]
+        
+        if totalWords < totalImages:
+                return "scannedPDF"
+        
+        
 
 
