@@ -4,6 +4,14 @@ from typing import Any, Literal, TypedDict
 from pathlib import Path
 import fitz
 import random
+from Functions import functions as fun
+
+def classifyPDFs(path : Path) -> dict[str : str]:
+        pdfs, not_pdfs = fun.separatePDFs(path)
+        pageData = extractPageData(path, pdfs)
+        classifications = classify(pageData)
+
+        return classifications   
 
 def classify(pageDataPDFs: list[dict[str, str | list[dict[str, int]]]]) -> list[dict[str, str]]:
     results = []
@@ -27,53 +35,69 @@ def classify(pageDataPDFs: list[dict[str, str | list[dict[str, int]]]]) -> list[
 
     return results
 
-def summarizePDFPages(pages : list[dict[str, int]]) -> list[int]:
-        totalWords = 0
-        totalImages = 0
-        pageCount = len(pages)
-        maxWordsOnPage = 0
-        imageHeavyPages = 0
-        wordHeavyPages = 0
+def summarizePDFPages(pages: list[dict[str, int]]) -> dict[str, int]:
+    totalWords = 0
+    totalImages = 0
+    pageCount = len(pages)
+    maxWordsOnPage = 0
+    imageHeavyPages = 0
+    textHeavyPages = 0
 
-        for page in pages:
-                totalWords += page["words"]
-                totalImages += page["images"]
-                
-                if page["words"] > maxWordsOnPage:
-                        maxWordsOnPage = page["words"]
+    for page in pages:
+        words = page["words"]
+        images = page["images"]
 
-                if page["images"] > page["words"]:
-                        imageHeavyPages += 1
+        totalWords += words
+        totalImages += images
 
-                if page["images"] == 0 or (page["images"] / pageCount) < 0.01:
-                        wordHeavyPages += 1
+        if words > maxWordsOnPage:
+            maxWordsOnPage = words
 
-        return [totalWords, totalImages, pageCount, maxWordsOnPage, imageHeavyPages, wordHeavyPages]
+        # page has a meaningful amount of text
+        if words >= 50:
+            textHeavyPages += 1
 
+        # page has images on it
+        if images > 0:
+            imageHeavyPages += 1
+
+    return {
+        "total_words_from_pages": totalWords,
+        "total_images": totalImages,
+        "page_count": pageCount,
+        "max_words_on_page": maxWordsOnPage,
+        "image_heavy_pages": imageHeavyPages,
+        "text_heavy_pages": textHeavyPages,
+    }
 def classifyTextType(features: dict[str, int]) -> str:
     totalWords = features["total_words_from_pages"]
     totalImages = features["total_images"]
     pageCount = features["page_count"]
-    maxWordsOnPage = features["max_words_on_page"]
     imageHeavyPages = features["image_heavy_pages"]
-    wordHeavyPages = features["word_heavy_pages"]
+    textHeavyPages = features["word_heavy_pages"]
 
     if pageCount == 0:
         return "unknown"
 
     averageWordsPerPage = totalWords / pageCount
+    imagePageRatio = imageHeavyPages / pageCount
+    textPageRatio = textHeavyPages / pageCount
 
-    if averageWordsPerPage > 150 and (wordHeavyPages / pageCount) > 0.9:
-        return "nativePDF"
-
-    if averageWordsPerPage < 20 and (wordHeavyPages / pageCount) < 0.10:
+    # scanned / image-first
+    if averageWordsPerPage < 20 and imagePageRatio > 0.6:
         return "scannedPDF"
 
-    if averageWordsPerPage > 150 and (imageHeavyPages / pageCount) > 0.8:
+    # mixed should come before native
+    if averageWordsPerPage >= 20 and textPageRatio > 0.4 and imagePageRatio > 0.25:
+        return "mixedPDF"
+
+    # OCRed scan: text exists, but images are still very common
+    if averageWordsPerPage >= 20 and imagePageRatio > 0.6:
         return "OCRedPDF"
 
-    if 0.2 < (wordHeavyPages / pageCount) < 0.8:
-        return "mixedPDF"
+    # native text PDF
+    if averageWordsPerPage > 150 and imagePageRatio < 0.25:
+        return "nativePDF"
 
     return "unknown"
 
