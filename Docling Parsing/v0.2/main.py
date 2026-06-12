@@ -9,6 +9,6 @@ outputFolder = relativePaths[1]
 classifications, not_pdfs = fun.classifyPDFs(inputFolder)
 parserplans = fun.chooseParserPlan(classifications, not_pdfs)
 
-print(type(not_pdfs[0]))
+print(parserplans)
 
 
