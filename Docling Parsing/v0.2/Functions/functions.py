@@ -3,6 +3,21 @@ import zipfile
 from bs4 import BeautifulSoup
 from Functions import functionsClassify as pdfFun
 from dataclasses import dataclass
+from __future__ import annotations
+from enum import Enum
+
+#docling bullshiiiiittt
+from docling.datamodel.accelerator_options import (
+    AcceleratorDevice,
+    AcceleratorOptions,
+)
+from docling.datamodel.pipeline_options import (
+    EasyOcrOptions,
+    LayoutOptions,
+    TableFormerMode,
+    TableStructureOptions,
+    ThreadedPdfPipelineOptions,
+)
 
 def buildRelativePaths(paths : list[str]) -> list[Path]:
         relativePath = Path(__file__).parent.parent
@@ -104,7 +119,7 @@ def chooseParserPlan(pdfClassification : list[dict[str : str, str : str, str : s
                         pdf["parser_plan"] = "doclingOCR"
 
                 if pdf["content_type"] == "generic" and pdf["text_type"] == "scannedPDF":
-                        pdf["parser_plan"] = "doclingOCR"
+                        pdf["parser_plan"] = "doclingScannedOCR"
                 
                 if pdf["content_type"] == "generic" and pdf["text_type"] == "nativePDF":
                         pdf["parser_plan"] = "doclingNative"
@@ -113,10 +128,10 @@ def chooseParserPlan(pdfClassification : list[dict[str : str, str : str, str : s
         
         for notPDF in not_pdfs:
                 if notPDF["content_type"] == "mixedFile":
-                        notPDF["parser_plan"] = "generalOCR"
+                        notPDF["parser_plan"] = "doclingOCR"
                 
                 if notPDF["content_type"] == "nativeFile":
-                        notPDF["parser_plan"] = "generalNoOCR"
+                        notPDF["parser_plan"] = "doclingNative"
                 
                 parserPlans.append(notPDF)
 
@@ -125,9 +140,16 @@ def chooseParserPlan(pdfClassification : list[dict[str : str, str : str, str : s
 def choosingParserSettings(pdfClassifications : list[dict[str : str, str : str, str : str]], generalClassifications : list[dict[str : str, str : str, str : str]]) -> str:
         parserPlans = chooseParserPlan(pdfClassifications, generalClassifications)
 
+class profileNames(str, Enum):
+        doclingOCR = "doclingOCR"
+        doclingScannedOCR = "doclingScannedOCR"
+        doclingNative = "doclingNative"
+        markerOCR = "markerOCR"
+
 @dataclass(frozen=True)
 class doclingPipelineOptions:
-        
+        name: profileNames
+
         #image / visual assets 
         imageScale : float = 1.0
         generatePictureImages : bool = False
@@ -136,11 +158,70 @@ class doclingPipelineOptions:
         #bum ahh OCR
         doOCR : bool = False
         forceFullPageOCR : bool = False
-        
-        
-        
+        ocrBatchSize : int = 4
 
-def doclingSettings(pdfClassifications : list[dict[str : str, str : str, str : str]], generalClassifications : list[dict[str : str, str : str, str : str]]):
+        #layout
+        layoutBatchSize : int = 4
+        useEgretLargeLayout : bool = False
+
+        #tables
+        doTableStructures : bool = False
+        tableDoCellMatching : bool = False
+        tableAccurateMode : bool = False
+        tableBatchSize : int = 4
+
+        #enrichments
+        doFormulaEnrichment : bool = False
+        doPictureDescriptions : bool = False
+        pictureDescriptionPrompt : str = None
+
+        #Hardware/Threading
+        acceleratorDevice : str = "auto"
+        numberOfThreads : int = 4
+
+        #safety/plugins
+        allowExternalPlugins : bool = False
+
+doclingProfiles: dict[profileNames, doclingPipelineOptions] = {
+        profileNames.doclingNative: doclingPipelineOptions(
+                name = profileNames.doclingNative,
+                doOCR = False,
+                doTableStructures=True,
+                tableAccurateMode=False,
+                generatePageImage=False,
+                generatePictureImages=False,
+                doFormulaEnrichment=True,
+                doPictureDescriptions=False,
+                imageScale=1.0
+        ),
+
+        profileNames.doclingScannedOCR : doclingPipelineOptions(
+                name=profileNames.doclingScannedOCR,
+                doOCR=True,
+                forceFullPageOCR=True,
+                doTableStructures=True,
+                tableAccurateMode=True,
+                generatePageImage=False,
+                generatePictureImages=True,
+                useEgretLargeLayout=True,
+                imageScale=1.2,
+                ocrBatchSize=2
+        ),
+
+        profileNames.doclingOCR : doclingPipelineOptions(
+                name=profileNames.doclingOCR,
+                doOCR=True,
+                forceFullPageOCR=False,
+                doTableStructures=True,
+                tableAccurateMode=True,
+                generatePictureImages=True,
+                generatePageImage=False,
+                useEgretLargeLayout=True,
+                imageScale=1.25
+        )
+    }
+
+def doclingSettings(pdfClassifications : list[dict[str : str, str : str, str : str]], generalClassifications : list[dict[str : str, str : str, str : str]]) -> ThreadedPdfPipelineOptions:
         ...
 
 def markerSettings(pdfClassifications : list[dict[str : str, str : str, str : str]], generalClassifications : list[dict[str : str, str : str, str : str]]):
