@@ -221,8 +221,10 @@ doclingProfiles: dict[profileNames, doclingPipelineOptions] = {
         )
     }
 
-def doclingSettings(pdfClassifications : list[dict[str : str, str : str, str : str]], generalClassifications : list[dict[str : str, str : str, str : str]]) -> ThreadedPdfPipelineOptions:
-        ...
+def doclingSettings(profile : doclingPipelineOptions) -> ThreadedPdfPipelineOptions:
+        options = ThreadedPdfPipelineOptions()
+
+        
 
 def markerSettings(pdfClassifications : list[dict[str : str, str : str, str : str]], generalClassifications : list[dict[str : str, str : str, str : str]]):
         ...
