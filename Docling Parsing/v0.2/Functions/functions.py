@@ -21,6 +21,8 @@ from docling.datamodel.pipeline_options import (
 
 from docling.datamodel.base_models import InputFormat
 from docling.document_converter import DocumentConverter, PdfFormatOption
+from docling.datamodel.layout_model_specs import DOCLING_LAYOUT_EGRET_LARGE
+
 
 def buildRelativePaths(paths : list[str]) -> list[Path]:
         relativePath = Path(__file__).parent.parent
@@ -140,9 +142,6 @@ def chooseParserPlan(pdfClassification : list[dict[str : str, str : str, str : s
 
         return parserPlans
 
-def choosingParserSettings(pdfClassifications : list[dict[str : str, str : str, str : str]], generalClassifications : list[dict[str : str, str : str, str : str]]) -> str:
-        parserPlans = chooseParserPlan(pdfClassifications, generalClassifications)
-
 class profileNames(str, Enum):
         doclingOCR = "doclingOCR"
         doclingScannedOCR = "doclingScannedOCR"
@@ -227,37 +226,52 @@ doclingProfiles: dict[profileNames, doclingPipelineOptions] = {
 def doclingSettings(profile : doclingPipelineOptions) -> ThreadedPdfPipelineOptions:
         options = ThreadedPdfPipelineOptions()
 
-        #image / visual assets
-        options.imagesScale = profile.imageScale
-        options.generatePictureImages = profile.generatePictureImages
-        options.generatePageImage = profile.generatePageImage
+        # Images
+        options.images_scale = profile.imageScale
+        options.generate_picture_images = profile.generatePictureImages
+        options.generate_page_images = profile.generatePageImage
 
-        #bum ahh OCR
-        options.doOCR = profile.doOCR
-        options.forceFullPageOCR = profile.forceFullPageOCR
-        options.ocrBatchSize = profile.ocrBatchSize
+        # OCR
+        options.do_ocr = profile.doOCR
+        options.ocr_batch_size = profile.ocrBatchSize
+        options.ocr_options = EasyOcrOptions(
+                force_full_page_ocr=profile.forceFullPageOCR
+        )
 
-        #layout
-        options.layoutBatchSize = profile.layoutBatchSize
-        options.useEgretLargeLayout = profile.useEgretLargeLayout
+        # Layout
+        options.layout_batch_size = profile.layoutBatchSize
+        if profile.useEgretLargeLayout:
+                options.layout_options = LayoutOptions(
+                model_spec=DOCLING_LAYOUT_EGRET_LARGE
+                )
 
-        #tables
-        options.doTableStructures = profile.doTableStructures
-        options.tableDoCellMatching = profile.tableDoCellMatching
-        options.tableAccurateMode = profile.tableAccurateMode
-        options.tableBatchSize = profile.tableBatchSize
+        # Tables
+        options.do_table_structure = profile.doTableStructures
+        options.table_batch_size = profile.tableBatchSize
+        options.table_structure_options = TableStructureOptions(
+                do_cell_matching=profile.tableDoCellMatching,
+                mode=(
+                TableFormerMode.ACCURATE
+                if profile.tableAccurateMode
+                else TableFormerMode.FAST
+                ),
+        )
 
-        #enrichments
-        options.doFormulaEnrichment = profile.doFormulaEnrichment
-        options.doPictureDescriptions = profile.doPictureDescriptions
-        options.pictureDescriptionPrompt = profile.pictureDescriptionPrompt
+        # Enrichments
+        options.do_formula_enrichment = profile.doFormulaEnrichment
+        options.do_picture_description = profile.doPictureDescriptions
 
-        #Hardware/Threading
-        options.acceleratorDevice = profile.acceleratorDevice
-        options.numberOfThreads = profile.numberOfThreads
+        if profile.doPictureDescriptions:
+                options.picture_description_options.prompt = profile.pictureDescriptionPrompt
 
-        #safety/plugins
-        options.allowExternalPlugins = profile.allowExternalPlugins
+        # Hardware
+        options.accelerator_options = AcceleratorOptions(
+                num_threads=profile.numberOfThreads,
+                device=AcceleratorDevice(profile.acceleratorDevice),
+        )
+
+        # Plugins
+        options.allow_external_plugins = profile.allowExternalPlugins
 
         return options
 
@@ -273,11 +287,41 @@ def buildPDFConverterSettings(profile : doclingPipelineOptions) -> DocumentConve
             }
         )
 
-def parsePDFS(path : Path) -> dict[str : str]:
+def convertPDFsDocling(pdfClassification : list[dict[str : str, str : str, str : str]], not_pdfs : list[dict[str : str, str : str, str : str]]) -> dict[str : str]:
+        parserPlans = chooseParserPlan(pdfClassification, not_pdfs)
+        sortedParserPlans = sorted(parserPlans, key=lambda x: x["parser_plan"])
+        sortedParserPlansWithSettings = addParserPlansSettings(sortedParserPlans)
+        batches = batchParserPlans(sortedParserPlansWithSettings)
+
         
 
+        return batches
 
+def addParserPlansSettings(parserPlans : list[dict[str, str]]) -> list[dict[str, str]]:
+        for file in parserPlans:
+                if file["parser_plan"] == "doclingOCR":
+                        settings = buildPDFConverterSettings(doclingProfiles[profileNames.doclingOCR])
+                        file["settings"] = settings
+                        #call docling OCR parsing function with settings
 
+                if file["parser_plan"] == "doclingScannedOCR":
+                        settings = buildPDFConverterSettings(doclingProfiles[profileNames.doclingScannedOCR])
+                        file["settings"] = settings
+                        #call docling scanned OCR parsing function with settings
 
+                if file["parser_plan"] == "doclingNative":
+                        settings = buildPDFConverterSettings(doclingProfiles[profileNames.doclingNative])
+                        file["settings"] = settings
+                        #call docling native parsing function with settings
+        
+        return parserPlans
+
+def batchParserPlans(parserPlans : list[dict[str, str]]) -> dict[list[dict[str, str]]]:
+        batches = {"markerOCR": [],"doclingOCR": [],"doclingScannedOCR": [],"doclingNative": []}
+
+        for item in parserPlans:
+                batches[item["parser_plan"]].append(item)
+
+        return batches
 
 

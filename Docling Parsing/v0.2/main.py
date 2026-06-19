@@ -9,8 +9,6 @@ outputFolder = relativePaths[1]
 PDFclassifications = fun.classifyPDFs(inputFolder)
 generalClassifications = fun.classifyEverythingElse(inputFolder)
 
-parserPlans = fun.chooseParserPlan(PDFclassifications, generalClassifications)
+sortedParserPlans = fun.convertPDFsDocling(PDFclassifications, generalClassifications)
 
-print(parserPlans)
-
-
+print(sortedParserPlans)
