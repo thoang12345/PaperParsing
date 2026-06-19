@@ -1,9 +1,9 @@
+from __future__ import annotations
 from pathlib import Path
 import zipfile
 from bs4 import BeautifulSoup
 from Functions import functionsClassify as pdfFun
 from dataclasses import dataclass
-from __future__ import annotations
 from enum import Enum
 
 #docling bullshiiiiittt
@@ -18,6 +18,9 @@ from docling.datamodel.pipeline_options import (
     TableStructureOptions,
     ThreadedPdfPipelineOptions,
 )
+
+from docling.datamodel.base_models import InputFormat
+from docling.document_converter import DocumentConverter, PdfFormatOption
 
 def buildRelativePaths(paths : list[str]) -> list[Path]:
         relativePath = Path(__file__).parent.parent
@@ -224,9 +227,53 @@ doclingProfiles: dict[profileNames, doclingPipelineOptions] = {
 def doclingSettings(profile : doclingPipelineOptions) -> ThreadedPdfPipelineOptions:
         options = ThreadedPdfPipelineOptions()
 
-        
+        #image / visual assets
+        options.imagesScale = profile.imageScale
+        options.generatePictureImages = profile.generatePictureImages
+        options.generatePageImage = profile.generatePageImage
+
+        #bum ahh OCR
+        options.doOCR = profile.doOCR
+        options.forceFullPageOCR = profile.forceFullPageOCR
+        options.ocrBatchSize = profile.ocrBatchSize
+
+        #layout
+        options.layoutBatchSize = profile.layoutBatchSize
+        options.useEgretLargeLayout = profile.useEgretLargeLayout
+
+        #tables
+        options.doTableStructures = profile.doTableStructures
+        options.tableDoCellMatching = profile.tableDoCellMatching
+        options.tableAccurateMode = profile.tableAccurateMode
+        options.tableBatchSize = profile.tableBatchSize
+
+        #enrichments
+        options.doFormulaEnrichment = profile.doFormulaEnrichment
+        options.doPictureDescriptions = profile.doPictureDescriptions
+        options.pictureDescriptionPrompt = profile.pictureDescriptionPrompt
+
+        #Hardware/Threading
+        options.acceleratorDevice = profile.acceleratorDevice
+        options.numberOfThreads = profile.numberOfThreads
+
+        #safety/plugins
+        options.allowExternalPlugins = profile.allowExternalPlugins
+
+        return options
 
 def markerSettings(pdfClassifications : list[dict[str : str, str : str, str : str]], generalClassifications : list[dict[str : str, str : str, str : str]]):
+        ...
+
+def buildPDFConverterSettings(profile : doclingPipelineOptions) -> DocumentConverter:
+        return DocumentConverter(
+            format_options={
+                InputFormat.PDF: PdfFormatOption(
+                    pipeline_options=doclingSettings(profile)
+                )
+            }
+        )
+
+def parsePDFS(path : Path) -> dict[str : str]:
         ...
 
 
