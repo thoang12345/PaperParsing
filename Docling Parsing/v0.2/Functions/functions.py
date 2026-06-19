@@ -274,7 +274,7 @@ def buildPDFConverterSettings(profile : doclingPipelineOptions) -> DocumentConve
         )
 
 def parsePDFS(path : Path) -> dict[str : str]:
-        ...
+        
 
 
 
