@@ -5,6 +5,7 @@ from bs4 import BeautifulSoup
 from Functions import functionsClassify as pdfFun
 from dataclasses import dataclass
 from enum import Enum
+from typing import Any
 
 #docling bullshiiiiittt
 from docling.datamodel.accelerator_options import (
@@ -182,7 +183,7 @@ class doclingPipelineOptions:
         numberOfThreads : int = 4
 
         #safety/plugins
-        allowExternalPlugins : bool = False
+        allowExternalPlugins : bool = True
 
 doclingProfiles: dict[profileNames, doclingPipelineOptions] = {
         profileNames.doclingNative: doclingPipelineOptions(
@@ -287,41 +288,67 @@ def buildPDFConverterSettings(profile : doclingPipelineOptions) -> DocumentConve
             }
         )
 
-def convertPDFsDocling(pdfClassification : list[dict[str : str, str : str, str : str]], not_pdfs : list[dict[str : str, str : str, str : str]]) -> dict[str : str]:
+def convertPDFsDocling(pdfClassification : list[dict[str : str, str : str, str : str]], not_pdfs : list[dict[str : str, str : str, str : str]], inputFolder : Path) -> dict[str : str]:
         parserPlans = chooseParserPlan(pdfClassification, not_pdfs)
         sortedParserPlans = sorted(parserPlans, key=lambda x: x["parser_plan"])
-        sortedParserPlansWithSettings = addParserPlansSettings(sortedParserPlans)
-        batches = batchParserPlans(sortedParserPlansWithSettings)
-
+        batches = batchParserPlans(sortedParserPlans)
+        batches.pop("markerOCR", None)
+        batchPlans = addParserPlansSettings(batches)
+        results = []
         
+        for parserName, plan in batchPlans.items():
+                print(f"Converting {parserName} plans")
+                converter = plan["settings"]
 
-        return batches
+                for batch in plan["batches"]:
+                        files = [inputFolder / item["file"]for item in batch]
+                        convertedFile = converter.convert_all(files)
+                        results.append({
+                                "name" : parserName,
+                                "result" : convertedFile,
+                                "batch" : batch
+                        })
 
-def addParserPlansSettings(parserPlans : list[dict[str, str]]) -> list[dict[str, str]]:
-        for file in parserPlans:
-                if file["parser_plan"] == "doclingOCR":
-                        settings = buildPDFConverterSettings(doclingProfiles[profileNames.doclingOCR])
-                        file["settings"] = settings
-                        #call docling OCR parsing function with settings
+        return results
 
-                if file["parser_plan"] == "doclingScannedOCR":
-                        settings = buildPDFConverterSettings(doclingProfiles[profileNames.doclingScannedOCR])
-                        file["settings"] = settings
-                        #call docling scanned OCR parsing function with settings
+def addParserPlansSettings(batchParserPlans : dict[str, list[list[dict[str, Any]]]]) -> dict[str,dict[str,DocumentConverter | list[list[dict[str, str]]]]]:
+    parserPlansWithSettings = {}
 
-                if file["parser_plan"] == "doclingNative":
-                        settings = buildPDFConverterSettings(doclingProfiles[profileNames.doclingNative])
-                        file["settings"] = settings
-                        #call docling native parsing function with settings
+    for parserName, parserBatches in batchParserPlans.items():
+        if parserName == "doclingOCR":
+            settings = buildPDFConverterSettings(doclingProfiles[profileNames.doclingOCR])
+
+        elif parserName == "doclingScannedOCR":
+            settings = buildPDFConverterSettings(doclingProfiles[profileNames.doclingScannedOCR])
+
+        elif parserName == "doclingNative":
+            settings = buildPDFConverterSettings(doclingProfiles[profileNames.doclingNative])
+
+        else:
+            continue
+
+        parserPlansWithSettings[parserName] = {
+            "settings": settings,
+            "batches": parserBatches
+        }
+
+    return parserPlansWithSettings
+
+def batchParserPlans(parserPlans : list[dict[str, str]]) -> dict[str, list[list[dict[str, Any]]]]:
+        batches = {}
+        batchSize = 8
         
-        return parserPlans
-
-def batchParserPlans(parserPlans : list[dict[str, str]]) -> dict[list[dict[str, str]]]:
-        batches = {"markerOCR": [],"doclingOCR": [],"doclingScannedOCR": [],"doclingNative": []}
-
         for item in parserPlans:
-                batches[item["parser_plan"]].append(item)
+                parser = item["parser_plan"]
+                parser_batches = batches.setdefault(parser, [])
+
+                if not parser_batches or len(parser_batches[-1]) >= batchSize:
+                        parser_batches.append([])
+
+                parser_batches[-1].append(item)
 
         return batches
+
+
 
 
