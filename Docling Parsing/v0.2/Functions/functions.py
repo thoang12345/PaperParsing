@@ -1,11 +1,15 @@
 from __future__ import annotations
 from pathlib import Path
+import profile
 import zipfile
 from bs4 import BeautifulSoup
+from httpx import options
 from Functions import functionsClassify as pdfFun
 from dataclasses import dataclass
 from enum import Enum
 from typing import Any
+import torch
+import time
 
 #docling bullshiiiiittt
 from docling.datamodel.accelerator_options import (
@@ -14,6 +18,7 @@ from docling.datamodel.accelerator_options import (
 )
 from docling.datamodel.pipeline_options import (
     EasyOcrOptions,
+    RapidOcrOptions,
     LayoutOptions,
     TableFormerMode,
     TableStructureOptions,
@@ -24,6 +29,31 @@ from docling.datamodel.base_models import InputFormat
 from docling.document_converter import DocumentConverter, PdfFormatOption
 from docling.datamodel.layout_model_specs import DOCLING_LAYOUT_EGRET_LARGE
 
+def giveGPUstatus() -> None:
+        print("=" * 50)
+        print("torch:", torch.__version__)
+        print("hip:", torch.version.hip)
+        print("cuda available:", torch.cuda.is_available())
+
+        if not torch.cuda.is_available():
+                raise SystemExit("ROCm GPU is not visible to PyTorch")
+
+        device = "cuda"
+        print("device:", torch.cuda.get_device_name(0))
+
+        x = torch.randn((4096, 4096), device=device, dtype=torch.float16)
+        y = torch.randn((4096, 4096), device=device, dtype=torch.float16)
+
+        torch.cuda.synchronize()
+        start = time.time()
+
+        for _ in range(20):
+                z = x @ y
+
+        torch.cuda.synchronize()
+        print("seconds:", round(time.time() - start, 3))
+        print("ok:", z.shape, z.dtype)
+        print(f"{'=' * 50}\n")
 
 def buildRelativePaths(paths : list[str]) -> list[Path]:
         relativePath = Path(__file__).parent.parent
@@ -32,7 +62,7 @@ def buildRelativePaths(paths : list[str]) -> list[Path]:
         return buildRelativePaths
 
 def parseFiles(path : Path) -> list[str]:
-        fileNames = [file.name for file in path.iterdir() if file.is_file()]
+        fileNames = [file.name for file in path.iterdir() if file.is_file() and "Zone.Identifier" not in file.name]
         
         return fileNames
 
@@ -162,6 +192,7 @@ class doclingPipelineOptions:
         doOCR : bool = False
         forceFullPageOCR : bool = False
         ocrBatchSize : int = 4
+        ocrEngine : str = "easyocr"
 
         #layout
         layoutBatchSize : int = 4
@@ -202,13 +233,16 @@ doclingProfiles: dict[profileNames, doclingPipelineOptions] = {
                 name=profileNames.doclingScannedOCR,
                 doOCR=True,
                 forceFullPageOCR=True,
+                ocrEngine="rapidocr",
+                ocrBatchSize=1,
+                layoutBatchSize=1,
                 doTableStructures=True,
                 tableAccurateMode=True,
                 generatePageImage=False,
                 generatePictureImages=True,
                 useEgretLargeLayout=True,
-                imageScale=1.2,
-                ocrBatchSize=2
+                imageScale=1.1,
+                numberOfThreads=2
         ),
 
         profileNames.doclingOCR : doclingPipelineOptions(
@@ -235,9 +269,17 @@ def doclingSettings(profile : doclingPipelineOptions) -> ThreadedPdfPipelineOpti
         # OCR
         options.do_ocr = profile.doOCR
         options.ocr_batch_size = profile.ocrBatchSize
-        options.ocr_options = EasyOcrOptions(
-                force_full_page_ocr=profile.forceFullPageOCR
+        if profile.ocrEngine == "rapidocr":
+                options.ocr_options = RapidOcrOptions(
+                        backend="torch",
+                        lang=["english"],
+                        force_full_page_ocr=profile.forceFullPageOCR,
+                        print_verbose=True,
         )
+        else:
+                options.ocr_options = EasyOcrOptions(
+                        force_full_page_ocr=profile.forceFullPageOCR
+                )
 
         # Layout
         options.layout_batch_size = profile.layoutBatchSize
@@ -302,6 +344,8 @@ def convertPDFsDocling(pdfClassification : list[dict[str : str, str : str, str :
 
                 for batch in plan["batches"]:
                         files = [inputFolder / item["file"]for item in batch]
+
+                        print(f"{parserName}: {[item.name for item in files]}")
                         convertedFile = converter.convert_all(files)
                         results.append({
                                 "name" : parserName,
@@ -336,18 +380,26 @@ def addParserPlansSettings(batchParserPlans : dict[str, list[list[dict[str, Any]
 
 def batchParserPlans(parserPlans : list[dict[str, str]]) -> dict[str, list[list[dict[str, Any]]]]:
         batches = {}
-        batchSize = 8
+        batchSizes = {
+                "doclingScannedOCR": 1,
+                "doclingOCR": 2,
+                "doclingNative": 8,
+                "markerOCR": 1,
+        }
         
         for item in parserPlans:
                 parser = item["parser_plan"]
+                parserBatchSize = batchSizes.get(parser, 1)
+
                 parser_batches = batches.setdefault(parser, [])
 
-                if not parser_batches or len(parser_batches[-1]) >= batchSize:
+                if not parser_batches or len(parser_batches[-1]) >= parserBatchSize:
                         parser_batches.append([])
 
                 parser_batches[-1].append(item)
 
         return batches
+
 
 
 

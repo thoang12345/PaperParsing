@@ -1,5 +1,7 @@
 from Functions import functions as fun
 
+fun.giveGPUstatus()
+
 folders = ["Input", "Output"]
 relativePaths = fun.buildRelativePaths(folders)
 

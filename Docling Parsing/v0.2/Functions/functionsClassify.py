@@ -146,18 +146,34 @@ def countPages(path : Path, pdfs : list[str]) -> list[int]:
                         pageNumber.append(doc.page_count)
         return pageNumber                        
                 
-def pageList(path : Path, pdfs : list[str]) -> list[list[int]]:
-        listPageNumbers = countPages(path, pdfs)
-        specificPages = []
-        for pageNumber in listPageNumbers:
-                middle = (pageNumber + 1) // 2
-                if pageNumber < 4:
-                        specificPages.append([0, -1, middle])
-                elif pageNumber > 5 and pageNumber < 11:
-                        specificPages.append([0, 1, -1, -2, middle])
-                else:
-                        specificPages.append([0, 1, -1, -2, middle, middle - 1, random.randint(2, middle - 2), random.randint(2, middle - 2), random. randint(middle + 1, pageNumber - 3), random. randint(middle + 1, pageNumber - 3)])
-        return specificPages 
+def pageList(path: Path, pdfs: list[str]) -> list[list[int]]:
+        pageCounts = countPages(path, pdfs)
+        allPageLists = []
+
+        for pageCount in pageCounts:
+                if pageCount <= 0:
+                        allPageLists.append([])
+                        continue
+
+                candidates = {
+                        0,
+                        pageCount - 1,
+                        max(0, (pageCount - 1) // 2),
+                }
+
+                if pageCount >= 6:
+                        middle = pageCount // 2
+
+                        candidates.update({
+                                1,
+                                pageCount - 2,
+                                max(0, middle - 1),
+                                min(pageCount - 1, middle + 1),
+                        })
+
+                allPageLists.append(sorted(candidates))
+
+        return allPageLists
 
 ContentType = Literal[
     "scientific",
