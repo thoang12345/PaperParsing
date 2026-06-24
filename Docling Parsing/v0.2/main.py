@@ -11,7 +11,10 @@ outputFolder = relativePaths[1]
 PDFclassifications = fun.classifyPDFs(inputFolder)
 generalClassifications = fun.classifyEverythingElse(inputFolder)
 
-results = fun.convertPDFsDocling(PDFclassifications, generalClassifications, inputFolder)
+results = fun.convertDocumentsDocling(PDFclassifications, generalClassifications, inputFolder)
+
+print(results[0]["result"])
+print(type(results[0]["result"]))
 
 for parser_result in results:
         parser_name = parser_result["name"]

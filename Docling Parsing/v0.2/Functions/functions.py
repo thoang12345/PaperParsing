@@ -1,13 +1,11 @@
 from __future__ import annotations
 from pathlib import Path
-import profile
 import zipfile
 from bs4 import BeautifulSoup
-from httpx import options
 from Functions import functionsClassify as pdfFun
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from enum import Enum
-from typing import Any
+from typing import Any, Generator
 import torch
 import time
 
@@ -28,6 +26,12 @@ from docling.datamodel.pipeline_options import (
 from docling.datamodel.base_models import InputFormat
 from docling.document_converter import DocumentConverter, PdfFormatOption
 from docling.datamodel.layout_model_specs import DOCLING_LAYOUT_EGRET_LARGE
+
+#marker bullshiiittt
+from marker.converters.pdf import PdfConverter
+from marker.config.parser import ConfigParser
+from marker.models import create_model_dict
+from marker.output import text_from_rendered
 
 def giveGPUstatus() -> None:
         print("=" * 50)
@@ -256,7 +260,7 @@ doclingProfiles: dict[profileNames, doclingPipelineOptions] = {
                 useEgretLargeLayout=True,
                 imageScale=1.25
         )
-    }
+}
 
 def doclingSettings(profile : doclingPipelineOptions) -> ThreadedPdfPipelineOptions:
         options = ThreadedPdfPipelineOptions()
@@ -318,7 +322,29 @@ def doclingSettings(profile : doclingPipelineOptions) -> ThreadedPdfPipelineOpti
 
         return options
 
-def markerSettings(pdfClassifications : list[dict[str : str, str : str, str : str]], generalClassifications : list[dict[str : str, str : str, str : str]]):
+@dataclass(frozen=True)
+class markerPipelineOptions:
+        name: profileNames
+
+        outputFormat: list[str] = field(default_factory=lambda: ["markdown", "json"])
+        pageRanges: str | None = None
+        forceOCR: bool = False
+        paginateOutput: bool = False
+        useLLM: bool = False
+        workers: int = 1
+
+markerProfiles: dict[profileNames, markerPipelineOptions] = {
+        profileNames.markerOCR: markerPipelineOptions(
+                name=profileNames.markerOCR,
+                forceOCR=True,
+                paginateOutput=True,
+                workers=1
+        )
+}
+
+
+
+def convertPDFsMarker(pdfClassifications : list[dict[str : str, str : str, str : str]]):
         ...
 
 def buildPDFConverterSettings(profile : doclingPipelineOptions) -> DocumentConverter:
@@ -330,7 +356,7 @@ def buildPDFConverterSettings(profile : doclingPipelineOptions) -> DocumentConve
             }
         )
 
-def convertPDFsDocling(pdfClassification : list[dict[str : str, str : str, str : str]], not_pdfs : list[dict[str : str, str : str, str : str]], inputFolder : Path) -> dict[str : str]:
+def convertDocumentsDocling(pdfClassification : list[dict[str : str, str : str, str : str]], not_pdfs : list[dict[str : str, str : str, str : str]], inputFolder : Path) -> list[dict[str, str | Generator[DocumentConverter, None, None] | list[dict[str, str]]]]:
         parserPlans = chooseParserPlan(pdfClassification, not_pdfs)
         sortedParserPlans = sorted(parserPlans, key=lambda x: x["parser_plan"])
         batches = batchParserPlans(sortedParserPlans)
