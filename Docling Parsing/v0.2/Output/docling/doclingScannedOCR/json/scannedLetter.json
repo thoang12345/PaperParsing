@@ -1,0 +1,1109 @@
+{
+  "schema_name": "DoclingDocument",
+  "version": "1.10.0",
+  "name": "scannedLetter",
+  "origin": {
+    "mimetype": "application/pdf",
+    "binary_hash": 14929313189852602426,
+    "filename": "scannedLetter.pdf"
+  },
+  "furniture": {
+    "self_ref": "#/furniture",
+    "children": [],
+    "content_layer": "furniture",
+    "name": "_root_",
+    "label": "unspecified"
+  },
+  "body": {
+    "self_ref": "#/body",
+    "children": [
+      {
+        "$ref": "#/pictures/0"
+      },
+      {
+        "$ref": "#/texts/0"
+      },
+      {
+        "$ref": "#/texts/1"
+      },
+      {
+        "$ref": "#/texts/2"
+      },
+      {
+        "$ref": "#/texts/3"
+      },
+      {
+        "$ref": "#/groups/0"
+      },
+      {
+        "$ref": "#/texts/8"
+      },
+      {
+        "$ref": "#/texts/9"
+      },
+      {
+        "$ref": "#/texts/10"
+      },
+      {
+        "$ref": "#/texts/11"
+      },
+      {
+        "$ref": "#/texts/12"
+      },
+      {
+        "$ref": "#/texts/13"
+      },
+      {
+        "$ref": "#/texts/14"
+      },
+      {
+        "$ref": "#/groups/1"
+      },
+      {
+        "$ref": "#/texts/18"
+      },
+      {
+        "$ref": "#/texts/19"
+      },
+      {
+        "$ref": "#/texts/20"
+      },
+      {
+        "$ref": "#/groups/2"
+      },
+      {
+        "$ref": "#/texts/25"
+      },
+      {
+        "$ref": "#/groups/3"
+      },
+      {
+        "$ref": "#/texts/30"
+      }
+    ],
+    "content_layer": "body",
+    "name": "_root_",
+    "label": "unspecified"
+  },
+  "groups": [
+    {
+      "self_ref": "#/groups/0",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [
+        {
+          "$ref": "#/texts/4"
+        },
+        {
+          "$ref": "#/texts/5"
+        },
+        {
+          "$ref": "#/texts/6"
+        },
+        {
+          "$ref": "#/texts/7"
+        }
+      ],
+      "content_layer": "body",
+      "name": "list",
+      "label": "list"
+    },
+    {
+      "self_ref": "#/groups/1",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [
+        {
+          "$ref": "#/texts/15"
+        },
+        {
+          "$ref": "#/texts/16"
+        },
+        {
+          "$ref": "#/texts/17"
+        }
+      ],
+      "content_layer": "body",
+      "name": "list",
+      "label": "list"
+    },
+    {
+      "self_ref": "#/groups/2",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [
+        {
+          "$ref": "#/texts/21"
+        },
+        {
+          "$ref": "#/texts/22"
+        },
+        {
+          "$ref": "#/texts/23"
+        },
+        {
+          "$ref": "#/texts/24"
+        }
+      ],
+      "content_layer": "body",
+      "name": "list",
+      "label": "list"
+    },
+    {
+      "self_ref": "#/groups/3",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [
+        {
+          "$ref": "#/texts/26"
+        },
+        {
+          "$ref": "#/texts/27"
+        },
+        {
+          "$ref": "#/texts/28"
+        },
+        {
+          "$ref": "#/texts/29"
+        }
+      ],
+      "content_layer": "body",
+      "name": "group",
+      "label": "form_area"
+    }
+  ],
+  "texts": [
+    {
+      "self_ref": "#/texts/0",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 53.7890625,
+            "t": 584.0201619466146,
+            "r": 151.8046875,
+            "b": 573.64111328125,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            18
+          ]
+        }
+      ],
+      "orig": "Dear Commissioner:",
+      "text": "Dear Commissioner:",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/1",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 52.9921875,
+            "t": 557.2741902669271,
+            "r": 545.859375,
+            "b": 447.8951416015625,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            756
+          ]
+        }
+      ],
+      "orig": "There is no higher priority for the U.S.Environmental Protection Agency than protecting public health and ensuring the safety of our nation's drinking water.Under the Safe Drinking Water Act (SDWA), <State> and other states have the primary responsibility for the implementation and enforcement of drinking water regulations, while the EPA is tasked with oversight of state efforts. Recent events in Flint, Michigan, and other U.S. cities, have led to important discussions about the safety of our nation's drinking water supplies. I am writing today to ask you to join in taking action to strengthen our safe drinking water programs, consistent with our shared recognition of the critical importance of safe drinking water for the health of all Americans.",
+      "text": "There is no higher priority for the U.S.Environmental Protection Agency than protecting public health and ensuring the safety of our nation's drinking water.Under the Safe Drinking Water Act (SDWA), <State> and other states have the primary responsibility for the implementation and enforcement of drinking water regulations, while the EPA is tasked with oversight of state efforts. Recent events in Flint, Michigan, and other U.S. cities, have led to important discussions about the safety of our nation's drinking water supplies. I am writing today to ask you to join in taking action to strengthen our safe drinking water programs, consistent with our shared recognition of the critical importance of safe drinking water for the health of all Americans."
+    },
+    {
+      "self_ref": "#/texts/2",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 53.390625,
+            "t": 431.5281982421875,
+            "r": 552.6328125,
+            "b": 324.9435221354167,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            827
+          ]
+        }
+      ],
+      "orig": "First, with most states having primacy under SDWA, we need to work together to ensure that states are taking action to demonstrate that the Lead and Copper Rule (LCR) is being properly implemented. To this end, the EPA's Office of Water is increasing oversight of state programs to identify and address any deficiencies in current implementation of the Lead and Copper Rule.EPA staff are meeting with every state drinking water program across the country to ensure that states are taking appropriate actions to address lead action level exceedances, including optimizing corrosion control, providing effective public health communication and outreach to residents on steps to reduce exposures to lead, and removing lead service lines where required by the LCR. I ask you to join us in giving these efforts the highest priority.",
+      "text": "First, with most states having primacy under SDWA, we need to work together to ensure that states are taking action to demonstrate that the Lead and Copper Rule (LCR) is being properly implemented. To this end, the EPA's Office of Water is increasing oversight of state programs to identify and address any deficiencies in current implementation of the Lead and Copper Rule.EPA staff are meeting with every state drinking water program across the country to ensure that states are taking appropriate actions to address lead action level exceedances, including optimizing corrosion control, providing effective public health communication and outreach to residents on steps to reduce exposures to lead, and removing lead service lines where required by the LCR. I ask you to join us in giving these efforts the highest priority."
+    },
+    {
+      "self_ref": "#/texts/3",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 54.1875,
+            "t": 307.3790283203125,
+            "r": 552.6328125,
+            "b": 252.290283203125,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            328
+          ]
+        }
+      ],
+      "orig": "Second, to assure the public of our shared commitment to addressing lead risks, I ask for your leadership in taking near-term actions to assure the public that we are doing everything we can to work together to address risks from lead in drinking water. Specifically, I urge you to take near-term action in the. following areas:",
+      "text": "Second, to assure the public of our shared commitment to addressing lead risks, I ask for your leadership in taking near-term actions to assure the public that we are doing everything we can to work together to address risks from lead in drinking water. Specifically, I urge you to take near-term action in the. following areas:"
+    },
+    {
+      "self_ref": "#/texts/4",
+      "parent": {
+        "$ref": "#/groups/0"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 72.515625,
+            "t": 244.70560709635413,
+            "r": 549.046875,
+            "b": 219.55643717447913,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            141
+          ]
+        }
+      ],
+      "orig": "(1) Confirm that the state's protocols and procedures for implementing the LCR are fully consistent with the LCR and applicable EPA guidance;",
+      "text": "Confirm that the state's protocols and procedures for implementing the LCR are fully consistent with the LCR and applicable EPA guidance;",
+      "enumerated": true,
+      "marker": "(1)"
+    },
+    {
+      "self_ref": "#/texts/5",
+      "parent": {
+        "$ref": "#/groups/0"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 73.3125,
+            "t": 203.58870442708337,
+            "r": 551.8359375,
+            "b": 176.84273274739587,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            104
+          ]
+        }
+      ],
+      "orig": "(2) Use relevant EPA guidance on LCR sampling protocols and procedures for optimizing corrosion control;",
+      "text": "Use relevant EPA guidance on LCR sampling protocols and procedures for optimizing corrosion control;",
+      "enumerated": true,
+      "marker": "(2)"
+    },
+    {
+      "self_ref": "#/texts/6",
+      "parent": {
+        "$ref": "#/groups/0"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 73.7109375,
+            "t": 161.67338053385413,
+            "r": 511.1953125,
+            "b": 138.9193115234375,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            174
+          ]
+        }
+      ],
+      "orig": "(3) Post on your agency's public website all state LCR sampling protocols and guidance for identification of Tier 1 sites (at which LCR sampling is required to be conducted);",
+      "text": "Post on your agency's public website all state LCR sampling protocols and guidance for identification of Tier 1 sites (at which LCR sampling is required to be conducted);",
+      "enumerated": true,
+      "marker": "(3)"
+    },
+    {
+      "self_ref": "#/texts/7",
+      "parent": {
+        "$ref": "#/groups/0"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 73.7109375,
+            "t": 120.1572265625,
+            "r": 536.296875,
+            "b": 81.43546549479163,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            198
+          ]
+        }
+      ],
+      "orig": "(4) Work with public water systems-with a priority emphasis on large systems-to increase transparency in implementation of the LCR by posting on their public website and/or on your agency's website:",
+      "text": "Work with public water systems-with a priority emphasis on large systems-to increase transparency in implementation of the LCR by posting on their public website and/or on your agency's website:",
+      "enumerated": true,
+      "marker": "(4)"
+    },
+    {
+      "self_ref": "#/texts/8",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 167.34375,
+            "t": 736.1128997802734,
+            "r": 443.859375,
+            "b": 727.7298380533854,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            45
+          ]
+        }
+      ],
+      "orig": "UNITED STATES ENVIRONMENTAL PROTECTION AGENCY",
+      "text": "UNITED STATES ENVIRONMENTAL PROTECTION AGENCY",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/9",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 243.4453125,
+            "t": 720.5443522135416,
+            "r": 367.7578125,
+            "b": 710.1653188069662,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            20
+          ]
+        }
+      ],
+      "orig": "WASHINGTON,D.C.20460",
+      "text": "WASHINGTON,D.C.20460"
+    },
+    {
+      "self_ref": "#/texts/10",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 225.9140625,
+            "t": 697.391123453776,
+            "r": 397.2421875,
+            "b": 680.2257995605469,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            13
+          ]
+        }
+      ],
+      "orig": "SAMPLE LETTER",
+      "text": "SAMPLE LETTER",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/11",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 272.1328125,
+            "t": 658.6693522135416,
+            "r": 342.65625,
+            "b": 642.3024088541666,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            8
+          ]
+        }
+      ],
+      "orig": "FEB92016",
+      "text": "FEB92016"
+    },
+    {
+      "self_ref": "#/texts/12",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 480.1171875,
+            "t": 640.7056376139323,
+            "r": 520.359375,
+            "b": 623.141123453776,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            15
+          ]
+        }
+      ],
+      "orig": "OFFICE OF WATER",
+      "text": "OFFICE OF WATER"
+    },
+    {
+      "self_ref": "#/texts/13",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "furniture",
+      "label": "page_footer",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 247.4296875,
+            "t": 48.30240885416663,
+            "r": 386.8828125,
+            "b": 41.51611328125,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            39
+          ]
+        }
+      ],
+      "orig": "Intemet Address(URL) http://www.epa.gov",
+      "text": "Intemet Address(URL) http://www.epa.gov"
+    },
+    {
+      "self_ref": "#/texts/14",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "furniture",
+      "label": "page_footer",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 122.71875,
+            "t": 40.31852213541663,
+            "r": 512.390625,
+            "b": 33.5322265625,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            114
+          ]
+        }
+      ],
+      "orig": "Recycled/Recyclable  Printed with Vegetable Oil Based Inks on 100%PostconsumerProcess Chlorine Free Recycled Paper",
+      "text": "Recycled/Recyclable  Printed with Vegetable Oil Based Inks on 100%PostconsumerProcess Chlorine Free Recycled Paper"
+    },
+    {
+      "self_ref": "#/texts/15",
+      "parent": {
+        "$ref": "#/groups/1"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 117.140625,
+            "t": 733.7177378336588,
+            "r": 554.2265625,
+            "b": 693.3991902669271,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            233
+          ]
+        }
+      ],
+      "orig": "the materials inventory that systems were required to complete under the LCR, including O the locations of lead service lines, together with any more updated inventory or map of lead service lines and lead plumbing in the system; and",
+      "text": "the materials inventory that systems were required to complete under the LCR, including O the locations of lead service lines, together with any more updated inventory or map of lead service lines and lead plumbing in the system; and",
+      "enumerated": false,
+      "marker": ""
+    },
+    {
+      "self_ref": "#/texts/16",
+      "parent": {
+        "$ref": "#/groups/1"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 129.890625,
+            "t": 693.0,
+            "r": 541.875,
+            "b": 665.0564473470052,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            119
+          ]
+        }
+      ],
+      "orig": "LCR compliance sampling results collected by the system, as well as justifications for invalidation of LCR samples; and",
+      "text": "LCR compliance sampling results collected by the system, as well as justifications for invalidation of LCR samples; and",
+      "enumerated": false,
+      "marker": ""
+    },
+    {
+      "self_ref": "#/texts/17",
+      "parent": {
+        "$ref": "#/groups/1"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 79.2890625,
+            "t": 651.0846761067709,
+            "r": 557.8125,
+            "b": 610.3669230143229,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            273
+          ]
+        }
+      ],
+      "orig": "(5) Enhance efforts to ensure that residents promptly receive lead sampling results from their homes, together with clear information on lead risks and how to abate them, and that the general public receives prompt information on high lead levels in drinking water systems.",
+      "text": "Enhance efforts to ensure that residents promptly receive lead sampling results from their homes, together with clear information on lead risks and how to abate them, and that the general public receives prompt information on high lead levels in drinking water systems.",
+      "enumerated": true,
+      "marker": "(5)"
+    },
+    {
+      "self_ref": "#/texts/18",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 60.5625,
+            "t": 596.3951619466146,
+            "r": 545.0625,
+            "b": 541.3064371744791,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            318
+          ]
+        }
+      ],
+      "orig": "These actions are essential to restoring public confidence in our shared work to ensure safe drinking. water for the American people. I ask you for your leadership and partnership in this effort and request that you respond in writing, within the next 30 days, to provide information on your activities in these areas.",
+      "text": "These actions are essential to restoring public confidence in our shared work to ensure safe drinking. water for the American people. I ask you for your leadership and partnership in this effort and request that you respond in writing, within the next 30 days, to provide information on your activities in these areas."
+    },
+    {
+      "self_ref": "#/texts/19",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 60.5625,
+            "t": 526.1370849609375,
+            "r": 559.40625,
+            "b": 387.2177327473958,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            940
+          ]
+        }
+      ],
+      "orig": "To support state efforts to properly implement the LCR, the EPA will be providing information to assist states in understanding steps needed to ensure optimal corrosion control treatment and on appropriate sampling techniques.I am attaching to this letter a memorandum from the EPA's Office of Ground Water and Drinking Water summarizing EPA recommendations on sampling techniques. We will also be conducting training for state and public water systems staff to ensure that all water systems understand how to carry out the requirements of the LCR properly.Finally,we are working to revise and strengthen the LCR, but those revisions will take time to propose and finalize; our current expectation is that proposed revisions will be issued in 2017.The actions outlined above are not a substitute for needed revisions to the rule, but we can and should work together to take immediate steps to strengthen implementation of the existing rule.",
+      "text": "To support state efforts to properly implement the LCR, the EPA will be providing information to assist states in understanding steps needed to ensure optimal corrosion control treatment and on appropriate sampling techniques.I am attaching to this letter a memorandum from the EPA's Office of Ground Water and Drinking Water summarizing EPA recommendations on sampling techniques. We will also be conducting training for state and public water systems staff to ensure that all water systems understand how to carry out the requirements of the LCR properly.Finally,we are working to revise and strengthen the LCR, but those revisions will take time to propose and finalize; our current expectation is that proposed revisions will be issued in 2017.The actions outlined above are not a substitute for needed revisions to the rule, but we can and should work together to take immediate steps to strengthen implementation of the existing rule."
+    },
+    {
+      "self_ref": "#/texts/20",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 59.3671875,
+            "t": 374.8427327473958,
+            "r": 558.609375,
+            "b": 277.040283203125,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            634
+          ]
+        }
+      ],
+      "orig": "While we have an immediate focus on lead in drinking water, we recognize that protection of the. nation's drinking water involves both legacy and emerging contaminants, and a much broader set of scientific, technical and resource challenges as well as opportunities. This is a shared responsibility involving state, tribal, local and federal governments, system owners and operators, consumers and other stakeholders. Accordingly, in the coming weeks and months, we will be working with states and other stakeholders to identify strategies and actions to improve the safety and sustainability of our drinking water systems, including:",
+      "text": "While we have an immediate focus on lead in drinking water, we recognize that protection of the. nation's drinking water involves both legacy and emerging contaminants, and a much broader set of scientific, technical and resource challenges as well as opportunities. This is a shared responsibility involving state, tribal, local and federal governments, system owners and operators, consumers and other stakeholders. Accordingly, in the coming weeks and months, we will be working with states and other stakeholders to identify strategies and actions to improve the safety and sustainability of our drinking water systems, including:"
+    },
+    {
+      "self_ref": "#/texts/21",
+      "parent": {
+        "$ref": "#/groups/2"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 95.625,
+            "t": 267.45963541666663,
+            "r": 554.2265625,
+            "b": 241.5120849609375,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            114
+          ]
+        }
+      ],
+      "orig": "ensuring adequate and sustained investment in, and attention to, regulatory oversight at all levels of government;",
+      "text": "ensuring adequate and sustained investment in, and attention to, regulatory oversight at all levels of government;",
+      "enumerated": false,
+      "marker": ""
+    },
+    {
+      "self_ref": "#/texts/22",
+      "parent": {
+        "$ref": "#/groups/2"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 96.0234375,
+            "t": 238.31852213541663,
+            "r": 512.7890625,
+            "b": 212.7701416015625,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            155
+          ]
+        }
+      ],
+      "orig": "using information technology to enhance transparency and accountability with regard to reporting and public availability of drinking water compliance data;",
+      "text": "using information technology to enhance transparency and accountability with regard to reporting and public availability of drinking water compliance data;",
+      "enumerated": false,
+      "marker": ""
+    },
+    {
+      "self_ref": "#/texts/23",
+      "parent": {
+        "$ref": "#/groups/2"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 94.828125,
+            "t": 211.17338053385413,
+            "r": 514.3828125,
+            "b": 184.0281982421875,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            155
+          ]
+        }
+      ],
+      "orig": "leveraging funding sources to finance maintenance, upgrading and replacement of aging infrastructure, especially for poor and overburdened communities; and",
+      "text": "leveraging funding sources to finance maintenance, upgrading and replacement of aging infrastructure, especially for poor and overburdened communities; and",
+      "enumerated": false,
+      "marker": ""
+    },
+    {
+      "self_ref": "#/texts/24",
+      "parent": {
+        "$ref": "#/groups/2"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 94.03125,
+            "t": 181.633056640625,
+            "r": 542.671875,
+            "b": 169.258056640625,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            93
+          ]
+        }
+      ],
+      "orig": "identifying technology and infrastructure to address both existing and emerging contaminants.",
+      "text": "identifying technology and infrastructure to address both existing and emerging contaminants.",
+      "enumerated": false,
+      "marker": ""
+    },
+    {
+      "self_ref": "#/texts/25",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 59.3671875,
+            "t": 154.48787434895837,
+            "r": 549.4453125,
+            "b": 102.19352213541663,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            313
+          ]
+        }
+      ],
+      "orig": "As always, the EPA appreciates your leadership and engagement as a partner in our efforts to protect public health and the environment.Please do not hesitate to contact me, or your staff may contact Peter Grevatt,Director of the Office of Ground Water and Drinking Water at grevatt.peter@epa.goy or (202)564-8954.",
+      "text": "As always, the EPA appreciates your leadership and engagement as a partner in our efforts to protect public health and the environment.Please do not hesitate to contact me, or your staff may contact Peter Grevatt,Director of the Office of Ground Water and Drinking Water at grevatt.peter@epa.goy or (202)564-8954."
+    },
+    {
+      "self_ref": "#/texts/26",
+      "parent": {
+        "$ref": "#/groups/3"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 56.1796875,
+            "t": 722.1411285400391,
+            "r": 541.875,
+            "b": 680.2257995605469,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            238
+          ]
+        }
+      ],
+      "orig": "Thank you in advance for your support to ensure that we are fulfilling our joint responsibility for the protection of public health and to restore public confidence in our shared work to ensure safe drinking water for the American people.",
+      "text": "Thank you in advance for your support to ensure that we are fulfilling our joint responsibility for the protection of public health and to restore public confidence in our shared work to ensure safe drinking water for the American people."
+    },
+    {
+      "self_ref": "#/texts/27",
+      "parent": {
+        "$ref": "#/groups/3"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 304.0078125,
+            "t": 667.0524190266927,
+            "r": 353.4140625,
+            "b": 652.2822570800781,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            10
+          ]
+        }
+      ],
+      "orig": "Sincerely,",
+      "text": "Sincerely,"
+    },
+    {
+      "self_ref": "#/texts/28",
+      "parent": {
+        "$ref": "#/groups/3"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 305.203125,
+            "t": 612.3628946940104,
+            "r": 457.40625,
+            "b": 588.0120849609375,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            44
+          ]
+        }
+      ],
+      "orig": "Joel Beauvais Deputy Assistant Administrator",
+      "text": "Joel Beauvais Deputy Assistant Administrator"
+    },
+    {
+      "self_ref": "#/texts/29",
+      "parent": {
+        "$ref": "#/groups/3"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 56.578125,
+            "t": 542.5040283203125,
+            "r": 106.78125,
+            "b": 527.733866373698,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            9
+          ]
+        }
+      ],
+      "orig": "Enclosure",
+      "text": "Enclosure"
+    },
+    {
+      "self_ref": "#/texts/30",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "furniture",
+      "label": "page_footer",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 304.40625,
+            "t": 72.25398763020837,
+            "r": 311.9765625,
+            "b": 60.27815755208337,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            1
+          ]
+        }
+      ],
+      "orig": "3",
+      "text": "3"
+    }
+  ],
+  "pictures": [
+    {
+      "self_ref": "#/pictures/0",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "picture",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 61.816184997558594,
+            "t": 751.9370193481445,
+            "r": 128.92140197753906,
+            "b": 683.5080413818359,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            0
+          ]
+        }
+      ],
+      "captions": [],
+      "references": [],
+      "footnotes": [],
+      "image": {
+        "mimetype": "image/png",
+        "dpi": 79,
+        "size": {
+          "width": 74.0,
+          "height": 75.0
+        },
+        "uri": "data:image/png;base64,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GTdv3ly6dOngwYONRqPX633mmWeOHj36/vvvv/baawBQX18/Z86c7Ozs7t27z5kzJzIyUkoJOiJyu93vvPPO7t27H3/88QULFkRGRgohAIBzDvdy48aNioqKxsbG69evFxQUpKam9u3bF4Vu/fr1NputV69eZWVl69evHzp0aN++feFeiEhKyRhzOp0ffvjh9u3bExMT58+f/+CDDwohEFFKyRhDxH/84x9LliyJiopasWJFp06d3G736NGjDx8+/PHHH48bN05KuXXr1lmzZrVo0eKjjz7q0qWLEAIRAYAxpmna559/vnr16sTExMWLF7dr105KiYhSSs453Munn356+PDh/v377969+7nnnuvVq1d0dDR6PB5FUUpLSw8ePFhWVubn59ezZ8/k5GR/f39EhLtIHQJwRWloaFi8ePH333+fnJz87rvvduzYEXRExBhzOp2zZ8/esmXLmDFjli5dSkTPPffc3r17ly9f/sorr1y/fn3SpEl5eXlvvPHG5MmTAYAxBgCMMa/Xu3Hjxnnz5sXExLz99tv9+/dnjEkpEREAUAd3qaur27179+XLlx0Ox3vvvefn50dE6PV6AUBRlLKysuLi4vLy8ry8PIfDMXXq1KCgICKC3yIiKSUgMkTGWElJyYyZMw8dOvRwz56vTX6tz2N9GGNSSkRkjGVnZ48ePdpsNq9bt65r167PPvvsjz/+uGzZsnHjxq1YsWL+/PldunT57LPPYmJihBBM53A4Nm3a9MWXX9bW1MyZMyf9uedURSEgkiSJgIhzDgCISETwHxDR7XYfOXLk22+/ffnll7t37y6lRK/Xi4iMsa+++upf//rXI488smHDho4dO86ePVtRFCklYwwAhBBMR0SAwBmHJtdv3FiwYEHWqay4mNhJkyYNHjyYMUZEjDGHwzFjxow9e/ZMmTIlIyNjwoQJhw8f/vDDDx9//PEJEybk5ORM0/l8PsaYqqo1NTVr16797rvv7A7HsOHDZkyfwTkHBIZoNJoMqiqJSEoAEEIwxhCRiAAAEYkIEYnozJkzUsqePXsSEfp8PgAgIpfLpapqpu6VV15xuVw2m81oNBIRABAR59zn89nt9sqKiuKSkvq6+tra2rq6WoPReCor60xODgCYzeYRI0Y8/fTTiYmJiKgoyr59+1555ZXExMS1a9fOnTv3yJEjH330UUJCQnp6enBw8ObNm9u0aSOlJKLc3NwPPvggMzMzKCjIZDIZDAaFc7vDYTKZWrduHRMTEx4W1qZNm+iYGJvN5ufnR0SICDpEBAAiAgAiYjoAQE3TiAh1N2/efPPNN9PS0srLyysqKqZOnRoZGSmEQEQiunHjxj//+c/z585fuXRJUZWqqmogKi4uRkSrn5/JbDKZzSaTqaq6OjY2dsKECX379vX396+oqBgzZsy5c+eWL19+8uTJ7OzsSZMmeTyeZcuWpaWlLVu2DAjKykoPHjr0ww8/XL16tbGhITgkxGq21NXWMkSuKAEB/lFRzUtKSqoqK+MTEnxSTJkyJTU1VUqJiABw5coVt9vdsWNHVVU1TSMizjljDABQCIGIpFu3bt2aNWtGjBjRs2fPZs2aAUBiYqLJZCIiRMzMzFyzdk1ZcYn0akFBQbdv31YNqsftISLGmNfnU4wGRBRSupxOi8XSpUuXx/o81rVrty+//HLlypXPpadLKU+dOjV4yOBrV69dyc9/cdy4Rx977OSJE9nZ2Tdu3CAij8djt9t9Pl9IkM1iMTsdztiYmOraGn9/fz+rX1lZmcXP2nfAk2PHjg0MDJQ6xtjNmzePHz9ORJ06dWrfvr3RaGSMISIAoJQSABARAHJzcxsaGmJjY8+fP79u3bqIiIilS5cGBwdDk6Kiok1ffnXyn7/U1tYyxjjnmqa53W6fz8c5r66rU1SFMWY2mw0GAyI2NDTEx8erqnr58uWYmBibzVZcXGw2mzVNczgcqqpyzl0uV/PmzYUQlZWVTodTSGE0GgP9/AMDAioqKiIiIrxeLwCoihJks40Z+8IT/fsZDAYhBOgaGhrsdrvZbF67du2hQ4fS0tKmTJkCAIwxAEAiAh0RIeL+/fvz8/Nv376dm5v74Ycfdu7cGRGllEIIpnM7XWdOnd7z/Z4ff/zRz2pFRK/PpyhKY0ODJgQiuj0eP6s1ICBASun1eg1Go9ViqaystFitms9nt9vNFovJZBKahoypqupyOk0mk6KqDrvd7nAYVNXq58fwV3W1taGhYSaTMSQ0dMCAAQ/36tUsqhlyTkQAgIhEtGzZsp9++mn8+PFGo7GsrOyBBx7o0aMHIjLGAACJCHREJKW8c+dOTU3Np59+2q1bt8cff7y0tFRV1U6dOgEAESGilFJRFLfLlXP27OFDh3JycsrLy81ms9vlUrliNptdLhcRmUwmt9tTV1er6IQQYWFhTqezoaEhODi4WbNmBQUFDofD399fSskYMxoMdodDVVXGmNPpNJiMgigkOLhTp049evRISUmJiIgAQEkSEQGAiBDR4XBcu3YtMzMTAHr16tWuXTvGmNvtVhRFVVUAQCICHekYYxs3bly8ePHQoUO9Xu8+m8QAAAiySURBVO+OHTvGjh27ePFiKSUASCkJgIgURWGIQojbBQW3bt+6cOFi9qlTlSXlnGNDfQNXFIbo8XiEECEhIYlJiY880rt1u7ZHDh5csWLFyBEjx730UtGdOxcuXLian19WVma3210ul9ls9g8I8HjcoSGhLVomdnzwwdatW8fExATbbAQgdIrCgQB1p06d+umnn0wmk81mCw8PP3ny5IgRI9q1a6dpGmNMVVUAQCICHRFJKRljBQUFZWVllZWV+/btS0hIGD58eGVlZdu2bf39/enfABgiACAiETHGAEAIYXc4aior6xsaXC4XAkopgchgMjZr1izYFmK2mAFh/959GRkZzz47asGiRQAgNM3pdNZU1zjsdofTiQgmk1lVlfCISIvVYjQaAYAAiAgIAEFKyZD5fF6DwVBXV7d8+fJevXrFxcUdOnTI39+/b9++VqvVZrMJIRhjiAgASETQxOfzIaKiKBcvXlyxYsXo0aPj4+OXL19+6dKltLS0l156SVVVImKMwV9BRAAgpbQ7HMXFRVaLNTo6GpvAXyGlJCLO+fnz5zdu3Dh37tyAgIDS0tIFCxa89dZbsbGx8FtIRKAjIiklIgJAVVWVw+GoqKhYuXJlfn7+8uXLz54926ZNm759+0opOefwVxCR1DHGoAkiAgBjDP4KItJ0DQ0NixYtmj59elxcXGFh4erVq6dNm9asWTP4LSQi0EkphRCISESKoty6dWvy5MkTJkyoqqoyGAxPPPFEdXV18+bNg4KCEBH+CiKSUiKipmmMMdAhImMMEeGvkFKWl5cfP348KCiovLy8vr6+ffv2t27dslgsI0eO5JzDbyERgY50oEPEmpqa5cuXd+/evVu3bjk5Of379z9x4sS+ffveeecdPz8/IkJEKSVjTEqJiKBDRLgLEYGOdADAGJNSMsYQEX6HlBIRAUBKyRgDAEQ8efJkfn5+amrqzp07zWbzQw89dPPmzcjIyJSUFJPJhIjwW0hEcC9EdPPmzc2bNz/77LPJycmnT59esmRJTU3Nt99+a7FYFEXhnEspSYc6xhj8l0gpAYCIQIeIjLHMzMyVK1c++eSTL7zwQlVV1cqVK1u2bPnMM88oioJN4LeQiOBeNE1DxKKiIgA4ePBgaWlpYGCg0+lMT08/dOhQv379IiIiLBaLpmlEhE0YY/DfQP9BURSXy+X1es+dO8cY+/nnn4cMGdKhQ4eysrKsrKxHH300ICAAABhjiAi/hUQE9+Lz+YjIYDBUV1d/8803vXv3zsrKKikp8Xg8DzzwQJcuXfbt29e/f/9WrVpJKRljAMA5h/8SKSURMcaI6OLFixcuXLBarb179w4NDT179uzRo0effvrphIQEIQRjDACklEwHv4VEBPcipSQdIjLGAGDRokXbt2+fOXPmqFGjvF7v3//+d6fT+cYbbzzyyCMAoGmaoiikAwBEJCLUAQARgQ4R4T8QEQAQEWNMSok60kkpGWPV1dXvvffe3/72t8TERM650WjknO/fv7+wsHD8+PGKogghUMcYg7sgEcH9EBEibt68+cqVK7NmzbJard999112dvazzz7r7+9vNpurq6tbtWpFRIqiCCHgPyAi6IgIABhjiAhNhBAAIIRARMYY6BhjXq83KyuLcx4ZGTlv3rzly5eHh4cXFhYeO3ZsyJAhVqvVbrcHBARwzhERfh8SEdyPz+cDAK/Xi4gmkyknJ2ft2rVTpkzp1KlTbW3t4sWLb926tW3bNkQkIkRkjBER6IiIMYaIUkoAYIwhIuiISAihaRpjjOt8Pp/L5bLb7Zs3bw4PD+/Tp09AQMD06dPHjRv38MMPZ2dnr1+//t13342MjCQiIYSqqvCHkIjgfohI0zTGGAB4vd4NGzZERESkpaVduHBhx44diqIUFhZ+8sknDodj586dw4YNCw4OhiaoIyJogohwl/r6+nPnzl29etVqtSYlJa1du/bVV18tLy9v2bIlY+zrr78OCwvzeDytW7fu3bu3oihCCERkjCEi/D4kIrgfKSURISIACCEcDofVar19+/ZXX31FRE6n0+fzrVq1ateuXUePHl22bJnJZJJSEhEi5ufnl5SUxMfHx8bGcs7tdjsAqKpqNpvdbvexY8c0TSOiuLi4wsLCHTt2jBs3rkePHqtWrbp161ZaWlqbNm2CgoJu6ZKSklq2bAk6ImKMoQ5+HxIR3A8RwW9JKWtrazVNCw4OXrp0aXh4+PPPPz9nzpwnnnhi0KBBQgjQ2e32999/PyAgICQkRNFlZma2bNnyypUrM2bMOH36dGlpaXp6+q5du6qqqqZPn75kyZL27duPGjXq2LFjO3fufOedd7KysiorK0eNGuXv7w8AmqZxzkGHiHA/SETwVxARAEgpAQB1e/bsCQ4O5px/9dVXS5YsCQwM9Pl8iMg5Ly4unjVr1sSJExHx888/93g8/fv3Hz58eEZGRu/evc+cOTN9+vQWLVqUlpb+z//8z+TJk/Py8k6fPv3uu+/W1NQsXbq0c+fO0dHRycnJ4eHhoENExhj8aUhE8BcRkZQSEUmnaRrn/PDhw1u3bn3ppZeSkpJCQ0NVVWWMFRQUTJo0qV27dh6P56GHHjpy5EhISEivXr02bNgwderUnTt3LliwICIiora2ds6cORMnTkTENWvWzJ07NyIiorKyknMeHBwMAKRDRABgjMGfhkQEf4WUkogQUUrJGJNSMsYAwOPxFBYW5ubmcs779etnsVg459nZ2Zs2bZo8ebLBYLDZbJMmTUpOTu7bt+977733+uuv/+tf/0LEQYMGnT179vTp02+88YbZbL548WLbtm0tFgsiEpGUknOOiETEGAMARIQ/DYkI/goiAh0RISIAkI5zDjpN0zjnoMvNzc3Ly0tPTwcAu92ekZHx97//vWvXrm+99dZDDz3Us2fPNWvWGI1GPz+/J598snXr1kSEiEQEAETEGCMdIkITRIQ/7f8B+hfgy3l5IYcAAAAASUVORK5CYII="
+      },
+      "annotations": []
+    }
+  ],
+  "tables": [],
+  "key_value_items": [],
+  "form_items": [],
+  "pages": {
+    "1": {
+      "size": {
+        "width": 612.0,
+        "height": 792.0
+      },
+      "page_no": 1
+    },
+    "2": {
+      "size": {
+        "width": 612.0,
+        "height": 792.0
+      },
+      "page_no": 2
+    },
+    "3": {
+      "size": {
+        "width": 612.0,
+        "height": 792.0
+      },
+      "page_no": 3
+    }
+  }
+}

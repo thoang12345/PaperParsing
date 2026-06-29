@@ -28,12 +28,7 @@ from docling.datamodel.pipeline_options import (
 from docling.datamodel.base_models import InputFormat
 from docling.document_converter import DocumentConverter, PdfFormatOption
 from docling.datamodel.layout_model_specs import DOCLING_LAYOUT_EGRET_LARGE
-
-#marker bullshiiittt
-from marker.converters.pdf import PdfConverter
-from marker.config.parser import ConfigParser
-from marker.models import create_model_dict
-from marker.output import text_from_rendered
+from docling_core.types.doc import ImageRefMode
 
 def giveGPUstatus() -> None:
         print("=" * 50)
@@ -339,44 +334,13 @@ markerProfiles: dict[profileNames, markerPipelineOptions] = {
                 name=profileNames.markerOCR,
                 forceOCR=True,
                 paginateOutput=True,
-                workers=1
+                workers=7
         )
 }
 
-def markerSettings(profile: markerPipelineOptions, outputFormat: str) -> dict[str, Any]:
-        config = {
-                "page_range": profile.pageRanges,
-                "force_ocr": profile.forceOCR,
-                "paginate_output": profile.paginateOutput,
-                "output_format": outputFormat,
-                "use_llm": profile.useLLM,
-                "workers": profile.workers
-        }
-        return {key : value for key, value in config.items() if value is not None}
-
-def buildMarkerConverterSettings(profile : markerPipelineOptions, models : dict[str, Any], outputFormat: str) -> PdfConverter:
-        config = markerSettings(profile, outputFormat)
-
-        configParser = ConfigParser(config)
-        configDict = configParser.generate_config_dict()
-        configDict["pdftext_workers"] = profile.workers
-
-        converter = PdfConverter(
-                config=configDict,
-                artifact_dict=models,
-                processor_list=configParser.get_processors(),
-                renderer=configParser.get_renderer(),
-                llm_service=(
-                       configParser.get_llm_service()
-                       if profile.useLLM
-                       else None
-                )
-        )
-        return converter
-
 def runMarkerCLI(batch: list[dict[str, str]], inputFolder: Path, outputFolder: Path, profile : markerPipelineOptions, parserName: str, batchNumber : int, outputFormat: str) -> dict[str, Any]:
         stageDirectory = outputFolder / "_markerStage" / parserName / f"batch_{batchNumber:03d}"
-        resultDirectory = outputFolder / "marker" / parserName / outputFormat / f"batch_{batchNumber:03d}"
+        resultDirectory = outputFolder / "marker" / parserName / outputFormat
         
         if stageDirectory.exists():
                 shutil.rmtree(stageDirectory)
@@ -405,7 +369,7 @@ def runMarkerCLI(batch: list[dict[str, str]], inputFolder: Path, outputFolder: P
         if profile.pageRanges is not None:
                command.extend(["--page_ranges", profile.pageRanges])
 
-        completed = subprocess.run(command, capture_output=True, text=True, check=False)
+        completed = subprocess.run(command, check=True)
 
         summary = {
                "parserName": parserName,
@@ -422,7 +386,7 @@ def runMarkerCLI(batch: list[dict[str, str]], inputFolder: Path, outputFolder: P
 
         return summary
 
-def convertPDFsMarker(pdfClassification : list[dict[str : str, str : str, str : str]], not_pdfs : list[dict[str : str, str : str, str : str]], inputFolder : Path) -> list[dict[str, str]]:
+def convertPDFsMarker(pdfClassification : list[dict[str : str, str : str, str : str]], not_pdfs : list[dict[str : str, str : str, str : str]], inputFolder : Path, outputFolder : Path) -> list[dict[str, str]]:
         parserPlans = chooseParserPlan(pdfClassification, not_pdfs)
         sortedParserPlans = sorted(parserPlans, key=lambda x: x["parser_plan"])
         markerPlans = [item for item in sortedParserPlans if item["parser_plan"] == "markerOCR"]
@@ -430,8 +394,30 @@ def convertPDFsMarker(pdfClassification : list[dict[str : str, str : str, str : 
         batchPlans = addParserPlansSettings(batches)
         results = []
         
-        
+        for parserName, plan in batchPlans.items():
+                settings = plan["settings"]
+                batches = plan["batches"]
 
+                for batchNumber, batch in enumerate(batches, start=1):
+                       for outputFormat in settings.outputFormat:
+                                result = runMarkerCLI(
+                                        batch=batch,
+                                        inputFolder=inputFolder,
+                                        outputFolder=outputFolder,
+                                        profile=settings,
+                                        parserName=parserName,
+                                        batchNumber=batchNumber,
+                                        outputFormat=outputFormat,
+                                )
+
+                                results.append(result)
+
+                                if result["returnCode"] != 0:
+                                        raise RuntimeError(
+                                                f"Marker failed for {parserName} batch {batchNumber} "
+                                                f"with output format {outputFormat}\n\n"
+                                                f"{result['stderr']}"
+                                        )
         return results
 
 def buildDoclingConverterSettings(profile : doclingPipelineOptions) -> DocumentConverter:
@@ -443,52 +429,69 @@ def buildDoclingConverterSettings(profile : doclingPipelineOptions) -> DocumentC
             }
         )
 
-def convertDocumentsDocling(pdfClassification : list[dict[str : str, str : str, str : str]], not_pdfs : list[dict[str : str, str : str, str : str]], inputFolder : Path) -> list[dict[str, str | Generator[DocumentConverter, None, None] | list[dict[str, str]]]]:
+def convertDocumentsDocling(pdfClassification : list[dict[str : str, str : str, str : str]], not_pdfs : list[dict[str : str, str : str, str : str]], inputFolder : Path, outputFolder : Path) -> list[dict[str, Any]]:
         parserPlans = chooseParserPlan(pdfClassification, not_pdfs)
         sortedParserPlans = sorted(parserPlans, key=lambda x: x["parser_plan"])
         batches = batchParserPlans(sortedParserPlans)
         batches.pop("markerOCR", None)
         batchPlans = addParserPlansSettings(batches)
         results = []
-        
+
         for parserName, plan in batchPlans.items():
                 print(f"Converting {parserName} plans")
+
+                profile = plan["profile"]
                 converter = plan["settings"]
 
                 for batch in plan["batches"]:
-                        files = [inputFolder / item["file"]for item in batch]
+                        files = [
+                        inputFolder / item["file"]
+                        for item in batch
+                        ]
 
                         print(f"{parserName}: {[item.name for item in files]}")
+
                         convertedFile = converter.convert_all(files)
+
                         results.append({
-                                "name" : parserName,
-                                "result" : convertedFile,
-                                "batch" : batch
+                        "name": parserName,
+                        "profile": profile,
+                        "settings": converter,
+                        "result": convertedFile,
+                        "batch": batch,
                         })
+
+                exportResults(results, outputFolder)
+
 
         return results
 
-def addParserPlansSettings(batchParserPlans : dict[str, list[list[dict[str, Any]]]]) -> dict[str,dict[str,DocumentConverter | list[list[dict[str, str]]]]]:
+def addParserPlansSettings(batchParserPlans : dict[str, list[list[dict[str, Any]]]]) -> dict[str, dict[str, Any]]:
     parserPlansWithSettings = {}
 
     for parserName, parserBatches in batchParserPlans.items():
         if parserName == "doclingOCR":
             settings = buildDoclingConverterSettings(doclingProfiles[profileNames.doclingOCR])
+            profile = doclingProfiles[profileNames.doclingOCR]
 
         elif parserName == "doclingScannedOCR":
             settings = buildDoclingConverterSettings(doclingProfiles[profileNames.doclingScannedOCR])
+            profile = doclingProfiles[profileNames.doclingScannedOCR]
 
         elif parserName == "doclingNative":
             settings = buildDoclingConverterSettings(doclingProfiles[profileNames.doclingNative])
+            profile = doclingProfiles[profileNames.doclingNative]
 
         elif parserName == "markerOCR":
             settings = markerProfiles[profileNames.markerOCR]
+            profile = buildDoclingConverterSettings
 
         else:
             continue
 
         parserPlansWithSettings[parserName] = {
             "settings": settings,
+            "profile": profile,
             "batches": parserBatches
         }
 
@@ -500,7 +503,7 @@ def batchParserPlans(parserPlans : list[dict[str, str]]) -> dict[str, list[list[
                 "doclingScannedOCR": 1,
                 "doclingOCR": 2,
                 "doclingNative": 8,
-                "markerOCR": 4,
+                "markerOCR": 12,
         }
         
         for item in parserPlans:
@@ -516,7 +519,52 @@ def batchParserPlans(parserPlans : list[dict[str, str]]) -> dict[str, list[list[
 
         return batches
 
+def doclingMarkdownUsesImages(profile: doclingPipelineOptions) -> bool:
+        return bool(profile.generatePictureImages or profile.generatePageImage)
 
+def exportResults(results: list[dict[str, Any]], outputFolder: Path) -> None:
+        for parser_result in results:
+                parserName = parser_result["name"]
+                profile = parser_result["profile"]
+                conversionGenerator = parser_result["result"]
+                batch = parser_result["batch"]
+                
+                markdownOutput = outputFolder / "docling" / parserName / "markdown"
+                jsonOutput = outputFolder / "docling" / parserName / "json"
+                assetOutput = outputFolder / "docling" / parserName / "assets"
 
+                markdownOutput.mkdir(parents=True, exist_ok=True)
+                jsonOutput.mkdir(parents=True, exist_ok=True)
+                assetOutput.mkdir(parents=True, exist_ok=True)   
 
+                useImageLinks = doclingMarkdownUsesImages(profile)
 
+        
+                print(f"\nResults from {parserName}")
+                print(f"Profile: {profile.name}")
+                print(f"Image links enabled: {useImageLinks}")
+
+                for item, conversionResult in zip(batch, conversionGenerator):
+                        document = conversionResult.document
+
+                        if document is None:
+                                print(f"Skipping failed conversion: {item['file']}")
+                                continue
+                        
+                        sourceName = item["file"]
+                        stem = Path(sourceName).stem
+
+                        markdownPath = markdownOutput / f"{stem}.md"
+                        jsonPath = jsonOutput / f"{stem}.json"
+                        artifactDir = assetOutput / stem
+                        artifactDir.mkdir(parents=True, exist_ok=True)
+                        
+                        if useImageLinks:
+                                document.save_as_markdown(markdownPath, artifactDir, image_mode=ImageRefMode.REFERENCED, page_break_placeholder="----page-break-here----")
+                                document.save_as_json(jsonPath, image_mode=ImageRefMode.PLACEHOLDER)
+
+                        else:
+                                document.save_as_markdown(markdownPath, artifactDir, image_mode=ImageRefMode.PLACEHOLDER, page_break_placeholder="----page-break-here----")
+                                document.save_as_json(jsonPath, image_mode=ImageRefMode.PLACEHOLDER)
+
+                        print(f"Generated markdown: {markdownPath} for {item['file']}")
