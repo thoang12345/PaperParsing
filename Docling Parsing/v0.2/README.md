@@ -1,3 +1,96 @@
+# Quick Start: Start WSL
+
+Use this section when you just want to start the WSL development environment and open the project.
+
+---
+
+## 1. Open PowerShell
+
+Open **PowerShell** from Windows.
+
+---
+
+## 2. Start Ubuntu WSL
+
+```powershell
+wsl -d Ubuntu-24.04
+```
+
+You should now be inside Ubuntu WSL.
+
+Example prompt:
+
+```bash
+your_user@your-machine:~$
+```
+
+---
+
+## 3. Go to the Project Folder
+
+```bash
+cd ~/projects/docparse-rocm
+```
+
+---
+
+## 4. Activate the Python Environment
+
+```bash
+source ~/venvs/docparse-rocm/bin/activate
+```
+
+You should see:
+
+```text
+(docparse-rocm)
+```
+
+at the beginning of your terminal prompt.
+
+---
+
+## 5. Open the Project in VS Code
+
+```bash
+code .
+```
+
+VS Code should open in WSL mode.
+
+Check the bottom-left corner of VS Code. It should say something like:
+
+```text
+WSL: Ubuntu-24.04
+```
+
+---
+
+## 6. Optional: Monitor WSL RAM
+
+Open another WSL terminal and run:
+
+```bash
+watch -n 1 free -h
+```
+
+This shows live WSL memory usage while Docling or Marker is running.
+
+---
+
+## One-Line Startup
+
+After everything is installed, the normal startup flow is:
+
+```bash
+wsl -d Ubuntu-24.04
+cd ~/projects/docparse-rocm
+source ~/venvs/docparse-rocm/bin/activate
+code .
+```
+
+---
+
 # Docling + Marker + ROCm + WSL Development Setup
 
 This project runs inside **Ubuntu WSL2** using **VS Code Remote WSL**, **ROCm PyTorch**, **Docling**, and optionally **Marker**.
