@@ -5,11 +5,15 @@ from bs4 import BeautifulSoup
 from Functions import functionsClassify as pdfFun
 from dataclasses import dataclass, field
 from enum import Enum
-from typing import Any, Generator
+from typing import Any
 import torch
 import time
 import subprocess
 import shutil
+import re
+import logging
+from pytictoc import TicToc
+import os
 
 #docling bullshiiiiittt
 from docling.datamodel.accelerator_options import (
@@ -30,17 +34,33 @@ from docling.document_converter import DocumentConverter, PdfFormatOption
 from docling.datamodel.layout_model_specs import DOCLING_LAYOUT_EGRET_LARGE
 from docling_core.types.doc import ImageRefMode
 
+#docling chunking bullshitttttt
+from docling.chunking import HybridChunker
+from docling_core.transforms.chunker.tokenizer.huggingface import HuggingFaceTokenizer
+from transformers import AutoTokenizer
+
+#chromaDB stuff
+import chromadb
+
+#system objects
+logging.basicConfig(level=logging.INFO,
+                     format='%(asctime)s - %(levelname)s - %(message)s',
+                     datefmt='%Y-%m-%d %I:%M:%S %p')
+logger = logging.getLogger(__name__)
+
+t = TicToc()
+
 def giveGPUstatus() -> None:
-        print("=" * 50)
-        print("torch:", torch.__version__)
-        print("hip:", torch.version.hip)
-        print("cuda available:", torch.cuda.is_available())
+        logger.info("=" * 50)
+        logger.info(f"torch: {torch.__version__}")
+        logger.info(f"hip: {torch.version.hip}")
+        logger.info(f"cuda available: {torch.cuda.is_available()}")
 
         if not torch.cuda.is_available():
                 raise SystemExit("ROCm GPU is not visible to PyTorch")
 
         device = "cuda"
-        print("device:", torch.cuda.get_device_name(0))
+        logger.info(f"device: {torch.cuda.get_device_name(0)}")
 
         x = torch.randn((4096, 4096), device=device, dtype=torch.float16)
         y = torch.randn((4096, 4096), device=device, dtype=torch.float16)
@@ -52,9 +72,9 @@ def giveGPUstatus() -> None:
                 z = x @ y
 
         torch.cuda.synchronize()
-        print("seconds:", round(time.time() - start, 3))
-        print("ok:", z.shape, z.dtype)
-        print(f"{'=' * 50}\n")
+        logger.info(f"seconds: {round(time.time() - start, 3)}")
+        logger.info(f"ok: {z.shape}, {z.dtype}")
+        logger.info(f"{'=' * 50}\n")
 
 def buildRelativePaths(paths : list[str]) -> list[Path]:
         relativePath = Path(__file__).parent.parent
@@ -144,12 +164,48 @@ def generalClassifier(path: Path, files: list[str]) -> list[dict[str, str]]:
                         })
         return pageData
 
+def printFilesAndConfigurations(pdfClassification : list[dict[str : str, str : str, str : str]], not_pdfs : list[dict[str : str, str : str, str : str]]) -> None:
+        allClassifications = [{"classification_group": "PDF",**pdf}
+        for pdf in pdfClassification
+        ] + [
+        {
+        "classification_group": "General",
+        **general
+        }
+        for general in not_pdfs
+        ]
+
+        lines = [
+        "=" * 50,
+        f"File Classifications: {len(allClassifications)} total",
+        f"PDF Classifications: {len(pdfClassification)}",
+        f"General Classifications: {len(not_pdfs)}",
+        "=" * 50,
+        ]
+
+        for index, item in enumerate(allClassifications, start=1):
+                lines.append(
+                f"{index:02d}. "
+                f"[{item['classification_group']}] "
+                f"{item['file']} | "
+                f"type={item['file_type']} | "
+                f"text={item['text_type']} | "
+                f"content={item['content_type']}"
+                )
+
+        lines.append("=" * 50)
+
+        logger.info("\n%s", "\n".join(lines))
+
 def chooseParserPlan(pdfClassification : list[dict[str : str, str : str, str : str]], not_pdfs : list[dict[str : str, str : str, str : str]]) -> list[dict[str, str]]:
         parserPlans = []
         
         for pdf in pdfClassification:
-                if pdf["content_type"] == "scientific" and (pdf["text_type"] == "mixedPDF" or pdf["text_type"] == "scannedPDF" or pdf["text_type"] == "nativePDF"):
+                if pdf["content_type"] == "scientific" and (pdf["text_type"] == "scannedPDF" or pdf["text_type"] == "nativePDF"):
                         pdf["parser_plan"] = "markerOCR"
+
+                if pdf["content_type"] == "scientific" and pdf["text_type"] == "mixedPDF":
+                        pdf["parser_plan"] = "markerOCRPlusLLM"
 
                 if pdf["content_type"] == "generic" and pdf["text_type"] == "mixedPDF":
                         pdf["parser_plan"] = "doclingOCR"
@@ -159,7 +215,10 @@ def chooseParserPlan(pdfClassification : list[dict[str : str, str : str, str : s
                 
                 if pdf["content_type"] == "generic" and pdf["text_type"] == "nativePDF":
                         pdf["parser_plan"] = "doclingNative"
-                        
+
+                if pdf["content_type"] == "generic" and pdf["text_type"] == "unknown":
+                        pdf["parser_plan"] = "doclingNative"
+
                 parserPlans.append(pdf)
         
         for notPDF in not_pdfs:
@@ -178,6 +237,7 @@ class profileNames(str, Enum):
         doclingScannedOCR = "doclingScannedOCR"
         doclingNative = "doclingNative"
         markerOCR = "markerOCR"
+        markerOCRPlusLLM = "markerOCRPlusLLM"
 
 @dataclass(frozen=True)
 class doclingPipelineOptions:
@@ -274,7 +334,7 @@ def doclingSettings(profile : doclingPipelineOptions) -> ThreadedPdfPipelineOpti
                         backend="torch",
                         lang=["english"],
                         force_full_page_ocr=profile.forceFullPageOCR,
-                        print_verbose=True,
+                        print_verbose=False,
         )
         else:
                 options.ocr_options = EasyOcrOptions(
@@ -328,13 +388,27 @@ class markerPipelineOptions:
         paginateOutput: bool = False
         useLLM: bool = False
         workers: int = 1
+        stripExistingOCR: bool = False
+        llmServices: str = ""
+        redoInlineMath: bool = False
 
 markerProfiles: dict[profileNames, markerPipelineOptions] = {
         profileNames.markerOCR: markerPipelineOptions(
                 name=profileNames.markerOCR,
-                forceOCR=True,
+                forceOCR=False,
                 paginateOutput=True,
-                workers=7
+                workers=8,
+                stripExistingOCR=True,
+                useLLM=False,
+        ),
+
+        profileNames.markerOCRPlusLLM: markerPipelineOptions(
+                name=profileNames.markerOCR,
+                forceOCR=False,
+                paginateOutput=True,
+                workers=8,
+                stripExistingOCR=True,
+                useLLM=True
         )
 }
 
@@ -368,6 +442,8 @@ def runMarkerCLI(batch: list[dict[str, str]], inputFolder: Path, outputFolder: P
                command.append("--use_llm")
         if profile.pageRanges is not None:
                command.extend(["--page_ranges", profile.pageRanges])
+        if profile.stripExistingOCR:
+               command.append("--strip_existing_ocr")
 
         completed = subprocess.run(command, check=True)
 
@@ -429,7 +505,7 @@ def buildDoclingConverterSettings(profile : doclingPipelineOptions) -> DocumentC
             }
         )
 
-def convertDocumentsDocling(pdfClassification : list[dict[str : str, str : str, str : str]], not_pdfs : list[dict[str : str, str : str, str : str]], inputFolder : Path, outputFolder : Path) -> list[dict[str, Any]]:
+def convertDocumentsDocling(pdfClassification : list[dict[str : str, str : str, str : str]], not_pdfs : list[dict[str : str, str : str, str : str]], inputFolder : Path, outputFolder : Path, chunkingTools : list[HybridChunker, HuggingFaceTokenizer]) -> list[dict[str, Any]]:
         parserPlans = chooseParserPlan(pdfClassification, not_pdfs)
         sortedParserPlans = sorted(parserPlans, key=lambda x: x["parser_plan"])
         batches = batchParserPlans(sortedParserPlans)
@@ -438,7 +514,7 @@ def convertDocumentsDocling(pdfClassification : list[dict[str : str, str : str, 
         results = []
 
         for parserName, plan in batchPlans.items():
-                print(f"Converting {parserName} plans")
+                logger.info(f"Converting {parserName} plans")
 
                 profile = plan["profile"]
                 converter = plan["settings"]
@@ -449,7 +525,7 @@ def convertDocumentsDocling(pdfClassification : list[dict[str : str, str : str, 
                         for item in batch
                         ]
 
-                        print(f"{parserName}: {[item.name for item in files]}")
+                        logger.info(f"{parserName}: {[item.name for item in files]}")
 
                         convertedFile = converter.convert_all(files)
 
@@ -461,8 +537,7 @@ def convertDocumentsDocling(pdfClassification : list[dict[str : str, str : str, 
                         "batch": batch,
                         })
 
-                exportResults(results, outputFolder)
-
+        exportResults(results, outputFolder, chunkingTools)
 
         return results
 
@@ -485,6 +560,10 @@ def addParserPlansSettings(batchParserPlans : dict[str, list[list[dict[str, Any]
         elif parserName == "markerOCR":
             settings = markerProfiles[profileNames.markerOCR]
             profile = buildDoclingConverterSettings
+
+        elif parserName == "markerOCRPlusLLM":
+                settings = markerProfiles[profileNames.markerOCRPlusLLM]
+                profile = buildDoclingConverterSettings
 
         else:
             continue
@@ -528,7 +607,7 @@ def exportResults(results: list[dict[str, Any]], outputFolder: Path) -> None:
                 profile = parser_result["profile"]
                 conversionGenerator = parser_result["result"]
                 batch = parser_result["batch"]
-                
+
                 markdownOutput = outputFolder / "docling" / parserName / "markdown"
                 jsonOutput = outputFolder / "docling" / parserName / "json"
                 assetOutput = outputFolder / "docling" / parserName / "assets"
@@ -538,33 +617,267 @@ def exportResults(results: list[dict[str, Any]], outputFolder: Path) -> None:
                 assetOutput.mkdir(parents=True, exist_ok=True)   
 
                 useImageLinks = doclingMarkdownUsesImages(profile)
-
         
-                print(f"\nResults from {parserName}")
-                print(f"Profile: {profile.name}")
-                print(f"Image links enabled: {useImageLinks}")
+                logger.info(f"\nResults from {parserName}")
+                logger.info(f"Profile: {profile.name}")
+                logger.info(f"Image links enabled: {useImageLinks}\n")
 
                 for item, conversionResult in zip(batch, conversionGenerator):
                         document = conversionResult.document
 
                         if document is None:
-                                print(f"Skipping failed conversion: {item['file']}")
+                                logger.info(f"Skipping failed conversion: {item['file']}")
                                 continue
-                        
+
                         sourceName = item["file"]
                         stem = Path(sourceName).stem
 
-                        markdownPath = markdownOutput / f"{stem}.md"
-                        jsonPath = jsonOutput / f"{stem}.json"
+                        markdownDir = markdownOutput / stem
+                        jsonDir = jsonOutput / stem
                         artifactDir = assetOutput / stem
+
+                        markdownDir.mkdir(parents=True, exist_ok=True)
+                        jsonDir.mkdir(parents=True, exist_ok=True)
                         artifactDir.mkdir(parents=True, exist_ok=True)
-                        
+
+                        markdownPath = markdownDir / f"{stem}.md"
+                        jsonPath = jsonDir / f"{stem}.json"
+
                         if useImageLinks:
-                                document.save_as_markdown(markdownPath, artifactDir, image_mode=ImageRefMode.REFERENCED, page_break_placeholder="----page-break-here----")
-                                document.save_as_json(jsonPath, image_mode=ImageRefMode.PLACEHOLDER)
-
+                                document.save_as_markdown(
+                                markdownPath,
+                                artifacts_dir=artifactDir,
+                                image_mode=ImageRefMode.REFERENCED,
+                                page_break_placeholder="----page-break-here----"
+                                )
                         else:
-                                document.save_as_markdown(markdownPath, artifactDir, image_mode=ImageRefMode.PLACEHOLDER, page_break_placeholder="----page-break-here----")
-                                document.save_as_json(jsonPath, image_mode=ImageRefMode.PLACEHOLDER)
+                                document.save_as_markdown(
+                                markdownPath,
+                                artifacts_dir=artifactDir,
+                                image_mode=ImageRefMode.PLACEHOLDER,
+                                page_break_placeholder="----page-break-here----"
+                                )
 
-                        print(f"Generated markdown: {markdownPath} for {item['file']}")
+                        document.save_as_json(
+                                jsonPath,
+                                image_mode=ImageRefMode.PLACEHOLDER
+                        )
+
+                        logger.info(f"Generated markdown: {markdownPath} for {item['file']}")
+
+def initializeDoclingChunker() -> list[HybridChunker, HuggingFaceTokenizer]:
+        EMBED_MODEL_ID = "sentence-transformers/all-MiniLM-L6-v2"
+        MAX_TOKENS = 400
+
+        logger.info("=" * 50)
+        logger.info(f"Initializing Docling Chunker with model: {EMBED_MODEL_ID} and max tokens: {MAX_TOKENS}")
+        tokenizer = HuggingFaceTokenizer(
+                tokenizer = AutoTokenizer.from_pretrained(EMBED_MODEL_ID),
+                max_tokens = MAX_TOKENS
+        )
+
+        logger.info(f"Initializing HybridChunker with tokenizer and merge_peers set to True")
+        logger.info("=" * 50 + "\n")
+        chunker = HybridChunker(
+                tokenizer=tokenizer,
+                merge_peers = True
+        )
+
+        chunkingTools = [chunker, tokenizer]
+        return chunkingTools
+
+def createChromaDBClient(chromaDBFolder: Path) -> chromadb.api.client.Client:
+        client = chromadb.PersistentClient(path=str(chromaDBFolder))
+        return client
+
+def createOrDeleteChromaDBCollection(client: chromadb.api.client.Client) -> None:
+        answer: str = ""
+
+        while answer.lower() != "n":
+                collections = getChromaDBCollections(client)
+
+                if collections == []:
+                        answer = input("\nNo existing collections found. Would you like to create a new collection? (y/n): ")
+                else: 
+                        answer = input("\nExisting collections found. Would you like to create a new collection? (y/n). Or 'd' to delete an existing collection: ")
+
+                if answer.lower() == "d":
+                        deleteChromaDBCollection(client)
+
+                if answer.lower() == "y":
+                        createChromaDBCollection(client)
+
+def getChromaDBCollections(client: chromadb.api.client.Client) -> chromadb.api.models.Collection:
+        collections = client.list_collections()
+        return collections
+
+def deleteChromaDBCollection(client: chromadb.api.client.Client) -> None:
+        collections = getChromaDBCollections(client)
+        collectionNames = [col.name for col in collections]
+        logger.info(f"Existing collections: {', '.join(collectionNames)}")
+
+        while True:
+                collectionToDelete = input("Enter the name of the collection you want to delete. Or 'q' to quit: ")
+
+                if collectionToDelete == 'q':
+                        break
+                if collectionToDelete in collectionNames:
+                        client.delete_collection(name=collectionToDelete)
+                        logger.info(f"Collection '{collectionToDelete}' deleted successfully.")
+                else:
+                        logger.info(f"Collection '{collectionToDelete}' not found.")
+                        continue
+
+def createChromaDBCollection(client: chromadb.api.client.Client) -> None:
+        collections = []
+
+        while True:
+                collectionName = input("Enter the name for the new collection or 'q' to quit: ")
+        
+                if collectionName == 'q':
+                        break
+                if collectionName.strip() == "":
+                        logger.info("Collection name cannot be empty. Please try again.")
+                        continue
+                
+                collectionDescription = input("Enter a description for the new collection (optional): ")
+                collections = client.create_collection(
+                                        name=collectionName,
+                                        metadata={"description": collectionDescription, "hnsw:space": "cosine"},
+                                        configuration = {
+                                                "hnsw": {
+                                                        "space": "cosine",
+                                                        "ef_construction": 1000,
+                                                        "ef_search": 1000,
+                                                        "max_neighbors": 64,
+                                                        "num_threads": os.cpu_count(),
+                                                        "batch_size": 100,
+                                                        "sync_threshold": 1000,
+                                                        "resize_factor": 1.2,
+                                                }
+                                        }
+                                )
+                logger.info(f"Collection '{collectionName}' created successfully.")
+
+def addToChromaDB(client: chromadb.api.client.Client) -> None:
+        collections = getChromaDBCollections(client)
+        collectionNames = [col.name for col in collections]
+        
+        
+
+        while True:
+                answer = input(f"\nDo you want to add documents to an existing collection? (y/n): ").lower()
+                
+                if answer not in ["y", "n"]:
+                        logger.info("Invalid answer, either 'y' or 'n'")
+                        continue
+                elif answer == "n":
+                        break
+
+                answer = input(f"\nSelect a collection from existing ones to add documents to: {', '.join(collectionNames)}. Or 'q' to quit: ")
+
+                if answer == 'q':
+                        break
+                if answer.strip() == "":
+                        logger.info("Input cannot be empty. Please try again.")
+                        continue
+                if answer not in collectionNames:
+                        logger.info(f"Collection '{answer}' not found. Please try again.")
+                        continue
+                if answer in collectionNames:
+                        collection = client.get_collection(name=answer)
+                        logger.info(f"Successfully found collection '{collection.name}'. You can now add documents to this collection.")
+                        fileInputPath = input("Enter the path to the file you want to add to the collection: ")
+
+                        if Path(fileInputPath).exists() and Path(fileInputPath).is_file():
+                                collection = client.get_collection(name=answer)
+                                logger.info(f"Successfully found file '{Path(fileInputPath).name}'. Adding chunks to collection '{collection.name}'...")
+
+                                with open(fileInputPath, "r", encoding="utf-8") as file:
+                                        content = file.read()
+                                        logger.info(f"Splitting {Path(fileInputPath).name} into chunks...")
+                                        
+                                        pattern = r"===\s*\d+\s*==="
+                                        chunks = re.split(pattern, content)
+                                        chunks = [chunk.strip() for chunk in chunks if chunk.strip()]
+
+                                        logger.info(f"Adding {len(chunks)} chunks to collection '{collection.name}'...")
+                                        for i, chunk in enumerate(chunks, start=1):
+                                                collection.add(
+                                                        documents=[chunk],
+                                                        metadatas=[{"source": f"{Path(fileInputPath).name}_chunk_{i}"}],
+                                                        ids=[f"{Path(fileInputPath).stem}_chunk_{i}"]
+                                                )
+                                                logger.info(f"Added chunk {i}/{len(chunks)} to collection '{collection.name}'.")
+                                continue
+                        else:
+                                logger.info(f"Collection '{answer}' not found. Please try again.")
+                                continue
+
+
+def queryChromaDB(client: chromadb.api.client.Client) -> None:
+        collections = getChromaDBCollections(client)
+        collectionNames = [col.name for col in collections]
+
+        while True:
+                answer = input(f"\nDo you want to query an existing collection? (y/n): ").lower()
+
+                if answer not in ["y", "n"]:
+                        logger.info("Invalid answer, either 'y' or 'n'")
+                        continue
+                elif answer == "n":
+                        break
+
+                answer = input(f"\nSelect a collection from existing ones to query: {', '.join(collectionNames)}. Or 'q' to quit: ")
+
+                if answer == 'q':
+                        break
+                if answer.strip() == "":
+                        logger.info("Input cannot be empty. Please try again.")
+                        continue
+                if answer not in collectionNames:
+                        logger.info(f"Collection '{answer}' not found. Please try again.")
+                        continue
+                if answer in collectionNames:
+                        collection = client.get_collection(name=answer)
+                        logger.info(f"Successfully found collection '{collection.name}'. You can now query this collection.")
+                        while True:
+                                queryInput = input("Enter your query or 'q' to quit: ")
+
+                                if queryInput.strip() == "":
+                                        logger.info("Query cannot be empty. Please try again.")
+                                        continue
+                                if queryInput == 'q':
+                                        break
+
+                                result = collection.query(
+                                        query_texts=[queryInput],
+                                        n_results=6
+                                )
+                                
+                                for ids, documents, metadatas, distances in zip(result["ids"], result["documents"], result["metadatas"], result["distances"]):
+                                        for id, document, metadata, distance in zip(ids, documents, metadatas, distances):
+                                                logger.info(f"ID: {id}\nDistance: {distance}\nDocument: {document}\nMetadata: {metadata}\n{'-'*40}")
+                                        print("\n")
+
+                                        
+def findOutputFiles(outputFolder: Path, pdfClassification : list[dict[str : str, str : str, str : str]], not_pdfs : list[dict[str : str, str : str, str : str]]) -> None:
+        parserPlans = chooseParserPlan(pdfClassification, not_pdfs)
+        sortedParserPlans = sorted(parserPlans, key=lambda x: x["parser_plan"])
+        
+        names = [Path(entry["file"]).stem for entry in sortedParserPlans]
+
+        outputFiles = []
+
+        for i, name in enumerate(names):
+                sortedParserPlans[i]["output"] = findMarkdownJSON(outputFolder, name)
+
+        return sortedParserPlans
+
+def findMarkdownJSON(outputFolder : Path, name : str) -> Path:
+        #path = [path for path in outputFolder.rglob("*") if path.is_file() and path.suffix.lower() in {".md", ".json"} and name.lower() in path.name.lower()]
+
+        markdown_file = next(outputFolder.rglob(f"{name}.md"), None)
+        json_file = next(outputFolder.rglob(f"{name}.json"), None)
+
+        return {"markdown" : markdown_file, "JSON" : json_file}
