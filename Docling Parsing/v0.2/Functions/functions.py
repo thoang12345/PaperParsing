@@ -14,6 +14,7 @@ import re
 import logging
 from pytictoc import TicToc
 import os
+import json
 
 #docling bullshiiiiittt
 from docling.datamodel.accelerator_options import (
@@ -33,6 +34,7 @@ from docling.datamodel.base_models import InputFormat
 from docling.document_converter import DocumentConverter, PdfFormatOption
 from docling.datamodel.layout_model_specs import DOCLING_LAYOUT_EGRET_LARGE
 from docling_core.types.doc import ImageRefMode
+from docling_core.types.doc import DoclingDocument
 
 #docling chunking bullshitttttt
 from docling.chunking import HybridChunker
@@ -762,8 +764,6 @@ def createChromaDBCollection(client: chromadb.api.client.Client) -> None:
 def addToChromaDB(client: chromadb.api.client.Client) -> None:
         collections = getChromaDBCollections(client)
         collectionNames = [col.name for col in collections]
-        
-        
 
         while True:
                 answer = input(f"\nDo you want to add documents to an existing collection? (y/n): ").lower()
@@ -774,7 +774,9 @@ def addToChromaDB(client: chromadb.api.client.Client) -> None:
                 elif answer == "n":
                         break
 
-                answer = input(f"\nSelect a collection from existing ones to add documents to: {', '.join(collectionNames)}. Or 'q' to quit: ")
+                #here finish the addToChromaDB for the native documents, then move on to other chunking strategies
+
+                '''answer = input(f"\nSelect a collection from existing ones to add documents to: {', '.join(collectionNames)}. Or 'q' to quit: ")
 
                 if answer == 'q':
                         break
@@ -812,7 +814,7 @@ def addToChromaDB(client: chromadb.api.client.Client) -> None:
                                 continue
                         else:
                                 logger.info(f"Collection '{answer}' not found. Please try again.")
-                                continue
+                                continue'''
 
 
 def queryChromaDB(client: chromadb.api.client.Client) -> None:
@@ -849,7 +851,8 @@ def queryChromaDB(client: chromadb.api.client.Client) -> None:
                                         continue
                                 if queryInput == 'q':
                                         break
-
+                                
+                                t.tic()
                                 result = collection.query(
                                         query_texts=[queryInput],
                                         n_results=6
@@ -859,25 +862,103 @@ def queryChromaDB(client: chromadb.api.client.Client) -> None:
                                         for id, document, metadata, distance in zip(ids, documents, metadatas, distances):
                                                 logger.info(f"ID: {id}\nDistance: {distance}\nDocument: {document}\nMetadata: {metadata}\n{'-'*40}")
                                         print("\n")
-
+                                
+                                t.toc("Query took")
                                         
-def findOutputFiles(outputFolder: Path, pdfClassification : list[dict[str : str, str : str, str : str]], not_pdfs : list[dict[str : str, str : str, str : str]]) -> None:
+def findOutputFiles(outputFolder: Path, 
+                    pdfClassification : list[dict[str : str, str : str, str : str]], 
+                    not_pdfs : list[dict[str : str, str : str, str : str]]
+                    ) -> list[dict[str, str | dict[str, Path]]]:
         parserPlans = chooseParserPlan(pdfClassification, not_pdfs)
         sortedParserPlans = sorted(parserPlans, key=lambda x: x["parser_plan"])
         
         names = [Path(entry["file"]).stem for entry in sortedParserPlans]
-
-        outputFiles = []
 
         for i, name in enumerate(names):
                 sortedParserPlans[i]["output"] = findMarkdownJSON(outputFolder, name)
 
         return sortedParserPlans
 
-def findMarkdownJSON(outputFolder : Path, name : str) -> Path:
+def findMarkdownJSON(outputFolder : Path, name : str) -> dict[str : Path]:
         #path = [path for path in outputFolder.rglob("*") if path.is_file() and path.suffix.lower() in {".md", ".json"} and name.lower() in path.name.lower()]
 
         markdown_file = next(outputFolder.rglob(f"{name}.md"), None)
         json_file = next(outputFolder.rglob(f"{name}.json"), None)
 
         return {"markdown" : markdown_file, "JSON" : json_file}
+
+def chunkDocuments(outputFolder: Path, pdfClassification : list[dict[str : str, str : str, str : str]], 
+                   not_pdfs : list[dict[str : str, str : str, str : str]],
+                   doclingChunkingTools : tuple[HybridChunker, HuggingFaceTokenizer]
+                   ) -> dict[str, list]:
+        parserOutput = findOutputFiles(outputFolder, pdfClassification, not_pdfs)
+
+        chunkOutput = {item.value: [] for item in profileNames}
+
+        for output in parserOutput:
+                file = output["file"]
+                name = Path(file).stem
+                parserPlan = output["parser_plan"]
+                JSON = (output["output"])["JSON"]
+                markdown = (output["output"])["markdown"]
+
+                if parserPlan == "doclingNative":
+                        chunks = nativeHybridChunker(name, parserPlan, JSON, doclingChunkingTools)
+                        chunkOutput["doclingNative"].append(chunks)
+
+                        logging.info(f"Sucessfully chunked {len(chunkOutput["doclingNative"])} {parserPlan} documents")
+                else:
+                        logging.info(f"No chunking plan for {name} with {parserPlan} profile.")
+
+        return chunkOutput
+
+def nativeHybridChunker(name : str, plan : str, JSON : Path, doclingTools : tuple[HybridChunker, HuggingFaceTokenizer]
+                        ) -> list[dict]:
+        chunker = doclingTools[0]
+        tokenizer = doclingTools[1]
+
+        t.tic()
+        with open(JSON, "r", encoding="utf-8") as f:
+                data = json.load(f)
+
+        document = DoclingDocument.model_validate(data)
+        chunks = list(chunker.chunk(dl_doc=document))
+
+        fileOutput = []
+        chunksOutput = []
+        classifications = set()
+
+        for chunkNumber, chunk in enumerate(chunks):
+                pageNumbers = set()
+                for item in chunk.meta.doc_items:
+                        if hasattr(item, "label") and item.label:
+                                classifications.add(str(item.label))
+                        for provenance in getattr(item, "prov", []):
+                                if hasattr(provenance, "page_no"):
+                                        pageNumbers.add(provenance.page_no)
+
+                sortedPages = sorted(list(pageNumbers))
+                tokenCount = tokenizer.count_tokens(chunk.text)
+                headings = chunk.meta.headings if chunk.meta.headings else []
+                contextualizeChunk = chunker.contextualize(chunk=chunk)
+
+                chunksOutput.append({
+                        "text" : chunk.text,
+                        "metadata" : {
+                                "headings" : headings,
+                                "pageNumbers" : sortedPages,
+                                "classifications" : list(classifications),
+                                "tokenCount" : tokenCount,
+                                "contextualize" : contextualizeChunk,
+                                "chunkNumber" : chunkNumber
+                        }
+                })
+
+        fileOutput.append({
+                "name" : name,
+                "chunks" : chunksOutput
+        })
+
+        t.toc(f"Chunked {name} with {plan} producing {len(chunks)} chunks in")
+
+        return fileOutput
