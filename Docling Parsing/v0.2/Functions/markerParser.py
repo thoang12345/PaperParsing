@@ -1,6 +1,7 @@
 from Functions import parsingProfiles
 from Functions import classify
-
+import sys
+import time
 import shutil
 import subprocess
 from pathlib import Path
@@ -45,6 +46,14 @@ def runMarkerCLI(batch: list[dict[str, str]], inputFolder: Path, outputFolder: P
                command.extend(["--page_ranges", profile.pageRanges])
         if profile.stripExistingOCR:
                command.append("--strip_existing_ocr")
+
+        print("Python:", sys.executable)
+        print("Marker:", shutil.which("marker"))
+        print("Command:", " ".join(command))
+
+        start = time.perf_counter()
+        completed = subprocess.run(command, check=True)
+        print(f"Marker took {time.perf_counter() - start:.2f} seconds")
 
         completed = subprocess.run(command, check=True)
 

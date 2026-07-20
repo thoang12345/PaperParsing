@@ -67,7 +67,7 @@ class doclingPipelineOptions:
 class markerPipelineOptions:
         name: profileNames
 
-        outputFormat: list[str] = field(default_factory=lambda: ["markdown", "json"])
+        outputFormat: list[str] = field(default_factory=lambda: ["json"])
         pageRanges: str | None = None
         forceOCR: bool = False
         paginateOutput: bool = False
@@ -126,8 +126,8 @@ markerProfiles: dict[profileNames, markerPipelineOptions] = {
                 name=profileNames.markerOCR,
                 forceOCR=False,
                 paginateOutput=True,
-                workers=8,
-                stripExistingOCR=True,
+                workers=1,
+                stripExistingOCR=False,
                 useLLM=False,
         ),
 
@@ -135,7 +135,7 @@ markerProfiles: dict[profileNames, markerPipelineOptions] = {
                 name=profileNames.markerOCRPlusLLM,
                 forceOCR=False,
                 paginateOutput=True,
-                workers=8,
+                workers=1,
                 stripExistingOCR=False,
                 useLLM=True,
                 redoInlineMath=True,
