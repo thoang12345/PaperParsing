@@ -15,6 +15,7 @@ import logging
 from pytictoc import TicToc
 import os
 import json
+from transformers import pipeline
 
 #docling bullshiiiiittt
 from docling.datamodel.accelerator_options import (
@@ -34,7 +35,8 @@ from docling.datamodel.base_models import InputFormat
 from docling.document_converter import DocumentConverter, PdfFormatOption
 from docling.datamodel.layout_model_specs import DOCLING_LAYOUT_EGRET_LARGE
 from docling_core.types.doc import ImageRefMode
-from docling_core.types.doc import DoclingDocument
+from docling_core.types.doc.document import DoclingDocument
+from docling_core.types.doc.labels import DocItemLabel
 
 #docling chunking bullshitttttt
 from docling.chunking import HybridChunker
@@ -391,7 +393,9 @@ class markerPipelineOptions:
         useLLM: bool = False
         workers: int = 1
         stripExistingOCR: bool = False
-        llmServices: str = ""
+        llmService: str = "marker.services.ollama.OllamaService"
+        ollamaBaseURL: str = "http://127.0.0.1:11434"
+        ollamaModel: str = "qwen2.5:3b"
         redoInlineMath: bool = False
 
 markerProfiles: dict[profileNames, markerPipelineOptions] = {
@@ -405,12 +409,13 @@ markerProfiles: dict[profileNames, markerPipelineOptions] = {
         ),
 
         profileNames.markerOCRPlusLLM: markerPipelineOptions(
-                name=profileNames.markerOCR,
+                name=profileNames.markerOCRPlusLLM,
                 forceOCR=False,
                 paginateOutput=True,
                 workers=8,
                 stripExistingOCR=True,
-                useLLM=True
+                useLLM=True,
+                redoInlineMath=True,
         )
 }
 
@@ -441,7 +446,14 @@ def runMarkerCLI(batch: list[dict[str, str]], inputFolder: Path, outputFolder: P
         if profile.paginateOutput:
                command.append("--paginate_output")
         if profile.useLLM:
-               command.append("--use_llm")
+                command.append("--use_llm")
+                command.extend([
+                        "--llm_service", profile.llmService,
+                        "--ollama_base_url", profile.ollamaBaseURL,
+                        "--ollama_model", profile.ollamaModel,
+                ])
+                if profile.redoInlineMath:
+                        command.append("--redo_inline_math")
         if profile.pageRanges is not None:
                command.extend(["--page_ranges", profile.pageRanges])
         if profile.stripExistingOCR:
@@ -467,7 +479,7 @@ def runMarkerCLI(batch: list[dict[str, str]], inputFolder: Path, outputFolder: P
 def convertPDFsMarker(pdfClassification : list[dict[str : str, str : str, str : str]], not_pdfs : list[dict[str : str, str : str, str : str]], inputFolder : Path, outputFolder : Path) -> list[dict[str, str]]:
         parserPlans = chooseParserPlan(pdfClassification, not_pdfs)
         sortedParserPlans = sorted(parserPlans, key=lambda x: x["parser_plan"])
-        markerPlans = [item for item in sortedParserPlans if item["parser_plan"] == "markerOCR"]
+        markerPlans = [item for item in sortedParserPlans if item["parser_plan"].startswith("marker")]
         batches = batchParserPlans(markerPlans)
         batchPlans = addParserPlansSettings(batches)
         results = []
@@ -512,6 +524,7 @@ def convertDocumentsDocling(pdfClassification : list[dict[str : str, str : str, 
         sortedParserPlans = sorted(parserPlans, key=lambda x: x["parser_plan"])
         batches = batchParserPlans(sortedParserPlans)
         batches.pop("markerOCR", None)
+        batches.pop("markerOCRPlusLLM", None)
         batchPlans = addParserPlansSettings(batches)
         results = []
 
@@ -539,7 +552,7 @@ def convertDocumentsDocling(pdfClassification : list[dict[str : str, str : str, 
                         "batch": batch,
                         })
 
-        exportResults(results, outputFolder, chunkingTools)
+        exportResults(results, outputFolder)
 
         return results
 
@@ -688,25 +701,37 @@ def initializeDoclingChunker() -> list[HybridChunker, HuggingFaceTokenizer]:
         chunkingTools = [chunker, tokenizer]
         return chunkingTools
 
+def initializeTransformer() -> pipeline:
+        generator = pipeline("text-generation", model="Qwen/Qwen2.5-3B-Instruct", device = 0 if torch.cuda.is_available() else -1)
+        return generator
+
 def createChromaDBClient(chromaDBFolder: Path) -> chromadb.api.client.Client:
         client = chromadb.PersistentClient(path=str(chromaDBFolder))
         return client
 
 def createOrDeleteChromaDBCollection(client: chromadb.api.client.Client) -> None:
-        answer: str = ""
+        quit = True
 
-        while answer.lower() != "n":
+        while quit:
                 collections = getChromaDBCollections(client)
 
                 if collections == []:
-                        answer = input("\nNo existing collections found. Would you like to create a new collection? (y/n): ")
+                        answerForCollections = getResponseFromUser(
+                                "\nNo existing collections found. Would you like to create a new collection? (y/n): ",
+                                ["y", "n"]
+                        )
                 else: 
-                        answer = input("\nExisting collections found. Would you like to create a new collection? (y/n). Or 'd' to delete an existing collection: ")
-
-                if answer.lower() == "d":
+                        answerForCollections = getResponseFromUser(
+                                "\nExisting collections found. Would you like to create a new collection? (y/n). Or 'd' to delete an existing collection: ",
+                                ["y", "n"]
+                        )
+                if answerForCollections == "quit":
+                        quit = False
+                        return
+                if answerForCollections == "d":
                         deleteChromaDBCollection(client)
 
-                if answer.lower() == "y":
+                if answerForCollections == "y":
                         createChromaDBCollection(client)
 
 def getChromaDBCollections(client: chromadb.api.client.Client) -> chromadb.api.models.Collection:
@@ -718,10 +743,15 @@ def deleteChromaDBCollection(client: chromadb.api.client.Client) -> None:
         collectionNames = [col.name for col in collections]
         logger.info(f"Existing collections: {', '.join(collectionNames)}")
 
-        while True:
-                collectionToDelete = input("Enter the name of the collection you want to delete. Or 'q' to quit: ")
+        quit = True
+        while quit:
+                collectionToDelete = getResponseFromUser(
+                        f"Enter the name of the collection you want to delete. Or 'q' to quit:\nList of collections:\n {'\n'.join(collectionNames)}\n",
+                        ["q"] + collectionNames
+                )
 
-                if collectionToDelete == 'q':
+                if collectionToDelete == 'quit':
+                        quit = False        
                         break
                 if collectionToDelete in collectionNames:
                         client.delete_collection(name=collectionToDelete)
@@ -732,138 +762,147 @@ def deleteChromaDBCollection(client: chromadb.api.client.Client) -> None:
 
 def createChromaDBCollection(client: chromadb.api.client.Client) -> None:
         collections = []
-
-        while True:
-                collectionName = input("Enter the name for the new collection or 'q' to quit: ")
         
-                if collectionName == 'q':
-                        break
-                if collectionName.strip() == "":
-                        logger.info("Collection name cannot be empty. Please try again.")
-                        continue
+        quit = True
+        while quit:
+                createCollectionName = getResponseFromUser(
+                        "Enter the name for the new collection or 'q' to quit: "
+                )
+        
+                if createCollectionName == 'quit':
+                        quit = False
+                        return
                 
-                collectionDescription = input("Enter a description for the new collection (optional): ")
+                collectionDescription = input("Enter a description for the new collection (optional; leave blank if unwanted): ")
                 collections = client.create_collection(
-                                        name=collectionName,
-                                        metadata={"description": collectionDescription, "hnsw:space": "cosine"},
-                                        configuration = {
-                                                "hnsw": {
-                                                        "space": "cosine",
-                                                        "ef_construction": 1000,
-                                                        "ef_search": 1000,
-                                                        "max_neighbors": 64,
-                                                        "num_threads": os.cpu_count(),
-                                                        "batch_size": 100,
-                                                        "sync_threshold": 1000,
-                                                        "resize_factor": 1.2,
-                                                }
-                                        }
-                                )
-                logger.info(f"Collection '{collectionName}' created successfully.")
+                        name=createCollectionName,
+                        metadata={"description": collectionDescription, "hnsw:space": "cosine"},
+                        configuration = {
+                                "hnsw": {
+                                        "space": "cosine",
+                                        "ef_construction": 1000,
+                                        "ef_search": 1000,
+                                        "max_neighbors": 64,
+                                        "num_threads": os.cpu_count(),
+                                        "batch_size": 100,
+                                        "sync_threshold": 1000,
+                                        "resize_factor": 1.2,
+                                }
+                        }
+                )
+                logger.info(f"Collection '{createCollectionName}' created successfully.")
 
-def addToChromaDB(client: chromadb.api.client.Client) -> None:
+def addToChromaDB(client: chromadb.api.client.Client, inputChunks : dict[str, list]) -> None:
         collections = getChromaDBCollections(client)
         collectionNames = [col.name for col in collections]
 
-        while True:
-                answer = input(f"\nDo you want to add documents to an existing collection? (y/n): ").lower()
-                
-                if answer not in ["y", "n"]:
-                        logger.info("Invalid answer, either 'y' or 'n'")
-                        continue
-                elif answer == "n":
-                        break
+        quit = True
+        addToChromaOrNo = getResponseFromUser(
+                f"\nDo you want to add documents to an existing collection? (y/n): ",
+                ["y", "n"]
+                )
 
-                #here finish the addToChromaDB for the native documents, then move on to other chunking strategies
+        if addToChromaOrNo == "quit":
+                return
 
-                '''answer = input(f"\nSelect a collection from existing ones to add documents to: {', '.join(collectionNames)}. Or 'q' to quit: ")
+        keysList = list(inputChunks)
+        pickProfileToAdd = getResponseFromUser(
+                f"Found profiles {', '.join(keysList)}. Pick one to ingest. Or 'q' to quit: ",
+                keysList + ["q"]
+        )
 
-                if answer == 'q':
-                        break
-                if answer.strip() == "":
-                        logger.info("Input cannot be empty. Please try again.")
-                        continue
-                if answer not in collectionNames:
-                        logger.info(f"Collection '{answer}' not found. Please try again.")
-                        continue
-                if answer in collectionNames:
-                        collection = client.get_collection(name=answer)
-                        logger.info(f"Successfully found collection '{collection.name}'. You can now add documents to this collection.")
-                        fileInputPath = input("Enter the path to the file you want to add to the collection: ")
+        if pickProfileToAdd == "quit":
+                return
+        
+        documentChunks = inputChunks[pickProfileToAdd]
+        logger.info(f"Found {len(documentChunks)} documents in {pickProfileToAdd}")
 
-                        if Path(fileInputPath).exists() and Path(fileInputPath).is_file():
-                                collection = client.get_collection(name=answer)
-                                logger.info(f"Successfully found file '{Path(fileInputPath).name}'. Adding chunks to collection '{collection.name}'...")
+        addDocumentsYorN = getResponseFromUser(
+                f"Do you want to add {pickProfileToAdd} documents to chroma? (y/n): ",
+                ["y", "n"]
+        )
 
-                                with open(fileInputPath, "r", encoding="utf-8") as file:
-                                        content = file.read()
-                                        logger.info(f"Splitting {Path(fileInputPath).name} into chunks...")
-                                        
-                                        pattern = r"===\s*\d+\s*==="
-                                        chunks = re.split(pattern, content)
-                                        chunks = [chunk.strip() for chunk in chunks if chunk.strip()]
+        if addDocumentsYorN == "quit":
+                return
 
-                                        logger.info(f"Adding {len(chunks)} chunks to collection '{collection.name}'...")
-                                        for i, chunk in enumerate(chunks, start=1):
-                                                collection.add(
-                                                        documents=[chunk],
-                                                        metadatas=[{"source": f"{Path(fileInputPath).name}_chunk_{i}"}],
-                                                        ids=[f"{Path(fileInputPath).stem}_chunk_{i}"]
-                                                )
-                                                logger.info(f"Added chunk {i}/{len(chunks)} to collection '{collection.name}'.")
-                                continue
-                        else:
-                                logger.info(f"Collection '{answer}' not found. Please try again.")
-                                continue'''
+        selectedCollection = getResponseFromUser(
+                f"\nSelect a collection from existing ones to add documents to. Or 'q' to quit:\nList of collections:\n {'\n'.join(collectionNames)}\n",
+                ["q"] + collectionNames
+        )
 
+        if selectedCollection == 'quit':
+                return
+        
+        collection = client.get_collection(name = selectedCollection)
+
+        for document in documentChunks:
+                name = document["name"]
+                chunks = document["chunks"]
+                for chunkNumber, chunk in enumerate(chunks):
+                        text = chunk["text"]
+                        metadata = chunk["metadata"]
+
+                        collection.add(
+                                ids = f"{name}_chunkNumber_{chunkNumber}",
+                                documents = [text],
+                                metadatas = [{
+                                        "document name": metadata["paperName"] or "None",
+                                        "heading": metadata["headings"] or "None",
+                                        "page numbers": metadata["pageNumbers"] or "None",
+                                        "classifications": metadata["classifications"] or "None",
+                                        "token count": metadata["tokenCount"] or "None",
+                                        "contextualize": metadata["contextualize"] or "None",
+                                        "chunk number": metadata["chunkNumber"] or "None"
+                                }],
+                        )
+
+                        logger.info(f"Added chunk {chunkNumber} of {len(chunks)} to {selectedCollection}")
 
 def queryChromaDB(client: chromadb.api.client.Client) -> None:
         collections = getChromaDBCollections(client)
         collectionNames = [col.name for col in collections]
 
-        while True:
-                answer = input(f"\nDo you want to query an existing collection? (y/n): ").lower()
+        quit = True
+        yesOrNoQuery = getResponseFromUser(
+                f"\nDo you want to query an existing collection? (y/n): ".lower(), 
+                ["y", "n"]
+        )
 
-                if answer not in ["y", "n"]:
-                        logger.info("Invalid answer, either 'y' or 'n'")
-                        continue
-                elif answer == "n":
-                        break
+        if yesOrNoQuery == "quit":
+                return 
 
-                answer = input(f"\nSelect a collection from existing ones to query: {', '.join(collectionNames)}. Or 'q' to quit: ")
+        getCollection = getResponseFromUser(
+                f"\nSelect a collection from existing ones to query: {', '.join(collectionNames)}. Or 'q' to quit: ",
+                collectionNames
+        )
+        
+        if getCollection == "quit":
+                return 
 
-                if answer == 'q':
-                        break
-                if answer.strip() == "":
-                        logger.info("Input cannot be empty. Please try again.")
-                        continue
-                if answer not in collectionNames:
-                        logger.info(f"Collection '{answer}' not found. Please try again.")
-                        continue
-                if answer in collectionNames:
-                        collection = client.get_collection(name=answer)
-                        logger.info(f"Successfully found collection '{collection.name}'. You can now query this collection.")
-                        while True:
-                                queryInput = input("Enter your query or 'q' to quit: ")
+        collection = client.get_collection(name=getCollection)
+        logger.info(f"Successfully found collection '{collection.name}'. You can now query this collection.")
+        while quit:
+                query = getResponseFromUser(
+                        "Enter your query. Or 'q' to quit: "                        
+                )
 
-                                if queryInput.strip() == "":
-                                        logger.info("Query cannot be empty. Please try again.")
-                                        continue
-                                if queryInput == 'q':
-                                        break
-                                
-                                t.tic()
-                                result = collection.query(
-                                        query_texts=[queryInput],
-                                        n_results=6
-                                )
-                                
-                                for ids, documents, metadatas, distances in zip(result["ids"], result["documents"], result["metadatas"], result["distances"]):
-                                        for id, document, metadata, distance in zip(ids, documents, metadatas, distances):
-                                                logger.info(f"ID: {id}\nDistance: {distance}\nDocument: {document}\nMetadata: {metadata}\n{'-'*40}")
-                                        print("\n")
-                                
-                                t.toc("Query took")
+                if query == "quit":
+                        quit = False
+                        return 
+
+                t.tic()
+
+                result = collection.query(
+                        query_texts=[query],
+                        n_results=6
+                )
+                
+                for ids, documents, metadatas, distances in zip(result["ids"], result["documents"], result["metadatas"], result["distances"]):
+                        for id, document, metadata, distance in zip(ids, documents, metadatas, distances):
+                                logger.info(f"ID: {id}\nDistance: {distance}\nDocument: {document}\nMetadata: {metadata}\n{'-'*40}")
+                        print("\n")
+                
+                t.toc("Query took")
                                         
 def findOutputFiles(outputFolder: Path, 
                     pdfClassification : list[dict[str : str, str : str, str : str]], 
@@ -889,7 +928,8 @@ def findMarkdownJSON(outputFolder : Path, name : str) -> dict[str : Path]:
 
 def chunkDocuments(outputFolder: Path, pdfClassification : list[dict[str : str, str : str, str : str]], 
                    not_pdfs : list[dict[str : str, str : str, str : str]],
-                   doclingChunkingTools : tuple[HybridChunker, HuggingFaceTokenizer]
+                   doclingChunkingTools : tuple[HybridChunker, HuggingFaceTokenizer],
+                   generator : pipeline
                    ) -> dict[str, list]:
         parserOutput = findOutputFiles(outputFolder, pdfClassification, not_pdfs)
 
@@ -902,18 +942,53 @@ def chunkDocuments(outputFolder: Path, pdfClassification : list[dict[str : str, 
                 JSON = (output["output"])["JSON"]
                 markdown = (output["output"])["markdown"]
 
+                if JSON is None:
+                        logger.warning(f"Missing JSON for {name}, skipping")
+                        continue
+
                 if parserPlan == "doclingNative":
                         chunks = nativeHybridChunker(name, parserPlan, JSON, doclingChunkingTools)
                         chunkOutput["doclingNative"].append(chunks)
 
                         logging.info(f"Sucessfully chunked {len(chunkOutput["doclingNative"])} {parserPlan} documents")
+                elif parserPlan == "doclingOCR":
+                        chunks = OCRHybridChunker(name, parserPlan, JSON, doclingChunkingTools, generator)
+                        chunkOutput["doclingOCR"].append(chunks)
+
+                        logging.info(f"Sucessfully chunked {len(chunkOutput["doclingOCR"])} {parserPlan} documents")
+                elif parserPlan == "doclingScannedOCR":
+                        chunks = OCRHybridChunker(name, parserPlan, JSON, doclingChunkingTools, generator)
+                        chunkOutput["doclingScannedOCR"].append(chunks)
+
+                        logging.info(f"Sucessfully chunked {len(chunkOutput["doclingScannedOCR"])} {parserPlan} documents")
+
                 else:
                         logging.info(f"No chunking plan for {name} with {parserPlan} profile.")
 
         return chunkOutput
 
-def nativeHybridChunker(name : str, plan : str, JSON : Path, doclingTools : tuple[HybridChunker, HuggingFaceTokenizer]
-                        ) -> list[dict]:
+def getResponseFromUser(question : str, correctResponse : str = "correct") -> str:
+        quit = True
+        while quit:
+                questionResponse = input(question)
+
+                if questionResponse in ["q", "n"]:
+                        quit = False
+                        return "quit"
+                
+                if questionResponse not in correctResponse and questionResponse == "":
+                        logger.info("Empty response, please type something.")
+                        continue
+
+                if correctResponse == "correct" or questionResponse in correctResponse:
+                        return questionResponse
+                
+                if questionResponse not in correctResponse:
+                        logger.info(f"Invalid answer. Try typing something like: {', '.join(correctResponse)}")
+                        continue
+                
+
+def nativeHybridChunker(name : str, plan : str, JSON : Path, doclingTools : tuple[HybridChunker, HuggingFaceTokenizer]) -> dict:
         chunker = doclingTools[0]
         tokenizer = doclingTools[1]
 
@@ -926,10 +1001,11 @@ def nativeHybridChunker(name : str, plan : str, JSON : Path, doclingTools : tupl
 
         fileOutput = []
         chunksOutput = []
-        classifications = set()
+        
 
         for chunkNumber, chunk in enumerate(chunks):
                 pageNumbers = set()
+                classifications = set()
                 for item in chunk.meta.doc_items:
                         if hasattr(item, "label") and item.label:
                                 classifications.add(str(item.label))
@@ -940,25 +1016,119 @@ def nativeHybridChunker(name : str, plan : str, JSON : Path, doclingTools : tupl
                 sortedPages = sorted(list(pageNumbers))
                 tokenCount = tokenizer.count_tokens(chunk.text)
                 headings = chunk.meta.headings if chunk.meta.headings else []
-                contextualizeChunk = chunker.contextualize(chunk=chunk)
+
+                try:
+                        contextualizeChunk = chunker.contextualize(chunk=chunk)
+                except Exception:
+                        contextualizeChunk = chunk.text
 
                 chunksOutput.append({
                         "text" : chunk.text,
                         "metadata" : {
+                                "paperName" : name,
+                                "parsingPlan": plan,
                                 "headings" : headings,
                                 "pageNumbers" : sortedPages,
                                 "classifications" : list(classifications),
                                 "tokenCount" : tokenCount,
                                 "contextualize" : contextualizeChunk,
-                                "chunkNumber" : chunkNumber
+                                "chunkNumber" : chunkNumber,
                         }
                 })
 
-        fileOutput.append({
+        fileOutput = {
                 "name" : name,
                 "chunks" : chunksOutput
-        })
-
+                }
+                
         t.toc(f"Chunked {name} with {plan} producing {len(chunks)} chunks in")
+        return fileOutput                        
 
+# Precompute artifact labels for faster membership checks
+ARTIFACT_LABELS = {
+DocItemLabel.PICTURE,
+DocItemLabel.TABLE,
+DocItemLabel.FORMULA,
+DocItemLabel.CAPTION,
+}
+
+VISUAL_LABELS = ARTIFACT_LABELS
+
+
+def OCRHybridChunker(name: str, plan: str, JSON: Path, doclingTools: tuple, generator : pipeline) -> dict:
+        chunker = doclingTools[0]
+        tokenizer = doclingTools[1]
+
+        t.tic()
+        with open(JSON, "r", encoding="utf-8") as f:
+                data = json.load(f)
+
+        document = DoclingDocument.model_validate(data)
+        chunks = list(chunker.chunk(dl_doc=document))
+
+        fileOutput = []
+        chunksOutput = []
+        
+
+        for chunkNumber, chunk in enumerate(chunks):
+                pageNumbers = set()
+                classifications = set()
+                for item in chunk.meta.doc_items:
+                        if hasattr(item, "label") and item.label:
+                                classifications.add(str(item.label))
+                        for provenance in getattr(item, "prov", []):
+                                if hasattr(provenance, "page_no"):
+                                        pageNumbers.add(provenance.page_no)
+
+                sortedPages = sorted(list(pageNumbers))
+                tokenCount = tokenizer.count_tokens(chunk.text)
+                headings = chunk.meta.headings if chunk.meta.headings else []
+
+                try:
+                        contextualizeChunk = chunker.contextualize(chunk=chunk)
+                except Exception:
+                        contextualizeChunk = chunk.text
+
+                chunksOutput.append({
+                        "text" : chunk.text,
+                        "metadata" : {
+                                "paperName" : name,
+                                "parsingPlan": plan,
+                                "headings" : headings,
+                                "pageNumbers" : sortedPages,
+                                "classifications" : list(classifications),
+                                "tokenCount" : tokenCount,
+                                "contextualize" : contextualizeChunk,
+                                "chunkNumber" : chunkNumber,
+                        }
+                })
+
+        fileOutput = {
+                "name" : name,
+                "chunks" : chunksOutput
+                }
+                
+        t.toc(f"Chunked {name} with {plan} producing {len(chunks)} chunks in")
         return fileOutput
+
+def generateArtifactContext(generator, prev_section: str, current_content: str, next_section: str) -> str:
+        """
+        Takes the surrounding text chunks and the current artifact,
+        and uses the LLM to generate a clean 2-3 sentence summary.
+        """
+        prompt = (
+                f"<|im_start|>system\n"
+                f"You are a precise academic summarizer. Your only job is to write a single, clean 2-3 sentence summary of the current chunk. "
+                f"Use the previous and next chunks only to inform your understanding — do not summarize them. "
+                f"Rules: no markdown, no bullet points, no headers, no newlines, no internal thoughts, no meta-commentary, no repetition of these instructions. "
+                f"Output only the summary paragraph and nothing else.<|im_end|>\n"
+                f"<|im_start|>user\n"
+                f"Previous chunk:\n{prev_section}\n\n"
+                f"Current chunk:\n{current_content}\n\n"
+                f"Next chunk:\n{next_section}\n"
+                f"<|im_end|>\n"
+                f"<|im_start|>assistant\n"
+        )
+
+        generation = generator(prompt, max_new_tokens=150, return_full_text=False)
+        return generation[0]["generated_text"].strip()

@@ -1,32 +1,41 @@
-from Functions import functions as fun
+from Functions import system
+from Functions import classify
+from Functions import paths
+from Functions import doclingParser as docling
+from Functions import markerParser as marker
+from Functions import llm
+from Functions import chunking
+from Functions import chroma
+from Functions import query
 
-fun.giveGPUstatus()
-chunkingTools = fun.initializeDoclingChunker()
+system.giveGPUstatus()
+chunkingTools = system.initializeDoclingChunker()
 
 folders = ["Input", "Output", "ChromaDB"]
-relativePaths = fun.buildRelativePaths(folders)
+relativePaths = paths.buildRelativePaths(folders)
 
 inputFolder = relativePaths[0]
 outputFolder = relativePaths[1] 
 chromaDBFolder = relativePaths[2]
 
-client = fun.createChromaDBClient(chromaDBFolder)
-PDFclassifications = fun.classifyPDFs(inputFolder)
-generalClassifications = fun.classifyEverythingElse(inputFolder)
+client = chroma.createChromaDBClient(chromaDBFolder)
+PDFclassifications = classify.classifyPDFs(inputFolder)
+generalClassifications = classify.classifyEverythingElse(inputFolder)
 
-fun.printFilesAndConfigurations(PDFclassifications, generalClassifications)
+classify.printFilesAndConfigurations(PDFclassifications, generalClassifications)
 
-fun.createOrDeleteChromaDBCollection(client)
+chroma.createOrDeleteChromaDBCollection(client)
 
-fun.queryChromaDB(client)
+query.queryChromaDB(client)
 
-doOrNotDoConvert = input("\nDo you want to cc;convert files? (y/n): ").lower()
+doOrNotDoConvert = input("\nDo you want to convert files? (y/n): ").lower()
 print("\n")
 
 if doOrNotDoConvert == "y":
-    markerResults = fun.convertPDFsMarker(PDFclassifications, generalClassifications, inputFolder, outputFolder)
-    doclingResults = fun.convertDocumentsDocling(PDFclassifications, generalClassifications, inputFolder, outputFolder, chunkingTools)
+    markerResults = marker.convertPDFsMarker(PDFclassifications, generalClassifications, inputFolder, outputFolder)
+    doclingResults = docling.convertDocumentsDocling(PDFclassifications, generalClassifications, inputFolder, outputFolder, chunkingTools)
 
-chunkOutput = fun.chunkDocuments(outputFolder, PDFclassifications, generalClassifications, chunkingTools)    
+generator = llm.initializeTransformer()
+chunkOutput = chunking.chunkDocuments(outputFolder, PDFclassifications, generalClassifications, chunkingTools, generator)    
 
-fun.addToChromaDB(client, chunkOutput)
+chroma.addToChromaDB(client, chunkOutput)

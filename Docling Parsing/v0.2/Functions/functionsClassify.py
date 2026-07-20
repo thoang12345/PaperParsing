@@ -4,10 +4,10 @@ from typing import Any, Literal, TypedDict
 from pathlib import Path
 import fitz
 import random
-from Functions import functions as fun
+from Functions import paths 
 
 def classifyPDFs(path : Path) -> dict[str : str]:
-        pdfs, not_pdfs = fun.separatePDFs(path)
+        pdfs, not_pdfs = paths.separatePDFs(path)
         pageData = extractPageData(path, pdfs)
         classifications = PDFclassifier(pageData)
 
