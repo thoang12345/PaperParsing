@@ -76,7 +76,7 @@ class markerPipelineOptions:
         stripExistingOCR: bool = False
         llmService: str = "marker.services.ollama.OllamaService"
         ollamaBaseURL: str = "http://127.0.0.1:11434"
-        ollamaModel: str = "qwen2.5:3b"
+        ollamaModel: str = "llama3.2-vision"
         redoInlineMath: bool = False
 
 doclingProfiles: dict[profileNames, doclingPipelineOptions] = {
@@ -136,7 +136,7 @@ markerProfiles: dict[profileNames, markerPipelineOptions] = {
                 forceOCR=False,
                 paginateOutput=True,
                 workers=8,
-                stripExistingOCR=True,
+                stripExistingOCR=False,
                 useLLM=True,
                 redoInlineMath=True,
         )
