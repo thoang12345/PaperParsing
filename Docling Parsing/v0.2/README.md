@@ -6,6 +6,11 @@ Start the Surya inference server:
 
 ```bash
 docker start surya-vllm
+```
+
+Follow the startup logs:
+
+```bash
 docker logs -f surya-vllm
 ```
 
@@ -23,7 +28,7 @@ Marker will automatically connect to:
 http://localhost:8000/v1
 ```
 
-When you're finished, stop the inference server:
+When you're finished:
 
 ```bash
 docker stop surya-vllm
@@ -104,7 +109,6 @@ Create the Docker container once:
 ```bash
 docker run -d \
   --name surya-vllm \
-  --restart unless-stopped \
   --device /dev/kfd \
   --device /dev/dri \
   -v ~/.cache/huggingface:/root/.cache/huggingface \
@@ -168,6 +172,16 @@ curl http://localhost:8000/v1/models
 If model information is returned, the Surya inference server is ready.
 
 ---
+
+## Recovering from a Failed Container
+
+If the container exits during startup, remove it completely:
+
+```bash
+docker rm -f surya-vllm
+```
+
+Then recreate it using the **Create the Surya Server** command above.
 
 # Install Marker
 
