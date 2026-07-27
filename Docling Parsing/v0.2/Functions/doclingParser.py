@@ -14,7 +14,7 @@ def convertDocumentsDocling(pdfClassification : list[dict[str : str, str : str, 
         batches = classify.batchParserPlans(sortedParserPlans)
         batches.pop("markerOCR", None)
         batches.pop("markerOCRPlusLLM", None)
-        batchPlans = parsingProfiles.addParserPlansSettings(batches)
+        batchPlans = parsingProfiles.addDoclingParserSettings(batches)
         results = []
 
         for parserName, plan in batchPlans.items():

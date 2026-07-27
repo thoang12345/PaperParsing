@@ -1,1 +1,6 @@
 *.Identifier
+/Docling Parsing/v0.2/rag-ROCM
+/Docling Parsing/v0.2/Functions/__pycache__
+*.pyc
+*.pyc
+/Docling Parsing/v0.2/Functions/__pycache__

@@ -4,7 +4,16 @@ from pytictoc import TicToc
 logging.basicConfig(level=logging.INFO,
                      format='%(asctime)s - %(levelname)s - %(message)s',
                      datefmt='%Y-%m-%d %I:%M:%S %p')
+
+logging.getLogger("httpx").setLevel(logging.WARNING)
+logging.getLogger("httpcore").setLevel(logging.WARNING)
+logging.getLogger("openai").setLevel(logging.WARNING)
+logging.getLogger("marker").setLevel(logging.INFO)
+logging.getLogger("surya").setLevel(logging.WARNING)
+
 logger = logging.getLogger(__name__)
+
+
 
 t = TicToc()
 

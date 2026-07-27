@@ -1,655 +1,211 @@
-# Quick Start: Start WSL
+## Quick Start
 
-Use this section when you just want to start the WSL development environment and open the project.
+After the container has been created once:
 
----
-
-## 1. Open PowerShell
-
-Open **PowerShell** from Windows.
-
----
-
-## 2. Start Ubuntu WSL
-
-```powershell
-wsl -d Ubuntu-24.04
-```
-
-You should now be inside Ubuntu WSL.
-
-Example prompt:
+Start the Surya inference server:
 
 ```bash
-your_user@your-machine:~$
+docker start surya-vllm
+docker logs -f surya-vllm
 ```
 
----
+Press **Ctrl+C** to stop following the logs. The container will continue running.
 
-## 3. Go to the Project Folder
+In another terminal:
 
 ```bash
-cd ~/projects/docparse-rocm
+python main.py
 ```
 
----
-
-## 4. Activate the Python Environment
-
-```bash
-source ~/venvs/docparse-rocm/bin/activate
-```
-
-You should see:
+Marker will automatically connect to:
 
 ```text
-(docparse-rocm)
+http://localhost:8000/v1
 ```
 
-at the beginning of your terminal prompt.
-
----
-
-## 5. Open the Project in VS Code
+When you're finished, stop the inference server:
 
 ```bash
-code .
-```
-
-VS Code should open in WSL mode.
-
-Check the bottom-left corner of VS Code. It should say something like:
-
-```text
-WSL: Ubuntu-24.04
+docker stop surya-vllm
 ```
 
 ---
+# Deploying Marker 2 & Surya OCR-2 with vLLM on AMD Strix Halo (ROCm)
 
-## 6. Optional: Monitor WSL RAM
+This guide describes how to deploy **Marker 2** with **Surya OCR-2** using an external **vLLM** inference server running inside a Docker container.
 
-Open another WSL terminal and run:
+This setup has been tested on **AMD Strix Halo APUs** (`gfx1151` / RDNA 3.5) running Arch Linux with ROCm. Marker performs document parsing locally while Surya uses a persistent OpenAI-compatible vLLM server for OCR, layout analysis, and vision-language inference.
+
+---
+
+## Why Use Docker?
+
+Arch Linux is a rolling-release distribution where libraries such as `glibc`, ROCm, and compiler toolchains are updated frequently.
+
+Running the vLLM inference server inside Docker isolates these dependencies from the host system while still allowing direct access to the AMD GPU through ROCm device passthrough.
+
+Marker itself continues to run natively inside a Python virtual environment and communicates with the server through HTTP.
+
+---
+
+# Install Docker
+
+Install Docker and enable the service:
 
 ```bash
-watch -n 1 free -h
+sudo pacman -Syu docker
+
+sudo systemctl enable --now docker
 ```
 
-This shows live WSL memory usage while Docling or Marker is running.
-
----
-
-## One-Line Startup
-
-After everything is installed, the normal startup flow is:
+Allow your user to access Docker and the ROCm devices:
 
 ```bash
-wsl -d Ubuntu-24.04
-cd ~/projects/docparse-rocm
-source ~/venvs/docparse-rocm/bin/activate
-code .
+sudo usermod -aG docker,video,render $USER
 ```
+
+Log out and back in (or reboot) so the new group memberships take effect.
 
 ---
 
-# Docling + Marker + ROCm + WSL Development Setup
+# Configure Marker
 
-This project runs inside **Ubuntu WSL2** using **VS Code Remote WSL**, **ROCm PyTorch**, **Docling**, and optionally **Marker**.
+Marker should always use the external Surya inference server.
 
-The recommended workflow is:
-
-```text
-Windows 11
-  ↓
-WSL2 Ubuntu 24.04
-  ↓
-ROCm / ROCDXG
-  ↓
-Python venv: docparse-rocm
-  ↓
-VS Code Remote WSL
-  ↓
-Docling / Marker parsing
-```
-
----
-
-# 1. Start WSL
-
-Open **PowerShell** and run:
-
-```powershell
-wsl -d Ubuntu-24.04
-```
-
-You should see a Linux prompt like:
+Add the following to your shell configuration:
 
 ```bash
-your_user@your-machine:~$
-```
+echo 'export SURYA_INFERENCE_BACKEND=vllm' >> ~/.bashrc
+echo 'export SURYA_INFERENCE_URL=http://localhost:8000/v1' >> ~/.bashrc
 
----
-
-# 2. Go to the Project Folder
-
-Inside WSL:
-
-```bash
-cd ~/projects/docparse-rocm
+source ~/.bashrc
 ```
 
 Verify:
 
 ```bash
-pwd
+echo $SURYA_INFERENCE_BACKEND
+echo $SURYA_INFERENCE_URL
 ```
 
 Expected:
 
 ```text
-/home/your_user/projects/docparse-rocm
+vllm
+http://localhost:8000/v1
 ```
 
 ---
 
-# 3. Activate the Python Environment
+# Create the Surya Server
+
+Create the Docker container once:
 
 ```bash
-source ~/venvs/docparse-rocm/bin/activate
+docker run -d \
+  --name surya-vllm \
+  --restart unless-stopped \
+  --device /dev/kfd \
+  --device /dev/dri \
+  -v ~/.cache/huggingface:/root/.cache/huggingface \
+  -p 8000:8000 \
+  -e HSA_OVERRIDE_GFX_VERSION=11.5.0 \
+  -e MIOPEN_FIND_MODE=2 \
+  -e PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True \
+  vllm/vllm-openai-rocm:latest \
+  --model datalab-to/surya-ocr-2 \
+  --served-model-name datalab-to/surya-ocr-2 \
+  --dtype bfloat16 \
+  --max-model-len 16384 \
+  --max-num-batched-tokens 4096 \
+  --mm-processor-kwargs '{"min_pixels":3136,"max_pixels":1048576}' \
+  --gpu-memory-utilization 0.2 \
+  --port 8000
 ```
 
-Your terminal should now show:
-
-```text
-(docparse-rocm)
-```
-
-Example:
-
-```bash
-(docparse-rocm) your_user@your-machine:~/projects/docparse-rocm$
-```
+This only needs to be done once.
 
 ---
 
-# 4. Verify the Python Interpreter
+# Daily Startup
+
+For normal development sessions, simply start the existing container:
 
 ```bash
-which python
+docker start surya-vllm
 ```
 
-Expected:
-
-```text
-/home/your_user/venvs/docparse-rocm/bin/python
-```
-
-Check PyTorch:
+Follow the startup logs if desired:
 
 ```bash
-python -c "import torch; print(torch.__version__)"
+docker logs -f surya-vllm
 ```
 
-Expected:
-
-```text
-2.9.1+rocm7.2.1...
-```
+Press **Ctrl+C** to stop following the logs. The container will continue running.
 
 ---
 
-# 5. Verify ROCm / GPU Access
+# Verify the Server
 
-Check that ROCm can see the AMD GPU:
-
-```bash
-rocminfo | grep -E "Name:|Marketing Name:|gfx"
-```
-
-Expected output should include something like:
-
-```text
-gfx1151
-AMD Radeon(TM) 8060S Graphics
-```
-
-Then verify PyTorch GPU access:
+Confirm that the container is running:
 
 ```bash
-python - <<'PY'
-import torch
-
-print("Torch:", torch.__version__)
-print("HIP:", torch.version.hip)
-print("CUDA Available:", torch.cuda.is_available())
-
-if torch.cuda.is_available():
-    print("GPU:", torch.cuda.get_device_name(0))
-PY
+docker ps
 ```
 
-Expected:
+You should see:
 
 ```text
-CUDA Available: True
-GPU: AMD Radeon(TM) 8060S Graphics
+surya-vllm
 ```
 
-Note: on ROCm, PyTorch still uses the `torch.cuda` API. Seeing `cuda` here is normal.
+Then verify the inference endpoint:
+
+```bash
+curl http://localhost:8000/v1/models
+```
+
+If model information is returned, the Surya inference server is ready.
 
 ---
 
-# 6. Open VS Code from WSL
+# Install Marker
 
-From the project folder:
+Inside your Python virtual environment:
 
 ```bash
-code .
+pip install surya-ocr==0.22.1
+pip install marker-pdf==2.0.0
 ```
 
-VS Code should open in WSL mode.
+Marker will automatically connect to the external Surya server using the environment variables configured earlier.
 
-Check the bottom-left corner of VS Code. It should say something like:
-
-```text
-WSL: Ubuntu-24.04
-```
-
-If it does not, use:
-
-```text
-Ctrl + Shift + P
-WSL: Reopen Folder in WSL
-```
+No additional OpenAI environment variables are required.
 
 ---
 
-# 7. Select the Correct Python Interpreter in VS Code
-
-In VS Code:
+# Architecture
 
 ```text
-Ctrl + Shift + P
-Python: Select Interpreter
-```
-
-Choose:
-
-```text
-/home/your_user/venvs/docparse-rocm/bin/python
-```
-
-If imports like `torch`, `docling`, `bs4`, or `httpx` show as unresolved, first verify that VS Code is using this interpreter before installing anything.
-
----
-
-# 8. Run Python Files
-
-Open a Python file and click:
-
-```text
-Run Python File
-```
-
-or run from the terminal:
-
-```bash
-python main.py
-```
-
----
-
-# 9. Monitor WSL RAM Usage
-
-To check memory once:
-
-```bash
-free -h
-```
-
-Example output:
-
-```text
-               total        used        free      shared  buff/cache   available
-Mem:            94Gi       1.5Gi        92Gi       3.6Mi       1.3Gi        92Gi
-Swap:           32Gi          0B        32Gi
-```
-
-To monitor memory live while Docling or Marker is running:
-
-```bash
-watch -n 1 free -h
-```
-
-This refreshes memory usage every second.
-
-Useful things to watch:
-
-```text
-Mem total      = RAM available to WSL
-Mem used       = RAM currently used
-Mem available  = RAM still available
-Swap used      = whether WSL is spilling into swap
-```
-
-If `Swap used` starts climbing heavily, reduce parser batch sizes or increase WSL memory/swap in `.wslconfig`.
-
----
-
-# 10. WSL Memory Configuration
-
-The WSL memory configuration file is on the Windows side:
-
-```text
-C:\Users\<WindowsUsername>\.wslconfig
-```
-
-Example for a 128 GB system:
-
-```ini
-[wsl2]
-memory=96GB
-processors=32
-swap=32GB
-```
-
-After changing `.wslconfig`, restart WSL from PowerShell:
-
-```powershell
-wsl --shutdown
-```
-
-Then start WSL again:
-
-```powershell
-wsl -d Ubuntu-24.04
-```
-
-Check the result:
-
-```bash
-free -h
-```
-
-You should see close to the configured memory amount.
-
----
-
-# 11. GPU Monitoring Notes
-
-In WSL with ROCm / ROCDXG, this command may not work:
-
-```bash
-watch -n 1 rocm-smi
-```
-
-It may return:
-
-```text
-Driver not initialized (amdgpu not found in modules)
-```
-
-That is expected in this WSL setup because the Windows AMD driver is handling the GPU.
-
-Use these instead:
-
-```text
-Windows Task Manager → Performance → GPU
-AMD Adrenalin → Performance → Metrics
-```
-
-Inside WSL, use PyTorch memory stats for basic GPU allocation checks:
-
-```bash
-python - <<'PY'
-import torch
-
-print("GPU Available:", torch.cuda.is_available())
-print("Device:", torch.cuda.get_device_name(0))
-
-print("Allocated GB:", round(torch.cuda.memory_allocated() / 1024**3, 2))
-print("Reserved GB:", round(torch.cuda.memory_reserved() / 1024**3, 2))
-print("Max Allocated GB:", round(torch.cuda.max_memory_allocated() / 1024**3, 2))
-PY
-```
-
----
-
-# 12. Quick GPU Stress Test
-
-Run this to confirm PyTorch can use the AMD GPU:
-
-```bash
-python - <<'PY'
-import time
-import torch
-
-device = "cuda"
-
-print("Torch:", torch.__version__)
-print("HIP:", torch.version.hip)
-print("CUDA Available:", torch.cuda.is_available())
-print("Device:", torch.cuda.get_device_name(0))
-
-x = torch.randn((4096, 4096), device=device, dtype=torch.float16)
-y = torch.randn((4096, 4096), device=device, dtype=torch.float16)
-
-torch.cuda.synchronize()
-start = time.time()
-
-for _ in range(20):
-    z = x @ y
-
-torch.cuda.synchronize()
-
-print("Seconds:", round(time.time() - start, 3))
-print("Result:", z.shape, z.dtype)
-print("Allocated GB:", round(torch.cuda.memory_allocated() / 1024**3, 2))
-PY
-```
-
-While it runs, monitor RAM in another WSL terminal:
-
-```bash
-watch -n 1 free -h
-```
-
-And monitor GPU activity from Windows Task Manager or AMD Adrenalin.
-
----
-
-# 13. Common Commands
-
-Activate environment:
-
-```bash
-source ~/venvs/docparse-rocm/bin/activate
-```
-
-Deactivate environment:
-
-```bash
-deactivate
-```
-
-Open project in VS Code:
-
-```bash
-cd ~/projects/docparse-rocm
-code .
-```
-
-Check WSL RAM:
-
-```bash
-free -h
-```
-
-Watch WSL RAM live:
-
-```bash
-watch -n 1 free -h
-```
-
-Check ROCm GPU detection:
-
-```bash
-rocminfo | grep -E "Name:|Marketing Name:|gfx"
-```
-
-Check PyTorch GPU:
-
-```bash
-python -c "import torch; print(torch.version.hip); print(torch.cuda.is_available()); print(torch.cuda.get_device_name(0))"
-```
-
-Run the main script:
-
-```bash
-python main.py
-```
-
----
-
-# 14. Typical Startup Workflow
-
-Every development session:
-
-```bash
-wsl -d Ubuntu-24.04
-
-cd ~/projects/docparse-rocm
-
-source ~/venvs/docparse-rocm/bin/activate
-
-code .
-```
-
-Then in VS Code, use:
-
-```text
-Run Python File
-```
-
-or run manually:
-
-```bash
-python main.py
-```
-
----
-
-# 15. Troubleshooting
-
-## VS Code cannot resolve imports
-
-If Pylance says imports like `torch`, `docling`, `bs4`, or `httpx` cannot be resolved, check the selected interpreter:
-
-```text
-Ctrl + Shift + P
-Python: Select Interpreter
-```
-
-Choose:
-
-```text
-/home/your_user/venvs/docparse-rocm/bin/python
-```
-
-Then reload VS Code:
-
-```text
-Ctrl + Shift + P
-Developer: Reload Window
-```
-
----
-
-## `torch` works in terminal but not in VS Code
-
-Run this in the VS Code terminal:
-
-```bash
-which python
-python -c "import torch; print(torch.__version__)"
-```
-
-Expected:
-
-```text
-/home/your_user/venvs/docparse-rocm/bin/python
-2.9.1+rocm7.2.1...
-```
-
-If this works, the issue is VS Code interpreter selection, not pip.
-
----
-
-## WSL shows only 62 GiB RAM on a 128 GB system
-
-That usually means `.wslconfig` is not being applied.
-
-Check from PowerShell:
-
-```powershell
-type $env:USERPROFILE\.wslconfig
-```
-
-Then restart WSL:
-
-```powershell
-wsl --shutdown
-```
-
-Start it again:
-
-```powershell
-wsl -d Ubuntu-24.04
-```
-
-Check:
-
-```bash
-free -h
-```
-
----
-
-## `rocm-smi` does not work
-
-This is expected in WSL / ROCDXG.
-
-Use:
-
-```text
-Windows Task Manager
-AMD Adrenalin
-PyTorch memory stats
-watch -n 1 free -h
-```
-
-instead.
-
----
-
-# 16. Recommended Project Layout
-
-```text
-docparse-rocm/
-├── Input/
-├── Output/
-├── Functions/
-│   ├── functions.py
-│   └── functionsClassify.py
-├── main.py
-├── README.md
-└── .vscode/
-    └── settings.json
-```
-
-Recommended `.vscode/settings.json`:
-
-```json
-{
-  "python.defaultInterpreterPath": "/home/your_user/venvs/docparse-rocm/bin/python"
-}
+PDF
+ │
+ ▼
+Marker 2
+ │
+ ├── Layout
+ ├── OCR
+ ├── Table Recognition
+ └── LLM Processors
+ │
+ ▼
+Surya Inference Manager
+ │
+ ▼
+External vLLM Server (Docker)
+ │
+ ▼
+Surya OCR-2
+ │
+ ▼
+Markdown + JSON + Images
 ```

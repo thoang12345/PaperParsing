@@ -1,5 +1,18 @@
 from transformers import pipeline
+from marker.services.ollama import OllamaService
 import torch
+
+def buildMarkerOllamaService(
+    model: str = "gemma4:e4b",
+    baseUrl: str = "http://localhost:11434",
+) -> OllamaService:
+
+    return OllamaService(
+        config={
+            "ollama_model": model,
+            "ollama_base_url": baseUrl,
+        }
+    )
 
 def generateArtifactContext(generator, prev_section: str, current_content: str, next_section: str) -> str:
         """

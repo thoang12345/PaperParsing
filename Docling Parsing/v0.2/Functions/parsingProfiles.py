@@ -19,6 +19,9 @@ from docling.datamodel.layout_model_specs import DOCLING_LAYOUT_EGRET_LARGE
 from docling.datamodel.base_models import InputFormat
 from docling.document_converter import DocumentConverter, PdfFormatOption
 
+from marker.services import BaseService
+from Functions.llm import buildMarkerOllamaService
+
 class profileNames(str, Enum):
         doclingOCR = "doclingOCR"
         doclingScannedOCR = "doclingScannedOCR"
@@ -65,19 +68,23 @@ class doclingPipelineOptions:
 
 @dataclass(frozen=True)
 class markerPipelineOptions:
-        name: profileNames
+    name: profileNames
 
-        outputFormat: list[str] = field(default_factory=lambda: ["json"])
-        pageRanges: str | None = None
-        forceOCR: bool = False
-        paginateOutput: bool = False
-        useLLM: bool = False
-        workers: int = 1
-        stripExistingOCR: bool = False
-        llmService: str = "marker.services.ollama.OllamaService"
-        ollamaBaseURL: str = "http://127.0.0.1:11434"
-        ollamaModel: str = "llama3.2-vision"
-        redoInlineMath: bool = False
+    pageRanges: str | None = None
+
+    forceOCR: bool = False
+    paginateOutput: bool = True
+    stripExistingOCR: bool = False
+
+    useLLM: bool = False
+    redoInlineMath: bool = False
+
+    mode: str = "balanced"
+
+    llmService: str | None = None
+
+    ollamaBaseUrl: str = "http://localhost:11434"
+    ollamaModel: str = "gemma4:e4b"
 
 doclingProfiles: dict[profileNames, doclingPipelineOptions] = {
         profileNames.doclingNative: doclingPipelineOptions(
@@ -126,7 +133,6 @@ markerProfiles: dict[profileNames, markerPipelineOptions] = {
                 name=profileNames.markerOCR,
                 forceOCR=False,
                 paginateOutput=True,
-                workers=1,
                 stripExistingOCR=False,
                 useLLM=False,
         ),
@@ -135,10 +141,11 @@ markerProfiles: dict[profileNames, markerPipelineOptions] = {
                 name=profileNames.markerOCRPlusLLM,
                 forceOCR=False,
                 paginateOutput=True,
-                workers=1,
                 stripExistingOCR=False,
                 useLLM=True,
                 redoInlineMath=True,
+                llmService="marker.services.ollama.OllamaService",
+                ollamaModel="gemma4:e4b",
         )
 }
 
@@ -211,7 +218,7 @@ def buildDoclingConverterSettings(profile : doclingPipelineOptions) -> DocumentC
             }
         )
 
-def addParserPlansSettings(batchParserPlans : dict[str, list[list[dict[str, Any]]]]) -> dict[str, dict[str, Any]]:
+def addDoclingParserSettings(batchParserPlans : dict[str, list[list[dict[str, Any]]]]) -> dict[str, dict[str, Any]]:
     parserPlansWithSettings = {}
 
     for parserName, parserBatches in batchParserPlans.items():
@@ -227,14 +234,6 @@ def addParserPlansSettings(batchParserPlans : dict[str, list[list[dict[str, Any]
             settings = buildDoclingConverterSettings(doclingProfiles[profileNames.doclingNative])
             profile = doclingProfiles[profileNames.doclingNative]
 
-        elif parserName == "markerOCR":
-            settings = markerProfiles[profileNames.markerOCR]
-            profile = buildDoclingConverterSettings
-
-        elif parserName == "markerOCRPlusLLM":
-                settings = markerProfiles[profileNames.markerOCRPlusLLM]
-                profile = buildDoclingConverterSettings
-
         else:
             continue
 
@@ -245,3 +244,11 @@ def addParserPlansSettings(batchParserPlans : dict[str, list[list[dict[str, Any]
         }
 
     return parserPlansWithSettings
+
+def getMarkerProfile(parserName: str) -> markerPipelineOptions:
+    profileMap = {
+        "markerOCR": profileNames.markerOCR,
+        "markerOCRPlusLLM": profileNames.markerOCRPlusLLM,
+    }
+
+    return markerProfiles[profileMap[parserName]]

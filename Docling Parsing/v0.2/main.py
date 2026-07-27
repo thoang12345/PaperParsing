@@ -8,6 +8,7 @@ from Functions import chunking
 from Functions import chroma
 from Functions import query
 
+
 system.giveGPUstatus()
 chunkingTools = system.initializeDoclingChunker()
 
@@ -32,10 +33,10 @@ doOrNotDoConvert = input("\nDo you want to convert files? (y/n): ").lower()
 print("\n")
 
 if doOrNotDoConvert == "y":
-    markerResults = marker.convertPDFsMarker(PDFclassifications, generalClassifications, inputFolder, outputFolder)
+    markerResults = marker.convertDocumentsMarker(PDFclassifications, generalClassifications, inputFolder, outputFolder)
     doclingResults = docling.convertDocumentsDocling(PDFclassifications, generalClassifications, inputFolder, outputFolder, chunkingTools)
 
-generator = llm.initializeTransformer()
+'''generator = llm.initializeTransformer()
 chunkOutput = chunking.chunkDocuments(outputFolder, PDFclassifications, generalClassifications, chunkingTools, generator)    
 
-chroma.addToChromaDB(client, chunkOutput)
+chroma.addToChromaDB(client, chunkOutput)'''
