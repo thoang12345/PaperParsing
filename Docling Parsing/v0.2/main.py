@@ -19,6 +19,8 @@ inputFolder = relativePaths[0]
 outputFolder = relativePaths[1] 
 chromaDBFolder = relativePaths[2]
 
+print(chromaDBFolder)
+
 client = chroma.createChromaDBClient(chromaDBFolder)
 pdfClassifications = classify.classifyPDFs(inputFolder)
 generalClassifications = classify.classifyEverythingElse(inputFolder)
