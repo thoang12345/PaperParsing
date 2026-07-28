@@ -1,0 +1,352 @@
+{
+  "table_of_contents": [
+    {
+      "title": "Digital Twin Model for Predicting the Thermal Profile of Power Cables for Naval Shipboard Power Systems",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          46.512,
+          52.272
+        ],
+        [
+          566.1,
+          52.272
+        ],
+        [
+          566.1,
+          132.264
+        ],
+        [
+          46.512,
+          132.264
+        ]
+      ]
+    },
+    {
+      "title": "I INTRODUCTION",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          135.252,
+          486.288
+        ],
+        [
+          212.36399999999998,
+          486.288
+        ],
+        [
+          212.36399999999998,
+          497.376
+        ],
+        [
+          135.252,
+          497.376
+        ]
+      ]
+    },
+    {
+      "title": "II TESTBED FOR ELECTRO-THERMAL DIGITAL TWIN",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          332.31600000000003,
+          522.72
+        ],
+        [
+          538.5600000000001,
+          522.72
+        ],
+        [
+          538.5600000000001,
+          533.808
+        ],
+        [
+          332.31600000000003,
+          533.808
+        ]
+      ]
+    },
+    {
+      "title": "III C S",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          128.51999999999998,
+          565.4879999999999
+        ],
+        [
+          218.484,
+          565.4879999999999
+        ],
+        [
+          218.484,
+          580.1180267333984
+        ],
+        [
+          128.51999999999998,
+          580.1180267333984
+        ]
+      ]
+    },
+    {
+      "title": "IV  &",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          362.304,
+          578.16
+        ],
+        [
+          507.96,
+          578.16
+        ],
+        [
+          507.96,
+          592.4807739257812
+        ],
+        [
+          362.304,
+          592.4807739257812
+        ]
+      ]
+    },
+    {
+      "title": "A",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          130.356,
+          493.3407897949219
+        ],
+        [
+          217.26,
+          493.3407897949219
+        ],
+        [
+          217.26,
+          506.6850280761719
+        ],
+        [
+          130.356,
+          506.6850280761719
+        ]
+      ]
+    },
+    {
+      "title": "R",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          148.10399999999998,
+          589.8139038085938
+        ],
+        [
+          199.512,
+          589.8139038085938
+        ],
+        [
+          199.512,
+          603.1581573486328
+        ],
+        [
+          148.10399999999998,
+          603.1581573486328
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "surya",
+      "block_counts": [
+        [
+          "Text",
+          30
+        ],
+        [
+          "SectionHeader",
+          6
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "PageFooter",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 1,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          359
+        ],
+        [
+          "Line",
+          102
+        ],
+        [
+          "Text",
+          8
+        ],
+        [
+          "Caption",
+          3
+        ],
+        [
+          "Equation",
+          3
+        ],
+        [
+          "Picture",
+          1
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "PictureGroup",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 2,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          248
+        ],
+        [
+          "Line",
+          104
+        ],
+        [
+          "Caption",
+          4
+        ],
+        [
+          "Text",
+          4
+        ],
+        [
+          "Figure",
+          3
+        ],
+        [
+          "FigureGroup",
+          3
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Diagram",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 3,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          161
+        ],
+        [
+          "Line",
+          70
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/Sado2023DigitalTwinModel"
+}

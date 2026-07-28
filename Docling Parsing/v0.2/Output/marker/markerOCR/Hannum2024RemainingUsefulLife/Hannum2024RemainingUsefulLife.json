@@ -1,0 +1,421 @@
+{
+  "table_of_contents": [
+    {
+      "title": "Remaining Useful Life digital shadow for an\neVTOL Powertrain",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          80.172,
+          48.312
+        ],
+        [
+          528.768,
+          48.312
+        ],
+        [
+          528.768,
+          104.6766357421875
+        ],
+        [
+          80.172,
+          104.6766357421875
+        ]
+      ]
+    },
+    {
+      "title": "I. INTRODUCTION",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          135.864,
+          370.656
+        ],
+        [
+          209.9338836669922,
+          370.656
+        ],
+        [
+          209.9338836669922,
+          383.3769226074219
+        ],
+        [
+          135.864,
+          383.3769226074219
+        ]
+      ]
+    },
+    {
+      "title": "II. DEVELOPMENT OF THE SINGLE-ROTOR TESTBED",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          333.54,
+          628.056
+        ],
+        [
+          538.5600000000001,
+          628.056
+        ],
+        [
+          538.5600000000001,
+          640.7838745117188
+        ],
+        [
+          333.54,
+          640.7838745117188
+        ]
+      ]
+    },
+    {
+      "title": "A. Physical Twin Hardware",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          45.288,
+          348.48
+        ],
+        [
+          163.404,
+          348.48
+        ],
+        [
+          163.404,
+          362.7248840332031
+        ],
+        [
+          45.288,
+          362.7248840332031
+        ]
+      ]
+    },
+    {
+      "title": "B. Digital Shadow Components",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          308.448,
+          229.67999999999995
+        ],
+        [
+          442.476,
+          229.67999999999995
+        ],
+        [
+          442.476,
+          243.0079345703125
+        ],
+        [
+          308.448,
+          243.0079345703125
+        ]
+      ]
+    },
+    {
+      "title": "III. EXPERIMENTAL RESULTS AND DISCUSSION",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          81.396,
+          190.07999999999998
+        ],
+        [
+          263.7865295410156,
+          190.07999999999998
+        ],
+        [
+          263.7865295410156,
+          203.87188720703125
+        ],
+        [
+          81.396,
+          203.87188720703125
+        ]
+      ]
+    },
+    {
+      "title": "IV. CONCLUSIONS & FUTURE WORK",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          362.304,
+          296.208
+        ],
+        [
+          508.46136474609375,
+          296.208
+        ],
+        [
+          508.46136474609375,
+          309.117919921875
+        ],
+        [
+          362.304,
+          309.117919921875
+        ]
+      ]
+    },
+    {
+      "title": "REFERENCES",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          146.88,
+          258.192
+        ],
+        [
+          198.77166748046875,
+          258.192
+        ],
+        [
+          198.77166748046875,
+          271.07391357421875
+        ],
+        [
+          146.88,
+          271.07391357421875
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          185
+        ],
+        [
+          "Line",
+          95
+        ],
+        [
+          "Text",
+          14
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "Diagram",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 1,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          249
+        ],
+        [
+          "Line",
+          86
+        ],
+        [
+          "Text",
+          8
+        ],
+        [
+          "Caption",
+          3
+        ],
+        [
+          "Diagram",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Equation",
+          2
+        ],
+        [
+          "Picture",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "PictureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 2,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          514
+        ],
+        [
+          "Line",
+          115
+        ],
+        [
+          "Text",
+          11
+        ],
+        [
+          "Equation",
+          5
+        ],
+        [
+          "Caption",
+          3
+        ],
+        [
+          "Table",
+          3
+        ],
+        [
+          "TableGroup",
+          3
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 3,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          298
+        ],
+        [
+          "Line",
+          118
+        ],
+        [
+          "Text",
+          8
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Figure",
+          2
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "FigureGroup",
+          2
+        ],
+        [
+          "Equation",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 4,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          135
+        ],
+        [
+          "Line",
+          48
+        ],
+        [
+          "Text",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/Hannum2024RemainingUsefulLife"
+}

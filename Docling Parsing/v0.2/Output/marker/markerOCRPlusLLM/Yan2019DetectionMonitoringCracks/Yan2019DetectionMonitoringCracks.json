@@ -1,0 +1,708 @@
+{
+  "table_of_contents": [
+    {
+      "title": "Detection and Monitoring of Cracks in Reinforced Concrete Using an Elastic Sensing Skin",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          70.38,
+          69.696
+        ],
+        [
+          537.948,
+          69.696
+        ],
+        [
+          537.948,
+          85.6519775390625
+        ],
+        [
+          70.38,
+          85.6519775390625
+        ]
+      ]
+    },
+    {
+      "title": "ABSTRACT",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          68.544,
+          265.32000000000005
+        ],
+        [
+          138.312,
+          265.32000000000005
+        ],
+        [
+          138.312,
+          281.3020324707031
+        ],
+        [
+          68.544,
+          281.3020324707031
+        ]
+      ]
+    },
+    {
+      "title": "INTRODUCTION",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          68.544,
+          491.832
+        ],
+        [
+          168.3,
+          491.832
+        ],
+        [
+          168.3,
+          508.4120178222656
+        ],
+        [
+          68.544,
+          508.4120178222656
+        ]
+      ]
+    },
+    {
+      "title": "DESCRIPTION OF SOFT ELASTOMERIC CAPACITOR",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          67.932,
+          189.28799999999998
+        ],
+        [
+          378.216,
+          189.28799999999998
+        ],
+        [
+          378.216,
+          206.1619873046875
+        ],
+        [
+          67.932,
+          206.1619873046875
+        ]
+      ]
+    },
+    {
+      "title": "Sensor Fabrication",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          67.932,
+          251.06400000000002
+        ],
+        [
+          169.5600128173828,
+          251.06400000000002
+        ],
+        [
+          169.5600128173828,
+          267.62200927734375
+        ],
+        [
+          67.932,
+          267.62200927734375
+        ]
+      ]
+    },
+    {
+      "title": "Sensor Response Characterization",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          67.932,
+          365.112
+        ],
+        [
+          248.47200000000004,
+          365.112
+        ],
+        [
+          248.47200000000004,
+          381.1920166015625
+        ],
+        [
+          67.932,
+          381.1920166015625
+        ]
+      ]
+    },
+    {
+      "title": "PROTOTYPE TESTING",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          67.932,
+          106.92
+        ],
+        [
+          203.18400000000003,
+          106.92
+        ],
+        [
+          203.18400000000003,
+          123.33197021484375
+        ],
+        [
+          67.932,
+          123.33197021484375
+        ]
+      ]
+    },
+    {
+      "title": "Experiment Setup",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          67.932,
+          237.60000000000002
+        ],
+        [
+          165.85200000000003,
+          237.60000000000002
+        ],
+        [
+          165.85200000000003,
+          253.70196533203125
+        ],
+        [
+          67.932,
+          253.70196533203125
+        ]
+      ]
+    },
+    {
+      "title": "Results and Discussion",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          67.32000000000001,
+          488.664
+        ],
+        [
+          189.108,
+          488.664
+        ],
+        [
+          189.108,
+          505.2920227050781
+        ],
+        [
+          67.32000000000001,
+          505.2920227050781
+        ]
+      ]
+    },
+    {
+      "title": "CONCLUSION",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          67.932,
+          580.5360000000001
+        ],
+        [
+          153.14401245117188,
+          580.5360000000001
+        ],
+        [
+          153.14401245117188,
+          597.0019989013672
+        ],
+        [
+          67.932,
+          597.0019989013672
+        ]
+      ]
+    },
+    {
+      "title": "REFERENCES",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          67.932,
+          177.40800000000002
+        ],
+        [
+          153.0,
+          177.40800000000002
+        ],
+        [
+          153.0,
+          192.24200439453125
+        ],
+        [
+          67.932,
+          192.24200439453125
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          123
+        ],
+        [
+          "Line",
+          50
+        ],
+        [
+          "Text",
+          9
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageFooter",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 1,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          109
+        ],
+        [
+          "Line",
+          50
+        ],
+        [
+          "Text",
+          4
+        ],
+        [
+          "PageFooter",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 2,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          150
+        ],
+        [
+          "Line",
+          68
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "PageFooter",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Equation",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 3,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          35
+        ],
+        [
+          "Line",
+          17
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "Picture",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 4,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          56
+        ],
+        [
+          "Line",
+          25
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "PageFooter",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Picture",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "PictureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 5,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          72
+        ],
+        [
+          "Line",
+          35
+        ],
+        [
+          "PageFooter",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Text",
+          2
+        ],
+        [
+          "Picture",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "PictureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 6,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          55
+        ],
+        [
+          "Line",
+          26
+        ],
+        [
+          "PageFooter",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Text",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 7,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          51
+        ],
+        [
+          "Line",
+          25
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "PageFooter",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 8,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          158
+        ],
+        [
+          "Line",
+          49
+        ],
+        [
+          "PageFooter",
+          3
+        ],
+        [
+          "ListItem",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Text",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 9,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          133
+        ],
+        [
+          "Line",
+          38
+        ],
+        [
+          "PageFooter",
+          4
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "ListGroup",
+          1
+        ],
+        [
+          "Text",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/Yan2019DetectionMonitoringCracks"
+}

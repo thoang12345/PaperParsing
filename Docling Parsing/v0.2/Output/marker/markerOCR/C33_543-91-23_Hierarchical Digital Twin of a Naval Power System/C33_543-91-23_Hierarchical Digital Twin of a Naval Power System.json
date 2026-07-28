@@ -1,0 +1,414 @@
+{
+  "table_of_contents": [
+    {
+      "title": "Hierarchical Digital Twin of a Naval Power System",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          149.32799999999997,
+          55.44
+        ],
+        [
+          455.32800000000003,
+          55.44
+        ],
+        [
+          455.32800000000003,
+          72.510986328125
+        ],
+        [
+          149.32799999999997,
+          72.510986328125
+        ]
+      ]
+    },
+    {
+      "title": "1 Introduction",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          68.544,
+          307.296
+        ],
+        [
+          185.43599999999998,
+          307.296
+        ],
+        [
+          185.43599999999998,
+          324.3500061035156
+        ],
+        [
+          68.544,
+          324.3500061035156
+        ]
+      ]
+    },
+    {
+      "title": "2 Digital Twin Hierarchy Overview",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          68.544,
+          361.152
+        ],
+        [
+          331.9064636230469,
+          361.152
+        ],
+        [
+          331.9064636230469,
+          379.4490966796875
+        ],
+        [
+          68.544,
+          379.4490966796875
+        ]
+      ]
+    },
+    {
+      "title": "3 An Application of the Digital Twin Hierarchy",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          68.544,
+          251.856
+        ],
+        [
+          420.5216979980469,
+          251.856
+        ],
+        [
+          420.5216979980469,
+          269.83709716796875
+        ],
+        [
+          68.544,
+          269.83709716796875
+        ]
+      ]
+    },
+    {
+      "title": "4 Experimental Results",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          68.544,
+          232.848
+        ],
+        [
+          248.47200000000004,
+          232.848
+        ],
+        [
+          248.47200000000004,
+          249.9990234375
+        ],
+        [
+          68.544,
+          249.9990234375
+        ]
+      ]
+    },
+    {
+      "title": "5 Conclusions",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          68.544,
+          372.24
+        ],
+        [
+          179.928,
+          372.24
+        ],
+        [
+          179.928,
+          389.47711181640625
+        ],
+        [
+          68.544,
+          389.47711181640625
+        ]
+      ]
+    },
+    {
+      "title": "References",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          68.544,
+          556.776
+        ],
+        [
+          147.49200000000002,
+          556.776
+        ],
+        [
+          147.49200000000002,
+          574.4171295166016
+        ],
+        [
+          68.544,
+          574.4171295166016
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          61
+        ],
+        [
+          "Line",
+          31
+        ],
+        [
+          "Text",
+          4
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "PageHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 1,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          135
+        ],
+        [
+          "Line",
+          68
+        ],
+        [
+          "Text",
+          4
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "Diagram",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 2,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          107
+        ],
+        [
+          "Line",
+          40
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "Diagram",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 3,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          141
+        ],
+        [
+          "Line",
+          57
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "Equation",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "Picture",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "PictureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 4,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          226
+        ],
+        [
+          "Line",
+          74
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ],
+        [
+          "TableGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/C33_543-91-23_Hierarchical Digital Twin of a Naval Power System"
+}

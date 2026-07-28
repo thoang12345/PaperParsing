@@ -1,0 +1,654 @@
+{
+  "table_of_contents": [
+    {
+      "title": "Real-time Electro-thermal Simulations\nfor Power Electronic Converters",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          115.05599999999998,
+          48.312
+        ],
+        [
+          493.884,
+          48.312
+        ],
+        [
+          493.884,
+          104.2916259765625
+        ],
+        [
+          115.05599999999998,
+          104.2916259765625
+        ]
+      ]
+    },
+    {
+      "title": "I. INTRODUCTION",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          132.192,
+          495.0
+        ],
+        [
+          214.2,
+          495.0
+        ],
+        [
+          214.2,
+          507.6791687011719
+        ],
+        [
+          132.192,
+          507.6791687011719
+        ]
+      ]
+    },
+    {
+      "title": "II. ELECTRO-THERMAL MODELING",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          96.084,
+          80.78399999999999
+        ],
+        [
+          250.308,
+          80.78399999999999
+        ],
+        [
+          250.308,
+          92.90289306640625
+        ],
+        [
+          96.084,
+          92.90289306640625
+        ]
+      ]
+    },
+    {
+      "title": "A. Electrical Model",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          45.288,
+          510.84000000000003
+        ],
+        [
+          130.76690673828125,
+          510.84000000000003
+        ],
+        [
+          130.76690673828125,
+          523.1666870117188
+        ],
+        [
+          45.288,
+          523.1666870117188
+        ]
+      ]
+    },
+    {
+      "title": "B. Thermal Model",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          45.288,
+          175.032
+        ],
+        [
+          125.46000000000001,
+          175.032
+        ],
+        [
+          125.46000000000001,
+          187.08880615234375
+        ],
+        [
+          45.288,
+          187.08880615234375
+        ]
+      ]
+    },
+    {
+      "title": "III. EXPERIMENTAL SETUP",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          374.544,
+          211.464
+        ],
+        [
+          495.927734375,
+          211.464
+        ],
+        [
+          495.927734375,
+          223.77392578125
+        ],
+        [
+          374.544,
+          223.77392578125
+        ]
+      ]
+    },
+    {
+      "title": "IV. EXPERIMENTAL RESULTS",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          107.71199999999999,
+          594.0
+        ],
+        [
+          237.62490844726562,
+          594.0
+        ],
+        [
+          237.62490844726562,
+          607.2189331054688
+        ],
+        [
+          107.71199999999999,
+          607.2189331054688
+        ]
+      ]
+    },
+    {
+      "title": "A. Electrical Model Validation",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          307.836,
+          151.272
+        ],
+        [
+          438.2240295410156,
+          151.272
+        ],
+        [
+          438.2240295410156,
+          164.3848876953125
+        ],
+        [
+          307.836,
+          164.3848876953125
+        ]
+      ]
+    },
+    {
+      "title": "B. Thermal Model Validation",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          45.288,
+          555.192
+        ],
+        [
+          169.68080139160156,
+          555.192
+        ],
+        [
+          169.68080139160156,
+          568.9477691650391
+        ],
+        [
+          45.288,
+          568.9477691650391
+        ]
+      ]
+    },
+    {
+      "title": "C. Electro-thermal Model Validation",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          44.06399999999999,
+          294.624
+        ],
+        [
+          199.668212890625,
+          294.624
+        ],
+        [
+          199.668212890625,
+          308.03094482421875
+        ],
+        [
+          44.06399999999999,
+          308.03094482421875
+        ]
+      ]
+    },
+    {
+      "title": "",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          94.248,
+          132.264
+        ],
+        [
+          252.75599999999997,
+          132.264
+        ],
+        [
+          252.75599999999997,
+          143.352
+        ],
+        [
+          94.248,
+          143.352
+        ]
+      ]
+    },
+    {
+      "title": "",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          127.90799999999999,
+          571.0319999999999
+        ],
+        [
+          217.87199999999999,
+          571.0319999999999
+        ],
+        [
+          217.87199999999999,
+          580.5360000000001
+        ],
+        [
+          127.90799999999999,
+          580.5360000000001
+        ]
+      ]
+    },
+    {
+      "title": "",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          143.20800000000003,
+          624.888
+        ],
+        [
+          201.96000000000004,
+          624.888
+        ],
+        [
+          201.96000000000004,
+          635.184
+        ],
+        [
+          143.20800000000003,
+          635.184
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          216
+        ],
+        [
+          "Line",
+          98
+        ],
+        [
+          "Text",
+          13
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "PageFooter",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 1,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          213
+        ],
+        [
+          "Line",
+          112
+        ],
+        [
+          "Text",
+          9
+        ],
+        [
+          "ListItem",
+          3
+        ],
+        [
+          "ListGroup",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 2,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          300
+        ],
+        [
+          "Line",
+          105
+        ],
+        [
+          "Text",
+          10
+        ],
+        [
+          "Equation",
+          4
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Diagram",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 3,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          302
+        ],
+        [
+          "Line",
+          110
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "Diagram",
+          2
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 4,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          196
+        ],
+        [
+          "Line",
+          89
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Picture",
+          1
+        ],
+        [
+          "Diagram",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "PictureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 5,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          279
+        ],
+        [
+          "Line",
+          142
+        ],
+        [
+          "Figure",
+          4
+        ],
+        [
+          "Caption",
+          4
+        ],
+        [
+          "Text",
+          4
+        ],
+        [
+          "FigureGroup",
+          4
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 6,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          250
+        ],
+        [
+          "Line",
+          115
+        ],
+        [
+          "Text",
+          11
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "Equation",
+          1
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 7,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          349
+        ],
+        [
+          "Line",
+          123
+        ],
+        [
+          "Text",
+          10
+        ],
+        [
+          "ListItem",
+          5
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "ListGroup",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/Sado2024RealTimeElectro"
+}

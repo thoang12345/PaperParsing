@@ -1,0 +1,686 @@
+{
+  "table_of_contents": [
+    {
+      "title": "Real-time Electro-thermal Simulations\nfor Power Electronic Converters",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          114.44400000000002,
+          48.312
+        ],
+        [
+          494.4960000000001,
+          48.312
+        ],
+        [
+          494.4960000000001,
+          104.29156494140625
+        ],
+        [
+          114.44400000000002,
+          104.29156494140625
+        ]
+      ]
+    },
+    {
+      "title": "I. INTRODUCTION",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          132.192,
+          486.288
+        ],
+        [
+          213.588,
+          486.288
+        ],
+        [
+          213.588,
+          499.812255859375
+        ],
+        [
+          132.192,
+          499.812255859375
+        ]
+      ]
+    },
+    {
+      "title": "II. ELECTRO-THERMAL MODELING",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          95.47200000000001,
+          118.80000000000001
+        ],
+        [
+          249.696,
+          118.80000000000001
+        ],
+        [
+          249.696,
+          132.3770751953125
+        ],
+        [
+          95.47200000000001,
+          132.3770751953125
+        ]
+      ]
+    },
+    {
+      "title": "A. Electrical Model",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          44.06399999999999,
+          555.192
+        ],
+        [
+          130.7701873779297,
+          555.192
+        ],
+        [
+          130.7701873779297,
+          569.2188110351562
+        ],
+        [
+          44.06399999999999,
+          569.2188110351562
+        ]
+      ]
+    },
+    {
+      "title": "B. Thermal Model",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          44.676,
+          222.55200000000002
+        ],
+        [
+          125.46000000000001,
+          222.55200000000002
+        ],
+        [
+          125.46000000000001,
+          236.29290771484375
+        ],
+        [
+          44.676,
+          236.29290771484375
+        ]
+      ]
+    },
+    {
+      "title": "III. EXPERIMENTAL SETUP",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          373.93199999999996,
+          256.608
+        ],
+        [
+          495.92742919921875,
+          256.608
+        ],
+        [
+          495.92742919921875,
+          270.2919921875
+        ],
+        [
+          373.93199999999996,
+          270.2919921875
+        ]
+      ]
+    },
+    {
+      "title": "IV. EXPERIMENTAL RESULTS",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          107.71199999999999,
+          581.328
+        ],
+        [
+          237.62449645996094,
+          581.328
+        ],
+        [
+          237.62449645996094,
+          595.0220031738281
+        ],
+        [
+          107.71199999999999,
+          595.0220031738281
+        ]
+      ]
+    },
+    {
+      "title": "A. Electrical Model Validation",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          308.448,
+          139.392
+        ],
+        [
+          438.2291259765625,
+          139.392
+        ],
+        [
+          438.2291259765625,
+          152.42999267578125
+        ],
+        [
+          308.448,
+          152.42999267578125
+        ]
+      ]
+    },
+    {
+      "title": "B. Thermal Model Validation",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          44.06399999999999,
+          605.088
+        ],
+        [
+          169.6856689453125,
+          605.088
+        ],
+        [
+          169.6856689453125,
+          617.9358520507812
+        ],
+        [
+          44.06399999999999,
+          617.9358520507812
+        ]
+      ]
+    },
+    {
+      "title": "C. Electro-thermal Model Validation",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          44.06399999999999,
+          346.104
+        ],
+        [
+          199.67433166503906,
+          346.104
+        ],
+        [
+          199.67433166503906,
+          359.6599426269531
+        ],
+        [
+          44.06399999999999,
+          359.6599426269531
+        ]
+      ]
+    },
+    {
+      "title": "",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          94.248,
+          196.416
+        ],
+        [
+          252.144,
+          196.416
+        ],
+        [
+          252.144,
+          207.50400000000002
+        ],
+        [
+          94.248,
+          207.50400000000002
+        ]
+      ]
+    },
+    {
+      "title": "",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          127.90799999999999,
+          621.72
+        ],
+        [
+          217.87199999999999,
+          621.72
+        ],
+        [
+          217.87199999999999,
+          632.808
+        ],
+        [
+          127.90799999999999,
+          632.808
+        ]
+      ]
+    },
+    {
+      "title": "",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          143.20800000000003,
+          665.28
+        ],
+        [
+          201.96000000000004,
+          665.28
+        ],
+        [
+          201.96000000000004,
+          676.3679999999999
+        ],
+        [
+          143.20800000000003,
+          676.3679999999999
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          219
+        ],
+        [
+          "Line",
+          99
+        ],
+        [
+          "Text",
+          15
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "PageHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 1,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          226
+        ],
+        [
+          "Line",
+          114
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "ListItem",
+          3
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 2,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          305
+        ],
+        [
+          "Line",
+          106
+        ],
+        [
+          "Text",
+          10
+        ],
+        [
+          "Equation",
+          4
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "Diagram",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 3,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          303
+        ],
+        [
+          "Line",
+          110
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "Diagram",
+          2
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "PageHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 4,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          201
+        ],
+        [
+          "Line",
+          91
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "Picture",
+          1
+        ],
+        [
+          "Diagram",
+          1
+        ],
+        [
+          "PictureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 5,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          372
+        ],
+        [
+          "Line",
+          139
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "Figure",
+          4
+        ],
+        [
+          "Caption",
+          4
+        ],
+        [
+          "FigureGroup",
+          4
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 6,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          294
+        ],
+        [
+          "Line",
+          116
+        ],
+        [
+          "Text",
+          9
+        ],
+        [
+          "Figure",
+          2
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "Equation",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 7,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          315
+        ],
+        [
+          "Line",
+          130
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "ListItem",
+          5
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/C33_0543-656-23_Real-time Electro-thermal Simulations for Power Electronic Converters_v2"
+}

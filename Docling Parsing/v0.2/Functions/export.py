@@ -12,13 +12,9 @@ def exportResults(results: list[dict[str, Any]], outputFolder: Path) -> None:
                 conversionGenerator = parser_result["result"]
                 batch = parser_result["batch"]
 
-                markdownOutput = outputFolder / "docling" / parserName / "markdown"
-                jsonOutput = outputFolder / "docling" / parserName / "json"
-                assetOutput = outputFolder / "docling" / parserName / "assets"
+                basePath = outputFolder / "docling" / parserName 
 
-                markdownOutput.mkdir(parents=True, exist_ok=True)
-                jsonOutput.mkdir(parents=True, exist_ok=True)
-                assetOutput.mkdir(parents=True, exist_ok=True)   
+                basePath.mkdir(parents=True, exist_ok=True)
 
                 useImageLinks = doclingParser.doclingMarkdownUsesImages(profile)
         
@@ -36,28 +32,20 @@ def exportResults(results: list[dict[str, Any]], outputFolder: Path) -> None:
                         sourceName = item["file"]
                         stem = Path(sourceName).stem
 
-                        markdownDir = markdownOutput / stem
-                        jsonDir = jsonOutput / stem
-                        artifactDir = assetOutput / stem
-
-                        markdownDir.mkdir(parents=True, exist_ok=True)
-                        jsonDir.mkdir(parents=True, exist_ok=True)
-                        artifactDir.mkdir(parents=True, exist_ok=True)
-
-                        markdownPath = markdownDir / f"{stem}.md"
-                        jsonPath = jsonDir / f"{stem}.json"
+                        markdownPath = basePath / f"{stem}.md"
+                        jsonPath = basePath / f"{stem}.json"
 
                         if useImageLinks:
                                 document.save_as_markdown(
                                 markdownPath,
-                                artifacts_dir=artifactDir,
+                                artifacts_dir=basePath,
                                 image_mode=ImageRefMode.REFERENCED,
                                 page_break_placeholder="----page-break-here----"
                                 )
                         else:
                                 document.save_as_markdown(
                                 markdownPath,
-                                artifacts_dir=artifactDir,
+                                artifacts_dir=basePath,
                                 image_mode=ImageRefMode.PLACEHOLDER,
                                 page_break_placeholder="----page-break-here----"
                                 )

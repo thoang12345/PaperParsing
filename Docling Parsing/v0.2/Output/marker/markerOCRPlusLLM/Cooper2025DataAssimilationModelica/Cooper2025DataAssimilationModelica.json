@@ -1,0 +1,600 @@
+{
+  "table_of_contents": [
+    {
+      "title": "Data Assimilation in a Modelica Framework for Optimizing\nBattery Longevity in Electric Aircraft",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          82.62,
+          66.528
+        ],
+        [
+          526.3199999999999,
+          66.528
+        ],
+        [
+          526.3199999999999,
+          109.300048828125
+        ],
+        [
+          82.62,
+          109.300048828125
+        ]
+      ]
+    },
+    {
+      "title": "I. Nomenclature",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          260.712,
+          322.344
+        ],
+        [
+          347.616,
+          322.344
+        ],
+        [
+          347.616,
+          338.3478088378906
+        ],
+        [
+          260.712,
+          338.3478088378906
+        ]
+      ]
+    },
+    {
+      "title": "II. Introduction",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          261.936,
+          464.904
+        ],
+        [
+          346.39199999999994,
+          464.904
+        ],
+        [
+          346.39199999999994,
+          479.8168029785156
+        ],
+        [
+          261.936,
+          479.8168029785156
+        ]
+      ]
+    },
+    {
+      "title": "III. Methodology",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          259.488,
+          357.98400000000004
+        ],
+        [
+          349.452,
+          357.98400000000004
+        ],
+        [
+          349.452,
+          370.656
+        ],
+        [
+          259.488,
+          370.656
+        ]
+      ]
+    },
+    {
+      "title": "A. Battery Cell Characterization",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          68.544,
+          70.488
+        ],
+        [
+          211.75199999999995,
+          70.488
+        ],
+        [
+          211.75199999999995,
+          83.995361328125
+        ],
+        [
+          68.544,
+          83.995361328125
+        ]
+      ]
+    },
+    {
+      "title": "B. The flightcycle Block",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          68.544,
+          70.488
+        ],
+        [
+          173.19599999999997,
+          70.488
+        ],
+        [
+          173.19599999999997,
+          84.00537109375
+        ],
+        [
+          68.544,
+          84.00537109375
+        ]
+      ]
+    },
+    {
+      "title": "C. Simulation Procedure",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          68.544,
+          279.57599999999996
+        ],
+        [
+          177.48,
+          279.57599999999996
+        ],
+        [
+          177.48,
+          293.2103576660156
+        ],
+        [
+          68.544,
+          293.2103576660156
+        ]
+      ]
+    },
+    {
+      "title": "IV. Results",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          274.788,
+          456.192
+        ],
+        [
+          334.15200000000004,
+          456.192
+        ],
+        [
+          334.15200000000004,
+          470.9518127441406
+        ],
+        [
+          274.788,
+          470.9518127441406
+        ]
+      ]
+    },
+    {
+      "title": "V. Conclusion",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          267.44399999999996,
+          68.904
+        ],
+        [
+          342.10800000000006,
+          68.904
+        ],
+        [
+          342.10800000000006,
+          84.40185546875
+        ],
+        [
+          267.44399999999996,
+          84.40185546875
+        ]
+      ]
+    },
+    {
+      "title": "Acknowledgments",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          256.428,
+          211.464
+        ],
+        [
+          353.124,
+          211.464
+        ],
+        [
+          353.124,
+          225.88275146484375
+        ],
+        [
+          256.428,
+          225.88275146484375
+        ]
+      ]
+    },
+    {
+      "title": "References",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          275.4,
+          293.03999999999996
+        ],
+        [
+          334.15200000000004,
+          293.03999999999996
+        ],
+        [
+          334.15200000000004,
+          307.5647888183594
+        ],
+        [
+          275.4,
+          307.5647888183594
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          127
+        ],
+        [
+          "Line",
+          42
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "Footnote",
+          5
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 1,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          86
+        ],
+        [
+          "Line",
+          33
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "Diagram",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 2,
+      "text_extraction_method": "surya",
+      "block_counts": [
+        [
+          "Text",
+          10
+        ],
+        [
+          "Diagram",
+          2
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "Reference",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 3,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          150
+        ],
+        [
+          "Line",
+          33
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "Reference",
+          3
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "Equation",
+          1
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "TableGroup",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 1,
+        "llm_error_count": 0,
+        "llm_tokens_used": 2521,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 4,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          121
+        ],
+        [
+          "Line",
+          50
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 5,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          5
+        ],
+        [
+          "Line",
+          3
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 6,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          161
+        ],
+        [
+          "Line",
+          47
+        ],
+        [
+          "Reference",
+          13
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "ListGroup",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 7,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          37
+        ],
+        [
+          "Line",
+          10
+        ],
+        [
+          "Reference",
+          4
+        ],
+        [
+          "ListGroup",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "Text",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/Cooper2025DataAssimilationModelica"
+}

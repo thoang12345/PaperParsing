@@ -1,0 +1,646 @@
+{
+  "table_of_contents": [
+    {
+      "title": "Solventless Fabrication of Biodegradable Sensors for Measuring \nSoft Tissue Deformation",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          83.23200000000001,
+          87.912
+        ],
+        [
+          528.88427734375,
+          87.912
+        ],
+        [
+          528.88427734375,
+          125.26739501953125
+        ],
+        [
+          83.23200000000001,
+          125.26739501953125
+        ]
+      ]
+    },
+    {
+      "title": "Keywords",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          68.544,
+          526.6800000000001
+        ],
+        [
+          124.848,
+          526.6800000000001
+        ],
+        [
+          124.848,
+          541.5820007324219
+        ],
+        [
+          68.544,
+          541.5820007324219
+        ]
+      ]
+    },
+    {
+      "title": "1. Introduction",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          68.544,
+          566.28
+        ],
+        [
+          149.94,
+          566.28
+        ],
+        [
+          149.94,
+          580.7019958496094
+        ],
+        [
+          68.544,
+          580.7019958496094
+        ]
+      ]
+    },
+    {
+      "title": "2. Materials and Methods",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          68.544,
+          302.544
+        ],
+        [
+          203.796,
+          302.544
+        ],
+        [
+          203.796,
+          318.12200927734375
+        ],
+        [
+          68.544,
+          318.12200927734375
+        ]
+      ]
+    },
+    {
+      "title": "2.1 Fabrication of PCL/MWNTs Composites",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          68.544,
+          327.096
+        ],
+        [
+          263.15999999999997,
+          327.096
+        ],
+        [
+          263.15999999999997,
+          341.08135986328125
+        ],
+        [
+          68.544,
+          341.08135986328125
+        ]
+      ]
+    },
+    {
+      "title": "2.2 Scanning Electron Microscopy",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          68.544,
+          419.76000000000005
+        ],
+        [
+          218.484,
+          419.76000000000005
+        ],
+        [
+          218.484,
+          433.3813781738281
+        ],
+        [
+          68.544,
+          433.3813781738281
+        ]
+      ]
+    },
+    {
+      "title": "2.3 X-Ray Diffraction",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          68.544,
+          477.576
+        ],
+        [
+          165.24,
+          477.576
+        ],
+        [
+          165.24,
+          490.8613586425781
+        ],
+        [
+          68.544,
+          490.8613586425781
+        ]
+      ]
+    },
+    {
+      "title": "2.4 Differential Scanning Calorimetry",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          68.544,
+          535.392
+        ],
+        [
+          234.39600000000002,
+          535.392
+        ],
+        [
+          234.39600000000002,
+          548.5813598632812
+        ],
+        [
+          68.544,
+          548.5813598632812
+        ]
+      ]
+    },
+    {
+      "title": "2.5 Fabrication of PCL/MWNTs Films",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          68.544,
+          616.1759999999999
+        ],
+        [
+          237.45600000000002,
+          616.1759999999999
+        ],
+        [
+          237.45600000000002,
+          629.7313690185547
+        ],
+        [
+          68.544,
+          629.7313690185547
+        ]
+      ]
+    },
+    {
+      "title": "2.6 Electrical Resistance",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          68.544,
+          685.0799999999999
+        ],
+        [
+          178.02992248535156,
+          685.0799999999999
+        ],
+        [
+          178.02992248535156,
+          698.9673614501953
+        ],
+        [
+          68.544,
+          698.9673614501953
+        ]
+      ]
+    },
+    {
+      "title": "3. Results and Discussion",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          68.544,
+          127.512
+        ],
+        [
+          201.348,
+          127.512
+        ],
+        [
+          201.348,
+          143.251953125
+        ],
+        [
+          68.544,
+          143.251953125
+        ]
+      ]
+    },
+    {
+      "title": "3.1 Scanning Electron Microscopy",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          68.544,
+          152.856
+        ],
+        [
+          218.484,
+          152.856
+        ],
+        [
+          218.484,
+          166.33135986328125
+        ],
+        [
+          68.544,
+          166.33135986328125
+        ]
+      ]
+    },
+    {
+      "title": "3.2 X-Ray Diffraction",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          68.544,
+          427.68
+        ],
+        [
+          165.24,
+          427.68
+        ],
+        [
+          165.24,
+          442.0213623046875
+        ],
+        [
+          68.544,
+          442.0213623046875
+        ]
+      ]
+    },
+    {
+      "title": "3.3 Differential Scanning Calorimetry",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          68.544,
+          81.576
+        ],
+        [
+          233.784,
+          81.576
+        ],
+        [
+          233.784,
+          95.0513916015625
+        ],
+        [
+          68.544,
+          95.0513916015625
+        ]
+      ]
+    },
+    {
+      "title": "3.4 Electrical Resistance",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          68.544,
+          454.608
+        ],
+        [
+          175.64399999999998,
+          454.608
+        ],
+        [
+          175.64399999999998,
+          467.58135986328125
+        ],
+        [
+          68.544,
+          467.58135986328125
+        ]
+      ]
+    },
+    {
+      "title": "4. Conclusions",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          68.544,
+          153.648
+        ],
+        [
+          146.88,
+          153.648
+        ],
+        [
+          146.88,
+          169.2919921875
+        ],
+        [
+          68.544,
+          169.2919921875
+        ]
+      ]
+    },
+    {
+      "title": "References",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          68.544,
+          271.656
+        ],
+        [
+          128.51999999999998,
+          271.656
+        ],
+        [
+          128.51999999999998,
+          286.56201171875
+        ],
+        [
+          68.544,
+          286.56201171875
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          107
+        ],
+        [
+          "Line",
+          40
+        ],
+        [
+          "Text",
+          8
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 1,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          210
+        ],
+        [
+          "Line",
+          47
+        ],
+        [
+          "SectionHeader",
+          7
+        ],
+        [
+          "Text",
+          6
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 2,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          128
+        ],
+        [
+          "Line",
+          27
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "Picture",
+          1
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "PictureGroup",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 3,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          105
+        ],
+        [
+          "Line",
+          22
+        ],
+        [
+          "Caption",
+          3
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Text",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "Picture",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ],
+        [
+          "TableGroup",
+          1
+        ],
+        [
+          "PictureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 4,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          349
+        ],
+        [
+          "Line",
+          53
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Text",
+          2
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ],
+        [
+          "TableGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 5,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          398
+        ],
+        [
+          "Line",
+          47
+        ],
+        [
+          "ListGroup",
+          1
+        ],
+        [
+          "Text",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/Ramesh_2018_Solventless_Fabrication_Biodegradable "
+}

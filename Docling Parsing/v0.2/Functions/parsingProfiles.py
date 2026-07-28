@@ -60,7 +60,7 @@ class doclingPipelineOptions:
         pictureDescriptionPrompt : str = None
 
         #Hardware/Threading
-        acceleratorDevice : str = "auto"
+        acceleratorDevice : str = "cuda"
         numberOfThreads : int = 4
 
         #safety/plugins

@@ -1,0 +1,650 @@
+{
+  "table_of_contents": [
+    {
+      "title": "PASSIVE VARIABLE FRICTION DAMPER FOR INCREASED STRUCTURAL\nRESILIENCE TO MULTI-HAZARD EXCITATIONS",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          94.86,
+          190.87199999999999
+        ],
+        [
+          514.0799999999999,
+          190.87199999999999
+        ],
+        [
+          514.0799999999999,
+          221.572265625
+        ],
+        [
+          94.86,
+          221.572265625
+        ]
+      ]
+    },
+    {
+      "title": "ABSTRACT",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          33.048,
+          456.9839999999999
+        ],
+        [
+          90.576,
+          456.9839999999999
+        ],
+        [
+          90.576,
+          470.8038024902344
+        ],
+        [
+          33.048,
+          470.8038024902344
+        ]
+      ]
+    },
+    {
+      "title": "INTRODUCTION",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          316.404,
+          456.9839999999999
+        ],
+        [
+          395.964,
+          456.9839999999999
+        ],
+        [
+          395.964,
+          470.8029479980469
+        ],
+        [
+          316.404,
+          470.8029479980469
+        ]
+      ]
+    },
+    {
+      "title": "PASSIVE VARIABLE FRICTION DAMPER",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          33.048,
+          634.392
+        ],
+        [
+          227.052,
+          634.392
+        ],
+        [
+          227.052,
+          648.3189392089844
+        ],
+        [
+          33.048,
+          648.3189392089844
+        ]
+      ]
+    },
+    {
+      "title": "Implementation into a structural system",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          315.79200000000003,
+          364.32000000000005
+        ],
+        [
+          509.18399999999997,
+          364.32000000000005
+        ],
+        [
+          509.18399999999997,
+          378.20098876953125
+        ],
+        [
+          315.79200000000003,
+          378.20098876953125
+        ]
+      ]
+    },
+    {
+      "title": "Friction mechanism",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          315.79200000000003,
+          548.064
+        ],
+        [
+          414.324,
+          548.064
+        ],
+        [
+          414.324,
+          562.7168579101562
+        ],
+        [
+          315.79200000000003,
+          562.7168579101562
+        ]
+      ]
+    },
+    {
+      "title": "METHODOLOGY",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          315.79200000000003,
+          562.3199999999999
+        ],
+        [
+          398.791259765625,
+          562.3199999999999
+        ],
+        [
+          398.791259765625,
+          576.6588897705078
+        ],
+        [
+          315.79200000000003,
+          576.6588897705078
+        ]
+      ]
+    },
+    {
+      "title": "RESULTS",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          33.660000000000004,
+          144.93599999999998
+        ],
+        [
+          82.00800000000001,
+          144.93599999999998
+        ],
+        [
+          82.00800000000001,
+          157.95501708984375
+        ],
+        [
+          33.660000000000004,
+          157.95501708984375
+        ]
+      ]
+    },
+    {
+      "title": "CONCLUSION",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          33.660000000000004,
+          635.184
+        ],
+        [
+          103.428,
+          635.184
+        ],
+        [
+          103.428,
+          648.3508758544922
+        ],
+        [
+          33.660000000000004,
+          648.3508758544922
+        ]
+      ]
+    },
+    {
+      "title": "ACKNOWLEDGMENT",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          316.404,
+          251.06400000000002
+        ],
+        [
+          420.5692138671875,
+          251.06400000000002
+        ],
+        [
+          420.5692138671875,
+          265.5870361328125
+        ],
+        [
+          316.404,
+          265.5870361328125
+        ]
+      ]
+    },
+    {
+      "title": "REFERENCES",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          316.404,
+          419.76000000000005
+        ],
+        [
+          388.00800000000004,
+          419.76000000000005
+        ],
+        [
+          388.00800000000004,
+          433.1968688964844
+        ],
+        [
+          316.404,
+          433.1968688964844
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          136
+        ],
+        [
+          "Line",
+          71
+        ],
+        [
+          "Text",
+          8
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageFooter",
+          3
+        ],
+        [
+          "Footnote",
+          2
+        ],
+        [
+          "PageHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 1,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          250
+        ],
+        [
+          "Line",
+          112
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageFooter",
+          3
+        ],
+        [
+          "Equation",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 2,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          228
+        ],
+        [
+          "Line",
+          59
+        ],
+        [
+          "Text",
+          4
+        ],
+        [
+          "Equation",
+          3
+        ],
+        [
+          "PageFooter",
+          3
+        ],
+        [
+          "Picture",
+          2
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "PictureGroup",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 3,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          394
+        ],
+        [
+          "Line",
+          82
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "Equation",
+          4
+        ],
+        [
+          "PageFooter",
+          3
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "Diagram",
+          1
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "TableGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 4,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          86
+        ],
+        [
+          "Line",
+          31
+        ],
+        [
+          "Figure",
+          3
+        ],
+        [
+          "Caption",
+          3
+        ],
+        [
+          "PageFooter",
+          3
+        ],
+        [
+          "FigureGroup",
+          3
+        ],
+        [
+          "Text",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 5,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          127
+        ],
+        [
+          "Line",
+          59
+        ],
+        [
+          "Text",
+          4
+        ],
+        [
+          "PageFooter",
+          3
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 6,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          143
+        ],
+        [
+          "Line",
+          53
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "PageFooter",
+          3
+        ],
+        [
+          "ListItem",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 7,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          209
+        ],
+        [
+          "Line",
+          98
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "ListItem",
+          4
+        ],
+        [
+          "PageFooter",
+          3
+        ],
+        [
+          "ListGroup",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 8,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          199
+        ],
+        [
+          "Line",
+          67
+        ],
+        [
+          "ListItem",
+          4
+        ],
+        [
+          "PageFooter",
+          3
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/Downey_2018_Passive_variable_friction"
+}

@@ -1,0 +1,834 @@
+{
+  "table_of_contents": [
+    {
+      "title": "High-Rate Machine Learning for\nForecasting Time-Series Signals",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          140.76,
+          48.312
+        ],
+        [
+          468.18,
+          48.312
+        ],
+        [
+          468.18,
+          104.3155517578125
+        ],
+        [
+          140.76,
+          104.3155517578125
+        ]
+      ]
+    },
+    {
+      "title": "I. INTRODUCTION",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          132.192,
+          464.11199999999997
+        ],
+        [
+          213.37185668945312,
+          464.11199999999997
+        ],
+        [
+          213.37185668945312,
+          475.84417724609375
+        ],
+        [
+          132.192,
+          475.84417724609375
+        ]
+      ]
+    },
+    {
+      "title": "II. RELATED WORK",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          127.90799999999999,
+          426.096
+        ],
+        [
+          217.87199999999999,
+          426.096
+        ],
+        [
+          217.87199999999999,
+          439.5709533691406
+        ],
+        [
+          127.90799999999999,
+          439.5709533691406
+        ]
+      ]
+    },
+    {
+      "title": "III. TEST DATA SET",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          389.84400000000005,
+          295.416
+        ],
+        [
+          481.032,
+          295.416
+        ],
+        [
+          481.032,
+          308.0579528808594
+        ],
+        [
+          389.84400000000005,
+          308.0579528808594
+        ]
+      ]
+    },
+    {
+      "title": "IV. PROPOSED REAL-TIME FORECASTING MODEL",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          326.196,
+          641.52
+        ],
+        [
+          546.516,
+          641.52
+        ],
+        [
+          546.516,
+          654.8777770996094
+        ],
+        [
+          326.196,
+          654.8777770996094
+        ]
+      ]
+    },
+    {
+      "title": "A. MLP-Based Forecast Model",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          45.288,
+          568.656
+        ],
+        [
+          176.868,
+          568.656
+        ],
+        [
+          176.868,
+          581.2205047607422
+        ],
+        [
+          45.288,
+          581.2205047607422
+        ]
+      ]
+    },
+    {
+      "title": "V. HIGH-LEVEL SYNTHESIS IMPLEMENTATION",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          332.92800000000005,
+          297.0
+        ],
+        [
+          538.5600000000001,
+          297.0
+        ],
+        [
+          538.5600000000001,
+          309.8028869628906
+        ],
+        [
+          332.92800000000005,
+          309.8028869628906
+        ]
+      ]
+    },
+    {
+      "title": "A. Forward Passes",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          307.836,
+          357.98400000000004
+        ],
+        [
+          389.3574523925781,
+          357.98400000000004
+        ],
+        [
+          389.3574523925781,
+          369.8077087402344
+        ],
+        [
+          307.836,
+          369.8077087402344
+        ]
+      ]
+    },
+    {
+      "title": "B. Back Propagation",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          307.836,
+          569.448
+        ],
+        [
+          398.5628356933594,
+          569.448
+        ],
+        [
+          398.5628356933594,
+          581.8241271972656
+        ],
+        [
+          307.836,
+          581.8241271972656
+        ]
+      ]
+    },
+    {
+      "title": "C. Weight Update",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          45.9,
+          190.07999999999998
+        ],
+        [
+          124.23600000000002,
+          190.07999999999998
+        ],
+        [
+          124.23600000000002,
+          200.376
+        ],
+        [
+          45.9,
+          200.376
+        ]
+      ]
+    },
+    {
+      "title": "D. Compiler",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          45.9,
+          536.9760000000001
+        ],
+        [
+          102.81600000000002,
+          536.9760000000001
+        ],
+        [
+          102.81600000000002,
+          548.7732849121094
+        ],
+        [
+          45.9,
+          548.7732849121094
+        ]
+      ]
+    },
+    {
+      "title": "",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          364.14,
+          66.528
+        ],
+        [
+          509.18399999999997,
+          66.528
+        ],
+        [
+          509.18399999999997,
+          60.983999999999995
+        ],
+        [
+          364.14,
+          60.983999999999995
+        ]
+      ]
+    },
+    {
+      "title": "VI. OVERLAY IMPLEMENTATION",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          364.14,
+          50.688
+        ],
+        [
+          509.18399999999997,
+          50.688
+        ],
+        [
+          509.18399999999997,
+          61.06182861328125
+        ],
+        [
+          364.14,
+          61.06182861328125
+        ]
+      ]
+    },
+    {
+      "title": "A. Modification for Back-Propagation",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          308.448,
+          464.11199999999997
+        ],
+        [
+          469.404,
+          464.11199999999997
+        ],
+        [
+          469.404,
+          476.3602294921875
+        ],
+        [
+          308.448,
+          476.3602294921875
+        ]
+      ]
+    },
+    {
+      "title": "VII. PERFORMANCE METRICS",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          106.48799999999999,
+          353.23199999999997
+        ],
+        [
+          239.904,
+          353.23199999999997
+        ],
+        [
+          239.904,
+          366.9898681640625
+        ],
+        [
+          106.48799999999999,
+          366.9898681640625
+        ]
+      ]
+    },
+    {
+      "title": "VIII. PERFORMANCE RESULTS",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          105.26399999999998,
+          316.00800000000004
+        ],
+        [
+          241.12800000000001,
+          316.00800000000004
+        ],
+        [
+          241.12800000000001,
+          328.37091064453125
+        ],
+        [
+          105.26399999999998,
+          328.37091064453125
+        ]
+      ]
+    },
+    {
+      "title": "A. MLP Deployment Results for HLS",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          45.288,
+          579.7439999999999
+        ],
+        [
+          203.18400000000003,
+          579.7439999999999
+        ],
+        [
+          203.18400000000003,
+          592.692138671875
+        ],
+        [
+          45.288,
+          592.692138671875
+        ]
+      ]
+    },
+    {
+      "title": "B. MLP Deployment Results for Overlay",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          308.448,
+          426.88800000000003
+        ],
+        [
+          481.032,
+          426.88800000000003
+        ],
+        [
+          481.032,
+          439.6371765136719
+        ],
+        [
+          308.448,
+          439.6371765136719
+        ]
+      ]
+    },
+    {
+      "title": "IX. CONCLUSIONS AND FUTURE WORK",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          347.00399999999996,
+          491.04
+        ],
+        [
+          524.484,
+          491.04
+        ],
+        [
+          524.484,
+          504.4548645019531
+        ],
+        [
+          347.00399999999996,
+          504.4548645019531
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          229
+        ],
+        [
+          "Line",
+          99
+        ],
+        [
+          "Text",
+          14
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "PageFooter",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 1,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          290
+        ],
+        [
+          "Line",
+          100
+        ],
+        [
+          "Text",
+          13
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "Picture",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "PictureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 2,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          544
+        ],
+        [
+          "Line",
+          100
+        ],
+        [
+          "Text",
+          12
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "Equation",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Diagram",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 3,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          449
+        ],
+        [
+          "Line",
+          112
+        ],
+        [
+          "Text",
+          11
+        ],
+        [
+          "SectionHeader",
+          5
+        ],
+        [
+          "Equation",
+          5
+        ],
+        [
+          "ListItem",
+          4
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 4,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          444
+        ],
+        [
+          "Line",
+          128
+        ],
+        [
+          "Text",
+          11
+        ],
+        [
+          "Caption",
+          3
+        ],
+        [
+          "Equation",
+          2
+        ],
+        [
+          "Figure",
+          2
+        ],
+        [
+          "FigureGroup",
+          2
+        ],
+        [
+          "Diagram",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 5,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          326
+        ],
+        [
+          "Line",
+          80
+        ],
+        [
+          "Text",
+          8
+        ],
+        [
+          "Equation",
+          5
+        ],
+        [
+          "Figure",
+          3
+        ],
+        [
+          "Caption",
+          3
+        ],
+        [
+          "FigureGroup",
+          3
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 6,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          344
+        ],
+        [
+          "Line",
+          96
+        ],
+        [
+          "Text",
+          12
+        ],
+        [
+          "ListItem",
+          5
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "Equation",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 7,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          402
+        ],
+        [
+          "Line",
+          110
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "Caption",
+          3
+        ],
+        [
+          "Table",
+          3
+        ],
+        [
+          "TableGroup",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 8,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          248
+        ],
+        [
+          "Line",
+          102
+        ],
+        [
+          "ListItem",
+          3
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/Panahi2022HighRateMachine"
+}

@@ -1,0 +1,855 @@
+{
+  "table_of_contents": [
+    {
+      "title": "HYBRID POWERTRAIN OPTIMIZATION FOR REGIONAL AIRCRAFT INTEGRATING HYDROGEN FUEL\nCELLS AND ALUMINUM AIR BATTERIES",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          41.004000000000005,
+          149.688
+        ],
+        [
+          567.0081787109375,
+          149.688
+        ],
+        [
+          567.0081787109375,
+          178.57208251953125
+        ],
+        [
+          41.004000000000005,
+          178.57208251953125
+        ]
+      ]
+    },
+    {
+      "title": "ABSTRACT",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          32.436,
+          295.416
+        ],
+        [
+          90.576,
+          295.416
+        ],
+        [
+          90.576,
+          309.41693115234375
+        ],
+        [
+          32.436,
+          309.41693115234375
+        ]
+      ]
+    },
+    {
+      "title": "1. INTRODUCTION",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          32.436,
+          647.856
+        ],
+        [
+          126.072,
+          647.856
+        ],
+        [
+          126.072,
+          663.1637115478516
+        ],
+        [
+          32.436,
+          663.1637115478516
+        ]
+      ]
+    },
+    {
+      "title": "2. MATHEMATICAL MODEL",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          315.79200000000003,
+          632.808
+        ],
+        [
+          450.0605163574219,
+          632.808
+        ],
+        [
+          450.0605163574219,
+          646.2789154052734
+        ],
+        [
+          315.79200000000003,
+          646.2789154052734
+        ]
+      ]
+    },
+    {
+      "title": "2.1. Objective Function",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          315.79200000000003,
+          682.704
+        ],
+        [
+          430.84799999999996,
+          682.704
+        ],
+        [
+          430.84799999999996,
+          696.8399124145508
+        ],
+        [
+          315.79200000000003,
+          696.8399124145508
+        ]
+      ]
+    },
+    {
+      "title": "2.2. Weight Constraints",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          32.436,
+          658.944
+        ],
+        [
+          148.72683715820312,
+          658.944
+        ],
+        [
+          148.72683715820312,
+          672.5626449584961
+        ],
+        [
+          32.436,
+          672.5626449584961
+        ]
+      ]
+    },
+    {
+      "title": "2.3. Power Demand Satisfaction Constraint",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          316.404,
+          304.92
+        ],
+        [
+          526.3199999999999,
+          304.92
+        ],
+        [
+          526.3199999999999,
+          317.9576721191406
+        ],
+        [
+          316.404,
+          317.9576721191406
+        ]
+      ]
+    },
+    {
+      "title": "2.4. Fuel Cell Constraints",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          316.404,
+          646.2719999999999
+        ],
+        [
+          440.72552490234375,
+          646.2719999999999
+        ],
+        [
+          440.72552490234375,
+          660.4004669189453
+        ],
+        [
+          316.404,
+          660.4004669189453
+        ]
+      ]
+    },
+    {
+      "title": "2.5. Battery Constraint",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          32.436,
+          263.736
+        ],
+        [
+          145.04399999999998,
+          263.736
+        ],
+        [
+          145.04399999999998,
+          278.3009033203125
+        ],
+        [
+          32.436,
+          278.3009033203125
+        ]
+      ]
+    },
+    {
+      "title": "3. EXPERIMENTAL SET-UP",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          32.436,
+          597.96
+        ],
+        [
+          165.29457092285156,
+          597.96
+        ],
+        [
+          165.29457092285156,
+          612.0096893310547
+        ],
+        [
+          32.436,
+          612.0096893310547
+        ]
+      ]
+    },
+    {
+      "title": "3.1. Aircraft Specifications",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          32.436,
+          658.944
+        ],
+        [
+          164.01600000000002,
+          658.944
+        ],
+        [
+          164.01600000000002,
+          673.2476959228516
+        ],
+        [
+          32.436,
+          673.2476959228516
+        ]
+      ]
+    },
+    {
+      "title": "3.2. Power Curves",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          316.404,
+          491.04
+        ],
+        [
+          407.592,
+          491.04
+        ],
+        [
+          407.592,
+          505.0746154785156
+        ],
+        [
+          316.404,
+          505.0746154785156
+        ]
+      ]
+    },
+    {
+      "title": "4. NUMERICAL EXPERIMENTS AND RESULTS",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          32.436,
+          606.672
+        ],
+        [
+          255.81599999999997,
+          606.672
+        ],
+        [
+          255.81599999999997,
+          620.0506744384766
+        ],
+        [
+          32.436,
+          620.0506744384766
+        ]
+      ]
+    },
+    {
+      "title": "4.1. Experiment 1: Li-ion Battery Handling the Power\nDemand Fluctuations",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          32.436,
+          670.8240000000001
+        ],
+        [
+          287.64,
+          670.8240000000001
+        ],
+        [
+          287.64,
+          696.3756713867188
+        ],
+        [
+          32.436,
+          696.3756713867188
+        ]
+      ]
+    },
+    {
+      "title": "4.2. Experiment 2: Aluminum-air Battery Activation at\nLow Hydrogen Levels",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          315.79200000000003,
+          670.8240000000001
+        ],
+        [
+          575.28,
+          670.8240000000001
+        ],
+        [
+          575.28,
+          695.5857391357422
+        ],
+        [
+          315.79200000000003,
+          695.5857391357422
+        ]
+      ]
+    },
+    {
+      "title": "4.3. Experiment 3: Flight Rerouting Analysis",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          315.18,
+          634.392
+        ],
+        [
+          532.4399999999999,
+          634.392
+        ],
+        [
+          532.4399999999999,
+          648.5908203125
+        ],
+        [
+          315.18,
+          648.5908203125
+        ]
+      ]
+    },
+    {
+      "title": "4.4. Optimal Sizing Results",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          33.660000000000004,
+          155.232
+        ],
+        [
+          165.5038299560547,
+          155.232
+        ],
+        [
+          165.5038299560547,
+          167.904
+        ],
+        [
+          33.660000000000004,
+          167.904
+        ]
+      ]
+    },
+    {
+      "title": "5. CONCLUSION",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          33.660000000000004,
+          275.616
+        ],
+        [
+          116.892,
+          275.616
+        ],
+        [
+          116.892,
+          288.4620056152344
+        ],
+        [
+          33.660000000000004,
+          288.4620056152344
+        ]
+      ]
+    },
+    {
+      "title": "ACKNOWLEDGMENTS",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          33.660000000000004,
+          514.8
+        ],
+        [
+          144.432,
+          514.8
+        ],
+        [
+          144.432,
+          528.7248229980469
+        ],
+        [
+          33.660000000000004,
+          528.7248229980469
+        ]
+      ]
+    },
+    {
+      "title": "REFERENCES",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          33.660000000000004,
+          671.616
+        ],
+        [
+          105.26399999999998,
+          671.616
+        ],
+        [
+          105.26399999999998,
+          685.283805847168
+        ],
+        [
+          33.660000000000004,
+          685.283805847168
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          193
+        ],
+        [
+          "Line",
+          86
+        ],
+        [
+          "Text",
+          9
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "Footnote",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 1,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          244
+        ],
+        [
+          "Line",
+          110
+        ],
+        [
+          "Text",
+          8
+        ],
+        [
+          "ListItem",
+          3
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "ListGroup",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 2,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          457
+        ],
+        [
+          "Line",
+          151
+        ],
+        [
+          "Text",
+          12
+        ],
+        [
+          "Equation",
+          5
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "Reference",
+          2
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "TableGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 3,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          390
+        ],
+        [
+          "Line",
+          115
+        ],
+        [
+          "Text",
+          12
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "Reference",
+          3
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "Equation",
+          2
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "Diagram",
+          1
+        ],
+        [
+          "TableGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 4,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          120
+        ],
+        [
+          "Line",
+          58
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "Reference",
+          3
+        ],
+        [
+          "Figure",
+          2
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "FigureGroup",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 5,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          141
+        ],
+        [
+          "Line",
+          36
+        ],
+        [
+          "Figure",
+          6
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "Caption",
+          3
+        ],
+        [
+          "Reference",
+          3
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "TableGroup",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 6,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          282
+        ],
+        [
+          "Line",
+          111
+        ],
+        [
+          "Reference",
+          15
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "Bibliography",
+          2
+        ],
+        [
+          "PageFooter",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 7,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          84
+        ],
+        [
+          "Line",
+          26
+        ],
+        [
+          "Reference",
+          7
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "ListItem",
+          2
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/Kaushik2025HybridPowertrainOptimization"
+}

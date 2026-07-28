@@ -1,0 +1,633 @@
+{
+  "table_of_contents": [
+    {
+      "title": "DC Microgrid Control using a Multi-Function\nMulti-Domain Image-based Hierarchical\nDigital Twin",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          74.66399999999999,
+          48.312
+        ],
+        [
+          534.2760000000001,
+          48.312
+        ],
+        [
+          534.2760000000001,
+          132.21148681640625
+        ],
+        [
+          74.66399999999999,
+          132.21148681640625
+        ]
+      ]
+    },
+    {
+      "title": "I. INTRODUCTION",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          132.192,
+          413.424
+        ],
+        [
+          213.588,
+          413.424
+        ],
+        [
+          213.588,
+          426.9971618652344
+        ],
+        [
+          132.192,
+          426.9971618652344
+        ]
+      ]
+    },
+    {
+      "title": "II. DIGITAL TWIN STRUCTURE",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          105.26399999999998,
+          558.3599999999999
+        ],
+        [
+          241.12800000000001,
+          558.3599999999999
+        ],
+        [
+          241.12800000000001,
+          572.1127624511719
+        ],
+        [
+          105.26399999999998,
+          572.1127624511719
+        ]
+      ]
+    },
+    {
+      "title": "III. ESTABLISHING FAITHFUL DIGITAL TWIN\nREPRESENTATIONS",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          74.66399999999999,
+          531.432
+        ],
+        [
+          271.1283264160156,
+          531.432
+        ],
+        [
+          271.1283264160156,
+          556.8917541503906
+        ],
+        [
+          74.66399999999999,
+          556.8917541503906
+        ]
+      ]
+    },
+    {
+      "title": "A. Digital Twin Block of the Generator Subsystems",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          307.836,
+          274.032
+        ],
+        [
+          523.872,
+          274.032
+        ],
+        [
+          523.872,
+          287.8804931640625
+        ],
+        [
+          307.836,
+          287.8804931640625
+        ]
+      ]
+    },
+    {
+      "title": "1) Digital image of the fuel consumption estimation:",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          318.24,
+          337.392
+        ],
+        [
+          555.2236328125,
+          337.392
+        ],
+        [
+          555.2236328125,
+          350.4894714355469
+        ],
+        [
+          318.24,
+          350.4894714355469
+        ]
+      ]
+    },
+    {
+      "title": "2) Electrical behavior image of the interfacing converters:",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          318.24,
+          609.84
+        ],
+        [
+          563.0446166992188,
+          609.84
+        ],
+        [
+          563.0446166992188,
+          622.8553924560547
+        ],
+        [
+          318.24,
+          622.8553924560547
+        ]
+      ]
+    },
+    {
+      "title": "3) Thermal behavior images for the interfacing converters:",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          55.692,
+          241.56
+        ],
+        [
+          300.492,
+          241.56
+        ],
+        [
+          300.492,
+          253.44
+        ],
+        [
+          55.692,
+          253.44
+        ]
+      ]
+    },
+    {
+      "title": "B. Digital Twin Block of the Energy Storage Subsystems",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          45.9,
+          403.9200000000001
+        ],
+        [
+          281.52,
+          403.9200000000001
+        ],
+        [
+          281.52,
+          415.9583435058594
+        ],
+        [
+          45.9,
+          415.9583435058594
+        ]
+      ]
+    },
+    {
+      "title": "C. Integration of the Hierarchical Digital Twin",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          45.288,
+          166.32
+        ],
+        [
+          242.964,
+          166.32
+        ],
+        [
+          242.964,
+          178.93035888671875
+        ],
+        [
+          45.288,
+          178.93035888671875
+        ]
+      ]
+    },
+    {
+      "title": "IV. REAL-TIME SIMULATION AND RESULTS",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          77.724,
+          546.48
+        ],
+        [
+          267.7965087890625,
+          546.48
+        ],
+        [
+          267.7965087890625,
+          559.5438385009766
+        ],
+        [
+          77.724,
+          559.5438385009766
+        ]
+      ]
+    },
+    {
+      "title": "",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          133.416,
+          209.088
+        ],
+        [
+          212.97599999999997,
+          209.088
+        ],
+        [
+          212.97599999999997,
+          220.17600000000004
+        ],
+        [
+          133.416,
+          220.17600000000004
+        ]
+      ]
+    },
+    {
+      "title": "",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          125.46000000000001,
+          457.77599999999995
+        ],
+        [
+          220.32,
+          457.77599999999995
+        ],
+        [
+          220.32,
+          468.8639999999999
+        ],
+        [
+          125.46000000000001,
+          468.8639999999999
+        ]
+      ]
+    },
+    {
+      "title": "",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          143.20800000000003,
+          502.9200000000001
+        ],
+        [
+          201.96000000000004,
+          502.9200000000001
+        ],
+        [
+          201.96000000000004,
+          513.216
+        ],
+        [
+          143.20800000000003,
+          513.216
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          199
+        ],
+        [
+          "Line",
+          90
+        ],
+        [
+          "Text",
+          14
+        ],
+        [
+          "PageFooter",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 1,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          316
+        ],
+        [
+          "Line",
+          148
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "Diagram",
+          3
+        ],
+        [
+          "Caption",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 2,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          385
+        ],
+        [
+          "Line",
+          157
+        ],
+        [
+          "Text",
+          9
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Diagram",
+          2
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "Equation",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 3,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          290
+        ],
+        [
+          "Line",
+          109
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "Diagram",
+          3
+        ],
+        [
+          "Caption",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "Equation",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 4,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          378
+        ],
+        [
+          "Line",
+          118
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "Caption",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "ListItem",
+          2
+        ],
+        [
+          "Diagram",
+          1
+        ],
+        [
+          "Equation",
+          1
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ],
+        [
+          "TableGroup",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 5,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          210
+        ],
+        [
+          "Line",
+          86
+        ],
+        [
+          "Text",
+          4
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "ListItem",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/Sado2024DcMicrogridControl"
+}

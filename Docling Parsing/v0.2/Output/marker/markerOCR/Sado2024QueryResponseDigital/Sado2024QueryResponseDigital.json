@@ -1,0 +1,1102 @@
+{
+  "table_of_contents": [
+    {
+      "title": "Query-and-Response Digital Twin Framework using\na Multi-domain, Multi-function Image Folio",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          46.512,
+          54.648
+        ],
+        [
+          561.7579956054688,
+          54.648
+        ],
+        [
+          561.7579956054688,
+          109.84356689453125
+        ],
+        [
+          46.512,
+          109.84356689453125
+        ]
+      ]
+    },
+    {
+      "title": "I. INTRODUCTION",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          132.804,
+          525.096
+        ],
+        [
+          214.2,
+          525.096
+        ],
+        [
+          214.2,
+          537.2849731445312
+        ],
+        [
+          132.804,
+          537.2849731445312
+        ]
+      ]
+    },
+    {
+      "title": "II. DIGITAL TWIN TECHNOLOGY",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          362.916,
+          563.904
+        ],
+        [
+          508.0791931152344,
+          563.904
+        ],
+        [
+          508.0791931152344,
+          576.3978881835938
+        ],
+        [
+          362.916,
+          576.3978881835938
+        ]
+      ]
+    },
+    {
+      "title": "III. CONCEPT OF DIGITAL IMAGES",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          96.084,
+          151.272
+        ],
+        [
+          249.696,
+          151.272
+        ],
+        [
+          249.696,
+          165.8929443359375
+        ],
+        [
+          96.084,
+          165.8929443359375
+        ]
+      ]
+    },
+    {
+      "title": "IV. IMAGE MAPPING AND ACTIVATION",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          86.904,
+          694.584
+        ],
+        [
+          258.876,
+          694.584
+        ],
+        [
+          258.876,
+          708.7417526245117
+        ],
+        [
+          86.904,
+          708.7417526245117
+        ]
+      ]
+    },
+    {
+      "title": "A. Query Interpretation Module",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          307.836,
+          381.74399999999997
+        ],
+        [
+          443.3747253417969,
+          381.74399999999997
+        ],
+        [
+          443.3747253417969,
+          395.6822509765625
+        ],
+        [
+          307.836,
+          395.6822509765625
+        ]
+      ]
+    },
+    {
+      "title": "B. Query-Image Mapping Algorithm",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          307.836,
+          694.584
+        ],
+        [
+          461.8055419921875,
+          694.584
+        ],
+        [
+          461.8055419921875,
+          708.3001480102539
+        ],
+        [
+          307.836,
+          708.3001480102539
+        ]
+      ]
+    },
+    {
+      "title": "V. IMAGE-BASED DIGITAL TWIN FRAMEWORK",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          70.38,
+          635.9760000000001
+        ],
+        [
+          275.4,
+          635.9760000000001
+        ],
+        [
+          275.4,
+          649.3047485351562
+        ],
+        [
+          70.38,
+          649.3047485351562
+        ]
+      ]
+    },
+    {
+      "title": "VI. DEMONSTRATOR DIGITAL TWIN DEVELOPMENT",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          321.3,
+          537.768
+        ],
+        [
+          549.7630615234375,
+          537.768
+        ],
+        [
+          549.7630615234375,
+          550.7797698974609
+        ],
+        [
+          321.3,
+          550.7797698974609
+        ]
+      ]
+    },
+    {
+      "title": "A. Electrical Domain Switching Digital Image",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          44.676,
+          498.168
+        ],
+        [
+          240.516,
+          498.168
+        ],
+        [
+          240.516,
+          511.17822265625
+        ],
+        [
+          44.676,
+          511.17822265625
+        ]
+      ]
+    },
+    {
+      "title": "B. Electrical Domain Switching-Averaged Digital Image",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          308.448,
+          305.712
+        ],
+        [
+          544.068,
+          305.712
+        ],
+        [
+          544.068,
+          318.80438232421875
+        ],
+        [
+          308.448,
+          318.80438232421875
+        ]
+      ]
+    },
+    {
+      "title": "C. Digital Image for State of Charge Estimation",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          308.448,
+          491.04
+        ],
+        [
+          512.2439999999999,
+          491.04
+        ],
+        [
+          512.2439999999999,
+          504.2672119140625
+        ],
+        [
+          308.448,
+          504.2672119140625
+        ]
+      ]
+    },
+    {
+      "title": "D. Thermal Domain High Fidelity Digital Image",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          44.676,
+          236.808
+        ],
+        [
+          250.92000000000002,
+          236.808
+        ],
+        [
+          250.92000000000002,
+          251.01544189453125
+        ],
+        [
+          44.676,
+          251.01544189453125
+        ]
+      ]
+    },
+    {
+      "title": "VII. DEMONSTRATOR SPECIFIC QUERY-IMAGE MAPPING\nALGORITHM",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          307.836,
+          443.52
+        ],
+        [
+          559.6898193359375,
+          443.52
+        ],
+        [
+          559.6898193359375,
+          468.2388916015625
+        ],
+        [
+          307.836,
+          468.2388916015625
+        ]
+      ]
+    },
+    {
+      "title": "VIII. EXPERIMENTAL SETUP AND RESULTS",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          340.884,
+          546.48
+        ],
+        [
+          530.919921875,
+          546.48
+        ],
+        [
+          530.919921875,
+          560.9317626953125
+        ],
+        [
+          340.884,
+          560.9317626953125
+        ]
+      ]
+    },
+    {
+      "title": "A. Physical Twin Hardware Setup",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          308.448,
+          563.112
+        ],
+        [
+          451.8628234863281,
+          563.112
+        ],
+        [
+          451.8628234863281,
+          576.8621826171875
+        ],
+        [
+          308.448,
+          576.8621826171875
+        ]
+      ]
+    },
+    {
+      "title": "B. Digital Twin and Decision Maker Setup",
+      "heading_level": null,
+      "page_id": 9,
+      "polygon": [
+        [
+          44.676,
+          367.48800000000006
+        ],
+        [
+          226.44,
+          367.48800000000006
+        ],
+        [
+          226.44,
+          380.7853088378906
+        ],
+        [
+          44.676,
+          380.7853088378906
+        ]
+      ]
+    },
+    {
+      "title": "C. Results",
+      "heading_level": null,
+      "page_id": 9,
+      "polygon": [
+        [
+          44.676,
+          658.944
+        ],
+        [
+          91.86296844482422,
+          658.944
+        ],
+        [
+          91.86296844482422,
+          673.0216293334961
+        ],
+        [
+          44.676,
+          673.0216293334961
+        ]
+      ]
+    },
+    {
+      "title": "IX. CONCLUSIONS",
+      "heading_level": null,
+      "page_id": 10,
+      "polygon": [
+        [
+          391.068,
+          242.35199999999998
+        ],
+        [
+          479.196,
+          242.35199999999998
+        ],
+        [
+          479.196,
+          255.46710205078125
+        ],
+        [
+          391.068,
+          255.46710205078125
+        ]
+      ]
+    },
+    {
+      "title": "",
+      "heading_level": null,
+      "page_id": 11,
+      "polygon": [
+        [
+          121.78800000000001,
+          54.648
+        ],
+        [
+          222.15599999999998,
+          54.648
+        ],
+        [
+          222.15599999999998,
+          64.944
+        ],
+        [
+          121.78800000000001,
+          64.944
+        ]
+      ]
+    },
+    {
+      "title": "",
+      "heading_level": null,
+      "page_id": 11,
+      "polygon": [
+        [
+          140.148,
+          152.06400000000002
+        ],
+        [
+          200.124,
+          152.06400000000002
+        ],
+        [
+          200.124,
+          161.56799999999998
+        ],
+        [
+          140.148,
+          161.56799999999998
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          224
+        ],
+        [
+          "Line",
+          103
+        ],
+        [
+          "Text",
+          15
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "PageFooter",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 1,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          236
+        ],
+        [
+          "Line",
+          118
+        ],
+        [
+          "Text",
+          8
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "ListItem",
+          2
+        ],
+        [
+          "ListGroup",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 2,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          226
+        ],
+        [
+          "Line",
+          115
+        ],
+        [
+          "Text",
+          8
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "Diagram",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 3,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          226
+        ],
+        [
+          "Line",
+          110
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Diagram",
+          2
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 4,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          290
+        ],
+        [
+          "Line",
+          123
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "ListItem",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Diagram",
+          2
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "ListGroup",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 5,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          285
+        ],
+        [
+          "Line",
+          127
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "ListItem",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Diagram",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 6,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          435
+        ],
+        [
+          "Line",
+          116
+        ],
+        [
+          "Text",
+          9
+        ],
+        [
+          "Equation",
+          6
+        ],
+        [
+          "Diagram",
+          3
+        ],
+        [
+          "Caption",
+          3
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 7,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          394
+        ],
+        [
+          "Line",
+          108
+        ],
+        [
+          "Text",
+          8
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "Diagram",
+          1
+        ],
+        [
+          "Equation",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "TableGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 8,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          327
+        ],
+        [
+          "Line",
+          108
+        ],
+        [
+          "Text",
+          11
+        ],
+        [
+          "Caption",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "ListItem",
+          2
+        ],
+        [
+          "Diagram",
+          1
+        ],
+        [
+          "Picture",
+          1
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "PictureGroup",
+          1
+        ],
+        [
+          "TableGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 9,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          223
+        ],
+        [
+          "Line",
+          97
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "ListItem",
+          5
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Diagram",
+          1
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 10,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          273
+        ],
+        [
+          "Line",
+          119
+        ],
+        [
+          "Text",
+          10
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "ListItem",
+          2
+        ],
+        [
+          "ListGroup",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 11,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          437
+        ],
+        [
+          "Line",
+          136
+        ],
+        [
+          "ListItem",
+          4
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Text",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/Sado2024QueryResponseDigital"
+}

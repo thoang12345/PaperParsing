@@ -1,0 +1,1809 @@
+{
+  "table_of_contents": [
+    {
+      "title": "Simulation-in-the-loop additive manufacturing for real-time structural\nvalidation and digital twin development",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          33.972,
+          161.97599999999997
+        ],
+        [
+          449.384,
+          161.97599999999997
+        ],
+        [
+          449.384,
+          197.44659423828125
+        ],
+        [
+          33.972,
+          197.44659423828125
+        ]
+      ]
+    },
+    {
+      "title": "A R T I C L E I N F O",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          33.972,
+          273.92999999999995
+        ],
+        [
+          132.90800000000002,
+          273.92999999999995
+        ],
+        [
+          132.90800000000002,
+          287.0923767089844
+        ],
+        [
+          33.972,
+          287.0923767089844
+        ]
+      ]
+    },
+    {
+      "title": "Keywords:",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          33.972,
+          293.78
+        ],
+        [
+          65.56,
+          293.78
+        ],
+        [
+          65.56,
+          305.1777648925781
+        ],
+        [
+          33.972,
+          305.1777648925781
+        ]
+      ]
+    },
+    {
+      "title": "A B S T R A C T",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          197.87199999999999,
+          273.92999999999995
+        ],
+        [
+          268.2,
+          273.92999999999995
+        ],
+        [
+          268.2,
+          287.0623779296875
+        ],
+        [
+          197.87199999999999,
+          287.0623779296875
+        ]
+      ]
+    },
+    {
+      "title": "1. Introduction",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          33.972,
+          524.834
+        ],
+        [
+          97.148,
+          524.834
+        ],
+        [
+          97.148,
+          537.4520874023438
+        ],
+        [
+          33.972,
+          537.4520874023438
+        ]
+      ]
+    },
+    {
+      "title": "2. Simulation-in-the-loop framework",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          302.17199999999997,
+          573.2679999999999
+        ],
+        [
+          447.878173828125,
+          573.2679999999999
+        ],
+        [
+          447.878173828125,
+          585.5260925292969
+        ],
+        [
+          302.17199999999997,
+          585.5260925292969
+        ]
+      ]
+    },
+    {
+      "title": "2.1. Simulation-in-the-loop framework structure",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          302.17199999999997,
+          625.672
+        ],
+        [
+          468.0142517089844,
+          625.672
+        ],
+        [
+          468.0142517089844,
+          637.6521911621094
+        ],
+        [
+          302.17199999999997,
+          637.6521911621094
+        ]
+      ]
+    },
+    {
+      "title": "2.2. Defect segmentation",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          34.568,
+          361.27
+        ],
+        [
+          121.58399999999999,
+          361.27
+        ],
+        [
+          121.58399999999999,
+          374.0251770019531
+        ],
+        [
+          34.568,
+          374.0251770019531
+        ]
+      ]
+    },
+    {
+      "title": "2.3. Online finite element model updating",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          34.568,
+          635.2
+        ],
+        [
+          178.79999999999998,
+          635.2
+        ],
+        [
+          178.79999999999998,
+          647.419189453125
+        ],
+        [
+          34.568,
+          647.419189453125
+        ]
+      ]
+    },
+    {
+      "title": "2.4. Real-time structural validation and decision-making",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          302.76800000000003,
+          346.978
+        ],
+        [
+          498.256,
+          346.978
+        ],
+        [
+          498.256,
+          358.94317626953125
+        ],
+        [
+          302.76800000000003,
+          358.94317626953125
+        ]
+      ]
+    },
+    {
+      "title": "3. Case study and result",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          302.76800000000003,
+          599.4699999999999
+        ],
+        [
+          400.51199999999994,
+          599.4699999999999
+        ],
+        [
+          400.51199999999994,
+          610.6651000976562
+        ],
+        [
+          302.76800000000003,
+          610.6651000976562
+        ]
+      ]
+    },
+    {
+      "title": "3.1. Specimen preparation and fabrication",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          34.568,
+          271.548
+        ],
+        [
+          181.184,
+          271.548
+        ],
+        [
+          181.184,
+          284.0171813964844
+        ],
+        [
+          34.568,
+          284.0171813964844
+        ]
+      ]
+    },
+    {
+      "title": "3.2. Failure mechanism validation",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          303.364,
+          271.548
+        ],
+        [
+          423.15999999999997,
+          271.548
+        ],
+        [
+          423.15999999999997,
+          283.9932861328125
+        ],
+        [
+          303.364,
+          283.9932861328125
+        ]
+      ]
+    },
+    {
+      "title": "3.3. Defect segmentation with U-net",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          302.17199999999997,
+          525.6279999999999
+        ],
+        [
+          429.11999999999995,
+          525.6279999999999
+        ],
+        [
+          429.11999999999995,
+          538.2351837158203
+        ],
+        [
+          302.17199999999997,
+          538.2351837158203
+        ]
+      ]
+    },
+    {
+      "title": "3.4. FEA model updating and structural validation",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          302.76800000000003,
+          393.82399999999996
+        ],
+        [
+          478.58799999999997,
+          393.82399999999996
+        ],
+        [
+          478.58799999999997,
+          405.7551574707031
+        ],
+        [
+          302.76800000000003,
+          405.7551574707031
+        ]
+      ]
+    },
+    {
+      "title": "3.5. Real-time computation and decision-making",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          35.76,
+          246.14
+        ],
+        [
+          202.04399999999998,
+          246.14
+        ],
+        [
+          202.04399999999998,
+          257.1331787109375
+        ],
+        [
+          35.76,
+          257.1331787109375
+        ]
+      ]
+    },
+    {
+      "title": "3.6. Case study result",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          35.76,
+          373.17999999999995
+        ],
+        [
+          112.04799999999999,
+          373.17999999999995
+        ],
+        [
+          112.04799999999999,
+          383.9991760253906
+        ],
+        [
+          35.76,
+          383.9991760253906
+        ]
+      ]
+    },
+    {
+      "title": "3.6.1. Defect segmentation results",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          35.76,
+          604.2339999999999
+        ],
+        [
+          152.576,
+          604.2339999999999
+        ],
+        [
+          152.576,
+          615.9041900634766
+        ],
+        [
+          35.76,
+          615.9041900634766
+        ]
+      ]
+    },
+    {
+      "title": "3.6.2. FEA model updating and structural validation results",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          303.96,
+          429.554
+        ],
+        [
+          508.984,
+          429.554
+        ],
+        [
+          508.984,
+          440.72418212890625
+        ],
+        [
+          303.96,
+          440.72418212890625
+        ]
+      ]
+    },
+    {
+      "title": "3.6.3. Real-time computation and decision-making results",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          302.76800000000003,
+          709.0419999999999
+        ],
+        [
+          502.42799999999994,
+          709.0419999999999
+        ],
+        [
+          502.42799999999994,
+          721.1171875
+        ],
+        [
+          302.76800000000003,
+          721.1171875
+        ]
+      ]
+    },
+    {
+      "title": "4. Conclusions",
+      "heading_level": null,
+      "page_id": 10,
+      "polygon": [
+        [
+          35.163999999999994,
+          602.646
+        ],
+        [
+          95.36,
+          602.646
+        ],
+        [
+          95.36,
+          613.6560974121094
+        ],
+        [
+          35.163999999999994,
+          613.6560974121094
+        ]
+      ]
+    },
+    {
+      "title": "5. Limitations and future work",
+      "heading_level": null,
+      "page_id": 10,
+      "polygon": [
+        [
+          302.76800000000003,
+          686.016
+        ],
+        [
+          426.736,
+          686.016
+        ],
+        [
+          426.736,
+          698.7030944824219
+        ],
+        [
+          302.76800000000003,
+          698.7030944824219
+        ]
+      ]
+    },
+    {
+      "title": "5.1. Limitations",
+      "heading_level": null,
+      "page_id": 11,
+      "polygon": [
+        [
+          34.568,
+          51.61
+        ],
+        [
+          91.78399999999999,
+          51.61
+        ],
+        [
+          91.78399999999999,
+          63.48126220703125
+        ],
+        [
+          34.568,
+          63.48126220703125
+        ]
+      ]
+    },
+    {
+      "title": "\u2022 Defect Segmentation Accuracy",
+      "heading_level": null,
+      "page_id": 11,
+      "polygon": [
+        [
+          47.68,
+          173.31512451171875
+        ],
+        [
+          174.628,
+          173.31512451171875
+        ],
+        [
+          174.628,
+          188.57781982421875
+        ],
+        [
+          47.68,
+          188.57781982421875
+        ]
+      ]
+    },
+    {
+      "title": "\u2022 Lack of Adaptive Control",
+      "heading_level": null,
+      "page_id": 11,
+      "polygon": [
+        [
+          47.68,
+          402.54510498046875
+        ],
+        [
+          153.172,
+          402.54510498046875
+        ],
+        [
+          153.172,
+          417.807861328125
+        ],
+        [
+          47.68,
+          417.807861328125
+        ]
+      ]
+    },
+    {
+      "title": "5.2. Future work",
+      "heading_level": null,
+      "page_id": 11,
+      "polygon": [
+        [
+          34.568,
+          481.164
+        ],
+        [
+          95.52954864501953,
+          481.164
+        ],
+        [
+          95.52954864501953,
+          493.7192687988281
+        ],
+        [
+          34.568,
+          493.7192687988281
+        ]
+      ]
+    },
+    {
+      "title": "\u2022 Enhancing Defect Detection",
+      "heading_level": null,
+      "page_id": 11,
+      "polygon": [
+        [
+          47.68,
+          603.5541076660156
+        ],
+        [
+          163.42723083496094,
+          603.5541076660156
+        ],
+        [
+          163.42723083496094,
+          618.8168487548828
+        ],
+        [
+          47.68,
+          618.8168487548828
+        ]
+      ]
+    },
+    {
+      "title": "\u2022 Expanding Case Studies",
+      "heading_level": null,
+      "page_id": 11,
+      "polygon": [
+        [
+          47.68,
+          697.0411224365234
+        ],
+        [
+          149.0,
+          697.0411224365234
+        ],
+        [
+          149.0,
+          712.3038635253906
+        ],
+        [
+          47.68,
+          712.3038635253906
+        ]
+      ]
+    },
+    {
+      "title": "\u2022 Integrating Adaptive Control Mechanisms",
+      "heading_level": null,
+      "page_id": 11,
+      "polygon": [
+        [
+          317.072,
+          92.04412841796875
+        ],
+        [
+          486.33599999999996,
+          92.04412841796875
+        ],
+        [
+          486.33599999999996,
+          107.30682373046875
+        ],
+        [
+          317.072,
+          107.30682373046875
+        ]
+      ]
+    },
+    {
+      "title": "\u2022 Exploring PINNs for Real-Time Validation",
+      "heading_level": null,
+      "page_id": 11,
+      "polygon": [
+        [
+          317.072,
+          155.62615966796875
+        ],
+        [
+          486.33599999999996,
+          155.62615966796875
+        ],
+        [
+          486.33599999999996,
+          170.88885498046875
+        ],
+        [
+          317.072,
+          170.88885498046875
+        ]
+      ]
+    },
+    {
+      "title": "\u2022 Standardizing Framework Implementation",
+      "heading_level": null,
+      "page_id": 11,
+      "polygon": [
+        [
+          317.072,
+          229.46599999999998
+        ],
+        [
+          488.7628479003906,
+          229.46599999999998
+        ],
+        [
+          488.7628479003906,
+          244.81182861328125
+        ],
+        [
+          317.072,
+          244.81182861328125
+        ]
+      ]
+    },
+    {
+      "title": "CRediT authorship contribution statement",
+      "heading_level": null,
+      "page_id": 11,
+      "polygon": [
+        [
+          303.364,
+          331.89199999999994
+        ],
+        [
+          469.052,
+          331.89199999999994
+        ],
+        [
+          469.052,
+          344.74908447265625
+        ],
+        [
+          303.364,
+          344.74908447265625
+        ]
+      ]
+    },
+    {
+      "title": "Declaration of competing interest",
+      "heading_level": null,
+      "page_id": 11,
+      "polygon": [
+        [
+          303.364,
+          429.554
+        ],
+        [
+          436.27199999999993,
+          429.554
+        ],
+        [
+          436.27199999999993,
+          441.6890869140625
+        ],
+        [
+          303.364,
+          441.6890869140625
+        ]
+      ]
+    },
+    {
+      "title": "Acknowledgments",
+      "heading_level": null,
+      "page_id": 11,
+      "polygon": [
+        [
+          303.364,
+          526.422
+        ],
+        [
+          377.26800000000003,
+          526.422
+        ],
+        [
+          377.26800000000003,
+          538.6290893554688
+        ],
+        [
+          303.364,
+          538.6290893554688
+        ]
+      ]
+    },
+    {
+      "title": "Appendix A. Tensile test results",
+      "heading_level": null,
+      "page_id": 11,
+      "polygon": [
+        [
+          303.364,
+          697.132
+        ],
+        [
+          429.11999999999995,
+          697.132
+        ],
+        [
+          429.11999999999995,
+          709.4920959472656
+        ],
+        [
+          303.364,
+          709.4920959472656
+        ]
+      ]
+    },
+    {
+      "title": "Appendix B. Constitutive model for material failure in PLA",
+      "heading_level": null,
+      "page_id": 12,
+      "polygon": [
+        [
+          33.972,
+          408.90999999999997
+        ],
+        [
+          264.0676574707031,
+          408.90999999999997
+        ],
+        [
+          264.0676574707031,
+          421.5570983886719
+        ],
+        [
+          33.972,
+          421.5570983886719
+        ]
+      ]
+    },
+    {
+      "title": "B.1. Material properties",
+      "heading_level": null,
+      "page_id": 12,
+      "polygon": [
+        [
+          33.972,
+          589.942
+        ],
+        [
+          119.2,
+          589.942
+        ],
+        [
+          119.2,
+          602.1912689208984
+        ],
+        [
+          33.972,
+          602.1912689208984
+        ]
+      ]
+    },
+    {
+      "title": "B.2. Damage initiation",
+      "heading_level": null,
+      "page_id": 12,
+      "polygon": [
+        [
+          33.972,
+          664.5779999999999
+        ],
+        [
+          115.02799999999999,
+          664.5779999999999
+        ],
+        [
+          115.02799999999999,
+          677.2931823730469
+        ],
+        [
+          33.972,
+          677.2931823730469
+        ]
+      ]
+    },
+    {
+      "title": "B.3. Damage evolution",
+      "heading_level": null,
+      "page_id": 12,
+      "polygon": [
+        [
+          303.364,
+          445.434
+        ],
+        [
+          385.01599999999996,
+          445.434
+        ],
+        [
+          385.01599999999996,
+          457.211181640625
+        ],
+        [
+          303.364,
+          457.211181640625
+        ]
+      ]
+    },
+    {
+      "title": "B.4. Displacement at failure",
+      "heading_level": null,
+      "page_id": 12,
+      "polygon": [
+        [
+          303.364,
+          620.114
+        ],
+        [
+          402.3,
+          620.114
+        ],
+        [
+          402.3,
+          632.5871887207031
+        ],
+        [
+          303.364,
+          632.5871887207031
+        ]
+      ]
+    },
+    {
+      "title": "B.5. Element deletion for material failure",
+      "heading_level": null,
+      "page_id": 12,
+      "polygon": [
+        [
+          303.364,
+          678.8699999999999
+        ],
+        [
+          447.0,
+          678.8699999999999
+        ],
+        [
+          447.0,
+          691.9871826171875
+        ],
+        [
+          303.364,
+          691.9871826171875
+        ]
+      ]
+    },
+    {
+      "title": "B.6. Summary",
+      "heading_level": null,
+      "page_id": 13,
+      "polygon": [
+        [
+          34.568,
+          51.61
+        ],
+        [
+          87.612,
+          51.61
+        ],
+        [
+          87.612,
+          63.50518798828125
+        ],
+        [
+          34.568,
+          63.50518798828125
+        ]
+      ]
+    },
+    {
+      "title": "Data availability",
+      "heading_level": null,
+      "page_id": 13,
+      "polygon": [
+        [
+          34.568,
+          169.916
+        ],
+        [
+          101.32000000000001,
+          169.916
+        ],
+        [
+          101.32000000000001,
+          181.50909423828125
+        ],
+        [
+          34.568,
+          181.50909423828125
+        ]
+      ]
+    },
+    {
+      "title": "References",
+      "heading_level": null,
+      "page_id": 13,
+      "polygon": [
+        [
+          34.568,
+          232.64199999999997
+        ],
+        [
+          79.268,
+          232.64199999999997
+        ],
+        [
+          79.268,
+          243.89208984375
+        ],
+        [
+          34.568,
+          243.89208984375
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          624
+        ],
+        [
+          "Line",
+          75
+        ],
+        [
+          "Text",
+          11
+        ],
+        [
+          "PageHeader",
+          5
+        ],
+        [
+          "SectionHeader",
+          5
+        ],
+        [
+          "Footnote",
+          5
+        ],
+        [
+          "PageFooter",
+          4
+        ],
+        [
+          "Reference",
+          4
+        ],
+        [
+          "Picture",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 1,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          2307
+        ],
+        [
+          "Line",
+          131
+        ],
+        [
+          "Text",
+          10
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 2,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          1579
+        ],
+        [
+          "Line",
+          92
+        ],
+        [
+          "Text",
+          8
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "Reference",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Diagram",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 3,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          1933
+        ],
+        [
+          "Line",
+          94
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Picture",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 4,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          923
+        ],
+        [
+          "Line",
+          41
+        ],
+        [
+          "Caption",
+          4
+        ],
+        [
+          "Text",
+          4
+        ],
+        [
+          "Reference",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Picture",
+          2
+        ],
+        [
+          "Figure",
+          2
+        ],
+        [
+          "PictureGroup",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 5,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          1589
+        ],
+        [
+          "Line",
+          91
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "Reference",
+          4
+        ],
+        [
+          "Caption",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "TableGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 1,
+        "llm_error_count": 0,
+        "llm_tokens_used": 1702,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 6,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          1872
+        ],
+        [
+          "Line",
+          101
+        ],
+        [
+          "Text",
+          9
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Reference",
+          2
+        ],
+        [
+          "Diagram",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "Equation",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 7,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          1869
+        ],
+        [
+          "Line",
+          101
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "Caption",
+          3
+        ],
+        [
+          "Reference",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Table",
+          2
+        ],
+        [
+          "TableGroup",
+          2
+        ],
+        [
+          "Diagram",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 2,
+        "llm_error_count": 0,
+        "llm_tokens_used": 3822,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 8,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          419
+        ],
+        [
+          "Line",
+          20
+        ],
+        [
+          "Diagram",
+          3
+        ],
+        [
+          "Caption",
+          3
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "Reference",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 9,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          967
+        ],
+        [
+          "Line",
+          62
+        ],
+        [
+          "Text",
+          4
+        ],
+        [
+          "Caption",
+          3
+        ],
+        [
+          "Reference",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Figure",
+          2
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ],
+        [
+          "TableGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 1,
+        "llm_error_count": 0,
+        "llm_tokens_used": 1444,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 10,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          935
+        ],
+        [
+          "Line",
+          51
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "Figure",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Reference",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 11,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          1892
+        ],
+        [
+          "Line",
+          122
+        ],
+        [
+          "Text",
+          15
+        ],
+        [
+          "SectionHeader",
+          13
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "ListItem",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 12,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          1514
+        ],
+        [
+          "Line",
+          112
+        ],
+        [
+          "Text",
+          13
+        ],
+        [
+          "SectionHeader",
+          6
+        ],
+        [
+          "ListItem",
+          5
+        ],
+        [
+          "Equation",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "Reference",
+          2
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "TableGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 1,
+        "llm_error_count": 0,
+        "llm_tokens_used": 3965,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 13,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          2653
+        ],
+        [
+          "Line",
+          151
+        ],
+        [
+          "Reference",
+          40
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "ListItem",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 14,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          1524
+        ],
+        [
+          "Line",
+          84
+        ],
+        [
+          "Reference",
+          26
+        ],
+        [
+          "ListItem",
+          4
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "ListGroup",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/Fu2025SimulationLoopAdditive"
+}

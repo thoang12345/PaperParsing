@@ -13,8 +13,6 @@ logging.getLogger("surya").setLevel(logging.WARNING)
 
 logger = logging.getLogger(__name__)
 
-
-
 t = TicToc()
 
 def getResponseFromUser(question : str, correctResponse : str = "correct") -> str:

@@ -3,7 +3,6 @@ from marker.renderers.markdown import MarkdownOutput
 from marker.models import create_model_dict
 from Functions import parsingProfiles
 from Functions.utilities import logger, t
-from Functions import classify
 from pathlib import Path
 import json
 from typing import Any
@@ -94,51 +93,51 @@ class MarkerParser:
                         "images": outputDir,
                 }
 
-def convertDocumentsMarker(pdfClassification : list[dict[str : str, str : str, str : str]], not_pdfs : list[dict[str : str, str : str, str : str]], inputFolder : Path, outputFolder : Path) -> list[dict[str, Any]]:
-        parserPlans = classify.chooseParserPlan(pdfClassification, not_pdfs)
-        markerPlans = [
-                p
-                for p in parserPlans
-                if p["parser_plan"].startswith("marker")
-                ]
-        
-        parsers = {}
-        results = []
+def convertDocumentsMarker(
+    parserPlans: list[dict[str, Any]],
+    inputFolder: Path,
+    outputFolder: Path,
+) -> list[dict[str, Any]]:
+    markerPlans = [
+        plan
+        for plan in parserPlans
+        if plan["parser_plan"].startswith("marker")
+    ]
 
-        for plan in markerPlans:
-                parserName = plan["parser_plan"]
+    parsers: dict[str, MarkerParser] = {}
+    results: list[dict[str, Any]] = []
 
-                if parserName not in parsers:
-                        profile = parsingProfiles.getMarkerProfile(parserName)
-                        parsers[parserName] = MarkerParser(profile)
+    for plan in markerPlans:
+        parserName = plan["parser_plan"]
 
-                parser = parsers[parserName]
+        if parserName not in parsers:
+            profile = parsingProfiles.getMarkerProfile(parserName)
+            parsers[parserName] = MarkerParser(profile)
 
-                pdf = inputFolder / plan["file"]
+        parser = parsers[parserName]
+        pdf = inputFolder / plan["file"]
 
-                try:
-                        logger.info(f"Converting {pdf.name} with {parserName}")
+        try:
+            logger.info(f"Converting {pdf.name} with {parserName}")
 
-                        t.tic()
-                        rendered = parser.convert(pdf)
-                        logger.info(
-                                f"{pdf.name}: {parser.converter.page_count} pages"
-                                )
-                        t.toc(f"Converted {pdf.name} in")
+            t.tic()
+            rendered = parser.convert(pdf)
+            logger.info(
+                f"{pdf.name}: {parser.converter.page_count} pages"
+            )
+            t.toc(f"Converted {pdf.name} in")
 
-                        summary = parser.export(
-                        rendered,
-                        outputFolder,
-                        parserName,
-                        pdf.stem,
-                        )
+            summary = parser.export(
+                rendered,
+                outputFolder,
+                parserName,
+                pdf.stem,
+            )
 
-                        results.append(summary)
+            results.append(summary)
 
-                except Exception:
-                        logger.exception(
-                                f"{parserName} failed on {pdf.name}"
-                        )
+        except Exception:
+            logger.exception(f"{parserName} failed on {pdf.name}")
 
-        return results
+    return results
 

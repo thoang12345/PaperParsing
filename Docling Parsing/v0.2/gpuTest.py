@@ -1,8 +1,6 @@
-from Functions import system
+from docling.document_converter import DocumentConverter
 
-system.giveGPUstatus()
+converter = DocumentConverter()
+result = converter.convert("/home/thienan/Documents/Github/PaperParsing/Docling Parsing/v0.2/Input/MA #4 Academic Research with Essay Thienan Hoang.docx")
 
-from marker.renderers.markdown import MarkdownOutput
-import inspect
-
-print(inspect.getsource(MarkdownOutput))
+print(result.document.export_to_markdown())

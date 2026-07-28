@@ -1,0 +1,564 @@
+{
+  "table_of_contents": [
+    {
+      "title": "REAL-TIME THERMAL DATA ASSIMILATION FOR POWER ELECTRONICS AT THE EDGE",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          95.47200000000001,
+          150.48000000000002
+        ],
+        [
+          514.0799999999999,
+          150.48000000000002
+        ],
+        [
+          514.0799999999999,
+          164.2530517578125
+        ],
+        [
+          95.47200000000001,
+          164.2530517578125
+        ]
+      ]
+    },
+    {
+      "title": "ABSTRACT",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          33.048,
+          281.15999999999997
+        ],
+        [
+          85.68,
+          281.15999999999997
+        ],
+        [
+          85.68,
+          294.739501953125
+        ],
+        [
+          33.048,
+          294.739501953125
+        ]
+      ]
+    },
+    {
+      "title": "1. INTRODUCTION",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          317.01599999999996,
+          281.15999999999997
+        ],
+        [
+          401.47200000000004,
+          281.15999999999997
+        ],
+        [
+          401.47200000000004,
+          294.73944091796875
+        ],
+        [
+          317.01599999999996,
+          294.73944091796875
+        ]
+      ]
+    },
+    {
+      "title": "2. MATERIALS AND METHODS",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          316.404,
+          215.42400000000004
+        ],
+        [
+          454.104,
+          215.42400000000004
+        ],
+        [
+          454.104,
+          228.16375732421875
+        ],
+        [
+          316.404,
+          228.16375732421875
+        ]
+      ]
+    },
+    {
+      "title": "2.1 Thermal Loop Experiment",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          316.404,
+          265.32000000000005
+        ],
+        [
+          449.20799999999997,
+          265.32000000000005
+        ],
+        [
+          449.20799999999997,
+          278.01678466796875
+        ],
+        [
+          316.404,
+          278.01678466796875
+        ]
+      ]
+    },
+    {
+      "title": "2.2 Model Verification",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          316.404,
+          576.576
+        ],
+        [
+          414.93600000000004,
+          576.576
+        ],
+        [
+          414.93600000000004,
+          590.0355224609375
+        ],
+        [
+          316.404,
+          590.0355224609375
+        ]
+      ]
+    },
+    {
+      "title": "2.3 Particle Swarm Optimization Online Updating",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          32.436,
+          74.448
+        ],
+        [
+          248.47200000000004,
+          74.448
+        ],
+        [
+          248.47200000000004,
+          87.74249267578125
+        ],
+        [
+          32.436,
+          87.74249267578125
+        ]
+      ]
+    },
+    {
+      "title": "3. RESULTS AND DISCUSSION",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          32.436,
+          526.6800000000001
+        ],
+        [
+          171.36,
+          526.6800000000001
+        ],
+        [
+          171.36,
+          540.6104278564453
+        ],
+        [
+          32.436,
+          540.6104278564453
+        ]
+      ]
+    },
+    {
+      "title": "4. CONCLUSION",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          33.048,
+          584.496
+        ],
+        [
+          109.548,
+          584.496
+        ],
+        [
+          109.548,
+          598.0064544677734
+        ],
+        [
+          33.048,
+          598.0064544677734
+        ]
+      ]
+    },
+    {
+      "title": "5. ACKNOWLEDGMENT",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          316.404,
+          34.056
+        ],
+        [
+          424.116,
+          34.056
+        ],
+        [
+          424.116,
+          47.948486328125
+        ],
+        [
+          316.404,
+          47.948486328125
+        ]
+      ]
+    },
+    {
+      "title": "REFERENCES",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          316.404,
+          166.32
+        ],
+        [
+          381.88800000000003,
+          166.32
+        ],
+        [
+          381.88800000000003,
+          179.42462158203125
+        ],
+        [
+          316.404,
+          179.42462158203125
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          183
+        ],
+        [
+          "Line",
+          85
+        ],
+        [
+          "Text",
+          10
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "PageHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 1,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          229
+        ],
+        [
+          "Line",
+          112
+        ],
+        [
+          "Text",
+          9
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageFooter",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 2,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          310
+        ],
+        [
+          "Line",
+          92
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "ListItem",
+          4
+        ],
+        [
+          "Reference",
+          4
+        ],
+        [
+          "Equation",
+          2
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "Diagram",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ],
+        [
+          "Picture",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 3,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          222
+        ],
+        [
+          "Line",
+          97
+        ],
+        [
+          "Text",
+          4
+        ],
+        [
+          "ListItem",
+          4
+        ],
+        [
+          "Caption",
+          3
+        ],
+        [
+          "Reference",
+          3
+        ],
+        [
+          "Figure",
+          2
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "FigureGroup",
+          2
+        ],
+        [
+          "ListGroup",
+          1
+        ],
+        [
+          "Diagram",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 4,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          220
+        ],
+        [
+          "Line",
+          87
+        ],
+        [
+          "Reference",
+          8
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "Caption",
+          3
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "Table",
+          2
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "TableGroup",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 5,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          60
+        ],
+        [
+          "Line",
+          16
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "ListItem",
+          2
+        ],
+        [
+          "Reference",
+          2
+        ],
+        [
+          "Text",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/Priddy2024RealTimeThermal"
+}

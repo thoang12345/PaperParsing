@@ -1,0 +1,914 @@
+{
+  "table_of_contents": [
+    {
+      "title": "A Digital Twin Based Forecasting Framework for\nPower Flow Management in DC Microgrids",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          51.40800000000001,
+          57.024
+        ],
+        [
+          514.692,
+          57.024
+        ],
+        [
+          514.692,
+          107.5457763671875
+        ],
+        [
+          51.40800000000001,
+          107.5457763671875
+        ]
+      ]
+    },
+    {
+      "title": "ABSTRACT",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          51.40800000000001,
+          257.4
+        ],
+        [
+          122.4,
+          257.4
+        ],
+        [
+          122.4,
+          274.7852783203125
+        ],
+        [
+          51.40800000000001,
+          274.7852783203125
+        ]
+      ]
+    },
+    {
+      "title": "Introduction",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          51.40800000000001,
+          444.312
+        ],
+        [
+          126.68399999999998,
+          444.312
+        ],
+        [
+          126.68399999999998,
+          461.92926025390625
+        ],
+        [
+          51.40800000000001,
+          461.92926025390625
+        ]
+      ]
+    },
+    {
+      "title": "Forecasting Requirements and Assumptions for Digital Twins in DC Microgrids",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          53.24399999999999,
+          576.576
+        ],
+        [
+          506.124,
+          576.576
+        ],
+        [
+          506.124,
+          593.5752868652344
+        ],
+        [
+          53.24399999999999,
+          593.5752868652344
+        ]
+      ]
+    },
+    {
+      "title": "Forecasting Example",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          53.855999999999995,
+          613.8
+        ],
+        [
+          177.48,
+          613.8
+        ],
+        [
+          177.48,
+          630.1922912597656
+        ],
+        [
+          53.855999999999995,
+          630.1922912597656
+        ]
+      ]
+    },
+    {
+      "title": "Faithful Representation of the Physical Twin: An Illustrative Example Using Electro-thermal Modeling of\nPower Transmission Cables",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          53.24399999999999,
+          63.36
+        ],
+        [
+          560.592,
+          63.36
+        ],
+        [
+          560.592,
+          87.85888671875
+        ],
+        [
+          53.24399999999999,
+          87.85888671875
+        ]
+      ]
+    },
+    {
+      "title": "A Simple Demonstration of the Forecasting Framework for Digital Twins",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          52.019999999999996,
+          467.28
+        ],
+        [
+          465.12,
+          467.28
+        ],
+        [
+          465.12,
+          484.30126953125
+        ],
+        [
+          52.019999999999996,
+          484.30126953125
+        ]
+      ]
+    },
+    {
+      "title": "Simulation Results",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          52.63199999999999,
+          595.584
+        ],
+        [
+          146.268,
+          595.584
+        ],
+        [
+          146.268,
+          609.994873046875
+        ],
+        [
+          52.63199999999999,
+          609.994873046875
+        ]
+      ]
+    },
+    {
+      "title": "A Simplified Demonstration of the Forecasting Framework",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          52.63199999999999,
+          529.056
+        ],
+        [
+          388.00800000000004,
+          529.056
+        ],
+        [
+          388.00800000000004,
+          545.4872894287109
+        ],
+        [
+          52.63199999999999,
+          545.4872894287109
+        ]
+      ]
+    },
+    {
+      "title": "Conclusions",
+      "heading_level": null,
+      "page_id": 10,
+      "polygon": [
+        [
+          53.24399999999999,
+          217.8
+        ],
+        [
+          128.51999999999998,
+          217.8
+        ],
+        [
+          128.51999999999998,
+          234.372314453125
+        ],
+        [
+          53.24399999999999,
+          234.372314453125
+        ]
+      ]
+    },
+    {
+      "title": "References",
+      "heading_level": null,
+      "page_id": 10,
+      "polygon": [
+        [
+          53.24399999999999,
+          357.192
+        ],
+        [
+          121.78800000000001,
+          357.192
+        ],
+        [
+          121.78800000000001,
+          373.479248046875
+        ],
+        [
+          53.24399999999999,
+          373.479248046875
+        ]
+      ]
+    },
+    {
+      "title": "Acknowledgements",
+      "heading_level": null,
+      "page_id": 12,
+      "polygon": [
+        [
+          52.63199999999999,
+          350.064
+        ],
+        [
+          169.524,
+          350.064
+        ],
+        [
+          169.524,
+          366.7472839355469
+        ],
+        [
+          52.63199999999999,
+          366.7472839355469
+        ]
+      ]
+    },
+    {
+      "title": "Author contributions statement",
+      "heading_level": null,
+      "page_id": 12,
+      "polygon": [
+        [
+          52.63199999999999,
+          430.05600000000004
+        ],
+        [
+          236.232,
+          430.05600000000004
+        ],
+        [
+          236.232,
+          446.9462585449219
+        ],
+        [
+          52.63199999999999,
+          446.9462585449219
+        ]
+      ]
+    },
+    {
+      "title": "Competing interests",
+      "heading_level": null,
+      "page_id": 12,
+      "polygon": [
+        [
+          52.63199999999999,
+          498.168
+        ],
+        [
+          173.19599999999997,
+          498.168
+        ],
+        [
+          173.19599999999997,
+          515.1902770996094
+        ],
+        [
+          52.63199999999999,
+          515.1902770996094
+        ]
+      ]
+    },
+    {
+      "title": "Data availability",
+      "heading_level": null,
+      "page_id": 12,
+      "polygon": [
+        [
+          52.63199999999999,
+          543.312
+        ],
+        [
+          146.88,
+          543.312
+        ],
+        [
+          146.88,
+          559.5362396240234
+        ],
+        [
+          52.63199999999999,
+          559.5362396240234
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          133
+        ],
+        [
+          "Line",
+          56
+        ],
+        [
+          "Text",
+          8
+        ],
+        [
+          "SectionHeader",
+          3
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 1,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          199
+        ],
+        [
+          "Line",
+          61
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "PageFooter",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 2,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          196
+        ],
+        [
+          "Line",
+          85
+        ],
+        [
+          "Text",
+          4
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "Diagram",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 3,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          223
+        ],
+        [
+          "Line",
+          72
+        ],
+        [
+          "ListItem",
+          4
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "ListGroup",
+          3
+        ],
+        [
+          "Equation",
+          2
+        ],
+        [
+          "PageFooter",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 4,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          244
+        ],
+        [
+          "Line",
+          61
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "ListItem",
+          3
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "Equation",
+          2
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 5,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          297
+        ],
+        [
+          "Line",
+          69
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "Equation",
+          3
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 6,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          302
+        ],
+        [
+          "Line",
+          94
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "Caption",
+          3
+        ],
+        [
+          "Figure",
+          2
+        ],
+        [
+          "Equation",
+          2
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "FigureGroup",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 7,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          189
+        ],
+        [
+          "Line",
+          73
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 8,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          188
+        ],
+        [
+          "Line",
+          60
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "Diagram",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 9,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          152
+        ],
+        [
+          "Line",
+          56
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 10,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          177
+        ],
+        [
+          "Line",
+          51
+        ],
+        [
+          "ListItem",
+          9
+        ],
+        [
+          "Reference",
+          9
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 11,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          264
+        ],
+        [
+          "Line",
+          50
+        ],
+        [
+          "ListItem",
+          18
+        ],
+        [
+          "Reference",
+          18
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 12,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          128
+        ],
+        [
+          "Line",
+          36
+        ],
+        [
+          "Reference",
+          8
+        ],
+        [
+          "ListItem",
+          7
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "Text",
+          4
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/Sado_A Digital Twin Based Forecasting Framework for Power Flow Management in DC Microgrids_Final"
+}

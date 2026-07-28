@@ -20,10 +20,24 @@ outputFolder = relativePaths[1]
 chromaDBFolder = relativePaths[2]
 
 client = chroma.createChromaDBClient(chromaDBFolder)
-PDFclassifications = classify.classifyPDFs(inputFolder)
+pdfClassifications = classify.classifyPDFs(inputFolder)
 generalClassifications = classify.classifyEverythingElse(inputFolder)
 
-classify.printFilesAndConfigurations(PDFclassifications, generalClassifications)
+parserPlans = classify.chooseParserPlan(
+        pdfClassifications,
+        generalClassifications
+    )
+
+from pprint import pprint
+
+for plan in parserPlans:
+    pprint(plan)
+
+parserPlans.sort(key=lambda plan: plan["parser_plan"])
+
+batches = classify.batchParserPlans(parserPlans)
+
+classify.printFilesAndConfigurations(pdfClassifications, generalClassifications)
 
 chroma.createOrDeleteChromaDBCollection(client)
 
@@ -33,10 +47,23 @@ doOrNotDoConvert = input("\nDo you want to convert files? (y/n): ").lower()
 print("\n")
 
 if doOrNotDoConvert == "y":
-    markerResults = marker.convertDocumentsMarker(PDFclassifications, generalClassifications, inputFolder, outputFolder)
-    doclingResults = docling.convertDocumentsDocling(PDFclassifications, generalClassifications, inputFolder, outputFolder, chunkingTools)
+    marker.convertDocumentsMarker(
+        parserPlans,
+        inputFolder,
+        outputFolder
+    )
 
-'''generator = llm.initializeTransformer()
-chunkOutput = chunking.chunkDocuments(outputFolder, PDFclassifications, generalClassifications, chunkingTools, generator)    
+    docling.convertDocumentsDocling(
+        parserPlans,
+        inputFolder,
+        outputFolder
+    )
 
-chroma.addToChromaDB(client, chunkOutput)'''
+doOrNotDoConvert = input("\nDo you want to chunk files? (y/n): ").lower()
+print("\n")
+
+if doOrNotDoConvert == "y":
+    generator = llm.initializeTransformer()
+    chunkOutput = chunking.chunkDocuments(outputFolder, pdfClassifications, generalClassifications, chunkingTools, generator)    
+
+    chroma.addToChromaDB(client, chunkOutput)

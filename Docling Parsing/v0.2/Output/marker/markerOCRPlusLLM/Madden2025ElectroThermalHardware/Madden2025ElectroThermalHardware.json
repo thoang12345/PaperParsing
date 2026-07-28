@@ -1,0 +1,498 @@
+{
+  "table_of_contents": [
+    {
+      "title": "I. INTRODUCTION",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          131.57999999999998,
+          525.888
+        ],
+        [
+          213.3709716796875,
+          525.888
+        ],
+        [
+          213.3709716796875,
+          538.2902374267578
+        ],
+        [
+          131.57999999999998,
+          538.2902374267578
+        ]
+      ]
+    },
+    {
+      "title": "II. METHODOLOGY",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          389.84400000000005,
+          607.4639999999999
+        ],
+        [
+          479.808,
+          607.4639999999999
+        ],
+        [
+          479.808,
+          620.1150207519531
+        ],
+        [
+          389.84400000000005,
+          620.1150207519531
+        ]
+      ]
+    },
+    {
+      "title": "A. Electrical Model",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          309.06,
+          623.304
+        ],
+        [
+          394.12800000000004,
+          623.304
+        ],
+        [
+          394.12800000000004,
+          636.3008728027344
+        ],
+        [
+          309.06,
+          636.3008728027344
+        ]
+      ]
+    },
+    {
+      "title": "Electro-thermal Hardware-in-the-Loop Battery\nEmulator for Shipboard Systems Testing",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          74.66399999999999,
+          46.727999999999994
+        ],
+        [
+          535.5,
+          46.727999999999994
+        ],
+        [
+          535.5,
+          100.2432861328125
+        ],
+        [
+          74.66399999999999,
+          100.2432861328125
+        ]
+      ]
+    },
+    {
+      "title": "B. Thermal Model",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          308.448,
+          229.67999999999995
+        ],
+        [
+          388.2547302246094,
+          229.67999999999995
+        ],
+        [
+          388.2547302246094,
+          241.764892578125
+        ],
+        [
+          308.448,
+          241.764892578125
+        ]
+      ]
+    },
+    {
+      "title": "C. Hardware-in-the-Loop",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          308.448,
+          576.576
+        ],
+        [
+          416.6791687011719,
+          576.576
+        ],
+        [
+          416.6791687011719,
+          589.4554138183594
+        ],
+        [
+          308.448,
+          589.4554138183594
+        ]
+      ]
+    },
+    {
+      "title": "D. Usage Procedure",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          45.9,
+          325.51199999999994
+        ],
+        [
+          133.6096954345703,
+          325.51199999999994
+        ],
+        [
+          133.6096954345703,
+          338.2444152832031
+        ],
+        [
+          45.9,
+          338.2444152832031
+        ]
+      ]
+    },
+    {
+      "title": "III. RESULTS",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          140.76,
+          514.8
+        ],
+        [
+          203.24949645996094,
+          514.8
+        ],
+        [
+          203.24949645996094,
+          528.9249267578125
+        ],
+        [
+          140.76,
+          528.9249267578125
+        ]
+      ]
+    },
+    {
+      "title": "IV. CONCLUSION",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          394.12800000000004,
+          609.048
+        ],
+        [
+          475.524,
+          609.048
+        ],
+        [
+          475.524,
+          622.7268981933594
+        ],
+        [
+          394.12800000000004,
+          622.7268981933594
+        ]
+      ]
+    },
+    {
+      "title": "",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          126.68399999999998,
+          369.86400000000003
+        ],
+        [
+          217.87199999999999,
+          369.86400000000003
+        ],
+        [
+          217.87199999999999,
+          380.15999999999997
+        ],
+        [
+          126.68399999999998,
+          380.15999999999997
+        ]
+      ]
+    },
+    {
+      "title": "",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          142.596,
+          475.99199999999996
+        ],
+        [
+          201.348,
+          475.99199999999996
+        ],
+        [
+          201.348,
+          486.288
+        ],
+        [
+          142.596,
+          486.288
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          283
+        ],
+        [
+          "Line",
+          100
+        ],
+        [
+          "Text",
+          12
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "PageFooter",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 1,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          430
+        ],
+        [
+          "Line",
+          106
+        ],
+        [
+          "Text",
+          9
+        ],
+        [
+          "Equation",
+          5
+        ],
+        [
+          "Caption",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Diagram",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "TableGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 2,
+        "llm_error_count": 0,
+        "llm_tokens_used": 2375,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 2,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          57
+        ],
+        [
+          "Line",
+          27
+        ],
+        [
+          "Text",
+          4
+        ],
+        [
+          "Diagram",
+          3
+        ],
+        [
+          "Caption",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 3,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          131
+        ],
+        [
+          "Line",
+          60
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Figure",
+          2
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 4,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          191
+        ],
+        [
+          "Line",
+          77
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "ListItem",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/Madden2025ElectroThermalHardware"
+}
