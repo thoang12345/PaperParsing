@@ -8,7 +8,7 @@ from transformers import pipeline
 from docling.chunking import HybridChunker
 from docling_core.transforms.chunker.tokenizer.huggingface import HuggingFaceTokenizer
 from docling_core.types.doc.document import DoclingDocument
-
+from docling_core.transforms.chunker import DocChunk
 
 def chunkDocuments(outputFolder: Path, pdfClassification : list[dict[str : str, str : str, str : str]], 
                    not_pdfs : list[dict[str : str, str : str, str : str]],
@@ -64,40 +64,16 @@ def buildTextChunks(name : str, plan : str, JSON : Path, doclingTools : tuple[Hy
 
         fileOutput = []
         chunksOutput = []
-        
 
         for chunkNumber, chunk in enumerate(chunks):
-                pageNumbers = set()
-                classifications = set()
-                for item in chunk.meta.doc_items:
-                        if hasattr(item, "label") and item.label:
-                                classifications.add(str(item.label))
-                        for provenance in getattr(item, "prov", []):
-                                if hasattr(provenance, "page_no"):
-                                        pageNumbers.add(provenance.page_no)
-
-                sortedPages = sorted(list(pageNumbers))
-                tokenCount = tokenizer.count_tokens(chunk.text)
-                headings = chunk.meta.headings if chunk.meta.headings else []
-
-                try:
-                        contextualizeChunk = chunker.contextualize(chunk=chunk)
-                except Exception:
-                        contextualizeChunk = chunk.text
+                chunkMetadata = buildChunkMetadata(chunk, chunkNumber, name, plan, tokenizer, chunker)
+                chunkText = chunk.text
 
                 chunksOutput.append({
-                        "text" : chunk.text,
-                        "metadata" : {
-                                "paperName" : name,
-                                "parsingPlan": plan,
-                                "headings" : headings,
-                                "pageNumbers" : sortedPages,
-                                "classifications" : list(classifications),
-                                "tokenCount" : tokenCount,
-                                "contextualize" : contextualizeChunk,
-                                "chunkNumber" : chunkNumber,
+                        "text":chunkText,
+                        "metadata":chunkMetadata                
                         }
-                })
+                )
 
         fileOutput = {
                 "name" : name,
@@ -107,6 +83,38 @@ def buildTextChunks(name : str, plan : str, JSON : Path, doclingTools : tuple[Hy
         t.toc(f"Chunked {name} with {plan} producing {len(chunks)} chunks in")
 
         return fileOutput
+
+def buildChunkMetadata(chunk : DocChunk, chunkNumber : int, name : str, plan : str, tokenizer : HuggingFaceTokenizer, chunker: HybridChunker):
+        pageNumbers = set()
+        classifications = set()
+
+        headings = chunk.meta.headings if chunk.meta.headings else []
+
+        for item in chunk.meta.doc_items:
+                if hasattr(item, "label") and item.label:
+                        classifications.add(str(item.label))
+
+                for provenance in getattr(item, "prov", []):
+                        if hasattr(provenance, "page_no"):
+                                pageNumbers.add(provenance.page_no)
+
+        tokenCount = tokenizer.count_tokens(chunk.text)
+
+        try:
+                contextualizeChunk = chunker.contextualize(chunk=chunk)
+        except Exception:
+                contextualizeChunk = chunk.text
+
+        return {
+                "paperName":name,
+                "parserPlan":plan,
+                "headings":headings,
+                "pageNumbers":sorted(list(pageNumbers)),
+                "classifications":list(classifications),
+                "tokenCount":tokenCount,
+                "contextualize":contextualizeChunk,
+                "chunkNumber":chunkNumber
+        }
 
 def nativeHybridChunker(name : str, plan : str, JSON : Path, doclingTools : tuple[HybridChunker, HuggingFaceTokenizer]) -> dict:
         fileOutput = buildTextChunks(name, plan, JSON, doclingTools)

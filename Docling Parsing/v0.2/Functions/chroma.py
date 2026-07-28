@@ -22,7 +22,7 @@ def createOrDeleteChromaDBCollection(client: chromadb.api.client.Client) -> None
                 else: 
                         answerForCollections = utilities.getResponseFromUser(
                                 "\nExisting collections found. Would you like to create a new collection? (y/n). Or 'd' to delete an existing collection: ",
-                                ["y", "n"]
+                                ["y", "n", "d"]
                         )
                 if answerForCollections == "quit":
                         quit = False
