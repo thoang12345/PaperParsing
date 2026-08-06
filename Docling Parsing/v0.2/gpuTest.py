@@ -1,6 +1,8 @@
-from docling.document_converter import DocumentConverter
+import torch
+import torch.nn as nn
 
-converter = DocumentConverter()
-result = converter.convert("/home/thienan/Documents/Github/PaperParsing/Docling Parsing/v0.2/Input/MA #4 Academic Research with Essay Thienan Hoang.docx")
+conv = nn.Conv2d(3, 16, 3, padding=1).cuda()
+x = torch.randn(1, 3, 224, 224, device="cuda")
+conv(x)
 
-print(result.document.export_to_markdown())
+print("Success")

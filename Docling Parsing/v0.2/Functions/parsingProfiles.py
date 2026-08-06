@@ -9,6 +9,7 @@ from docling.datamodel.pipeline_options import (
     TableFormerMode,
     TableStructureOptions,
     ThreadedPdfPipelineOptions,
+    granite_picture_description,
 )
 from docling.datamodel.accelerator_options import (
     AcceleratorDevice,
@@ -18,9 +19,6 @@ from docling.datamodel.accelerator_options import (
 from docling.datamodel.layout_model_specs import DOCLING_LAYOUT_EGRET_LARGE
 from docling.datamodel.base_models import InputFormat
 from docling.document_converter import DocumentConverter, PdfFormatOption
-
-from marker.services import BaseService
-from Functions.llm import buildMarkerOllamaService
 
 class profileNames(str, Enum):
         doclingOCR = "doclingOCR"
@@ -89,7 +87,7 @@ class markerPipelineOptions:
 doclingProfiles: dict[profileNames, doclingPipelineOptions] = {
         profileNames.doclingNative: doclingPipelineOptions(
                 name = profileNames.doclingNative,
-                doOCR = False,
+                doOCR = True,
                 doTableStructures=True,
                 tableAccurateMode=False,
                 generatePageImage=False,
@@ -112,7 +110,9 @@ doclingProfiles: dict[profileNames, doclingPipelineOptions] = {
                 generatePictureImages=True,
                 useEgretLargeLayout=True,
                 imageScale=1.1,
-                numberOfThreads=2
+                numberOfThreads=2,
+                doPictureDescriptions=True,
+                pictureDescriptionPrompt="Describe this figure in 2-3 sentences. Include what type of figure it is (diagram, chart, photograph, etc.), what it shows, and any key values or labels visible. Be concise and precise."
         ),
 
         profileNames.doclingOCR : doclingPipelineOptions(
@@ -124,7 +124,9 @@ doclingProfiles: dict[profileNames, doclingPipelineOptions] = {
                 generatePictureImages=True,
                 generatePageImage=False,
                 useEgretLargeLayout=True,
-                imageScale=1.25
+                imageScale=1.25,
+                doPictureDescriptions=True,
+                pictureDescriptionPrompt="Describe this figure in 2-3 sentences. Include what type of figure it is (diagram, chart, photograph, etc.), what it shows, and any key values or labels visible. Be concise and precise."
         )
 }
 
@@ -196,6 +198,7 @@ def doclingSettings(profile : doclingPipelineOptions) -> ThreadedPdfPipelineOpti
         options.do_picture_description = profile.doPictureDescriptions
 
         if profile.doPictureDescriptions:
+                options.picture_description_options = granite_picture_description
                 options.picture_description_options.prompt = profile.pictureDescriptionPrompt
 
         # Hardware

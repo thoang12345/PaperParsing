@@ -2,14 +2,42 @@ import logging
 import torch
 import time
 
-from docling.chunking import HybridChunker
+from docling_core.transforms.chunker.hybrid_chunker import HybridChunker
+from docling_core.types.doc.document import DoclingDocument
 from docling_core.transforms.chunker.tokenizer.huggingface import HuggingFaceTokenizer
+from docling_core.transforms.chunker.hierarchical_chunker import (
+        ChunkingDocSerializer,
+        ChunkingSerializerProvider
+)
+from docling_core.transforms.serializer.base import BaseDocSerializer, SerializationResult
+from docling_core.transforms.serializer.common import create_ser_result
+from docling_core.types.doc.document import DoclingDocument, PictureItem
+from typing import Any
+from typing_extensions import override 
+from docling_core.transforms.serializer.markdown import (
+    MarkdownTableSerializer,
+    MarkdownPictureSerializer
+)
 from transformers import AutoTokenizer
 
 logging.basicConfig(level=logging.INFO,
                      format='%(asctime)s - %(levelname)s - %(message)s',
                      datefmt='%Y-%m-%d %I:%M:%S %p')
 logger = logging.getLogger(__name__)
+
+class DescriptionPictureSerializer(MarkdownPictureSerializer):
+        @override
+        def serialize(self, *, item, doc_serializer, doc, **kwargs):
+                text_res = doc_serializer.post_process(text="[Figure]")
+                return create_ser_result(text=text_res, span_source=item)
+
+class DoclingSerializerProvider(ChunkingSerializerProvider):
+        def get_serializer(self, doc: DoclingDocument) -> ChunkingDocSerializer:
+                return ChunkingDocSerializer(
+                        doc=doc,
+                        table_serializer=MarkdownTableSerializer(),
+                        picture_serializer=DescriptionPictureSerializer(),
+                )
 
 def giveGPUstatus() -> None:
         logger.info("=" * 50)
@@ -39,7 +67,7 @@ def giveGPUstatus() -> None:
 
 def initializeDoclingChunker() -> list[HybridChunker, HuggingFaceTokenizer]:
         EMBED_MODEL_ID = "sentence-transformers/all-MiniLM-L6-v2"
-        MAX_TOKENS = 400
+        MAX_TOKENS = 421
 
         logger.info("=" * 50)
         logger.info(f"Initializing Docling Chunker with model: {EMBED_MODEL_ID} and max tokens: {MAX_TOKENS}")
@@ -52,8 +80,11 @@ def initializeDoclingChunker() -> list[HybridChunker, HuggingFaceTokenizer]:
         logger.info("=" * 50 + "\n")
         chunker = HybridChunker(
                 tokenizer=tokenizer,
+                serializer_provider=DoclingSerializerProvider(),
+                repeat_table_headers=True,
                 merge_peers = True
         )
 
         chunkingTools = [chunker, tokenizer]
         return chunkingTools
+

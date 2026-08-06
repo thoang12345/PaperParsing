@@ -151,7 +151,8 @@ def addToChromaDB(client: chromadb.api.client.Client, inputChunks : dict[str, li
                                     "classifications": metadata["classifications"] or "None",
                                     "token count": metadata["tokenCount"] or "None",
                                     "contextualize": metadata["contextualize"] or "None",
-                                    "chunk number": metadata["chunkNumber"] or "None"
+                                    "chunk number": metadata["chunkNumber"] or "None",
+                                    "picture description": metadata["pictureDescription"] or "None"
                             }],
                     )
 

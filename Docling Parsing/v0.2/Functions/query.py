@@ -39,7 +39,7 @@ def queryChromaDB(client: chromadb.api.client.Client) -> None:
 
                 result = collection.query(
                         query_texts=[query],
-                        n_results=15
+                        n_results=5
                 )
                 
                 for ids, documents, metadatas, distances in zip(result["ids"], result["documents"], result["metadatas"], result["distances"]):

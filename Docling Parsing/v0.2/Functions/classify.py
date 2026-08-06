@@ -137,10 +137,12 @@ def chooseParserPlan(pdfClassification : list[dict[str : str, str : str, str : s
         
         for pdf in pdfClassification:
                 if pdf["content_type"] == "scientific" and (pdf["text_type"] == "scannedPDF" or pdf["text_type"] == "nativePDF"):
-                        pdf["parser_plan"] = "doclingNative"
+                        pdf["parser_plan"] = "markerOCR"
+                        #pdf["parser_plan"] = "doclingNative"
 
                 if pdf["content_type"] == "scientific" and pdf["text_type"] == "mixedPDF":
-                        pdf["parser_plan"] = "markerOCRPlusLLM"
+                        pdf["parser_plan"] = "doclingOCR"
+                        #pdf["parser_plan"] = "markerOCRPlusLLM"
 
                 if (pdf["content_type"] == "generic" and pdf["text_type"] in ("mixedPDF", "OCRedPDF")):                       
                         pdf["parser_plan"] = "doclingOCR"

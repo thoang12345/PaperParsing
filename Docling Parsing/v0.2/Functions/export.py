@@ -32,20 +32,22 @@ def exportResults(results: list[dict[str, Any]], outputFolder: Path) -> None:
                         sourceName = item["file"]
                         stem = Path(sourceName).stem
 
-                        markdownPath = basePath / f"{stem}.md"
-                        jsonPath = basePath / f"{stem}.json"
+                        markdownPath = basePath / stem / f"{stem}.md"
+                        jsonPath = basePath / stem / f"{stem}.json"
+
+                        (basePath / stem).mkdir(parents=True, exist_ok=True)
 
                         if useImageLinks:
                                 document.save_as_markdown(
                                 markdownPath,
-                                artifacts_dir=basePath,
+                                artifacts_dir=basePath / stem,
                                 image_mode=ImageRefMode.REFERENCED,
                                 page_break_placeholder="----page-break-here----"
                                 )
                         else:
                                 document.save_as_markdown(
                                 markdownPath,
-                                artifacts_dir=basePath,
+                                artifacts_dir=basePath / stem,
                                 image_mode=ImageRefMode.PLACEHOLDER,
                                 page_break_placeholder="----page-break-here----"
                                 )

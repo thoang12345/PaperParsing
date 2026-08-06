@@ -1,3 +1,6 @@
+import os
+os.environ["MIOPEN_LOG_LEVEL"] = "4"  # 4 = errors only, suppresses warnings
+
 from Functions import system
 from Functions import classify
 from Functions import paths
@@ -30,11 +33,6 @@ parserPlans = classify.chooseParserPlan(
         generalClassifications
     )
 
-from pprint import pprint
-
-for plan in parserPlans:
-    pprint(plan)
-
 parserPlans.sort(key=lambda plan: plan["parser_plan"])
 
 batches = classify.batchParserPlans(parserPlans)
@@ -66,6 +64,6 @@ print("\n")
 
 if doOrNotDoConvert == "y":
     generator = llm.initializeTransformer()
-    chunkOutput = chunking.chunkDocuments(outputFolder, pdfClassifications, generalClassifications, chunkingTools, generator)    
+    chunkOutput = chunking.chunkDocuments(outputFolder, pdfClassifications, generalClassifications, chunkingTools)    
 
     chroma.addToChromaDB(client, chunkOutput)

@@ -3,17 +3,16 @@ from Functions.parsingProfiles import profileNames
 from Functions import paths
 from pathlib import Path
 import json
-from transformers import pipeline
 
 from docling.chunking import HybridChunker
 from docling_core.transforms.chunker.tokenizer.huggingface import HuggingFaceTokenizer
 from docling_core.types.doc.document import DoclingDocument
 from docling_core.transforms.chunker import DocChunk
+from docling_core.types.doc.document import TableItem, PictureItem
 
 def chunkDocuments(outputFolder: Path, pdfClassification : list[dict[str : str, str : str, str : str]], 
                    not_pdfs : list[dict[str : str, str : str, str : str]],
-                   doclingChunkingTools : tuple[HybridChunker, HuggingFaceTokenizer],
-                   generator : pipeline
+                   doclingChunkingTools : tuple[HybridChunker, HuggingFaceTokenizer]
                    ) -> dict[str, list]:
         parserOutput = paths.findOutputFiles(outputFolder, pdfClassification, not_pdfs)
 
@@ -36,12 +35,12 @@ def chunkDocuments(outputFolder: Path, pdfClassification : list[dict[str : str, 
 
                         logger.info(f"Sucessfully chunked {len(chunkOutput["doclingNative"])} {parserPlan} documents")
                 elif parserPlan == "doclingOCR":
-                        chunks = OCRHybridChunker(name, parserPlan, JSON, doclingChunkingTools, generator)
+                        chunks = OCRHybridChunker(name, parserPlan, JSON, doclingChunkingTools)
                         chunkOutput["doclingOCR"].append(chunks)
 
                         logger.info(f"Sucessfully chunked {len(chunkOutput["doclingOCR"])} {parserPlan} documents")
                 elif parserPlan == "doclingScannedOCR":
-                        chunks = OCRHybridChunker(name, parserPlan, JSON, doclingChunkingTools, generator)
+                        chunks = OCRHybridChunker(name, parserPlan, JSON, doclingChunkingTools)
                         chunkOutput["doclingScannedOCR"].append(chunks)
 
                         logger.info(f"Sucessfully chunked {len(chunkOutput["doclingScannedOCR"])} {parserPlan} documents")
@@ -51,15 +50,12 @@ def chunkDocuments(outputFolder: Path, pdfClassification : list[dict[str : str, 
 
         return chunkOutput
 
-def buildTextChunks(name : str, plan : str, JSON : Path, doclingTools : tuple[HybridChunker, HuggingFaceTokenizer]) -> dict:
+def buildAllChunks(document : DoclingDocument, name : str, plan : str, doclingTools : tuple[HybridChunker, HuggingFaceTokenizer]) -> dict:
         chunker = doclingTools[0]
         tokenizer = doclingTools[1]
 
         t.tic()
-        with open(JSON, "r", encoding="utf-8") as f:
-                data = json.load(f)
 
-        document = DoclingDocument.model_validate(data)
         chunks = list(chunker.chunk(dl_doc=document))
 
         fileOutput = []
@@ -68,6 +64,16 @@ def buildTextChunks(name : str, plan : str, JSON : Path, doclingTools : tuple[Hy
         for chunkNumber, chunk in enumerate(chunks):
                 chunkMetadata = buildChunkMetadata(chunk, chunkNumber, name, plan, tokenizer, chunker)
                 chunkText = chunk.text
+
+                isTable = any(isinstance(item, TableItem) for item in chunk.meta.doc_items)
+                isPicture = any(isinstance(item, PictureItem) for item in chunk.meta.doc_items)
+
+                if isTable:
+                        chunkMetadata["chunkType"] = "table"
+                elif isPicture:
+                        chunkMetadata["chunkType"] = "picture"
+                else:
+                        chunkMetadata["chunkType"] = "text"        
 
                 chunksOutput.append({
                         "text":chunkText,
@@ -87,6 +93,7 @@ def buildTextChunks(name : str, plan : str, JSON : Path, doclingTools : tuple[Hy
 def buildChunkMetadata(chunk : DocChunk, chunkNumber : int, name : str, plan : str, tokenizer : HuggingFaceTokenizer, chunker: HybridChunker):
         pageNumbers = set()
         classifications = set()
+        pictureDescription = None
 
         headings = chunk.meta.headings if chunk.meta.headings else []
 
@@ -97,6 +104,10 @@ def buildChunkMetadata(chunk : DocChunk, chunkNumber : int, name : str, plan : s
                 for provenance in getattr(item, "prov", []):
                         if hasattr(provenance, "page_no"):
                                 pageNumbers.add(provenance.page_no)
+
+                if isinstance(item, PictureItem):
+                        if item.meta is not None and item.meta.description is not None:
+                                pictureDescription = item.meta.description.text
 
         tokenCount = tokenizer.count_tokens(chunk.text)
 
@@ -113,15 +124,18 @@ def buildChunkMetadata(chunk : DocChunk, chunkNumber : int, name : str, plan : s
                 "classifications":list(classifications),
                 "tokenCount":tokenCount,
                 "contextualize":contextualizeChunk,
-                "chunkNumber":chunkNumber
+                "chunkNumber":chunkNumber,
+                "pictureDescription": pictureDescription
         }
 
 def nativeHybridChunker(name : str, plan : str, JSON : Path, doclingTools : tuple[HybridChunker, HuggingFaceTokenizer]) -> dict:
-        fileOutput = buildTextChunks(name, plan, JSON, doclingTools)
+        document = DoclingDocument.model_validate(json.loads(JSON.read_text(encoding="utf-8")))
+        fileOutput = buildAllChunks(document, name, plan, doclingTools)
         
         return fileOutput               
 
 def OCRHybridChunker(name: str, plan: str, JSON: Path, doclingTools: tuple) -> dict:
-        fileOutput = buildTextChunks(name, plan, JSON, doclingTools)
+        document = DoclingDocument.model_validate(json.loads(JSON.read_text(encoding="utf-8")))
+        fileOutput = buildAllChunks(document, name, plan, doclingTools)
                
         return fileOutput   
