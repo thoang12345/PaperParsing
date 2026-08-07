@@ -6,6 +6,7 @@ from Functions import export
 from pathlib import Path
 from typing import Any
 
+from docling.exceptions import ConversionError
 
 def doclingMarkdownUsesImages(
     profile: parsingProfiles.doclingPipelineOptions,
@@ -52,7 +53,10 @@ def convertDocumentsDocling(
 
             for file in files:
                 logger.info(f"Converting {file.name}")
-                convertedFiles.append(converter.convert(file))
+                try:
+                    convertedFiles.append(converter.convert(file))
+                except ConversionError as e:
+                    logger.error(f"Error converting {file.name}: {e}")
 
             batchResult = {
                 "name": parserName,

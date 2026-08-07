@@ -50,51 +50,66 @@ def chunkDocuments(outputFolder: Path, pdfClassification : list[dict[str : str, 
 
         return chunkOutput
 
-def buildAllChunks(document : DoclingDocument, name : str, plan : str, doclingTools : tuple[HybridChunker, HuggingFaceTokenizer]) -> dict:
+def buildAllChunks(document: DoclingDocument, name: str, plan: str, doclingTools: tuple) -> dict:
         chunker = doclingTools[0]
         tokenizer = doclingTools[1]
 
         t.tic()
 
-        chunks = list(chunker.chunk(dl_doc=document))
+        # Build page -> description map directly from document.pictures
+        pictureDescriptionMap = {}
+        for pic in document.pictures:
+                if pic.meta is not None and pic.meta.description is not None:
+                        for prov in getattr(pic, "prov", []):
+                                page = getattr(prov, "page_no", None)
+                                if page is not None:
+                                        pictureDescriptionMap[page] = pic.meta.description.text
 
-        fileOutput = []
+        chunks = list(chunker.chunk(dl_doc=document))
         chunksOutput = []
 
         for chunkNumber, chunk in enumerate(chunks):
-                chunkMetadata = buildChunkMetadata(chunk, chunkNumber, name, plan, tokenizer, chunker)
-                chunkText = chunk.text
-
                 isTable = any(isinstance(item, TableItem) for item in chunk.meta.doc_items)
-                isPicture = any(isinstance(item, PictureItem) for item in chunk.meta.doc_items)
+                isPicture = any(str(getattr(item, "label", "")) == "picture" for item in chunk.meta.doc_items)
 
-                if isTable:
-                        chunkMetadata["chunkType"] = "table"
-                elif isPicture:
-                        chunkMetadata["chunkType"] = "picture"
-                else:
-                        chunkMetadata["chunkType"] = "text"        
+                pageNumbers = set()
+                for item in chunk.meta.doc_items:
+                        for prov in getattr(item, "prov", []):
+                                if hasattr(prov, "page_no"):
+                                        pageNumbers.add(prov.page_no)
+
+                pictureDescription = None
+                if isPicture:
+                        for page in pageNumbers:
+                                if page in pictureDescriptionMap:
+                                        pictureDescription = pictureDescriptionMap[page]
+                                        break
+
+                # Fallback: extract from chunk text
+                if pictureDescription is None and "Picture description:" in chunk.text:
+                        for line in chunk.text.split("\n"):
+                                if line.startswith("Picture description:"):
+                                        pictureDescription = line.replace("Picture description:", "").strip()
+                                        break
+
+                chunkMetadata = buildChunkMetadata(chunk, chunkNumber, name, plan, tokenizer, chunker)
+                chunkMetadata["pictureDescription"] = pictureDescription
+                chunkMetadata["chunkType"] = "table" if isTable else "picture" if isPicture else "text"
 
                 chunksOutput.append({
-                        "text":chunkText,
-                        "metadata":chunkMetadata                
-                        }
-                )
+                        "text": chunk.text,
+                        "metadata": chunkMetadata
+                })
 
-        fileOutput = {
-                "name" : name,
-                "chunks" : chunksOutput
-                }
-                
+        fileOutput = {"name": name, "chunks": chunksOutput}
         t.toc(f"Chunked {name} with {plan} producing {len(chunks)} chunks in")
 
         return fileOutput
 
-def buildChunkMetadata(chunk : DocChunk, chunkNumber : int, name : str, plan : str, tokenizer : HuggingFaceTokenizer, chunker: HybridChunker):
+def buildChunkMetadata(chunk, chunkNumber, name, plan, tokenizer, chunker):
         pageNumbers = set()
         classifications = set()
         pictureDescription = None
-
         headings = chunk.meta.headings if chunk.meta.headings else []
 
         for item in chunk.meta.doc_items:
@@ -106,7 +121,7 @@ def buildChunkMetadata(chunk : DocChunk, chunkNumber : int, name : str, plan : s
                                 pageNumbers.add(provenance.page_no)
 
                 if isinstance(item, PictureItem):
-                        if item.meta is not None and item.meta.description is not None:
+                        if getattr(item, "meta", None) is not None and getattr(item.meta, "description", None) is not None:
                                 pictureDescription = item.meta.description.text
 
         tokenCount = tokenizer.count_tokens(chunk.text)
@@ -116,15 +131,18 @@ def buildChunkMetadata(chunk : DocChunk, chunkNumber : int, name : str, plan : s
         except Exception:
                 contextualizeChunk = chunk.text
 
+        if contextualizeChunk.strip() == "[Figure]" and headings:
+                contextualizeChunk = " > ".join(headings) + "\n[Figure]"
+
         return {
-                "paperName":name,
-                "parserPlan":plan,
-                "headings":headings,
-                "pageNumbers":sorted(list(pageNumbers)),
-                "classifications":list(classifications),
-                "tokenCount":tokenCount,
-                "contextualize":contextualizeChunk,
-                "chunkNumber":chunkNumber,
+                "paperName": name,
+                "parserPlan": plan,
+                "headings": headings,
+                "pageNumbers": sorted(list(pageNumbers)),
+                "classifications": list(classifications),
+                "tokenCount": tokenCount,
+                "contextualize": contextualizeChunk,
+                "chunkNumber": chunkNumber,
                 "pictureDescription": pictureDescription
         }
 

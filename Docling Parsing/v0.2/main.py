@@ -1,6 +1,10 @@
 import os
-os.environ["MIOPEN_LOG_LEVEL"] = "4"  # 4 = errors only, suppresses warnings
-
+os.environ["MIOPEN_CONV_PRECISE_ROCBLAS_TIMING"] = "0"
+os.environ["MIOPEN_FIND_MODE"] = "2"
+os.environ["MIOPEN_LOG_LEVEL"] = "2"
+os.environ["HSA_ENABLE_SDMA"] = "0"
+os.environ["HSA_OVERRIDE_GFX_VERSION"] = "11.5.0"  # ← this is the missing piece
+os.environ["TORCH_ROCM_AOTRITON_ENABLE_EXPERIMENTAL"] = "1"
 from Functions import system
 from Functions import classify
 from Functions import paths
@@ -10,7 +14,6 @@ from Functions import llm
 from Functions import chunking
 from Functions import chroma
 from Functions import query
-
 
 system.giveGPUstatus()
 chunkingTools = system.initializeDoclingChunker()

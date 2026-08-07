@@ -112,8 +112,7 @@ doclingProfiles: dict[profileNames, doclingPipelineOptions] = {
                 imageScale=1.1,
                 numberOfThreads=2,
                 doPictureDescriptions=True,
-                pictureDescriptionPrompt="Describe this figure in 2-3 sentences. Include what type of figure it is (diagram, chart, photograph, etc.), what it shows, and any key values or labels visible. Be concise and precise."
-        ),
+                pictureDescriptionPrompt="Describe this figure in 2-3 sentences. Include what type of figure it is (diagram, chart, photograph, etc.), what it shows, and any key values or labels visible. Be concise and precise."        ),
 
         profileNames.doclingOCR : doclingPipelineOptions(
                 name=profileNames.doclingOCR,
@@ -126,8 +125,7 @@ doclingProfiles: dict[profileNames, doclingPipelineOptions] = {
                 useEgretLargeLayout=True,
                 imageScale=1.25,
                 doPictureDescriptions=True,
-                pictureDescriptionPrompt="Describe this figure in 2-3 sentences. Include what type of figure it is (diagram, chart, photograph, etc.), what it shows, and any key values or labels visible. Be concise and precise."
-        )
+                pictureDescriptionPrompt="Describe this figure in 2-3 sentences. Include what type of figure it is (diagram, chart, photograph, etc.), what it shows, and any key values or labels visible. Be concise and precise."        )
 }
 
 markerProfiles: dict[profileNames, markerPipelineOptions] = {
@@ -200,6 +198,10 @@ def doclingSettings(profile : doclingPipelineOptions) -> ThreadedPdfPipelineOpti
         if profile.doPictureDescriptions:
                 options.picture_description_options = granite_picture_description
                 options.picture_description_options.prompt = profile.pictureDescriptionPrompt
+                options.picture_description_options.generation_config = {
+                        "max_new_tokens": 200,
+                        "do_sample": False
+                }      
 
         # Hardware
         options.accelerator_options = AcceleratorOptions(
