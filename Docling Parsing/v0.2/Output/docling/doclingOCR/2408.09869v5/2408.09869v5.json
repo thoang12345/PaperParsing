@@ -34543,7 +34543,7 @@
       "meta": {
         "description": {
           "created_by": "ibm-granite/granite-vision-3.3-2b",
-          "text": "Picture description:\nThe figure is a flowchart that illustrates a model pipeline for processing PDF documents. It starts with the input of PDF pages, which are then parsed to extract text and images. The extracted data is then subjected to various stages of analysis, including Optical Character Recognition (OCR), Layout Analysis, and Table Structure. The results of these analyses are assembled and post-processed. Finally, the processed data is serialized as JSON or Markdown. The flowchart uses arrows to indicate the direction of the process, and each stage is represented by a specific icon. The diagram is designed to be clear and easy to understand, with labels and a legend that explain the different stages of the pipeline. The main components of the figure are the input, processing stages, and output, which are interconnected by the arrows. The figure is a visual representation of a workflow that can be used to understand the steps involved in processing PDF documents."
+          "text": "Picture description: The figure is a flowchart that illustrates a model pipeline for processing PDF pages. It starts with \"Parse PDF pages\" and ends with \"Serialize as JSON or Markdown.\" The main content of the flowchart is divided into three main sections: \"OCR,\" \"Layout Analysis,\" and \"Table Structure.\" Each section contains a series of icons representing different stages of the process. The flowchart uses arrows to indicate the direction of the process, and the icons are color-coded to differentiate between the stages. The text labels are in black and placed next to the corresponding icons. The overall layout is clean and organized, making it easy to follow the process. The flowchart is a useful tool for understanding the steps involved in processing PDF documents."
         }
       },
       "label": "picture",
@@ -34582,7 +34582,7 @@
       "annotations": [
         {
           "kind": "description",
-          "text": "Picture description:\nThe figure is a flowchart that illustrates a model pipeline for processing PDF documents. It starts with the input of PDF pages, which are then parsed to extract text and images. The extracted data is then subjected to various stages of analysis, including Optical Character Recognition (OCR), Layout Analysis, and Table Structure. The results of these analyses are assembled and post-processed. Finally, the processed data is serialized as JSON or Markdown. The flowchart uses arrows to indicate the direction of the process, and each stage is represented by a specific icon. The diagram is designed to be clear and easy to understand, with labels and a legend that explain the different stages of the pipeline. The main components of the figure are the input, processing stages, and output, which are interconnected by the arrows. The figure is a visual representation of a workflow that can be used to understand the steps involved in processing PDF documents.",
+          "text": "Picture description: The figure is a flowchart that illustrates a model pipeline for processing PDF pages. It starts with \"Parse PDF pages\" and ends with \"Serialize as JSON or Markdown.\" The main content of the flowchart is divided into three main sections: \"OCR,\" \"Layout Analysis,\" and \"Table Structure.\" Each section contains a series of icons representing different stages of the process. The flowchart uses arrows to indicate the direction of the process, and the icons are color-coded to differentiate between the stages. The text labels are in black and placed next to the corresponding icons. The overall layout is clean and organized, making it easy to follow the process. The flowchart is a useful tool for understanding the steps involved in processing PDF documents.",
           "provenance": "ibm-granite/granite-vision-3.3-2b"
         }
       ]
@@ -36080,7 +36080,7 @@
       "meta": {
         "description": {
           "created_by": "ibm-granite/granite-vision-3.3-2b",
-          "text": "Picture description: The image is a page from a research paper titled \"DocLayNet: A Large Human-Annotated Dataset for Document-Layout Analysis.\" It is divided into two main sections: the left side contains a list of authors and their affiliations, while the right side features a title, abstract, and a figure caption. The figure caption describes a series of four images, each depicting a different aspect of document layout analysis. The images are arranged in a grid with two rows and two columns. The top left image shows a close-up of a text box with a checkmark, indicating a positive outcome. The top right image displays a text box with a cross, suggesting a negative outcome. The bottom left image features a text box with a question mark, implying uncertainty or a need for further investigation. The bottom right image presents a text box with a lightbulb, symbolizing an idea or a solution. The images are accompanied by a brief description of"
+          "text": "Picture description: The image is a screenshot of a research paper titled \"DocLayNet: A Large Human-Annotated Dataset for Document-Layout Analysis.\" It appears to be a page from a scientific journal, with a mix of text, images, and diagrams. The text is primarily in English, and the images include a figure caption that describes a diagram of a computer system. The paper seems to be discussing a large dataset for document analysis, specifically focusing on document layout analysis. The text is dense and technical, indicating that it is intended for an audience with a background in computer science or a related field. The overall tone of the image is professional and academic."
         }
       },
       "label": "picture",
@@ -36115,7 +36115,7 @@
       "annotations": [
         {
           "kind": "description",
-          "text": "Picture description: The image is a page from a research paper titled \"DocLayNet: A Large Human-Annotated Dataset for Document-Layout Analysis.\" It is divided into two main sections: the left side contains a list of authors and their affiliations, while the right side features a title, abstract, and a figure caption. The figure caption describes a series of four images, each depicting a different aspect of document layout analysis. The images are arranged in a grid with two rows and two columns. The top left image shows a close-up of a text box with a checkmark, indicating a positive outcome. The top right image displays a text box with a cross, suggesting a negative outcome. The bottom left image features a text box with a question mark, implying uncertainty or a need for further investigation. The bottom right image presents a text box with a lightbulb, symbolizing an idea or a solution. The images are accompanied by a brief description of",
+          "text": "Picture description: The image is a screenshot of a research paper titled \"DocLayNet: A Large Human-Annotated Dataset for Document-Layout Analysis.\" It appears to be a page from a scientific journal, with a mix of text, images, and diagrams. The text is primarily in English, and the images include a figure caption that describes a diagram of a computer system. The paper seems to be discussing a large dataset for document analysis, specifically focusing on document layout analysis. The text is dense and technical, indicating that it is intended for an audience with a background in computer science or a related field. The overall tone of the image is professional and academic.",
           "provenance": "ibm-granite/granite-vision-3.3-2b"
         }
       ]
@@ -36704,7 +36704,7 @@
       "meta": {
         "description": {
           "created_by": "ibm-granite/granite-vision-3.3-2b",
-          "text": "Picture description: The figure is a line graph titled \"Figure 3: Prediction performance in AP@100 of Mask R-CNN on the COCO-2017 dataset.\" It shows the performance of Mask R-CNN, a deep learning model for object detection, on the COCO-2017 dataset. The x-axis represents the number of training iterations, and the y-axis represents the AP@100 score, which is a measure of the model's performance. The graph shows a clear trend of improvement in performance as the number of training iterations increases. The model's performance is evaluated using the COCO-2017 dataset, which is a large-scale dataset for object detection and segmentation. The graph is a useful visualization of the model's performance and can be used to compare the performance of different models or to evaluate the effectiveness of different training strategies."
+          "text": "Picture description: The figure is a graph that compares the performance of two object detection models, CapsuleNet and ResNet, on the COCO-2017 dataset. The x-axis represents the number of training iterations, and the y-axis represents the mAP (mean Average Precision) score. The graph shows that CapsuleNet consistently outperforms ResNet across all iterations, with a significant gap in performance. The graph also includes a legend that explains the different colors used to represent the two models."
         }
       },
       "label": "picture",
@@ -36743,7 +36743,7 @@
       "annotations": [
         {
           "kind": "description",
-          "text": "Picture description: The figure is a line graph titled \"Figure 3: Prediction performance in AP@100 of Mask R-CNN on the COCO-2017 dataset.\" It shows the performance of Mask R-CNN, a deep learning model for object detection, on the COCO-2017 dataset. The x-axis represents the number of training iterations, and the y-axis represents the AP@100 score, which is a measure of the model's performance. The graph shows a clear trend of improvement in performance as the number of training iterations increases. The model's performance is evaluated using the COCO-2017 dataset, which is a large-scale dataset for object detection and segmentation. The graph is a useful visualization of the model's performance and can be used to compare the performance of different models or to evaluate the effectiveness of different training strategies.",
+          "text": "Picture description: The figure is a graph that compares the performance of two object detection models, CapsuleNet and ResNet, on the COCO-2017 dataset. The x-axis represents the number of training iterations, and the y-axis represents the mAP (mean Average Precision) score. The graph shows that CapsuleNet consistently outperforms ResNet across all iterations, with a significant gap in performance. The graph also includes a legend that explains the different colors used to represent the two models.",
           "provenance": "ibm-granite/granite-vision-3.3-2b"
         }
       ]
@@ -38103,7 +38103,7 @@
       "meta": {
         "description": {
           "created_by": "ibm-granite/granite-vision-3.3-2b",
-          "text": "Picture description: The image is a split-screen display of two tables. On the left, labeled \"A,\" there is a table with a header row and multiple rows of data. The table has columns labeled \"Class label,\" \"Count,\" \"True,\" \"False,\" \"All,\" \"True,\" \"False,\" \"All,\" \"True,\" \"False,\" \"All,\" \"True,\" \"False,\" \"All,\" \"True,\" \"False,\" \"All,\" \"True,\" \"False,\" \"All,\" \"True,\" \"False,\" \"All,\" \"True,\" \"False,\" \"All,\" \"True,\" \"False,\" \"All,\" \"True,\" \"False,\" \"All,\" \"True,\" \"False,\" \"All,\" \"True,\" \"False,\" \"All,\" \"True,\" \"False,\" \"All,\" \"True,\" \"False,\" \"All,\" \"True,\" \"False,\" \"All,\" \"True,\" \"False,\" \"All,\" \"True,\" \"False,\" \""
+          "text": "Picture description: The figure is a split-screen image divided into two columns. The left column, labeled \"A,\" contains a table with various data points. The table has headers such as \"Class label,\" \"Count,\" \"True,\" \"False,\" \"All,\" \"True,\" \"False,\" \"All,\" \"True,\" \"False,\" \"All,\" \"True,\" \"False,\" \"All,\" \"True,\" \"False,\" \"All,\" \"True,\" \"False,\" \"All,\" \"True,\" \"False,\" \"All,\" \"True,\" \"False,\" \"All,\" \"True,\" \"False,\" \"All,\" \"True,\" \"False,\" \"All,\" \"True,\" \"False,\" \"All,\" \"True,\" \"False,\" \"All,\" \"True,\" \"False,\" \"All,\" \"True,\" \"False,\" \"All,\" \"True,\" \"False,\" \"All,\" \"True,\" \"False,\" \"All,\" \"True,\" \"False,\" \"All,\" \"True"
         }
       },
       "label": "picture",
@@ -38138,7 +38138,7 @@
       "annotations": [
         {
           "kind": "description",
-          "text": "Picture description: The image is a split-screen display of two tables. On the left, labeled \"A,\" there is a table with a header row and multiple rows of data. The table has columns labeled \"Class label,\" \"Count,\" \"True,\" \"False,\" \"All,\" \"True,\" \"False,\" \"All,\" \"True,\" \"False,\" \"All,\" \"True,\" \"False,\" \"All,\" \"True,\" \"False,\" \"All,\" \"True,\" \"False,\" \"All,\" \"True,\" \"False,\" \"All,\" \"True,\" \"False,\" \"All,\" \"True,\" \"False,\" \"All,\" \"True,\" \"False,\" \"All,\" \"True,\" \"False,\" \"All,\" \"True,\" \"False,\" \"All,\" \"True,\" \"False,\" \"All,\" \"True,\" \"False,\" \"All,\" \"True,\" \"False,\" \"All,\" \"True,\" \"False,\" \"All,\" \"True,\" \"False,\" \"",
+          "text": "Picture description: The figure is a split-screen image divided into two columns. The left column, labeled \"A,\" contains a table with various data points. The table has headers such as \"Class label,\" \"Count,\" \"True,\" \"False,\" \"All,\" \"True,\" \"False,\" \"All,\" \"True,\" \"False,\" \"All,\" \"True,\" \"False,\" \"All,\" \"True,\" \"False,\" \"All,\" \"True,\" \"False,\" \"All,\" \"True,\" \"False,\" \"All,\" \"True,\" \"False,\" \"All,\" \"True,\" \"False,\" \"All,\" \"True,\" \"False,\" \"All,\" \"True,\" \"False,\" \"All,\" \"True,\" \"False,\" \"All,\" \"True,\" \"False,\" \"All,\" \"True,\" \"False,\" \"All,\" \"True,\" \"False,\" \"All,\" \"True,\" \"False,\" \"All,\" \"True,\" \"False,\" \"All,\" \"True",
           "provenance": "ibm-granite/granite-vision-3.3-2b"
         }
       ]

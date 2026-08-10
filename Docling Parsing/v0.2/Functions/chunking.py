@@ -70,11 +70,13 @@ def buildAllChunks(document: DoclingDocument, name: str, plan: str, doclingTools
                                         pageNumbers.add(prov.page_no)
 
                 pictureDescription = None
-                if pictureDescription is None and "Picture description:" in chunk.text:
-                        for line in chunk.text.split("\n"):
-                                if line.startswith("Picture description:"):
-                                        pictureDescription = line.replace("Picture description:", "").strip()
-                                        break
+
+                if isPicture:
+                        if "Picture description:" in chunk.text:
+                                for line in chunk.text.split("\n"):
+                                        if line.startswith("Picture description:"):
+                                                pictureDescription = line.replace("Picture description:", "").strip()
+                                                break
 
                 chunkMetadata = buildChunkMetadata(chunk, chunkNumber, name, plan, tokenizer, chunker)
                 chunkMetadata["pictureDescription"] = pictureDescription
