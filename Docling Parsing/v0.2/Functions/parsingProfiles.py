@@ -112,8 +112,12 @@ doclingProfiles: dict[profileNames, doclingPipelineOptions] = {
                 imageScale=1.1,
                 numberOfThreads=2,
                 doPictureDescriptions=True,
-                pictureDescriptionPrompt="Describe this figure in 2-3 sentences. Include what type of figure it is (diagram, chart, photograph, etc.), what it shows, and any key values or labels visible. Be concise and precise."        ),
-
+                pictureDescriptionPrompt=(
+                "Always begin with 'Picture description:'. "
+                "In 2–3 sentences, describe the figure type, its main content, and any important labels, values, or relationships. "
+                "Be concise and factual."
+                ),
+        ),
         profileNames.doclingOCR : doclingPipelineOptions(
                 name=profileNames.doclingOCR,
                 doOCR=True,
@@ -125,7 +129,12 @@ doclingProfiles: dict[profileNames, doclingPipelineOptions] = {
                 useEgretLargeLayout=True,
                 imageScale=1.25,
                 doPictureDescriptions=True,
-                pictureDescriptionPrompt="Describe this figure in 2-3 sentences. Include what type of figure it is (diagram, chart, photograph, etc.), what it shows, and any key values or labels visible. Be concise and precise."        )
+                pictureDescriptionPrompt=(
+                "Always begin with 'Picture description:'. "
+                "In 2–3 sentences, describe the figure type, its main content, and any important labels, values, or relationships. "
+                "Be concise and factual."
+                ),
+        )
 }
 
 markerProfiles: dict[profileNames, markerPipelineOptions] = {

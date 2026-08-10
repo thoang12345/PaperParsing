@@ -25,11 +25,30 @@ logging.basicConfig(level=logging.INFO,
                      datefmt='%Y-%m-%d %I:%M:%S %p')
 logger = logging.getLogger(__name__)
 
-class DescriptionPictureSerializer(MarkdownPictureSerializer):
+'''class DescriptionPictureSerializer(MarkdownPictureSerializer):
         @override
         def serialize(self, *, item, doc_serializer, doc, **kwargs):
                 text_res = doc_serializer.post_process(text="[Figure]")
-                return create_ser_result(text=text_res, span_source=item)
+                return create_ser_result(text=text_res, span_source=item)'''
+
+class DescriptionPictureSerializer(MarkdownPictureSerializer):
+    @override
+    def serialize(self, *, item: PictureItem, doc_serializer: BaseDocSerializer, doc: DoclingDocument,**kwargs: Any,
+    ) -> SerializationResult:
+        text_parts: list[str] = []
+
+        if item.meta is not None:
+            if item.meta.classification is not None:
+                main_pred = item.meta.classification.get_main_prediction()
+                if main_pred is not None:
+                    text_parts.append(f"\nPicture type: {main_pred.class_name}")
+
+            if item.meta.molecule is not None:
+                text_parts.append(f"\nSMILES: {item.meta.molecule.smi}")
+
+        text_res = "\n".join(text_parts)
+        text_res = doc_serializer.post_process(text=text_res)
+        return create_ser_result(text=text_res, span_source=item)
 
 class DoclingSerializerProvider(ChunkingSerializerProvider):
         def get_serializer(self, doc: DoclingDocument) -> ChunkingDocSerializer:

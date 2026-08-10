@@ -56,15 +56,6 @@ def buildAllChunks(document: DoclingDocument, name: str, plan: str, doclingTools
 
         t.tic()
 
-        # Build page -> description map directly from document.pictures
-        pictureDescriptionMap = {}
-        for pic in document.pictures:
-                if pic.meta is not None and pic.meta.description is not None:
-                        for prov in getattr(pic, "prov", []):
-                                page = getattr(prov, "page_no", None)
-                                if page is not None:
-                                        pictureDescriptionMap[page] = pic.meta.description.text
-
         chunks = list(chunker.chunk(dl_doc=document))
         chunksOutput = []
 
@@ -79,13 +70,6 @@ def buildAllChunks(document: DoclingDocument, name: str, plan: str, doclingTools
                                         pageNumbers.add(prov.page_no)
 
                 pictureDescription = None
-                if isPicture:
-                        for page in pageNumbers:
-                                if page in pictureDescriptionMap:
-                                        pictureDescription = pictureDescriptionMap[page]
-                                        break
-
-                # Fallback: extract from chunk text
                 if pictureDescription is None and "Picture description:" in chunk.text:
                         for line in chunk.text.split("\n"):
                                 if line.startswith("Picture description:"):

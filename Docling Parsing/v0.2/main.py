@@ -63,7 +63,6 @@ if doOrNotDoConvert == "y":
     )
 
 doOrNotDoConvert = input("\nDo you want to chunk files? (y/n): ").lower()
-print("\n")
 
 if doOrNotDoConvert == "y":
     generator = llm.initializeTransformer()

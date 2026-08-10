@@ -97,7 +97,7 @@ def addToChromaDB(client: chromadb.api.client.Client, inputChunks : dict[str, li
 
     quit = True
     addToChromaOrNo = utilities.getResponseFromUser(
-            f"\nDo you want to add documents to an existing collection? (y/n): ",
+            f"Do you want to add documents to an existing collection? (y/n): ",
             ["y", "n"]
             )
 
@@ -152,7 +152,8 @@ def addToChromaDB(client: chromadb.api.client.Client, inputChunks : dict[str, li
                                     "token count": metadata["tokenCount"] or "None",
                                     "contextualize": metadata["contextualize"] or "None",
                                     "chunk number": metadata["chunkNumber"] or "None",
-                                    "picture description": metadata["pictureDescription"] or "None"
+                                    "picture description": metadata["pictureDescription"] or "None",
+                                    #"image uri": metadata["imageUri"] or "None",
                             }],
                     )
 
