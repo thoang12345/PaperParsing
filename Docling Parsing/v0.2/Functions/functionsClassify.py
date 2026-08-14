@@ -2,8 +2,7 @@ from __future__ import annotations
 import re
 from typing import Any, Literal, TypedDict
 from pathlib import Path
-import fitz
-import random
+import pymupdf
 from Functions import paths 
 
 def classifyPDFs(path : Path) -> dict[str : str]:
@@ -112,7 +111,7 @@ def extractPageData(path: Path, pdfs: list[str]) -> list[dict[str, str | list[di
         pages = []
         combined_text = ""
 
-        with fitz.open(path / pdf) as doc:
+        with pymupdf.open(path / pdf) as doc:
 
             for pageNum in specificPages[i]:
 
@@ -142,7 +141,7 @@ def extractPageData(path: Path, pdfs: list[str]) -> list[dict[str, str | list[di
 def countPages(path : Path, pdfs : list[str]) -> list[int]:
         pageNumber = []
         for pdf in (pdfs):
-                with fitz.open(path / pdf) as doc:
+                with pymupdf.open(path / pdf) as doc:
                         pageNumber.append(doc.page_count)
         return pageNumber                        
                 
