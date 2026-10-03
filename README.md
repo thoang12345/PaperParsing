@@ -3,10 +3,12 @@
 > **Project Status:** 🚧 **Work in Progress**
 >
 > This project is an actively developed Retrieval-Augmented Generation (RAG) pipeline. The overall architecture is in place, but several stages are still being refined, optimized, and integrated. Features, parser configurations, chunking strategies, and retrieval quality should be considered experimental until the pipeline is complete.
+>
+> The pipeline is being developed as a standalone document-ingestion project and is intended to be integrated into Glorp-Cat, where it will provide the agent's local document-ingestion and retrieval capability.
 
 ## Overview
 
-The goal of this project is to build a modular document-ingestion pipeline capable of processing a wide variety of technical documents into a searchable vector database.
+The goal of this project is to build a modular document-ingestion pipeline capable of processing a wide variety of technical documents into a searchable vector database. When integrated with Glorp-Cat, the resulting vector database will allow the agent to retrieve grounded context from user-provided documents during its responses.
 
 The pipeline is designed around interchangeable parsing backends, allowing different document types to be processed using the parser best suited for the job. Current development focuses on integrating both **Docling** and **Marker 2** into a common workflow while maintaining a unified downstream chunking and retrieval process.
 
@@ -147,6 +149,8 @@ Future work will expand this into a full retrieval pipeline supporting:
 * Source citations
 * Multi-document retrieval
 
+When the Glorp-Cat integration is complete, this retrieved context will be supplied to the agent to support grounded answer generation.
+
 ---
 
 ## Current Development Priorities
@@ -158,7 +162,7 @@ Current work is focused on completing the ingestion pipeline in the following or
 3. Normalize metadata between parsers
 4. Integrate automatic ChromaDB ingestion
 5. Evaluate retrieval quality
-6. Add answer generation using retrieved context
+6. Add answer generation using retrieved context for Glorp-Cat
 
 ---
 
@@ -176,6 +180,4 @@ This allows:
 * Future embedding model replacement
 * Vector database portability
 
-The long-term objective is a flexible RAG ingestion pipeline that can reliably process technical documents while remaining easy to extend as new parsers, embedding models, and retrieval techniques become available.
-
----
+The long-term objective is a flexible RAG ingestion pipeline that can reliably process technical documents while remaining easy to extend as new parsers, embedding models, and retrieval techniques become available. Its first integration target is Glorp-Cat, but the pipeline remains independently usable and extensible.
