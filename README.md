@@ -166,6 +166,12 @@ Current work is focused on completing the ingestion pipeline in the following or
 
 ---
 
+## Related project
+
+- [Glorp-Cat](https://github.com/thoang12345/Glorp-Cat) — the local AI agent that PaperParsing is being developed to support with document ingestion and retrieval.
+
+---
+
 ## Design Philosophy
 
 The project is intentionally modular.
