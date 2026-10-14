@@ -8,152 +8,78 @@ def createChromaDBClient(chromaDBFolder: Path) -> chromadb.api.client.Client:
         client = chromadb.PersistentClient(path=str(chromaDBFolder))
         return client
 
-def createOrDeleteChromaDBCollection(client: chromadb.api.client.Client) -> None:
-        quit = True
-
-        while quit:
-                collections = getChromaDBCollections(client)
-
-                if collections == []:
-                        answerForCollections = utilities.getResponseFromUser(
-                                "\nNo existing collections found. Would you like to create a new collection? (y/n): ",
-                                ["y", "n"]
-                        )
-                else: 
-                        answerForCollections = utilities.getResponseFromUser(
-                                "\nExisting collections found. Would you like to create a new collection? (y/n). Or 'd' to delete an existing collection: ",
-                                ["y", "n", "d"]
-                        )
-                if answerForCollections == "quit":
-                        quit = False
-                        return
-                if answerForCollections == "d":
-                        deleteChromaDBCollection(client)
-
-                if answerForCollections == "y":
-                        createChromaDBCollection(client)
-
 def getChromaDBCollections(client: chromadb.api.client.Client) -> chromadb.api.models.Collection:
         collections = client.list_collections()
         return collections
 
-def deleteChromaDBCollection(client: chromadb.api.client.Client) -> None:
+def deleteChromaDBCollection(client: chromadb.api.client.Client, collection_name: str) -> None:
         collections = getChromaDBCollections(client)
         collectionNames = [col.name for col in collections]
-        logger.info(f"Existing collections: {', '.join(collectionNames)}")
 
-        quit = True
-        while quit:
-                collectionToDelete = utilities.getResponseFromUser(
-                        f"Enter the name of the collection you want to delete. Or 'q' to quit:\nList of collections:\n {'\n'.join(collectionNames)}\n",
-                        ["q"] + collectionNames
-                )
+        if collection_name in collectionNames:
+                client.delete_collection(name=collection_name)
+        else:
+                return                
 
-                if collectionToDelete == 'quit':
-                        quit = False        
-                        break
-                if collectionToDelete in collectionNames:
-                        client.delete_collection(name=collectionToDelete)
-                        logger.info(f"Collection '{collectionToDelete}' deleted successfully.")
-                else:
-                        logger.info(f"Collection '{collectionToDelete}' not found.")
-                        continue
+def createChromaDBCollection(client: chromadb.api.client.Client, collection_name: str, description: str) -> None:  
+        if len(collection_name) < 3 or len(collection_name) > 512:
+                return 
 
-def createChromaDBCollection(client: chromadb.api.client.Client) -> None:
-        collections = []
-        
-        quit = True
-        while quit:
-                createCollectionName = utilities.getResponseFromUser(
-                        "Enter the name for the new collection or 'q' to quit: "
-                )
-        
-                if createCollectionName == 'quit':
-                        quit = False
-                        return
-                
-                collectionDescription = input("Enter a description for the new collection (optional; leave blank if unwanted): ")
-                collections = client.create_collection(
-                        name=createCollectionName,
-                        metadata={"description": collectionDescription, "hnsw:space": "cosine"},
-                        configuration = {
-                                "hnsw": {
-                                        "space": "cosine",
-                                        "ef_construction": 1000,
-                                        "ef_search": 1000,
-                                        "max_neighbors": 64,
-                                        "num_threads": os.cpu_count(),
-                                        "batch_size": 100,
-                                        "sync_threshold": 1000,
-                                        "resize_factor": 1.2,
-                                }
+        if not (bool(collection_name and collection_name[0].isalnum() and collection_name[-1].isalnum())):
+                return
+
+        passed_name = collection_name.lower().replace(" ", "-")
+              
+        collections = client.create_collection(
+                name=passed_name,
+                metadata={"description": description, "hnsw:space": "cosine"},
+                configuration = {
+                        "hnsw": {
+                                "space": "cosine",
+                                "ef_construction": 1000,
+                                "ef_search": 1000,
+                                "max_neighbors": 64,
+                                "num_threads": os.cpu_count(),
+                                "batch_size": 100,
+                                "sync_threshold": 1000,
+                                "resize_factor": 1.2,
                         }
-                )
-                logger.info(f"Collection '{createCollectionName}' created successfully.")
+                }
+        )
     
-def addToChromaDB(client: chromadb.api.client.Client, inputChunks : dict[str, list]) -> None:
-    collections = getChromaDBCollections(client)
-    collectionNames = [col.name for col in collections]
+def addToChromaDB(client: chromadb.api.client.Client, collection_name: str, profile_name: str, inputChunks : dict[str, list]) -> None:
+        collections = getChromaDBCollections(client)
+        collectionNames = [col.name for col in collections]
 
-    quit = True
-    addToChromaOrNo = utilities.getResponseFromUser(
-            f"Do you want to add documents to an existing collection? (y/n): ",
-            ["y", "n"]
-            )
+        if collection_name not in collectionNames:
+                return
 
-    if addToChromaOrNo == "quit":
-            return
+        document_chunks = inputChunks[profile_name]
 
-    keysList = list(inputChunks)
-    pickProfileToAdd = utilities.getResponseFromUser(
-            f"Found profiles {', '.join(keysList)}. Pick one to ingest. Or 'q' to quit: ",
-            keysList + ["q"]
-    )
+        collection = client.get_collection(name=collection_name)
 
-    if pickProfileToAdd == "quit":
-            return
-    
-    documentChunks = inputChunks[pickProfileToAdd]
-    logger.info(f"Found {len(documentChunks)} documents in {pickProfileToAdd}")
+        for chunk in document_chunks:
+                name = chunk["name"]
+                chunks = chunk["chunks"]
+                for chunkNumber, chunk in enumerate(chunks):
+                        text = chunk["text"]
+                        metadata = chunk["metadata"]
 
-    addDocumentsYorN = utilities.getResponseFromUser(
-            f"Do you want to add {pickProfileToAdd} documents to chroma? (y/n): ",
-            ["y", "n"]
-    )
+                        collection.add(
+                                ids = f"{name}_chunkNumber_{chunkNumber}",
+                                documents = [text],
+                                metadatas = [{
+                                        "document name": metadata["paperName"] or "None",
+                                        "heading": metadata["headings"] or "None",
+                                        "page numbers": metadata["pageNumbers"] or "None",
+                                        "classifications": metadata["classifications"] or "None",
+                                        "token count": metadata["tokenCount"] or "None",
+                                        "contextualize": metadata["contextualize"] or "None",
+                                        "chunk number": metadata["chunkNumber"] or "None",
+                                        "picture description": metadata["pictureDescription"] or "None",
+                                        "profile_name": profile_name
+                                }],
+                        )
 
-    if addDocumentsYorN == "quit":
-            return
+                        logger.info(f"Added chunk {chunkNumber + 1} of {len(chunks)} to {collection_name}")
 
-    selectedCollection = utilities.getResponseFromUser(
-            f"\nSelect a collection from existing ones to add documents to. Or 'q' to quit:\nList of collections:\n {'\n'.join(collectionNames)}\n",
-            ["q"] + collectionNames
-    )
-
-    if selectedCollection == 'quit':
-            return
-    
-    collection = client.get_collection(name = selectedCollection)
-
-    for document in documentChunks:
-            name = document["name"]
-            chunks = document["chunks"]
-            for chunkNumber, chunk in enumerate(chunks):
-                    text = chunk["text"]
-                    metadata = chunk["metadata"]
-
-                    collection.add(
-                            ids = f"{name}_chunkNumber_{chunkNumber}",
-                            documents = [text],
-                            metadatas = [{
-                                    "document name": metadata["paperName"] or "None",
-                                    "heading": metadata["headings"] or "None",
-                                    "page numbers": metadata["pageNumbers"] or "None",
-                                    "classifications": metadata["classifications"] or "None",
-                                    "token count": metadata["tokenCount"] or "None",
-                                    "contextualize": metadata["contextualize"] or "None",
-                                    "chunk number": metadata["chunkNumber"] or "None",
-                                    "picture description": metadata["pictureDescription"] or "None",
-                            }],
-                    )
-
-                    logger.info(f"Added chunk {chunkNumber} of {len(chunks)} to {selectedCollection}")

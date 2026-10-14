@@ -1,4 +1,5 @@
 import os
+from pathlib import Path
 os.environ["MIOPEN_CONV_PRECISE_ROCBLAS_TIMING"] = "0"
 os.environ["MIOPEN_FIND_MODE"] = "2"
 os.environ["MIOPEN_LOG_LEVEL"] = "2"
@@ -25,47 +26,30 @@ inputFolder = relativePaths[0]
 outputFolder = relativePaths[1] 
 chromaDBFolder = relativePaths[2]
 
-print(chromaDBFolder)
-
 client = chroma.createChromaDBClient(chromaDBFolder)
-pdfClassifications = classify.classifyPDFs(inputFolder)
-generalClassifications = classify.classifyEverythingElse(inputFolder)
 
-parserPlans = classify.chooseParserPlan(
-        pdfClassifications,
-        generalClassifications
-    )
 
-parserPlans.sort(key=lambda plan: plan["parser_plan"])
+def rag_api(input_path: Path, collection_name: str, profile_name: str):
+    pdfClassifications = classify.classifyPDFs(input_path)
+    generalClassifications = classify.classifyEverythingElse(input_path)
 
-batches = classify.batchParserPlans(parserPlans)
+    parserPlans = classify.chooseParserPlan(pdfClassifications, generalClassifications)
+    parserPlans.sort(key=lambda plan: plan["parser_plan"])
 
-classify.printFilesAndConfigurations(pdfClassifications, generalClassifications)
-
-chroma.createOrDeleteChromaDBCollection(client)
-
-query.queryChromaDB(client)
-
-doOrNotDoConvert = input("\nDo you want to convert files? (y/n): ").lower()
-print("\n")
-
-if doOrNotDoConvert == "y":
     marker.convertDocumentsMarker(
-        parserPlans,
-        inputFolder,
-        outputFolder
-    )
-
+            parserPlans,
+            input_path,
+            outputFolder
+        )
+    
     docling.convertDocumentsDocling(
         parserPlans,
-        inputFolder,
+        input_path,
         outputFolder
     )
 
-doOrNotDoConvert = input("\nDo you want to chunk files? (y/n): ").lower()
-
-if doOrNotDoConvert == "y":
-    generator = llm.initializeTransformer()
     chunkOutput = chunking.chunkDocuments(outputFolder, pdfClassifications, generalClassifications, chunkingTools)    
+    
+    chroma.addToChromaDB(client, collection_name=collection_name, profile_name=profile_name, inputChunks=chunkOutput)
 
-    chroma.addToChromaDB(client, chunkOutput)
+rag_api(input_path=Path("/home/thienan/Documents/GitHub/PaperParsing/Docling Parsing/v0.2/Input"), collection_name="test2", profile_name="doclingNative")

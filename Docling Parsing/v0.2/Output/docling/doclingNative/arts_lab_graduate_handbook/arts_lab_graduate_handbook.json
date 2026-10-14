@@ -358,6 +358,63 @@
       },
       {
         "$ref": "#/texts/187"
+      },
+      {
+        "$ref": "#/texts/188"
+      },
+      {
+        "$ref": "#/groups/22"
+      },
+      {
+        "$ref": "#/texts/211"
+      },
+      {
+        "$ref": "#/texts/212"
+      },
+      {
+        "$ref": "#/groups/23"
+      },
+      {
+        "$ref": "#/texts/227"
+      },
+      {
+        "$ref": "#/texts/228"
+      },
+      {
+        "$ref": "#/texts/229"
+      },
+      {
+        "$ref": "#/texts/230"
+      },
+      {
+        "$ref": "#/texts/231"
+      },
+      {
+        "$ref": "#/groups/24"
+      },
+      {
+        "$ref": "#/texts/235"
+      },
+      {
+        "$ref": "#/texts/236"
+      },
+      {
+        "$ref": "#/groups/25"
+      },
+      {
+        "$ref": "#/texts/238"
+      },
+      {
+        "$ref": "#/groups/26"
+      },
+      {
+        "$ref": "#/texts/240"
+      },
+      {
+        "$ref": "#/groups/27"
+      },
+      {
+        "$ref": "#/texts/242"
       }
     ],
     "content_layer": "body",
@@ -892,6 +949,198 @@
         },
         {
           "$ref": "#/texts/186"
+        }
+      ],
+      "content_layer": "body",
+      "name": "list",
+      "label": "list"
+    },
+    {
+      "self_ref": "#/groups/22",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [
+        {
+          "$ref": "#/texts/189"
+        },
+        {
+          "$ref": "#/texts/190"
+        },
+        {
+          "$ref": "#/texts/191"
+        },
+        {
+          "$ref": "#/texts/192"
+        },
+        {
+          "$ref": "#/texts/193"
+        },
+        {
+          "$ref": "#/texts/194"
+        },
+        {
+          "$ref": "#/texts/195"
+        },
+        {
+          "$ref": "#/texts/196"
+        },
+        {
+          "$ref": "#/texts/197"
+        },
+        {
+          "$ref": "#/texts/198"
+        },
+        {
+          "$ref": "#/texts/199"
+        },
+        {
+          "$ref": "#/texts/200"
+        },
+        {
+          "$ref": "#/texts/201"
+        },
+        {
+          "$ref": "#/texts/202"
+        },
+        {
+          "$ref": "#/texts/203"
+        },
+        {
+          "$ref": "#/texts/204"
+        },
+        {
+          "$ref": "#/texts/205"
+        },
+        {
+          "$ref": "#/texts/206"
+        },
+        {
+          "$ref": "#/texts/207"
+        },
+        {
+          "$ref": "#/texts/208"
+        },
+        {
+          "$ref": "#/texts/209"
+        },
+        {
+          "$ref": "#/texts/210"
+        }
+      ],
+      "content_layer": "body",
+      "name": "list",
+      "label": "list"
+    },
+    {
+      "self_ref": "#/groups/23",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [
+        {
+          "$ref": "#/texts/213"
+        },
+        {
+          "$ref": "#/texts/214"
+        },
+        {
+          "$ref": "#/texts/215"
+        },
+        {
+          "$ref": "#/texts/216"
+        },
+        {
+          "$ref": "#/texts/217"
+        },
+        {
+          "$ref": "#/texts/218"
+        },
+        {
+          "$ref": "#/texts/219"
+        },
+        {
+          "$ref": "#/texts/220"
+        },
+        {
+          "$ref": "#/texts/221"
+        },
+        {
+          "$ref": "#/texts/222"
+        },
+        {
+          "$ref": "#/texts/223"
+        },
+        {
+          "$ref": "#/texts/224"
+        },
+        {
+          "$ref": "#/texts/225"
+        },
+        {
+          "$ref": "#/texts/226"
+        }
+      ],
+      "content_layer": "body",
+      "name": "list",
+      "label": "list"
+    },
+    {
+      "self_ref": "#/groups/24",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [
+        {
+          "$ref": "#/texts/232"
+        },
+        {
+          "$ref": "#/texts/233"
+        },
+        {
+          "$ref": "#/texts/234"
+        }
+      ],
+      "content_layer": "body",
+      "name": "list",
+      "label": "list"
+    },
+    {
+      "self_ref": "#/groups/25",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [
+        {
+          "$ref": "#/texts/237"
+        }
+      ],
+      "content_layer": "body",
+      "name": "list",
+      "label": "list"
+    },
+    {
+      "self_ref": "#/groups/26",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [
+        {
+          "$ref": "#/texts/239"
+        }
+      ],
+      "content_layer": "body",
+      "name": "list",
+      "label": "list"
+    },
+    {
+      "self_ref": "#/groups/27",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [
+        {
+          "$ref": "#/texts/241"
         }
       ],
       "content_layer": "body",
@@ -6245,6 +6494,1582 @@
       ],
       "orig": "17",
       "text": "17"
+    },
+    {
+      "self_ref": "#/texts/188",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 18,
+          "bbox": {
+            "l": 99.2729999999998,
+            "t": 716.5573699,
+            "r": 540.0010949499998,
+            "b": 691.3436346000001,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            171
+          ]
+        }
+      ],
+      "orig": "see the label in your document, you'll immediately know which file it references. This practice helps prevent errors and makes it much easier to locate and update figures.",
+      "text": "see the label in your document, you'll immediately know which file it references. This practice helps prevent errors and makes it much easier to locate and update figures."
+    },
+    {
+      "self_ref": "#/texts/189",
+      "parent": {
+        "$ref": "#/groups/22"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 18,
+          "bbox": {
+            "l": 85.33299999999969,
+            "t": 685.3943699,
+            "r": 370.40754797999955,
+            "b": 675.7616346000001,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            58
+          ]
+        }
+      ],
+      "orig": "\u00b7 Guidelines for Crafting Figure Captions with Subfigures:",
+      "text": "Guidelines for Crafting Figure Captions with Subfigures:",
+      "enumerated": false,
+      "marker": "\u00b7"
+    },
+    {
+      "self_ref": "#/texts/190",
+      "parent": {
+        "$ref": "#/groups/22"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 18,
+          "bbox": {
+            "l": 111.54599999999957,
+            "t": 665.9374609,
+            "r": 255.00054797999962,
+            "b": 656.1956346000001,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            27
+          ]
+        }
+      ],
+      "orig": "-Structure and Punctuation:",
+      "text": "-Structure and Punctuation:",
+      "enumerated": false,
+      "marker": ""
+    },
+    {
+      "self_ref": "#/texts/191",
+      "parent": {
+        "$ref": "#/groups/22"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 18,
+          "bbox": {
+            "l": 132.7639999999996,
+            "t": 646.2613699,
+            "r": 494.9445479799995,
+            "b": 636.6286346,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            78
+          ]
+        }
+      ],
+      "orig": "\u2217 Begin with a concise description of the overall figure, followed by a colon.",
+      "text": "\u2217 Begin with a concise description of the overall figure, followed by a colon.",
+      "enumerated": false,
+      "marker": ""
+    },
+    {
+      "self_ref": "#/texts/192",
+      "parent": {
+        "$ref": "#/groups/22"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 18,
+          "bbox": {
+            "l": 132.76399999999956,
+            "t": 630.6803699,
+            "r": 524.7655479799994,
+            "b": 621.0476346,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            83
+          ]
+        }
+      ],
+      "orig": "\u2217 Use lowercase letters in parentheses-(a), (b), (c), etc.-to label each subfigure.",
+      "text": "\u2217 Use lowercase letters in parentheses-(a), (b), (c), etc.-to label each subfigure.",
+      "enumerated": false,
+      "marker": ""
+    },
+    {
+      "self_ref": "#/texts/193",
+      "parent": {
+        "$ref": "#/groups/22"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 18,
+          "bbox": {
+            "l": 132.76399999999933,
+            "t": 615.0983699,
+            "r": 531.9755479799992,
+            "b": 605.4656346,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            84
+          ]
+        }
+      ],
+      "orig": "\u2217 Provide specific descriptions for each subfigure, separating them with semicolons.",
+      "text": "\u2217 Provide specific descriptions for each subfigure, separating them with semicolons.",
+      "enumerated": false,
+      "marker": ""
+    },
+    {
+      "self_ref": "#/texts/194",
+      "parent": {
+        "$ref": "#/groups/22"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 18,
+          "bbox": {
+            "l": 132.76399999999916,
+            "t": 599.5173699,
+            "r": 371.79754797999914,
+            "b": 589.8846346,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            51
+          ]
+        }
+      ],
+      "orig": "\u2217 Use \"and\" before the final subfigure description.",
+      "text": "\u2217 Use \"and\" before the final subfigure description.",
+      "enumerated": false,
+      "marker": ""
+    },
+    {
+      "self_ref": "#/texts/195",
+      "parent": {
+        "$ref": "#/groups/22"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 18,
+          "bbox": {
+            "l": 132.76399999999916,
+            "t": 583.9353699,
+            "r": 291.7335479799992,
+            "b": 574.3026346,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            32
+          ]
+        }
+      ],
+      "orig": "\u2217 End the caption with a period.",
+      "text": "\u2217 End the caption with a period.",
+      "enumerated": false,
+      "marker": ""
+    },
+    {
+      "self_ref": "#/texts/196",
+      "parent": {
+        "$ref": "#/groups/22"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 18,
+          "bbox": {
+            "l": 111.54599999999917,
+            "t": 564.4774609,
+            "r": 193.57654797999922,
+            "b": 554.7356346,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            16
+          ]
+        }
+      ],
+      "orig": "-Capitalization:",
+      "text": "-Capitalization:",
+      "enumerated": false,
+      "marker": ""
+    },
+    {
+      "self_ref": "#/texts/197",
+      "parent": {
+        "$ref": "#/groups/22"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 18,
+          "bbox": {
+            "l": 132.7639999999992,
+            "t": 544.8023698999999,
+            "r": 327.3705479799991,
+            "b": 535.1696346,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            42
+          ]
+        }
+      ],
+      "orig": "\u2217 Start the caption with a capital letter.",
+      "text": "\u2217 Start the caption with a capital letter.",
+      "enumerated": false,
+      "marker": ""
+    },
+    {
+      "self_ref": "#/texts/198",
+      "parent": {
+        "$ref": "#/groups/22"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 18,
+          "bbox": {
+            "l": 132.76399999999913,
+            "t": 529.2203698999999,
+            "r": 539.9995490399991,
+            "b": 504.0066345999999,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            111
+          ]
+        }
+      ],
+      "orig": "\u2217 Use lowercase for subfigure descriptions, except for proper nouns or specific terms requiring capitalization.",
+      "text": "\u2217 Use lowercase for subfigure descriptions, except for proper nouns or specific terms requiring capitalization.",
+      "enumerated": false,
+      "marker": ""
+    },
+    {
+      "self_ref": "#/texts/199",
+      "parent": {
+        "$ref": "#/groups/22"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 18,
+          "bbox": {
+            "l": 111.54599999999914,
+            "t": 494.18146089999993,
+            "r": 167.97054797999917,
+            "b": 484.4396345999999,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            9
+          ]
+        }
+      ],
+      "orig": "-Example:",
+      "text": "-Example:",
+      "enumerated": false,
+      "marker": ""
+    },
+    {
+      "self_ref": "#/texts/200",
+      "parent": {
+        "$ref": "#/groups/22"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 18,
+          "bbox": {
+            "l": 132.76399999999916,
+            "t": 474.5063698999999,
+            "r": 540.0005489899993,
+            "b": 449.29163459999995,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            157
+          ]
+        }
+      ],
+      "orig": "\u2217 Microstructural analysis of alloy samples, showing: (a) as-cast microstructure; (b) microstructure after annealing; and (c) microstructure after quenching.",
+      "text": "\u2217 Microstructural analysis of alloy samples, showing: (a) as-cast microstructure; (b) microstructure after annealing; and (c) microstructure after quenching.",
+      "enumerated": false,
+      "marker": ""
+    },
+    {
+      "self_ref": "#/texts/201",
+      "parent": {
+        "$ref": "#/groups/22"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 18,
+          "bbox": {
+            "l": 132.76399999999916,
+            "t": 443.3433698999999,
+            "r": 540.0000030299989,
+            "b": 418.12863459999994,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            132
+          ]
+        }
+      ],
+      "orig": "\u2217 The caption starts with an overarching description of the figure's content: \"Microstructural analysis of alloy samples, showing:\".",
+      "text": "\u2217 The caption starts with an overarching description of the figure's content: \"Microstructural analysis of alloy samples, showing:\".",
+      "enumerated": false,
+      "marker": ""
+    },
+    {
+      "self_ref": "#/texts/202",
+      "parent": {
+        "$ref": "#/groups/22"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 18,
+          "bbox": {
+            "l": 132.76399999999867,
+            "t": 412.1803698999999,
+            "r": 518.8555479799987,
+            "b": 402.5476345999999,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            82
+          ]
+        }
+      ],
+      "orig": "\u2217 Each subfigure is labeled with a letter in parentheses and described succinctly.",
+      "text": "\u2217 Each subfigure is labeled with a letter in parentheses and described succinctly.",
+      "enumerated": false,
+      "marker": ""
+    },
+    {
+      "self_ref": "#/texts/203",
+      "parent": {
+        "$ref": "#/groups/22"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 18,
+          "bbox": {
+            "l": 132.7639999999987,
+            "t": 396.5983698999999,
+            "r": 540.0005530299986,
+            "b": 371.3846345999999,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            114
+          ]
+        }
+      ],
+      "orig": "\u2217 Semicolons separate the subfigure descriptions, with \"and\" preceding the final item to delineate each component.",
+      "text": "\u2217 Semicolons separate the subfigure descriptions, with \"and\" preceding the final item to delineate each component.",
+      "enumerated": false,
+      "marker": ""
+    },
+    {
+      "self_ref": "#/texts/204",
+      "parent": {
+        "$ref": "#/groups/22"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 18,
+          "bbox": {
+            "l": 132.76499999999862,
+            "t": 365.4353698999999,
+            "r": 246.6125479799987,
+            "b": 355.8026345999999,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            22
+          ]
+        }
+      ],
+      "orig": "\u2217 Additional Examples:",
+      "text": "\u2217 Additional Examples:",
+      "enumerated": false,
+      "marker": ""
+    },
+    {
+      "self_ref": "#/texts/205",
+      "parent": {
+        "$ref": "#/groups/22"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 18,
+          "bbox": {
+            "l": 148.27899999999872,
+            "t": 345.8693698999999,
+            "r": 540.0005489899985,
+            "b": 305.07363459999993,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            246
+          ]
+        }
+      ],
+      "orig": "\u00b7 Stress-strain behavior of materials under different conditions, illustrating: (a) tensile test at room temperature; (b) tensile test at elevated temperature; (c) tensile test after heat treatment; and (d) tensile test after cryogenic treatment.",
+      "text": "Stress-strain behavior of materials under different conditions, illustrating: (a) tensile test at room temperature; (b) tensile test at elevated temperature; (c) tensile test after heat treatment; and (d) tensile test after cryogenic treatment.",
+      "enumerated": false,
+      "marker": "\u00b7"
+    },
+    {
+      "self_ref": "#/texts/206",
+      "parent": {
+        "$ref": "#/groups/22"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 18,
+          "bbox": {
+            "l": 148.27999999999838,
+            "t": 299.1243698999999,
+            "r": 540.0020949499982,
+            "b": 258.3286346,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            175
+          ]
+        }
+      ],
+      "orig": "\u00b7 Fatigue crack propagation in aluminum alloys, presenting: (a) crack initiation site; (b) crack growth path; (c) final fracture surface; and (d) post-fracture microstructure.",
+      "text": "Fatigue crack propagation in aluminum alloys, presenting: (a) crack initiation site; (b) crack growth path; (c) final fracture surface; and (d) post-fracture microstructure.",
+      "enumerated": false,
+      "marker": "\u00b7"
+    },
+    {
+      "self_ref": "#/texts/207",
+      "parent": {
+        "$ref": "#/groups/22"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 18,
+          "bbox": {
+            "l": 148.27999999999815,
+            "t": 252.3803699,
+            "r": 540.0015489899977,
+            "b": 211.58463459999996,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            187
+          ]
+        }
+      ],
+      "orig": "\u00b7 Comparison of machining techniques, depicting: (a) conventional milling process; (b) laser-assisted milling; (c) ultrasonic vibration-assisted milling; and (d) hybrid machining process.",
+      "text": "Comparison of machining techniques, depicting: (a) conventional milling process; (b) laser-assisted milling; (c) ultrasonic vibration-assisted milling; and (d) hybrid machining process.",
+      "enumerated": false,
+      "marker": "\u00b7"
+    },
+    {
+      "self_ref": "#/texts/208",
+      "parent": {
+        "$ref": "#/groups/22"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 18,
+          "bbox": {
+            "l": 85.33499999999768,
+            "t": 201.6503699,
+            "r": 194.5765490399977,
+            "b": 192.01763459999995,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            22
+          ]
+        }
+      ],
+      "orig": "\u00b7 Color usage in plots",
+      "text": "Color usage in plots",
+      "enumerated": false,
+      "marker": "\u00b7"
+    },
+    {
+      "self_ref": "#/texts/209",
+      "parent": {
+        "$ref": "#/groups/22"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 18,
+          "bbox": {
+            "l": 111.5469999999977,
+            "t": 182.1934609,
+            "r": 540.0020949499975,
+            "b": 109.8201798,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            386
+          ]
+        }
+      ],
+      "orig": "-Educational Resource: It is required that you watch the following video, which provides valuable insights into effective colormap selection: Understanding Colormaps in Matplotlib. Experts have thoroughly considered this topic, so it's beneficial to leverage their findings rather than create new solutions from scratch. https://www.youtube. com/watch?v=xAoljeRJ3lU&ab_channel=Enthought",
+      "text": "-Educational Resource: It is required that you watch the following video, which provides valuable insights into effective colormap selection: Understanding Colormaps in Matplotlib. Experts have thoroughly considered this topic, so it's beneficial to leverage their findings rather than create new solutions from scratch. https://www.youtube. com/watch?v=xAoljeRJ3lU&ab_channel=Enthought",
+      "enumerated": false,
+      "marker": ""
+    },
+    {
+      "self_ref": "#/texts/210",
+      "parent": {
+        "$ref": "#/groups/22"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 18,
+          "bbox": {
+            "l": 111.54699999999684,
+            "t": 104.28546089999998,
+            "r": 540.0020944699969,
+            "b": 78.9626346,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            171
+          ]
+        }
+      ],
+      "orig": "-Sequential Data: For representing data with a natural ordering, such as intensity or magnitude, use the 'Viridis' colormap. 'Viridis' is perceptually uniform, making it a",
+      "text": "-Sequential Data: For representing data with a natural ordering, such as intensity or magnitude, use the 'Viridis' colormap. 'Viridis' is perceptually uniform, making it a",
+      "enumerated": false,
+      "marker": ""
+    },
+    {
+      "self_ref": "#/texts/211",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "furniture",
+      "label": "page_footer",
+      "prov": [
+        {
+          "page_no": 18,
+          "bbox": {
+            "l": 300.5469999999966,
+            "t": 49.62836989999994,
+            "r": 311.4555499999966,
+            "b": 39.99563460000002,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            2
+          ]
+        }
+      ],
+      "orig": "18",
+      "text": "18"
+    },
+    {
+      "self_ref": "#/texts/212",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 19,
+          "bbox": {
+            "l": 123.273,
+            "t": 716.5573699,
+            "r": 391.72854797999986,
+            "b": 706.9246346000001,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            57
+          ]
+        }
+      ],
+      "orig": "superior choice for accurately conveying data variations.",
+      "text": "superior choice for accurately conveying data variations."
+    },
+    {
+      "self_ref": "#/texts/213",
+      "parent": {
+        "$ref": "#/groups/23"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 19,
+          "bbox": {
+            "l": 111.54599999999988,
+            "t": 701.0854609,
+            "r": 540.0005489899995,
+            "b": 660.1806346000001,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            233
+          ]
+        }
+      ],
+      "orig": "-Categorical Data: When visualizing categorical data, utilize the 'Tab10' colormap, which is the default qualitative colormap in Matplotlib. Employing 'Tab10' ensures a consistent and distinguishable color scheme across your figures.",
+      "text": "-Categorical Data: When visualizing categorical data, utilize the 'Tab10' colormap, which is the default qualitative colormap in Matplotlib. Employing 'Tab10' ensures a consistent and distinguishable color scheme across your figures.",
+      "enumerated": false,
+      "marker": ""
+    },
+    {
+      "self_ref": "#/texts/214",
+      "parent": {
+        "$ref": "#/groups/23"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 19,
+          "bbox": {
+            "l": 111.54599999999954,
+            "t": 654.3404609,
+            "r": 540.0005489899994,
+            "b": 613.4356346000001,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            253
+          ]
+        }
+      ],
+      "orig": "-Standardized Implementation: To facilitate consistency and ease of use, a standard Python code header is provided at the end of this document. This script sets the default colormaps and handles related configurations, streamlining the plotting process.",
+      "text": "-Standardized Implementation: To facilitate consistency and ease of use, a standard Python code header is provided at the end of this document. This script sets the default colormaps and handles related configurations, streamlining the plotting process.",
+      "enumerated": false,
+      "marker": ""
+    },
+    {
+      "self_ref": "#/texts/215",
+      "parent": {
+        "$ref": "#/groups/23"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 19,
+          "bbox": {
+            "l": 85.33399999999938,
+            "t": 603.5023699,
+            "r": 194.8190949499994,
+            "b": 593.8696346,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            22
+          ]
+        }
+      ],
+      "orig": "\u00b7 Font Sizes in Figure",
+      "text": "Font Sizes in Figure",
+      "enumerated": false,
+      "marker": "\u00b7"
+    },
+    {
+      "self_ref": "#/texts/216",
+      "parent": {
+        "$ref": "#/groups/23"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 19,
+          "bbox": {
+            "l": 111.5459999999994,
+            "t": 584.0444609,
+            "r": 540.0005489899992,
+            "b": 543.1396346,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            222
+          ]
+        }
+      ],
+      "orig": "-Consistency with Document Text: Ensure that the font size and style in your figures match those used in your main document. Typically, this means using 10 or 11-point Times New Roman font to maintain a uniform appearance.",
+      "text": "-Consistency with Document Text: Ensure that the font size and style in your figures match those used in your main document. Typically, this means using 10 or 11-point Times New Roman font to maintain a uniform appearance.",
+      "enumerated": false,
+      "marker": ""
+    },
+    {
+      "self_ref": "#/texts/217",
+      "parent": {
+        "$ref": "#/groups/23"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 19,
+          "bbox": {
+            "l": 111.54599999999908,
+            "t": 537.3004609,
+            "r": 553.5045479799985,
+            "b": 480.81363459999994,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            333
+          ]
+        }
+      ],
+      "orig": "-Explicit Figure Dimensions: When creating figures in Python or Inkscape, set the figure dimensions explicitly to the desired size. Import them into LaTeX using specific width settings, such as width=6.5in. Avoid using scaling commands like \\textwidth=\\linewidth , as they can lead to inconsistent font sizes and misaligned elements.",
+      "text": "-Explicit Figure Dimensions: When creating figures in Python or Inkscape, set the figure dimensions explicitly to the desired size. Import them into LaTeX using specific width settings, such as width=6.5in. Avoid using scaling commands like \\textwidth=\\linewidth , as they can lead to inconsistent font sizes and misaligned elements.",
+      "enumerated": false,
+      "marker": ""
+    },
+    {
+      "self_ref": "#/texts/218",
+      "parent": {
+        "$ref": "#/groups/23"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 19,
+          "bbox": {
+            "l": 111.54599999999846,
+            "t": 474.97446089999994,
+            "r": 540.0005479799985,
+            "b": 418.4876345999999,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            277
+          ]
+        }
+      ],
+      "orig": "-Avoid Scaling During Import: Do not scale figures up or down during the import process. At each stage-creation, export, and inclusion-consider your figure's size, resolution (DPI), and font settings. Always define these parameters explicitly to ensure clarity and consistency.",
+      "text": "-Avoid Scaling During Import: Do not scale figures up or down during the import process. At each stage-creation, export, and inclusion-consider your figure's size, resolution (DPI), and font settings. Always define these parameters explicitly to ensure clarity and consistency.",
+      "enumerated": false,
+      "marker": ""
+    },
+    {
+      "self_ref": "#/texts/219",
+      "parent": {
+        "$ref": "#/groups/23"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 19,
+          "bbox": {
+            "l": 85.333999999998,
+            "t": 408.5543698999999,
+            "r": 143.364547979998,
+            "b": 398.92163459999995,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            11
+          ]
+        }
+      ],
+      "orig": "\u00b7 Labeling:",
+      "text": "Labeling:",
+      "enumerated": false,
+      "marker": "\u00b7"
+    },
+    {
+      "self_ref": "#/texts/220",
+      "parent": {
+        "$ref": "#/groups/23"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 19,
+          "bbox": {
+            "l": 111.54599999999802,
+            "t": 389.09646089999995,
+            "r": 411.607547979998,
+            "b": 379.35463459999994,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            63
+          ]
+        }
+      ],
+      "orig": "-Create all figure labels using Inkscape to ensure consistency.",
+      "text": "-Create all figure labels using Inkscape to ensure consistency.",
+      "enumerated": false,
+      "marker": ""
+    },
+    {
+      "self_ref": "#/texts/221",
+      "parent": {
+        "$ref": "#/groups/23"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 19,
+          "bbox": {
+            "l": 111.545999999998,
+            "t": 373.51546089999994,
+            "r": 351.94154797999806,
+            "b": 363.7736345999999,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            50
+          ]
+        }
+      ],
+      "orig": "-Use white text boxes with black text for clarity.",
+      "text": "-Use white text boxes with black text for clarity.",
+      "enumerated": false,
+      "marker": ""
+    },
+    {
+      "self_ref": "#/texts/222",
+      "parent": {
+        "$ref": "#/groups/23"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 19,
+          "bbox": {
+            "l": 111.54599999999806,
+            "t": 357.93346089999994,
+            "r": 481.30354797999803,
+            "b": 348.19163459999993,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            75
+          ]
+        }
+      ],
+      "orig": "-Avoid adding black outlines to label boxes to maintain a clean appearance.",
+      "text": "-Avoid adding black outlines to label boxes to maintain a clean appearance.",
+      "enumerated": false,
+      "marker": ""
+    },
+    {
+      "self_ref": "#/texts/223",
+      "parent": {
+        "$ref": "#/groups/23"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 19,
+          "bbox": {
+            "l": 85.33399999999801,
+            "t": 338.2573698999999,
+            "r": 158.78854797999804,
+            "b": 328.6246345999999,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            13
+          ]
+        }
+      ],
+      "orig": "\u00b7 Arrowheads:",
+      "text": "Arrowheads:",
+      "enumerated": false,
+      "marker": "\u00b7"
+    },
+    {
+      "self_ref": "#/texts/224",
+      "parent": {
+        "$ref": "#/groups/23"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 19,
+          "bbox": {
+            "l": 111.54599999999805,
+            "t": 318.80046089999996,
+            "r": 536.635547979998,
+            "b": 309.05863459999995,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            88
+          ]
+        }
+      ],
+      "orig": "-Use triangular arrowheads to indicate flow in diagrams such as flowcharts or pipelines.",
+      "text": "-Use triangular arrowheads to indicate flow in diagrams such as flowcharts or pipelines.",
+      "enumerated": false,
+      "marker": ""
+    },
+    {
+      "self_ref": "#/texts/225",
+      "parent": {
+        "$ref": "#/groups/23"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 19,
+          "bbox": {
+            "l": 111.54599999999795,
+            "t": 303.21846089999997,
+            "r": 523.545547979998,
+            "b": 293.47663459999995,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            85
+          ]
+        }
+      ],
+      "orig": "-For labeling specific items, use arrows with rounded back ends to point to the item.",
+      "text": "-For labeling specific items, use arrows with rounded back ends to point to the item.",
+      "enumerated": false,
+      "marker": ""
+    },
+    {
+      "self_ref": "#/texts/226",
+      "parent": {
+        "$ref": "#/groups/23"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 19,
+          "bbox": {
+            "l": 111.54599999999795,
+            "t": 287.63746089999995,
+            "r": 540.0005499999976,
+            "b": 262.3136345999999,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            105
+          ]
+        }
+      ],
+      "orig": "-Ensure arrows are either white or black, depending on the figure's color scheme, to maintain visibility.",
+      "text": "-Ensure arrows are either white or black, depending on the figure's color scheme, to maintain visibility.",
+      "enumerated": false,
+      "marker": ""
+    },
+    {
+      "self_ref": "#/texts/227",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "furniture",
+      "label": "page_footer",
+      "prov": [
+        {
+          "page_no": 19,
+          "bbox": {
+            "l": 300.5459999999976,
+            "t": 49.62836989999994,
+            "r": 311.4555499999976,
+            "b": 39.9956345999999,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            2
+          ]
+        }
+      ],
+      "orig": "19",
+      "text": "19"
+    },
+    {
+      "self_ref": "#/texts/228",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 20,
+          "bbox": {
+            "l": 72.0,
+            "t": 715.3768008,
+            "r": 280.4587375,
+            "b": 702.7808372,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            25
+          ]
+        }
+      ],
+      "orig": "8 Guidelines for EMCH 764",
+      "text": "8 Guidelines for EMCH 764",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/229",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 20,
+          "bbox": {
+            "l": 72.0,
+            "t": 684.5303567999999,
+            "r": 176.65,
+            "b": 674.0336911999999,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            16
+          ]
+        }
+      ],
+      "orig": "8.1 Introduction",
+      "text": "8.1 Introduction",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/230",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 20,
+          "bbox": {
+            "l": 72.0,
+            "t": 661.2443698999999,
+            "r": 540.0005500000001,
+            "b": 604.8666346,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            384
+          ]
+        }
+      ],
+      "orig": "Students register for EMCH 764 as a graduate-level independent-study course focused on producing a publishable journal or conference paper. The final paper is the sole basis for the course grade. In general, it is recommended that students focus on publishing a conference paper with a hard deadline either during or shortly after the semester for which they take the EMCH 764 course.",
+      "text": "Students register for EMCH 764 as a graduate-level independent-study course focused on producing a publishable journal or conference paper. The final paper is the sole basis for the course grade. In general, it is recommended that students focus on publishing a conference paper with a hard deadline either during or shortly after the semester for which they take the EMCH 764 course."
+    },
+    {
+      "self_ref": "#/texts/231",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 20,
+          "bbox": {
+            "l": 72.00000000000006,
+            "t": 583.8593567999999,
+            "r": 336.6098022400001,
+            "b": 573.3626911999999,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            43
+          ]
+        }
+      ],
+      "orig": "8.2 Enrollment limits Per University Policy",
+      "text": "8.2 Enrollment limits Per University Policy",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/232",
+      "parent": {
+        "$ref": "#/groups/24"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 20,
+          "bbox": {
+            "l": 85.33300000000006,
+            "t": 560.5733698999999,
+            "r": 539.9995490399998,
+            "b": 535.3596345999999,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            100
+          ]
+        }
+      ],
+      "orig": "\u00b7 Master's students may enroll in up to two distinct EMCH 764 courses during their Master's program.",
+      "text": "Master's students may enroll in up to two distinct EMCH 764 courses during their Master's program.",
+      "enumerated": false,
+      "marker": "\u00b7"
+    },
+    {
+      "self_ref": "#/texts/233",
+      "parent": {
+        "$ref": "#/groups/24"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 20,
+          "bbox": {
+            "l": 85.3329999999998,
+            "t": 529.4103698999999,
+            "r": 540.0005479799999,
+            "b": 519.7776345999999,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            92
+          ]
+        }
+      ],
+      "orig": "\u00b7 PhD students may enroll in up to three distinct EMCH 764 courses during their PhD program.",
+      "text": "PhD students may enroll in up to three distinct EMCH 764 courses during their PhD program.",
+      "enumerated": false,
+      "marker": "\u00b7"
+    },
+    {
+      "self_ref": "#/texts/234",
+      "parent": {
+        "$ref": "#/groups/24"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 20,
+          "bbox": {
+            "l": 85.33399999999978,
+            "t": 513.8293698999998,
+            "r": 540.0010949499997,
+            "b": 457.45163459999986,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            338
+          ]
+        }
+      ],
+      "orig": "\u00b7 If a student takes two EMCH 764 courses as a master's student and later continues to the PhD program and elects to apply those Master's EMCH 764 courses to their PhD Program of Study as a block, the student may take up to five total EMCH 764 courses (i.e., the two from the master's count toward the PhD limit when approved as a block).",
+      "text": "If a student takes two EMCH 764 courses as a master's student and later continues to the PhD program and elects to apply those Master's EMCH 764 courses to their PhD Program of Study as a block, the student may take up to five total EMCH 764 courses (i.e., the two from the master's count toward the PhD limit when approved as a block).",
+      "enumerated": false,
+      "marker": "\u00b7"
+    },
+    {
+      "self_ref": "#/texts/235",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 20,
+          "bbox": {
+            "l": 71.99999999999943,
+            "t": 436.44435679999987,
+            "r": 351.7579999999995,
+            "b": 425.9476911999999,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            42
+          ]
+        }
+      ],
+      "orig": "8.3 Guidance for Completing the G-ISC Form",
+      "text": "8.3 Guidance for Completing the G-ISC Form",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/236",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 20,
+          "bbox": {
+            "l": 85.33399999999949,
+            "t": 413.2674608999999,
+            "r": 208.23036653999952,
+            "b": 403.5256345999999,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            21
+          ]
+        }
+      ],
+      "orig": "\u00b7 Course Description:",
+      "text": "\u00b7 Course Description:",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/237",
+      "parent": {
+        "$ref": "#/groups/25"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 20,
+          "bbox": {
+            "l": 111.54599999999952,
+            "t": 393.7004608999999,
+            "r": 540.0010949499994,
+            "b": 337.21463459999984,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            334
+          ]
+        }
+      ],
+      "orig": "-State that the purpose of the independent study is to produce a journal-ready or conference-ready research paper. A concise entry students may use: 'The objective of this independent study is to develop and complete a research project on [pick topic] resulting in a publishable paper to be submitted to [pick conference or journal].'",
+      "text": "-State that the purpose of the independent study is to produce a journal-ready or conference-ready research paper. A concise entry students may use: 'The objective of this independent study is to develop and complete a research project on [pick topic] resulting in a publishable paper to be submitted to [pick conference or journal].'",
+      "enumerated": false,
+      "marker": ""
+    },
+    {
+      "self_ref": "#/texts/238",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 20,
+          "bbox": {
+            "l": 85.33399999999921,
+            "t": 327.38946089999985,
+            "r": 540.0008239899994,
+            "b": 302.0666345999998,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            92
+          ]
+        }
+      ],
+      "orig": "\u00b7 List of Tasks , Anticipated Submission Dates and Weighted Contribution to an Earned Grade:",
+      "text": "\u00b7 List of Tasks , Anticipated Submission Dates and Weighted Contribution to an Earned Grade:",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/239",
+      "parent": {
+        "$ref": "#/groups/26"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 20,
+          "bbox": {
+            "l": 111.54599999999938,
+            "t": 292.2414608999998,
+            "r": 540.0010949499992,
+            "b": 173.42963459999987,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            651
+          ]
+        }
+      ],
+      "orig": "-Students should provide a simple 3-4 sentence description of the planned work for the semester. This should briefly state the research topic, the general activities they expect to complete (e.g., background review, methods development, analysis), and that the final product will be a complete paper. Students should note that the entire course grade is based solely on the submitted journal or conference paper. A concise entry may read: 'This independent study will involve background research, development of methods, completion of analyses, and preparation of a full paper for submission. The final grade is based entirely on the completed paper.'",
+      "text": "-Students should provide a simple 3-4 sentence description of the planned work for the semester. This should briefly state the research topic, the general activities they expect to complete (e.g., background review, methods development, analysis), and that the final product will be a complete paper. Students should note that the entire course grade is based solely on the submitted journal or conference paper. A concise entry may read: 'This independent study will involve background research, development of methods, completion of analyses, and preparation of a full paper for submission. The final grade is based entirely on the completed paper.'",
+      "enumerated": false,
+      "marker": ""
+    },
+    {
+      "self_ref": "#/texts/240",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 20,
+          "bbox": {
+            "l": 85.33399999999853,
+            "t": 163.60446089999982,
+            "r": 176.16018660999856,
+            "b": 153.86263459999986,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            15
+          ]
+        }
+      ],
+      "orig": "\u00b7 Grading Scale",
+      "text": "\u00b7 Grading Scale",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/241",
+      "parent": {
+        "$ref": "#/groups/27"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 20,
+          "bbox": {
+            "l": 111.54599999999854,
+            "t": 144.0384608999998,
+            "r": 540.0015499999985,
+            "b": 118.71463459999984,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            133
+          ]
+        }
+      ],
+      "orig": "-A: \u2265 95, A-: \u2265 90 & < 95, B: \u2265 85 & < 90, B-: \u2265 80 & < 85, C: \u2265 70 & < 80, C-: \u2265 65 & < 70, D: \u2265 60 & < 65, D-: \u2265 55 & < 60, F: < 55",
+      "text": "-A: \u2265 95, A-: \u2265 90 & < 95, B: \u2265 85 & < 90, B-: \u2265 80 & < 85, C: \u2265 70 & < 80, C-: \u2265 65 & < 70, D: \u2265 60 & < 65, D-: \u2265 55 & < 60, F: < 55",
+      "enumerated": false,
+      "marker": ""
+    },
+    {
+      "self_ref": "#/texts/242",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "furniture",
+      "label": "page_footer",
+      "prov": [
+        {
+          "page_no": 20,
+          "bbox": {
+            "l": 300.54699999999843,
+            "t": 49.628369899999825,
+            "r": 311.4555499999984,
+            "b": 39.9956345999999,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            2
+          ]
+        }
+      ],
+      "orig": "20",
+      "text": "20"
     }
   ],
   "pictures": [],
@@ -6262,9 +8087,9 @@
           "page_no": 2,
           "bbox": {
             "l": 70.6964340209961,
-            "t": 676.4469757080078,
+            "t": 676.4468841552734,
             "r": 540.6929321289062,
-            "b": 184.20086669921875,
+            "b": 184.20074462890625,
             "coord_origin": "BOTTOMLEFT"
           },
           "charspan": [
@@ -6280,9 +8105,9 @@
         "table_cells": [
           {
             "bbox": {
-              "l": 70.97509451583028,
-              "t": 116.51707016304134,
-              "r": 97.41758471727371,
+              "l": 70.9750953912735,
+              "t": 116.51708986610173,
+              "r": 97.41757421195507,
               "b": 127.29673409461974,
               "coord_origin": "TOPLEFT"
             },
@@ -6300,10 +8125,10 @@
           },
           {
             "bbox": {
-              "l": 97.04020565748215,
-              "t": 116.12657520920037,
-              "r": 258.92709589004517,
-              "b": 126.38084878772496,
+              "l": 97.04021266102791,
+              "t": 116.1265706270933,
+              "r": 258.926983833313,
+              "b": 126.38084420561789,
               "coord_origin": "TOPLEFT"
             },
             "row_span": 1,
@@ -6321,9 +8146,9 @@
           {
             "bbox": {
               "l": 533.3322379589081,
-              "t": 115.31521738693117,
+              "t": 115.3152128048241,
               "r": 540.7298312187195,
-              "b": 124.96540017426013,
+              "b": 124.96539284288882,
               "coord_origin": "TOPLEFT"
             },
             "row_span": 1,
@@ -6340,10 +8165,10 @@
           },
           {
             "bbox": {
-              "l": 71.0965101737529,
-              "t": 138.69053921103477,
-              "r": 78.31217407621443,
-              "b": 150.1932628452778,
+              "l": 71.09651148691773,
+              "t": 138.69049888849258,
+              "r": 78.31218239292502,
+              "b": 150.19323351979256,
               "coord_origin": "TOPLEFT"
             },
             "row_span": 1,
@@ -6360,10 +8185,10 @@
           },
           {
             "bbox": {
-              "l": 90.78068858385086,
-              "t": 140.69559594988823,
-              "r": 361.6402015686035,
-              "b": 152.88510778546333,
+              "l": 90.7806465625763,
+              "t": 140.69557029008865,
+              "r": 361.64022958278656,
+              "b": 152.88508945703506,
               "coord_origin": "TOPLEFT"
             },
             "row_span": 1,
@@ -6380,10 +8205,10 @@
           },
           {
             "bbox": {
-              "l": 533.5498241186142,
-              "t": 142.21297720074654,
-              "r": 540.8712188005447,
-              "b": 152.54565796256065,
+              "l": 533.5498521327972,
+              "t": 142.21299369633198,
+              "r": 540.8711907863617,
+              "b": 152.54566895961761,
               "coord_origin": "TOPLEFT"
             },
             "row_span": 1,
@@ -6400,10 +8225,10 @@
           },
           {
             "bbox": {
-              "l": 71.00497601926327,
-              "t": 154.99959990382195,
-              "r": 81.04132498055696,
-              "b": 167.0599842965603,
+              "l": 71.00497470609844,
+              "t": 154.9996658861637,
+              "r": 81.04134599119425,
+              "b": 167.06005027890205,
               "coord_origin": "TOPLEFT"
             },
             "row_span": 1,
@@ -6420,10 +8245,10 @@
           },
           {
             "bbox": {
-              "l": 89.19124087691307,
-              "t": 156.55466440320015,
-              "r": 103.71478787064552,
-              "b": 166.82982322573662,
+              "l": 89.19123737514019,
+              "t": 156.55459842085838,
+              "r": 103.7147913724184,
+              "b": 166.82974991202354,
               "coord_origin": "TOPLEFT"
             },
             "row_span": 1,
@@ -6440,10 +8265,10 @@
           },
           {
             "bbox": {
-              "l": 112.05804540216923,
-              "t": 157.54862973093987,
-              "r": 221.74633598327637,
-              "b": 168.10422816872597,
+              "l": 112.05802439153194,
+              "t": 157.5486737191677,
+              "r": 221.74632197618484,
+              "b": 168.10427948832512,
               "coord_origin": "TOPLEFT"
             },
             "row_span": 1,
@@ -6463,7 +8288,7 @@
               "l": 533.2827368974686,
               "t": 156.48852810263634,
               "r": 540.8992890119553,
-              "b": 166.7962822020054,
+              "b": 166.796296864748,
               "coord_origin": "TOPLEFT"
             },
             "row_span": 1,
@@ -6480,10 +8305,10 @@
           },
           {
             "bbox": {
-              "l": 70.81650228612125,
-              "t": 172.07883581519127,
-              "r": 83.41951026022434,
-              "b": 183.68808060884476,
+              "l": 70.81650053523481,
+              "t": 172.07883948087692,
+              "r": 83.41951901465654,
+              "b": 183.68809527158737,
               "coord_origin": "TOPLEFT"
             },
             "row_span": 1,
@@ -6500,10 +8325,10 @@
           },
           {
             "bbox": {
-              "l": 88.98575334250927,
-              "t": 171.76423934102058,
-              "r": 103.10251338779926,
-              "b": 182.04468774795532,
+              "l": 88.98575684428215,
+              "t": 171.7642613351345,
+              "r": 103.10253089666367,
+              "b": 182.04470241069794,
               "coord_origin": "TOPLEFT"
             },
             "row_span": 1,
@@ -6520,9 +8345,9 @@
           },
           {
             "bbox": {
-              "l": 113.27583944797516,
-              "t": 172.20602044463158,
-              "r": 234.89566123485565,
+              "l": 113.27582544088364,
+              "t": 172.20602411031723,
+              "r": 234.8956332206726,
               "b": 182.61465054750443,
               "coord_origin": "TOPLEFT"
             },
@@ -6541,9 +8366,9 @@
           {
             "bbox": {
               "l": 533.4076521396637,
-              "t": 172.8377977013588,
+              "t": 172.8378050327301,
               "r": 540.923745393753,
-              "b": 183.02726012468338,
+              "b": 183.0272674560547,
               "coord_origin": "TOPLEFT"
             },
             "row_span": 1,
@@ -6560,10 +8385,10 @@
           },
           {
             "bbox": {
-              "l": 70.70130008645356,
-              "t": 187.62021028995514,
-              "r": 82.75530098378658,
-              "b": 204.30290699005127,
+              "l": 70.70129833556712,
+              "t": 187.62021762132645,
+              "r": 82.75530273467302,
+              "b": 204.30287033319473,
               "coord_origin": "TOPLEFT"
             },
             "row_span": 1,
@@ -6580,9 +8405,9 @@
           },
           {
             "bbox": {
-              "l": 87.15643419325352,
+              "l": 87.15643244236708,
               "t": 187.581185400486,
-              "r": 102.50392033159733,
+              "r": 102.50391682982445,
               "b": 198.01890271902084,
               "coord_origin": "TOPLEFT"
             },
@@ -6600,10 +8425,10 @@
           },
           {
             "bbox": {
-              "l": 113.40560114383698,
-              "t": 187.73117792606354,
-              "r": 267.9363170862198,
-              "b": 198.62921738624573,
+              "l": 113.40559414029121,
+              "t": 187.73115593194962,
+              "r": 267.93628907203674,
+              "b": 198.6291807293892,
               "coord_origin": "TOPLEFT"
             },
             "row_span": 1,
@@ -6621,9 +8446,9 @@
           {
             "bbox": {
               "l": 533.7055549621582,
-              "t": 188.1907302737236,
+              "t": 188.1907229423523,
               "r": 540.9428510665894,
-              "b": 198.53494328260422,
+              "b": 198.5349212884903,
               "coord_origin": "TOPLEFT"
             },
             "row_span": 1,
@@ -6640,9 +8465,9 @@
           },
           {
             "bbox": {
-              "l": 70.87990407273173,
+              "l": 70.87990582361817,
               "t": 213.9371719956398,
-              "r": 79.53421008214355,
+              "r": 79.534203954041,
               "b": 225.23211723566055,
               "coord_origin": "TOPLEFT"
             },
@@ -6660,7 +8485,7 @@
           },
           {
             "bbox": {
-              "l": 92.61071509122849,
+              "l": 92.61072209477425,
               "t": 213.84902691841125,
               "r": 236.89464128017426,
               "b": 225.30949985980988,
@@ -6680,10 +8505,10 @@
           },
           {
             "bbox": {
-              "l": 533.4829262495041,
-              "t": 214.05923199653625,
-              "r": 540.9081975221634,
-              "b": 224.58477914333344,
+              "l": 533.4829822778702,
+              "t": 214.05920267105103,
+              "r": 540.9082535505295,
+              "b": 224.5847498178482,
               "coord_origin": "TOPLEFT"
             },
             "row_span": 1,
@@ -6700,10 +8525,10 @@
           },
           {
             "bbox": {
-              "l": 71.05565367639065,
-              "t": 230.77070432901382,
-              "r": 85.25545301288366,
-              "b": 242.27147781848907,
+              "l": 71.05564360879362,
+              "t": 230.77072632312775,
+              "r": 85.25545651465654,
+              "b": 242.2715071439743,
               "coord_origin": "TOPLEFT"
             },
             "row_span": 1,
@@ -6720,10 +8545,10 @@
           },
           {
             "bbox": {
-              "l": 88.60958589613438,
-              "t": 229.02876317501068,
+              "l": 88.60958764702082,
+              "t": 229.028770506382,
               "r": 103.36832946538925,
-              "b": 239.24564492702484,
+              "b": 239.24565958976746,
               "coord_origin": "TOPLEFT"
             },
             "row_span": 1,
@@ -6740,10 +8565,10 @@
           },
           {
             "bbox": {
-              "l": 112.32255882024765,
-              "t": 229.9775745868683,
-              "r": 239.91850620508194,
-              "b": 240.19752085208893,
+              "l": 112.32256582379341,
+              "t": 229.97752326726913,
+              "r": 239.91840815544128,
+              "b": 240.19746220111847,
               "coord_origin": "TOPLEFT"
             },
             "row_span": 1,
@@ -6761,9 +8586,9 @@
           {
             "bbox": {
               "l": 533.2961556911469,
-              "t": 230.59872502088547,
+              "t": 230.5987470149994,
               "r": 540.8845815658569,
-              "b": 241.17609763145447,
+              "b": 241.1761269569397,
               "coord_origin": "TOPLEFT"
             },
             "row_span": 1,
@@ -6780,10 +8605,10 @@
           },
           {
             "bbox": {
-              "l": 74.41805293224752,
-              "t": 245.2338503599167,
-              "r": 88.97676954418421,
-              "b": 256.3189424276352,
+              "l": 74.41803980059922,
+              "t": 245.23382103443146,
+              "r": 88.97676254063845,
+              "b": 256.31891310214996,
               "coord_origin": "TOPLEFT"
             },
             "row_span": 1,
@@ -6800,10 +8625,10 @@
           },
           {
             "bbox": {
-              "l": 88.68042676150799,
-              "t": 244.9005515575409,
-              "r": 103.61202484369278,
-              "b": 255.24303436279297,
+              "l": 88.68043376505375,
+              "t": 244.90052223205566,
+              "r": 103.61202834546566,
+              "b": 255.24300503730774,
               "coord_origin": "TOPLEFT"
             },
             "row_span": 1,
@@ -6820,10 +8645,10 @@
           },
           {
             "bbox": {
-              "l": 111.2070340514183,
-              "t": 245.91123974323273,
-              "r": 260.72349137067795,
-              "b": 256.18029153347015,
+              "l": 111.20704805850983,
+              "t": 245.9112250804901,
+              "r": 260.7234773635864,
+              "b": 256.18030619621277,
               "coord_origin": "TOPLEFT"
             },
             "row_span": 1,
@@ -6840,10 +8665,10 @@
           },
           {
             "bbox": {
-              "l": 533.1275103092194,
-              "t": 245.24056589603424,
-              "r": 540.8840773105621,
-              "b": 255.7220515012741,
+              "l": 533.1275383234024,
+              "t": 245.24058055877686,
+              "r": 540.8840492963791,
+              "b": 255.72206616401672,
               "coord_origin": "TOPLEFT"
             },
             "row_span": 1,
@@ -6860,10 +8685,10 @@
           },
           {
             "bbox": {
-              "l": 78.40620587021112,
-              "t": 259.6572530269623,
-              "r": 92.07132826000452,
-              "b": 271.90729999542236,
+              "l": 78.406165599823,
+              "t": 259.65720903873444,
+              "r": 92.07130199670792,
+              "b": 271.90728533267975,
               "coord_origin": "TOPLEFT"
             },
             "row_span": 1,
@@ -6880,10 +8705,10 @@
           },
           {
             "bbox": {
-              "l": 89.13558720052242,
-              "t": 259.03893983364105,
-              "r": 103.19887167215347,
-              "b": 270.0021551847458,
+              "l": 89.13558369874954,
+              "t": 259.03895449638367,
+              "r": 103.19888918101788,
+              "b": 270.0021698474884,
               "coord_origin": "TOPLEFT"
             },
             "row_span": 1,
@@ -6900,10 +8725,10 @@
           },
           {
             "bbox": {
-              "l": 110.66068044304848,
+              "l": 110.66068744659424,
               "t": 260.9500377178192,
-              "r": 283.28004932403564,
-              "b": 271.4025790691376,
+              "r": 283.2800213098526,
+              "b": 271.40254974365234,
               "coord_origin": "TOPLEFT"
             },
             "row_span": 1,
@@ -6921,9 +8746,9 @@
           {
             "bbox": {
               "l": 534.0096209049225,
-              "t": 260.61638700962067,
+              "t": 260.6164309978485,
               "r": 540.8434567451477,
-              "b": 271.11320984363556,
+              "b": 271.1132538318634,
               "coord_origin": "TOPLEFT"
             },
             "row_span": 1,
@@ -6940,10 +8765,10 @@
           },
           {
             "bbox": {
-              "l": 74.17933751270175,
-              "t": 277.49324774742126,
-              "r": 91.692672803998,
-              "b": 293.8528802394867,
+              "l": 74.17933226004243,
+              "t": 277.49321842193604,
+              "r": 91.69266930222511,
+              "b": 293.852792263031,
               "coord_origin": "TOPLEFT"
             },
             "row_span": 1,
@@ -6960,10 +8785,10 @@
           },
           {
             "bbox": {
-              "l": 88.01383627951145,
-              "t": 275.9939090013504,
+              "l": 88.01382752507925,
+              "t": 275.993923664093,
               "r": 102.6903967410326,
-              "b": 287.15639102458954,
+              "b": 287.1564350128174,
               "coord_origin": "TOPLEFT"
             },
             "row_span": 1,
@@ -6980,10 +8805,10 @@
           },
           {
             "bbox": {
-              "l": 112.1332704871893,
-              "t": 276.7447147369385,
-              "r": 213.24062770605087,
-              "b": 287.4216253757477,
+              "l": 112.13325998187065,
+              "t": 276.7447293996811,
+              "r": 213.2406417131424,
+              "b": 287.4216400384903,
               "coord_origin": "TOPLEFT"
             },
             "row_span": 1,
@@ -7001,9 +8826,9 @@
           {
             "bbox": {
               "l": 534.5015499591827,
-              "t": 275.6081029176712,
+              "t": 275.6081175804138,
               "r": 540.8837971687317,
-              "b": 286.2704974412918,
+              "b": 286.2704827785492,
               "coord_origin": "TOPLEFT"
             },
             "row_span": 1,
@@ -7020,9 +8845,9 @@
           },
           {
             "bbox": {
-              "l": 71.5317590944469,
+              "l": 71.531763471663,
               "t": 301.81568789482117,
-              "r": 91.52991040050983,
+              "r": 91.52993666380644,
               "b": 312.9028913974762,
               "coord_origin": "TOPLEFT"
             },
@@ -7040,10 +8865,10 @@
           },
           {
             "bbox": {
-              "l": 90.08027097582817,
-              "t": 302.2044851779938,
-              "r": 232.0124135017395,
-              "b": 312.45937275886536,
+              "l": 90.08030599355698,
+              "t": 302.20445585250854,
+              "r": 232.01239949464798,
+              "b": 312.4593434333801,
               "coord_origin": "TOPLEFT"
             },
             "row_span": 1,
@@ -7061,9 +8886,9 @@
           {
             "bbox": {
               "l": 527.6849148273468,
-              "t": 302.39021813869476,
+              "t": 302.3901301622391,
               "r": 540.6039354801178,
-              "b": 313.08240735530853,
+              "b": 313.08231937885284,
               "coord_origin": "TOPLEFT"
             },
             "row_span": 1,
@@ -7080,10 +8905,10 @@
           },
           {
             "bbox": {
-              "l": 70.90837217308581,
-              "t": 317.6144998073578,
-              "r": 83.63407789170742,
-              "b": 329.1646354198456,
+              "l": 70.90837392397225,
+              "t": 317.61445581912994,
+              "r": 83.6340726390481,
+              "b": 329.16459143161774,
               "coord_origin": "TOPLEFT"
             },
             "row_span": 1,
@@ -7100,10 +8925,10 @@
           },
           {
             "bbox": {
-              "l": 87.57476998865604,
-              "t": 321.6102731227875,
-              "r": 104.22789214551449,
-              "b": 332.08639216423035,
+              "l": 87.57475598156452,
+              "t": 321.61022913455963,
+              "r": 104.2278711348772,
+              "b": 332.0863481760025,
               "coord_origin": "TOPLEFT"
             },
             "row_span": 1,
@@ -7120,7 +8945,7 @@
           },
           {
             "bbox": {
-              "l": 112.58954098820686,
+              "l": 112.58952698111534,
               "t": 318.4964051246643,
               "r": 237.8406242132187,
               "b": 329.0458085536957,
@@ -7141,9 +8966,9 @@
           {
             "bbox": {
               "l": 528.9317700862885,
-              "t": 318.2905548810959,
+              "t": 318.2905842065811,
               "r": 540.6123957633972,
-              "b": 328.99893176555634,
+              "b": 328.9989904165268,
               "coord_origin": "TOPLEFT"
             },
             "row_span": 1,
@@ -7160,10 +8985,10 @@
           },
           {
             "bbox": {
-              "l": 71.0262348446995,
-              "t": 332.7091335058212,
-              "r": 82.37199517339468,
-              "b": 344.8250457048416,
+              "l": 71.02623309381306,
+              "t": 332.7091774940491,
+              "r": 82.37200217694044,
+              "b": 344.82508969306946,
               "coord_origin": "TOPLEFT"
             },
             "row_span": 1,
@@ -7180,10 +9005,10 @@
           },
           {
             "bbox": {
-              "l": 89.03270511329174,
-              "t": 335.2226061820984,
-              "r": 104.98940868675709,
-              "b": 345.63983964920044,
+              "l": 89.03270161151886,
+              "t": 335.22256219387054,
+              "r": 104.98940168321133,
+              "b": 345.6397956609726,
               "coord_origin": "TOPLEFT"
             },
             "row_span": 1,
@@ -7200,10 +9025,10 @@
           },
           {
             "bbox": {
-              "l": 112.39026559889317,
-              "t": 334.1979150772095,
-              "r": 208.75391817092896,
-              "b": 344.86118936538696,
+              "l": 112.390241086483,
+              "t": 334.1979590654373,
+              "r": 208.75393217802048,
+              "b": 344.8612333536148,
               "coord_origin": "TOPLEFT"
             },
             "row_span": 1,
@@ -7221,9 +9046,9 @@
           {
             "bbox": {
               "l": 529.4172278642654,
-              "t": 333.9736044406891,
+              "t": 333.97364842891693,
               "r": 540.435093998909,
-              "b": 344.5925385951996,
+              "b": 344.59258258342743,
               "coord_origin": "TOPLEFT"
             },
             "row_span": 1,
@@ -7240,9 +9065,9 @@
           },
           {
             "bbox": {
-              "l": 71.0562691129744,
+              "l": 71.05626254715025,
               "t": 359.60944509506226,
-              "r": 84.01334353163838,
+              "r": 84.01336891949177,
               "b": 370.7685546875,
               "coord_origin": "TOPLEFT"
             },
@@ -7260,10 +9085,10 @@
           },
           {
             "bbox": {
-              "l": 95.06793713569641,
+              "l": 95.0679581463337,
               "t": 359.38630747795105,
-              "r": 245.72007542848587,
-              "b": 373.19509196281433,
+              "r": 245.71992135047913,
+              "b": 373.1951506137848,
               "coord_origin": "TOPLEFT"
             },
             "row_span": 1,
@@ -7281,9 +9106,9 @@
           {
             "bbox": {
               "l": 527.7236304283142,
-              "t": 360.47671699523926,
+              "t": 360.4766583442688,
               "r": 540.5533978939056,
-              "b": 371.2251524925232,
+              "b": 371.22509384155273,
               "coord_origin": "TOPLEFT"
             },
             "row_span": 1,
@@ -7300,9 +9125,9 @@
           },
           {
             "bbox": {
-              "l": 70.8542286362499,
+              "l": 70.85422119498253,
               "t": 375.12940096855164,
-              "r": 83.36675079911947,
+              "r": 83.366764806211,
               "b": 389.2718508243561,
               "coord_origin": "TOPLEFT"
             },
@@ -7320,10 +9145,10 @@
           },
           {
             "bbox": {
-              "l": 87.43663205206394,
-              "t": 377.0409240722656,
-              "r": 103.06190682947636,
-              "b": 387.7739930152893,
+              "l": 87.43662855029106,
+              "t": 377.04095339775085,
+              "r": 103.06191033124924,
+              "b": 387.77402234077454,
               "coord_origin": "TOPLEFT"
             },
             "row_span": 1,
@@ -7340,9 +9165,9 @@
           },
           {
             "bbox": {
-              "l": 114.77680085599422,
+              "l": 114.77682186663151,
               "t": 376.62233209609985,
-              "r": 160.77656215429306,
+              "r": 160.77657616138458,
               "b": 387.4901223182678,
               "coord_origin": "TOPLEFT"
             },
@@ -7360,10 +9185,10 @@
           },
           {
             "bbox": {
-              "l": 528.8156232833862,
-              "t": 376.50409173965454,
-              "r": 540.4842028617859,
-              "b": 387.1601519584656,
+              "l": 528.8155952692032,
+              "t": 376.5040624141693,
+              "r": 540.4841748476028,
+              "b": 387.16012263298035,
               "coord_origin": "TOPLEFT"
             },
             "row_span": 1,
@@ -7380,10 +9205,10 @@
           },
           {
             "bbox": {
-              "l": 71.0390150025487,
-              "t": 401.98623752593994,
-              "r": 85.7984379157424,
-              "b": 413.10194540023804,
+              "l": 71.03901237621903,
+              "t": 401.98632550239563,
+              "r": 85.7984466701746,
+              "b": 413.1020333766937,
               "coord_origin": "TOPLEFT"
             },
             "row_span": 1,
@@ -7400,10 +9225,10 @@
           },
           {
             "bbox": {
-              "l": 95.16422188282013,
-              "t": 403.7543590068817,
+              "l": 95.16423588991165,
+              "t": 403.7543296813965,
               "r": 179.7907126545906,
-              "b": 413.9834988117218,
+              "b": 413.98352813720703,
               "coord_origin": "TOPLEFT"
             },
             "row_span": 1,
@@ -7420,10 +9245,10 @@
           },
           {
             "bbox": {
-              "l": 528.237354516983,
-              "t": 402.5350933074951,
-              "r": 540.6297645568848,
-              "b": 413.0804204940796,
+              "l": 528.2373825311661,
+              "t": 402.5351812839508,
+              "r": 540.6297365427017,
+              "b": 413.0805084705353,
               "coord_origin": "TOPLEFT"
             },
             "row_span": 1,
@@ -7440,10 +9265,10 @@
           },
           {
             "bbox": {
-              "l": 70.84605506062508,
-              "t": 416.70795369148254,
-              "r": 86.45022290199995,
-              "b": 428.3552153110504,
+              "l": 70.84605068340898,
+              "t": 416.7078950405121,
+              "r": 86.4502421617508,
+              "b": 428.35515666007996,
               "coord_origin": "TOPLEFT"
             },
             "row_span": 1,
@@ -7460,10 +9285,10 @@
           },
           {
             "bbox": {
-              "l": 87.61481976509094,
-              "t": 418.654931306839,
-              "r": 104.37244883179665,
-              "b": 429.3777949810028,
+              "l": 87.61483027040958,
+              "t": 418.65490198135376,
+              "r": 104.37245933711529,
+              "b": 429.3777656555176,
               "coord_origin": "TOPLEFT"
             },
             "row_span": 1,
@@ -7480,10 +9305,10 @@
           },
           {
             "bbox": {
-              "l": 113.09367722272873,
-              "t": 419.4673352241516,
-              "r": 160.93454813957214,
-              "b": 429.7889676094055,
+              "l": 113.09368422627449,
+              "t": 419.46736454963684,
+              "r": 160.9345551431179,
+              "b": 429.78899693489075,
               "coord_origin": "TOPLEFT"
             },
             "row_span": 1,
@@ -7520,10 +9345,10 @@
           },
           {
             "bbox": {
-              "l": 71.3261848911643,
-              "t": 432.6306071281433,
-              "r": 87.85221370309591,
-              "b": 443.8005084991455,
+              "l": 71.32618576660752,
+              "t": 432.6305778026581,
+              "r": 87.85222245752811,
+              "b": 443.8004791736603,
               "coord_origin": "TOPLEFT"
             },
             "row_span": 1,
@@ -7540,10 +9365,10 @@
           },
           {
             "bbox": {
-              "l": 87.48850731551647,
-              "t": 433.16799664497375,
-              "r": 104.84370341897011,
-              "b": 443.98558163642883,
+              "l": 87.48851256817579,
+              "t": 433.168025970459,
+              "r": 104.84369641542435,
+              "b": 443.9855523109436,
               "coord_origin": "TOPLEFT"
             },
             "row_span": 1,
@@ -7560,10 +9385,10 @@
           },
           {
             "bbox": {
-              "l": 112.8265549838543,
-              "t": 434.57430028915405,
-              "r": 182.9706515967846,
-              "b": 444.77341079711914,
+              "l": 112.82653747498989,
+              "t": 434.5742416381836,
+              "r": 182.97067260742188,
+              "b": 444.7733521461487,
               "coord_origin": "TOPLEFT"
             },
             "row_span": 1,
@@ -7600,10 +9425,10 @@
           },
           {
             "bbox": {
-              "l": 72.81665673851967,
-              "t": 449.36223340034485,
-              "r": 88.86752473562956,
-              "b": 460.7326624393463,
+              "l": 72.81663310155272,
+              "t": 449.3622627258301,
+              "r": 88.86753349006176,
+              "b": 460.73269176483154,
               "coord_origin": "TOPLEFT"
             },
             "row_span": 1,
@@ -7620,9 +9445,9 @@
           },
           {
             "bbox": {
-              "l": 87.0644181072712,
+              "l": 87.06440234929323,
               "t": 448.31944847106934,
-              "r": 104.364786952734,
+              "r": 104.36475893855095,
               "b": 459.56571340560913,
               "coord_origin": "TOPLEFT"
             },
@@ -7640,10 +9465,10 @@
           },
           {
             "bbox": {
-              "l": 112.92547306418419,
-              "t": 449.46475529670715,
-              "r": 216.82088232040405,
-              "b": 459.9856836795807,
+              "l": 112.92545555531979,
+              "t": 449.4647846221924,
+              "r": 216.82089632749557,
+              "b": 459.9857130050659,
               "coord_origin": "TOPLEFT"
             },
             "row_span": 1,
@@ -7680,10 +9505,10 @@
           },
           {
             "bbox": {
-              "l": 73.54823837429285,
-              "t": 465.6056489944458,
-              "r": 88.91270986199379,
-              "b": 477.097309589386,
+              "l": 73.54821386188269,
+              "t": 465.60567831993103,
+              "r": 88.91271686553955,
+              "b": 477.0973389148712,
               "coord_origin": "TOPLEFT"
             },
             "row_span": 1,
@@ -7700,9 +9525,9 @@
           },
           {
             "bbox": {
-              "l": 87.05639554560184,
+              "l": 87.05640605092049,
               "t": 464.5237145423889,
-              "r": 104.09363067150116,
+              "r": 104.09364467859268,
               "b": 475.865345954895,
               "coord_origin": "TOPLEFT"
             },
@@ -7720,9 +9545,9 @@
           },
           {
             "bbox": {
-              "l": 112.62024453282356,
+              "l": 112.6202375292778,
               "t": 465.15523886680603,
-              "r": 222.1922937631607,
+              "r": 222.19227975606918,
               "b": 475.63857197761536,
               "coord_origin": "TOPLEFT"
             },
@@ -7741,9 +9566,9 @@
           {
             "bbox": {
               "l": 529.1899207830429,
-              "t": 464.8897259235382,
+              "t": 464.889696598053,
               "r": 540.0264230966568,
-              "b": 475.4894812107086,
+              "b": 475.4894518852234,
               "coord_origin": "TOPLEFT"
             },
             "row_span": 1,
@@ -7760,10 +9585,10 @@
           },
           {
             "bbox": {
-              "l": 72.69126219116151,
-              "t": 481.4350473880768,
-              "r": 87.18848942220211,
-              "b": 501.01778531074524,
+              "l": 72.69126394204795,
+              "t": 481.4349887371063,
+              "r": 87.18848066776991,
+              "b": 501.0177266597748,
               "coord_origin": "TOPLEFT"
             },
             "row_span": 1,
@@ -7780,10 +9605,10 @@
           },
           {
             "bbox": {
-              "l": 87.11326083540916,
-              "t": 481.15202713012695,
-              "r": 104.39812733232975,
-              "b": 492.4814591407776,
+              "l": 87.11325733363628,
+              "t": 481.1520564556122,
+              "r": 104.39813083410263,
+              "b": 492.4814884662628,
               "coord_origin": "TOPLEFT"
             },
             "row_span": 1,
@@ -7800,10 +9625,10 @@
           },
           {
             "bbox": {
-              "l": 110.44596573710442,
-              "t": 480.68487215042114,
-              "r": 275.0578866004944,
-              "b": 491.33195877075195,
+              "l": 110.44595873355865,
+              "t": 480.6849014759064,
+              "r": 275.05785858631134,
+              "b": 491.3319880962372,
               "coord_origin": "TOPLEFT"
             },
             "row_span": 1,
@@ -7821,9 +9646,9 @@
           {
             "bbox": {
               "l": 528.9790019989014,
-              "t": 480.9085669517517,
+              "t": 480.9085376262665,
               "r": 540.0493106842041,
-              "b": 491.45524311065674,
+              "b": 491.4552137851715,
               "coord_origin": "TOPLEFT"
             },
             "row_span": 1,
@@ -7840,9 +9665,9 @@
           },
           {
             "bbox": {
-              "l": 71.9512587916106,
-              "t": 506.46602058410645,
-              "r": 80.16881449520588,
+              "l": 71.95126929692924,
+              "t": 506.4660792350769,
+              "r": 80.16883375495672,
               "b": 517.8938102722168,
               "coord_origin": "TOPLEFT"
             },
@@ -7860,10 +9685,10 @@
           },
           {
             "bbox": {
-              "l": 96.62038511037827,
-              "t": 506.00261926651,
-              "r": 177.1599287390709,
-              "b": 517.2159810066223,
+              "l": 96.62037110328674,
+              "t": 506.00264859199524,
+              "r": 177.15991473197937,
+              "b": 517.2160103321075,
               "coord_origin": "TOPLEFT"
             },
             "row_span": 1,
@@ -7880,10 +9705,10 @@
           },
           {
             "bbox": {
-              "l": 527.5157371759415,
-              "t": 507.07308745384216,
-              "r": 539.9082592725754,
-              "b": 517.6154820919037,
+              "l": 527.5157091617584,
+              "t": 507.0731167793274,
+              "r": 539.9082872867584,
+              "b": 517.6155114173889,
               "coord_origin": "TOPLEFT"
             },
             "row_span": 1,
@@ -7900,10 +9725,10 @@
           },
           {
             "bbox": {
-              "l": 71.04026776179671,
-              "t": 522.1043634414673,
-              "r": 79.4933627769351,
-              "b": 535.3735589981079,
+              "l": 71.04026951268315,
+              "t": 522.104334115982,
+              "r": 79.49336102604866,
+              "b": 535.3734710216522,
               "coord_origin": "TOPLEFT"
             },
             "row_span": 1,
@@ -7920,10 +9745,10 @@
           },
           {
             "bbox": {
-              "l": 87.55226059257984,
-              "t": 522.3904042243958,
-              "r": 103.16655030846596,
-              "b": 532.8254675865173,
+              "l": 87.55224658548832,
+              "t": 522.390433549881,
+              "r": 103.16652929782867,
+              "b": 532.8254969120026,
               "coord_origin": "TOPLEFT"
             },
             "row_span": 1,
@@ -7940,10 +9765,10 @@
           },
           {
             "bbox": {
-              "l": 113.26113200187683,
-              "t": 523.423189163208,
+              "l": 113.26112499833107,
+              "t": 523.4232771396637,
               "r": 232.6261202096939,
-              "b": 533.721830368042,
+              "b": 533.7218596935272,
               "coord_origin": "TOPLEFT"
             },
             "row_span": 1,
@@ -7961,9 +9786,9 @@
           {
             "bbox": {
               "l": 528.4947208166122,
-              "t": 522.2185275554657,
+              "t": 522.2184982299805,
               "r": 539.811554312706,
-              "b": 532.865555524826,
+              "b": 532.8655261993408,
               "coord_origin": "TOPLEFT"
             },
             "row_span": 1,
@@ -7980,10 +9805,10 @@
           },
           {
             "bbox": {
-              "l": 76.28252769261599,
-              "t": 548.6877398490906,
-              "r": 95.41295806318521,
-              "b": 559.5761752128601,
+              "l": 76.2825845964253,
+              "t": 548.6878278255463,
+              "r": 95.4129703193903,
+              "b": 559.5762631893158,
               "coord_origin": "TOPLEFT"
             },
             "row_span": 1,
@@ -8000,7 +9825,7 @@
           },
           {
             "bbox": {
-              "l": 101.23497939109802,
+              "l": 101.23497238755226,
               "t": 548.9199097156525,
               "r": 232.49464964866638,
               "b": 559.3325684070587,
@@ -8040,10 +9865,10 @@
           },
           {
             "bbox": {
-              "l": 78.44452051818371,
-              "t": 564.8511848449707,
-              "r": 87.38890113681555,
-              "b": 575.9943413734436,
+              "l": 78.44452401995659,
+              "t": 564.8512728214264,
+              "r": 87.38891339302063,
+              "b": 575.9944293498993,
               "coord_origin": "TOPLEFT"
             },
             "row_span": 1,
@@ -8060,10 +9885,10 @@
           },
           {
             "bbox": {
-              "l": 90.84329327940941,
-              "t": 564.937607049942,
-              "r": 118.03541412949562,
-              "b": 575.4394152164459,
+              "l": 90.84315145760775,
+              "t": 564.9378709793091,
+              "r": 118.03437060117722,
+              "b": 575.439679145813,
               "coord_origin": "TOPLEFT"
             },
             "row_span": 1,
@@ -8080,9 +9905,9 @@
           },
           {
             "bbox": {
-              "l": 113.49890938401222,
+              "l": 113.49891988933086,
               "t": 565.4013602733612,
-              "r": 173.74125292897224,
+              "r": 173.7413159608841,
               "b": 575.9218194484711,
               "coord_origin": "TOPLEFT"
             },
@@ -8101,9 +9926,9 @@
           {
             "bbox": {
               "l": 528.4412697553635,
-              "t": 565.2632665634155,
+              "t": 565.263325214386,
               "r": 540.8618620634079,
-              "b": 576.074517250061,
+              "b": 576.0745759010315,
               "coord_origin": "TOPLEFT"
             },
             "row_span": 1,
@@ -8120,10 +9945,10 @@
           },
           {
             "bbox": {
-              "l": 78.23257440142334,
-              "t": 581.8821656703949,
-              "r": 91.09369630366564,
-              "b": 593.4291927814484,
+              "l": 78.23253675736487,
+              "t": 581.882048368454,
+              "r": 91.09364552795887,
+              "b": 593.4290754795074,
               "coord_origin": "TOPLEFT"
             },
             "row_span": 1,
@@ -8140,10 +9965,10 @@
           },
           {
             "bbox": {
-              "l": 92.80155470967293,
-              "t": 580.84712266922,
-              "r": 110.75531235337257,
-              "b": 591.7488718032837,
+              "l": 92.80149868130684,
+              "t": 580.8470640182495,
+              "r": 110.75522831082344,
+              "b": 591.7488131523132,
               "coord_origin": "TOPLEFT"
             },
             "row_span": 1,
@@ -8160,10 +9985,10 @@
           },
           {
             "bbox": {
-              "l": 112.15416556596756,
-              "t": 581.7935440540314,
-              "r": 307.49959921836853,
-              "b": 592.5330646038055,
+              "l": 112.15417256951332,
+              "t": 581.7935733795166,
+              "r": 307.4996272325516,
+              "b": 592.5330352783203,
               "coord_origin": "TOPLEFT"
             },
             "row_span": 1,
@@ -8180,9 +10005,9 @@
           },
           {
             "bbox": {
-              "l": 528.8050619363785,
+              "l": 528.8050059080124,
               "t": 581.511344909668,
-              "r": 540.800118803978,
+              "r": 540.8000627756119,
               "b": 592.419017791748,
               "coord_origin": "TOPLEFT"
             },
@@ -8200,9 +10025,9 @@
           },
           {
             "bbox": {
-              "l": 82.69042889028788,
+              "l": 82.69041926041245,
               "t": 596.4901576042175,
-              "r": 100.94834527373314,
+              "r": 100.94832776486874,
               "b": 608.0523166656494,
               "coord_origin": "TOPLEFT"
             },
@@ -8220,10 +10045,10 @@
           },
           {
             "bbox": {
-              "l": 105.90745097398758,
-              "t": 595.7161993980408,
-              "r": 294.7867769598961,
-              "b": 606.8964819908142,
+              "l": 105.90740895271301,
+              "t": 595.7162873744965,
+              "r": 294.7861466407776,
+              "b": 606.8965113162994,
               "coord_origin": "TOPLEFT"
             },
             "row_span": 1,
@@ -8240,9 +10065,9 @@
           },
           {
             "bbox": {
-              "l": 111.15494167804718,
+              "l": 111.15498369932175,
               "t": 595.575407743454,
-              "r": 312.6273432970047,
+              "r": 312.62737131118774,
               "b": 606.7195613384247,
               "coord_origin": "TOPLEFT"
             },
@@ -8286,9 +10111,9 @@
           [
             {
               "bbox": {
-                "l": 70.97509451583028,
-                "t": 116.51707016304134,
-                "r": 97.41758471727371,
+                "l": 70.9750953912735,
+                "t": 116.51708986610173,
+                "r": 97.41757421195507,
                 "b": 127.29673409461974,
                 "coord_origin": "TOPLEFT"
               },
@@ -8306,9 +10131,9 @@
             },
             {
               "bbox": {
-                "l": 70.97509451583028,
-                "t": 116.51707016304134,
-                "r": 97.41758471727371,
+                "l": 70.9750953912735,
+                "t": 116.51708986610173,
+                "r": 97.41757421195507,
                 "b": 127.29673409461974,
                 "coord_origin": "TOPLEFT"
               },
@@ -8326,10 +10151,10 @@
             },
             {
               "bbox": {
-                "l": 97.04020565748215,
-                "t": 116.12657520920037,
-                "r": 258.92709589004517,
-                "b": 126.38084878772496,
+                "l": 97.04021266102791,
+                "t": 116.1265706270933,
+                "r": 258.926983833313,
+                "b": 126.38084420561789,
                 "coord_origin": "TOPLEFT"
               },
               "row_span": 1,
@@ -8347,9 +10172,9 @@
             {
               "bbox": {
                 "l": 533.3322379589081,
-                "t": 115.31521738693117,
+                "t": 115.3152128048241,
                 "r": 540.7298312187195,
-                "b": 124.96540017426013,
+                "b": 124.96539284288882,
                 "coord_origin": "TOPLEFT"
               },
               "row_span": 1,
@@ -8368,10 +10193,10 @@
           [
             {
               "bbox": {
-                "l": 71.0965101737529,
-                "t": 138.69053921103477,
-                "r": 78.31217407621443,
-                "b": 150.1932628452778,
+                "l": 71.09651148691773,
+                "t": 138.69049888849258,
+                "r": 78.31218239292502,
+                "b": 150.19323351979256,
                 "coord_origin": "TOPLEFT"
               },
               "row_span": 1,
@@ -8388,10 +10213,10 @@
             },
             {
               "bbox": {
-                "l": 90.78068858385086,
-                "t": 140.69559594988823,
-                "r": 361.6402015686035,
-                "b": 152.88510778546333,
+                "l": 90.7806465625763,
+                "t": 140.69557029008865,
+                "r": 361.64022958278656,
+                "b": 152.88508945703506,
                 "coord_origin": "TOPLEFT"
               },
               "row_span": 1,
@@ -8408,10 +10233,10 @@
             },
             {
               "bbox": {
-                "l": 90.78068858385086,
-                "t": 140.69559594988823,
-                "r": 361.6402015686035,
-                "b": 152.88510778546333,
+                "l": 90.7806465625763,
+                "t": 140.69557029008865,
+                "r": 361.64022958278656,
+                "b": 152.88508945703506,
                 "coord_origin": "TOPLEFT"
               },
               "row_span": 1,
@@ -8428,10 +10253,10 @@
             },
             {
               "bbox": {
-                "l": 533.5498241186142,
-                "t": 142.21297720074654,
-                "r": 540.8712188005447,
-                "b": 152.54565796256065,
+                "l": 533.5498521327972,
+                "t": 142.21299369633198,
+                "r": 540.8711907863617,
+                "b": 152.54566895961761,
                 "coord_origin": "TOPLEFT"
               },
               "row_span": 1,
@@ -8450,10 +10275,10 @@
           [
             {
               "bbox": {
-                "l": 71.00497601926327,
-                "t": 154.99959990382195,
-                "r": 81.04132498055696,
-                "b": 167.0599842965603,
+                "l": 71.00497470609844,
+                "t": 154.9996658861637,
+                "r": 81.04134599119425,
+                "b": 167.06005027890205,
                 "coord_origin": "TOPLEFT"
               },
               "row_span": 1,
@@ -8470,10 +10295,10 @@
             },
             {
               "bbox": {
-                "l": 89.19124087691307,
-                "t": 156.55466440320015,
-                "r": 103.71478787064552,
-                "b": 166.82982322573662,
+                "l": 89.19123737514019,
+                "t": 156.55459842085838,
+                "r": 103.7147913724184,
+                "b": 166.82974991202354,
                 "coord_origin": "TOPLEFT"
               },
               "row_span": 1,
@@ -8490,10 +10315,10 @@
             },
             {
               "bbox": {
-                "l": 112.05804540216923,
-                "t": 157.54862973093987,
-                "r": 221.74633598327637,
-                "b": 168.10422816872597,
+                "l": 112.05802439153194,
+                "t": 157.5486737191677,
+                "r": 221.74632197618484,
+                "b": 168.10427948832512,
                 "coord_origin": "TOPLEFT"
               },
               "row_span": 1,
@@ -8513,7 +10338,7 @@
                 "l": 533.2827368974686,
                 "t": 156.48852810263634,
                 "r": 540.8992890119553,
-                "b": 166.7962822020054,
+                "b": 166.796296864748,
                 "coord_origin": "TOPLEFT"
               },
               "row_span": 1,
@@ -8532,10 +10357,10 @@
           [
             {
               "bbox": {
-                "l": 70.81650228612125,
-                "t": 172.07883581519127,
-                "r": 83.41951026022434,
-                "b": 183.68808060884476,
+                "l": 70.81650053523481,
+                "t": 172.07883948087692,
+                "r": 83.41951901465654,
+                "b": 183.68809527158737,
                 "coord_origin": "TOPLEFT"
               },
               "row_span": 1,
@@ -8552,10 +10377,10 @@
             },
             {
               "bbox": {
-                "l": 88.98575334250927,
-                "t": 171.76423934102058,
-                "r": 103.10251338779926,
-                "b": 182.04468774795532,
+                "l": 88.98575684428215,
+                "t": 171.7642613351345,
+                "r": 103.10253089666367,
+                "b": 182.04470241069794,
                 "coord_origin": "TOPLEFT"
               },
               "row_span": 1,
@@ -8572,9 +10397,9 @@
             },
             {
               "bbox": {
-                "l": 113.27583944797516,
-                "t": 172.20602044463158,
-                "r": 234.89566123485565,
+                "l": 113.27582544088364,
+                "t": 172.20602411031723,
+                "r": 234.8956332206726,
                 "b": 182.61465054750443,
                 "coord_origin": "TOPLEFT"
               },
@@ -8593,9 +10418,9 @@
             {
               "bbox": {
                 "l": 533.4076521396637,
-                "t": 172.8377977013588,
+                "t": 172.8378050327301,
                 "r": 540.923745393753,
-                "b": 183.02726012468338,
+                "b": 183.0272674560547,
                 "coord_origin": "TOPLEFT"
               },
               "row_span": 1,
@@ -8614,10 +10439,10 @@
           [
             {
               "bbox": {
-                "l": 70.70130008645356,
-                "t": 187.62021028995514,
-                "r": 82.75530098378658,
-                "b": 204.30290699005127,
+                "l": 70.70129833556712,
+                "t": 187.62021762132645,
+                "r": 82.75530273467302,
+                "b": 204.30287033319473,
                 "coord_origin": "TOPLEFT"
               },
               "row_span": 1,
@@ -8634,9 +10459,9 @@
             },
             {
               "bbox": {
-                "l": 87.15643419325352,
+                "l": 87.15643244236708,
                 "t": 187.581185400486,
-                "r": 102.50392033159733,
+                "r": 102.50391682982445,
                 "b": 198.01890271902084,
                 "coord_origin": "TOPLEFT"
               },
@@ -8654,10 +10479,10 @@
             },
             {
               "bbox": {
-                "l": 113.40560114383698,
-                "t": 187.73117792606354,
-                "r": 267.9363170862198,
-                "b": 198.62921738624573,
+                "l": 113.40559414029121,
+                "t": 187.73115593194962,
+                "r": 267.93628907203674,
+                "b": 198.6291807293892,
                 "coord_origin": "TOPLEFT"
               },
               "row_span": 1,
@@ -8675,9 +10500,9 @@
             {
               "bbox": {
                 "l": 533.7055549621582,
-                "t": 188.1907302737236,
+                "t": 188.1907229423523,
                 "r": 540.9428510665894,
-                "b": 198.53494328260422,
+                "b": 198.5349212884903,
                 "coord_origin": "TOPLEFT"
               },
               "row_span": 1,
@@ -8696,9 +10521,9 @@
           [
             {
               "bbox": {
-                "l": 70.87990407273173,
+                "l": 70.87990582361817,
                 "t": 213.9371719956398,
-                "r": 79.53421008214355,
+                "r": 79.534203954041,
                 "b": 225.23211723566055,
                 "coord_origin": "TOPLEFT"
               },
@@ -8716,7 +10541,7 @@
             },
             {
               "bbox": {
-                "l": 92.61071509122849,
+                "l": 92.61072209477425,
                 "t": 213.84902691841125,
                 "r": 236.89464128017426,
                 "b": 225.30949985980988,
@@ -8736,7 +10561,7 @@
             },
             {
               "bbox": {
-                "l": 92.61071509122849,
+                "l": 92.61072209477425,
                 "t": 213.84902691841125,
                 "r": 236.89464128017426,
                 "b": 225.30949985980988,
@@ -8756,10 +10581,10 @@
             },
             {
               "bbox": {
-                "l": 533.4829262495041,
-                "t": 214.05923199653625,
-                "r": 540.9081975221634,
-                "b": 224.58477914333344,
+                "l": 533.4829822778702,
+                "t": 214.05920267105103,
+                "r": 540.9082535505295,
+                "b": 224.5847498178482,
                 "coord_origin": "TOPLEFT"
               },
               "row_span": 1,
@@ -8778,10 +10603,10 @@
           [
             {
               "bbox": {
-                "l": 71.05565367639065,
-                "t": 230.77070432901382,
-                "r": 85.25545301288366,
-                "b": 242.27147781848907,
+                "l": 71.05564360879362,
+                "t": 230.77072632312775,
+                "r": 85.25545651465654,
+                "b": 242.2715071439743,
                 "coord_origin": "TOPLEFT"
               },
               "row_span": 1,
@@ -8798,10 +10623,10 @@
             },
             {
               "bbox": {
-                "l": 88.60958589613438,
-                "t": 229.02876317501068,
+                "l": 88.60958764702082,
+                "t": 229.028770506382,
                 "r": 103.36832946538925,
-                "b": 239.24564492702484,
+                "b": 239.24565958976746,
                 "coord_origin": "TOPLEFT"
               },
               "row_span": 1,
@@ -8818,10 +10643,10 @@
             },
             {
               "bbox": {
-                "l": 112.32255882024765,
-                "t": 229.9775745868683,
-                "r": 239.91850620508194,
-                "b": 240.19752085208893,
+                "l": 112.32256582379341,
+                "t": 229.97752326726913,
+                "r": 239.91840815544128,
+                "b": 240.19746220111847,
                 "coord_origin": "TOPLEFT"
               },
               "row_span": 1,
@@ -8839,9 +10664,9 @@
             {
               "bbox": {
                 "l": 533.2961556911469,
-                "t": 230.59872502088547,
+                "t": 230.5987470149994,
                 "r": 540.8845815658569,
-                "b": 241.17609763145447,
+                "b": 241.1761269569397,
                 "coord_origin": "TOPLEFT"
               },
               "row_span": 1,
@@ -8860,10 +10685,10 @@
           [
             {
               "bbox": {
-                "l": 74.41805293224752,
-                "t": 245.2338503599167,
-                "r": 88.97676954418421,
-                "b": 256.3189424276352,
+                "l": 74.41803980059922,
+                "t": 245.23382103443146,
+                "r": 88.97676254063845,
+                "b": 256.31891310214996,
                 "coord_origin": "TOPLEFT"
               },
               "row_span": 1,
@@ -8880,10 +10705,10 @@
             },
             {
               "bbox": {
-                "l": 88.68042676150799,
-                "t": 244.9005515575409,
-                "r": 103.61202484369278,
-                "b": 255.24303436279297,
+                "l": 88.68043376505375,
+                "t": 244.90052223205566,
+                "r": 103.61202834546566,
+                "b": 255.24300503730774,
                 "coord_origin": "TOPLEFT"
               },
               "row_span": 1,
@@ -8900,10 +10725,10 @@
             },
             {
               "bbox": {
-                "l": 111.2070340514183,
-                "t": 245.91123974323273,
-                "r": 260.72349137067795,
-                "b": 256.18029153347015,
+                "l": 111.20704805850983,
+                "t": 245.9112250804901,
+                "r": 260.7234773635864,
+                "b": 256.18030619621277,
                 "coord_origin": "TOPLEFT"
               },
               "row_span": 1,
@@ -8920,10 +10745,10 @@
             },
             {
               "bbox": {
-                "l": 533.1275103092194,
-                "t": 245.24056589603424,
-                "r": 540.8840773105621,
-                "b": 255.7220515012741,
+                "l": 533.1275383234024,
+                "t": 245.24058055877686,
+                "r": 540.8840492963791,
+                "b": 255.72206616401672,
                 "coord_origin": "TOPLEFT"
               },
               "row_span": 1,
@@ -8942,10 +10767,10 @@
           [
             {
               "bbox": {
-                "l": 78.40620587021112,
-                "t": 259.6572530269623,
-                "r": 92.07132826000452,
-                "b": 271.90729999542236,
+                "l": 78.406165599823,
+                "t": 259.65720903873444,
+                "r": 92.07130199670792,
+                "b": 271.90728533267975,
                 "coord_origin": "TOPLEFT"
               },
               "row_span": 1,
@@ -8962,10 +10787,10 @@
             },
             {
               "bbox": {
-                "l": 89.13558720052242,
-                "t": 259.03893983364105,
-                "r": 103.19887167215347,
-                "b": 270.0021551847458,
+                "l": 89.13558369874954,
+                "t": 259.03895449638367,
+                "r": 103.19888918101788,
+                "b": 270.0021698474884,
                 "coord_origin": "TOPLEFT"
               },
               "row_span": 1,
@@ -8982,10 +10807,10 @@
             },
             {
               "bbox": {
-                "l": 110.66068044304848,
+                "l": 110.66068744659424,
                 "t": 260.9500377178192,
-                "r": 283.28004932403564,
-                "b": 271.4025790691376,
+                "r": 283.2800213098526,
+                "b": 271.40254974365234,
                 "coord_origin": "TOPLEFT"
               },
               "row_span": 1,
@@ -9003,9 +10828,9 @@
             {
               "bbox": {
                 "l": 534.0096209049225,
-                "t": 260.61638700962067,
+                "t": 260.6164309978485,
                 "r": 540.8434567451477,
-                "b": 271.11320984363556,
+                "b": 271.1132538318634,
                 "coord_origin": "TOPLEFT"
               },
               "row_span": 1,
@@ -9024,10 +10849,10 @@
           [
             {
               "bbox": {
-                "l": 74.17933751270175,
-                "t": 277.49324774742126,
-                "r": 91.692672803998,
-                "b": 293.8528802394867,
+                "l": 74.17933226004243,
+                "t": 277.49321842193604,
+                "r": 91.69266930222511,
+                "b": 293.852792263031,
                 "coord_origin": "TOPLEFT"
               },
               "row_span": 1,
@@ -9044,10 +10869,10 @@
             },
             {
               "bbox": {
-                "l": 88.01383627951145,
-                "t": 275.9939090013504,
+                "l": 88.01382752507925,
+                "t": 275.993923664093,
                 "r": 102.6903967410326,
-                "b": 287.15639102458954,
+                "b": 287.1564350128174,
                 "coord_origin": "TOPLEFT"
               },
               "row_span": 1,
@@ -9064,10 +10889,10 @@
             },
             {
               "bbox": {
-                "l": 112.1332704871893,
-                "t": 276.7447147369385,
-                "r": 213.24062770605087,
-                "b": 287.4216253757477,
+                "l": 112.13325998187065,
+                "t": 276.7447293996811,
+                "r": 213.2406417131424,
+                "b": 287.4216400384903,
                 "coord_origin": "TOPLEFT"
               },
               "row_span": 1,
@@ -9085,9 +10910,9 @@
             {
               "bbox": {
                 "l": 534.5015499591827,
-                "t": 275.6081029176712,
+                "t": 275.6081175804138,
                 "r": 540.8837971687317,
-                "b": 286.2704974412918,
+                "b": 286.2704827785492,
                 "coord_origin": "TOPLEFT"
               },
               "row_span": 1,
@@ -9106,9 +10931,9 @@
           [
             {
               "bbox": {
-                "l": 71.5317590944469,
+                "l": 71.531763471663,
                 "t": 301.81568789482117,
-                "r": 91.52991040050983,
+                "r": 91.52993666380644,
                 "b": 312.9028913974762,
                 "coord_origin": "TOPLEFT"
               },
@@ -9126,10 +10951,10 @@
             },
             {
               "bbox": {
-                "l": 90.08027097582817,
-                "t": 302.2044851779938,
-                "r": 232.0124135017395,
-                "b": 312.45937275886536,
+                "l": 90.08030599355698,
+                "t": 302.20445585250854,
+                "r": 232.01239949464798,
+                "b": 312.4593434333801,
                 "coord_origin": "TOPLEFT"
               },
               "row_span": 1,
@@ -9146,10 +10971,10 @@
             },
             {
               "bbox": {
-                "l": 90.08027097582817,
-                "t": 302.2044851779938,
-                "r": 232.0124135017395,
-                "b": 312.45937275886536,
+                "l": 90.08030599355698,
+                "t": 302.20445585250854,
+                "r": 232.01239949464798,
+                "b": 312.4593434333801,
                 "coord_origin": "TOPLEFT"
               },
               "row_span": 1,
@@ -9167,9 +10992,9 @@
             {
               "bbox": {
                 "l": 527.6849148273468,
-                "t": 302.39021813869476,
+                "t": 302.3901301622391,
                 "r": 540.6039354801178,
-                "b": 313.08240735530853,
+                "b": 313.08231937885284,
                 "coord_origin": "TOPLEFT"
               },
               "row_span": 1,
@@ -9188,10 +11013,10 @@
           [
             {
               "bbox": {
-                "l": 70.90837217308581,
-                "t": 317.6144998073578,
-                "r": 83.63407789170742,
-                "b": 329.1646354198456,
+                "l": 70.90837392397225,
+                "t": 317.61445581912994,
+                "r": 83.6340726390481,
+                "b": 329.16459143161774,
                 "coord_origin": "TOPLEFT"
               },
               "row_span": 1,
@@ -9208,10 +11033,10 @@
             },
             {
               "bbox": {
-                "l": 87.57476998865604,
-                "t": 321.6102731227875,
-                "r": 104.22789214551449,
-                "b": 332.08639216423035,
+                "l": 87.57475598156452,
+                "t": 321.61022913455963,
+                "r": 104.2278711348772,
+                "b": 332.0863481760025,
                 "coord_origin": "TOPLEFT"
               },
               "row_span": 1,
@@ -9228,7 +11053,7 @@
             },
             {
               "bbox": {
-                "l": 112.58954098820686,
+                "l": 112.58952698111534,
                 "t": 318.4964051246643,
                 "r": 237.8406242132187,
                 "b": 329.0458085536957,
@@ -9249,9 +11074,9 @@
             {
               "bbox": {
                 "l": 528.9317700862885,
-                "t": 318.2905548810959,
+                "t": 318.2905842065811,
                 "r": 540.6123957633972,
-                "b": 328.99893176555634,
+                "b": 328.9989904165268,
                 "coord_origin": "TOPLEFT"
               },
               "row_span": 1,
@@ -9270,10 +11095,10 @@
           [
             {
               "bbox": {
-                "l": 71.0262348446995,
-                "t": 332.7091335058212,
-                "r": 82.37199517339468,
-                "b": 344.8250457048416,
+                "l": 71.02623309381306,
+                "t": 332.7091774940491,
+                "r": 82.37200217694044,
+                "b": 344.82508969306946,
                 "coord_origin": "TOPLEFT"
               },
               "row_span": 1,
@@ -9290,10 +11115,10 @@
             },
             {
               "bbox": {
-                "l": 89.03270511329174,
-                "t": 335.2226061820984,
-                "r": 104.98940868675709,
-                "b": 345.63983964920044,
+                "l": 89.03270161151886,
+                "t": 335.22256219387054,
+                "r": 104.98940168321133,
+                "b": 345.6397956609726,
                 "coord_origin": "TOPLEFT"
               },
               "row_span": 1,
@@ -9310,10 +11135,10 @@
             },
             {
               "bbox": {
-                "l": 112.39026559889317,
-                "t": 334.1979150772095,
-                "r": 208.75391817092896,
-                "b": 344.86118936538696,
+                "l": 112.390241086483,
+                "t": 334.1979590654373,
+                "r": 208.75393217802048,
+                "b": 344.8612333536148,
                 "coord_origin": "TOPLEFT"
               },
               "row_span": 1,
@@ -9331,9 +11156,9 @@
             {
               "bbox": {
                 "l": 529.4172278642654,
-                "t": 333.9736044406891,
+                "t": 333.97364842891693,
                 "r": 540.435093998909,
-                "b": 344.5925385951996,
+                "b": 344.59258258342743,
                 "coord_origin": "TOPLEFT"
               },
               "row_span": 1,
@@ -9352,9 +11177,9 @@
           [
             {
               "bbox": {
-                "l": 71.0562691129744,
+                "l": 71.05626254715025,
                 "t": 359.60944509506226,
-                "r": 84.01334353163838,
+                "r": 84.01336891949177,
                 "b": 370.7685546875,
                 "coord_origin": "TOPLEFT"
               },
@@ -9372,10 +11197,10 @@
             },
             {
               "bbox": {
-                "l": 95.06793713569641,
+                "l": 95.0679581463337,
                 "t": 359.38630747795105,
-                "r": 245.72007542848587,
-                "b": 373.19509196281433,
+                "r": 245.71992135047913,
+                "b": 373.1951506137848,
                 "coord_origin": "TOPLEFT"
               },
               "row_span": 1,
@@ -9392,10 +11217,10 @@
             },
             {
               "bbox": {
-                "l": 95.06793713569641,
+                "l": 95.0679581463337,
                 "t": 359.38630747795105,
-                "r": 245.72007542848587,
-                "b": 373.19509196281433,
+                "r": 245.71992135047913,
+                "b": 373.1951506137848,
                 "coord_origin": "TOPLEFT"
               },
               "row_span": 1,
@@ -9413,9 +11238,9 @@
             {
               "bbox": {
                 "l": 527.7236304283142,
-                "t": 360.47671699523926,
+                "t": 360.4766583442688,
                 "r": 540.5533978939056,
-                "b": 371.2251524925232,
+                "b": 371.22509384155273,
                 "coord_origin": "TOPLEFT"
               },
               "row_span": 1,
@@ -9434,9 +11259,9 @@
           [
             {
               "bbox": {
-                "l": 70.8542286362499,
+                "l": 70.85422119498253,
                 "t": 375.12940096855164,
-                "r": 83.36675079911947,
+                "r": 83.366764806211,
                 "b": 389.2718508243561,
                 "coord_origin": "TOPLEFT"
               },
@@ -9454,10 +11279,10 @@
             },
             {
               "bbox": {
-                "l": 87.43663205206394,
-                "t": 377.0409240722656,
-                "r": 103.06190682947636,
-                "b": 387.7739930152893,
+                "l": 87.43662855029106,
+                "t": 377.04095339775085,
+                "r": 103.06191033124924,
+                "b": 387.77402234077454,
                 "coord_origin": "TOPLEFT"
               },
               "row_span": 1,
@@ -9474,9 +11299,9 @@
             },
             {
               "bbox": {
-                "l": 114.77680085599422,
+                "l": 114.77682186663151,
                 "t": 376.62233209609985,
-                "r": 160.77656215429306,
+                "r": 160.77657616138458,
                 "b": 387.4901223182678,
                 "coord_origin": "TOPLEFT"
               },
@@ -9494,10 +11319,10 @@
             },
             {
               "bbox": {
-                "l": 528.8156232833862,
-                "t": 376.50409173965454,
-                "r": 540.4842028617859,
-                "b": 387.1601519584656,
+                "l": 528.8155952692032,
+                "t": 376.5040624141693,
+                "r": 540.4841748476028,
+                "b": 387.16012263298035,
                 "coord_origin": "TOPLEFT"
               },
               "row_span": 1,
@@ -9516,10 +11341,10 @@
           [
             {
               "bbox": {
-                "l": 71.0390150025487,
-                "t": 401.98623752593994,
-                "r": 85.7984379157424,
-                "b": 413.10194540023804,
+                "l": 71.03901237621903,
+                "t": 401.98632550239563,
+                "r": 85.7984466701746,
+                "b": 413.1020333766937,
                 "coord_origin": "TOPLEFT"
               },
               "row_span": 1,
@@ -9536,10 +11361,10 @@
             },
             {
               "bbox": {
-                "l": 95.16422188282013,
-                "t": 403.7543590068817,
+                "l": 95.16423588991165,
+                "t": 403.7543296813965,
                 "r": 179.7907126545906,
-                "b": 413.9834988117218,
+                "b": 413.98352813720703,
                 "coord_origin": "TOPLEFT"
               },
               "row_span": 1,
@@ -9556,10 +11381,10 @@
             },
             {
               "bbox": {
-                "l": 95.16422188282013,
-                "t": 403.7543590068817,
+                "l": 95.16423588991165,
+                "t": 403.7543296813965,
                 "r": 179.7907126545906,
-                "b": 413.9834988117218,
+                "b": 413.98352813720703,
                 "coord_origin": "TOPLEFT"
               },
               "row_span": 1,
@@ -9576,10 +11401,10 @@
             },
             {
               "bbox": {
-                "l": 528.237354516983,
-                "t": 402.5350933074951,
-                "r": 540.6297645568848,
-                "b": 413.0804204940796,
+                "l": 528.2373825311661,
+                "t": 402.5351812839508,
+                "r": 540.6297365427017,
+                "b": 413.0805084705353,
                 "coord_origin": "TOPLEFT"
               },
               "row_span": 1,
@@ -9598,10 +11423,10 @@
           [
             {
               "bbox": {
-                "l": 70.84605506062508,
-                "t": 416.70795369148254,
-                "r": 86.45022290199995,
-                "b": 428.3552153110504,
+                "l": 70.84605068340898,
+                "t": 416.7078950405121,
+                "r": 86.4502421617508,
+                "b": 428.35515666007996,
                 "coord_origin": "TOPLEFT"
               },
               "row_span": 1,
@@ -9618,10 +11443,10 @@
             },
             {
               "bbox": {
-                "l": 87.61481976509094,
-                "t": 418.654931306839,
-                "r": 104.37244883179665,
-                "b": 429.3777949810028,
+                "l": 87.61483027040958,
+                "t": 418.65490198135376,
+                "r": 104.37245933711529,
+                "b": 429.3777656555176,
                 "coord_origin": "TOPLEFT"
               },
               "row_span": 1,
@@ -9638,10 +11463,10 @@
             },
             {
               "bbox": {
-                "l": 113.09367722272873,
-                "t": 419.4673352241516,
-                "r": 160.93454813957214,
-                "b": 429.7889676094055,
+                "l": 113.09368422627449,
+                "t": 419.46736454963684,
+                "r": 160.9345551431179,
+                "b": 429.78899693489075,
                 "coord_origin": "TOPLEFT"
               },
               "row_span": 1,
@@ -9680,10 +11505,10 @@
           [
             {
               "bbox": {
-                "l": 71.3261848911643,
-                "t": 432.6306071281433,
-                "r": 87.85221370309591,
-                "b": 443.8005084991455,
+                "l": 71.32618576660752,
+                "t": 432.6305778026581,
+                "r": 87.85222245752811,
+                "b": 443.8004791736603,
                 "coord_origin": "TOPLEFT"
               },
               "row_span": 1,
@@ -9700,10 +11525,10 @@
             },
             {
               "bbox": {
-                "l": 87.48850731551647,
-                "t": 433.16799664497375,
-                "r": 104.84370341897011,
-                "b": 443.98558163642883,
+                "l": 87.48851256817579,
+                "t": 433.168025970459,
+                "r": 104.84369641542435,
+                "b": 443.9855523109436,
                 "coord_origin": "TOPLEFT"
               },
               "row_span": 1,
@@ -9720,10 +11545,10 @@
             },
             {
               "bbox": {
-                "l": 112.8265549838543,
-                "t": 434.57430028915405,
-                "r": 182.9706515967846,
-                "b": 444.77341079711914,
+                "l": 112.82653747498989,
+                "t": 434.5742416381836,
+                "r": 182.97067260742188,
+                "b": 444.7733521461487,
                 "coord_origin": "TOPLEFT"
               },
               "row_span": 1,
@@ -9762,10 +11587,10 @@
           [
             {
               "bbox": {
-                "l": 72.81665673851967,
-                "t": 449.36223340034485,
-                "r": 88.86752473562956,
-                "b": 460.7326624393463,
+                "l": 72.81663310155272,
+                "t": 449.3622627258301,
+                "r": 88.86753349006176,
+                "b": 460.73269176483154,
                 "coord_origin": "TOPLEFT"
               },
               "row_span": 1,
@@ -9782,9 +11607,9 @@
             },
             {
               "bbox": {
-                "l": 87.0644181072712,
+                "l": 87.06440234929323,
                 "t": 448.31944847106934,
-                "r": 104.364786952734,
+                "r": 104.36475893855095,
                 "b": 459.56571340560913,
                 "coord_origin": "TOPLEFT"
               },
@@ -9802,10 +11627,10 @@
             },
             {
               "bbox": {
-                "l": 112.92547306418419,
-                "t": 449.46475529670715,
-                "r": 216.82088232040405,
-                "b": 459.9856836795807,
+                "l": 112.92545555531979,
+                "t": 449.4647846221924,
+                "r": 216.82089632749557,
+                "b": 459.9857130050659,
                 "coord_origin": "TOPLEFT"
               },
               "row_span": 1,
@@ -9844,10 +11669,10 @@
           [
             {
               "bbox": {
-                "l": 73.54823837429285,
-                "t": 465.6056489944458,
-                "r": 88.91270986199379,
-                "b": 477.097309589386,
+                "l": 73.54821386188269,
+                "t": 465.60567831993103,
+                "r": 88.91271686553955,
+                "b": 477.0973389148712,
                 "coord_origin": "TOPLEFT"
               },
               "row_span": 1,
@@ -9864,9 +11689,9 @@
             },
             {
               "bbox": {
-                "l": 87.05639554560184,
+                "l": 87.05640605092049,
                 "t": 464.5237145423889,
-                "r": 104.09363067150116,
+                "r": 104.09364467859268,
                 "b": 475.865345954895,
                 "coord_origin": "TOPLEFT"
               },
@@ -9884,9 +11709,9 @@
             },
             {
               "bbox": {
-                "l": 112.62024453282356,
+                "l": 112.6202375292778,
                 "t": 465.15523886680603,
-                "r": 222.1922937631607,
+                "r": 222.19227975606918,
                 "b": 475.63857197761536,
                 "coord_origin": "TOPLEFT"
               },
@@ -9905,9 +11730,9 @@
             {
               "bbox": {
                 "l": 529.1899207830429,
-                "t": 464.8897259235382,
+                "t": 464.889696598053,
                 "r": 540.0264230966568,
-                "b": 475.4894812107086,
+                "b": 475.4894518852234,
                 "coord_origin": "TOPLEFT"
               },
               "row_span": 1,
@@ -9926,10 +11751,10 @@
           [
             {
               "bbox": {
-                "l": 72.69126219116151,
-                "t": 481.4350473880768,
-                "r": 87.18848942220211,
-                "b": 501.01778531074524,
+                "l": 72.69126394204795,
+                "t": 481.4349887371063,
+                "r": 87.18848066776991,
+                "b": 501.0177266597748,
                 "coord_origin": "TOPLEFT"
               },
               "row_span": 1,
@@ -9946,10 +11771,10 @@
             },
             {
               "bbox": {
-                "l": 87.11326083540916,
-                "t": 481.15202713012695,
-                "r": 104.39812733232975,
-                "b": 492.4814591407776,
+                "l": 87.11325733363628,
+                "t": 481.1520564556122,
+                "r": 104.39813083410263,
+                "b": 492.4814884662628,
                 "coord_origin": "TOPLEFT"
               },
               "row_span": 1,
@@ -9966,10 +11791,10 @@
             },
             {
               "bbox": {
-                "l": 110.44596573710442,
-                "t": 480.68487215042114,
-                "r": 275.0578866004944,
-                "b": 491.33195877075195,
+                "l": 110.44595873355865,
+                "t": 480.6849014759064,
+                "r": 275.05785858631134,
+                "b": 491.3319880962372,
                 "coord_origin": "TOPLEFT"
               },
               "row_span": 1,
@@ -9987,9 +11812,9 @@
             {
               "bbox": {
                 "l": 528.9790019989014,
-                "t": 480.9085669517517,
+                "t": 480.9085376262665,
                 "r": 540.0493106842041,
-                "b": 491.45524311065674,
+                "b": 491.4552137851715,
                 "coord_origin": "TOPLEFT"
               },
               "row_span": 1,
@@ -10008,9 +11833,9 @@
           [
             {
               "bbox": {
-                "l": 71.9512587916106,
-                "t": 506.46602058410645,
-                "r": 80.16881449520588,
+                "l": 71.95126929692924,
+                "t": 506.4660792350769,
+                "r": 80.16883375495672,
                 "b": 517.8938102722168,
                 "coord_origin": "TOPLEFT"
               },
@@ -10028,10 +11853,10 @@
             },
             {
               "bbox": {
-                "l": 96.62038511037827,
-                "t": 506.00261926651,
-                "r": 177.1599287390709,
-                "b": 517.2159810066223,
+                "l": 96.62037110328674,
+                "t": 506.00264859199524,
+                "r": 177.15991473197937,
+                "b": 517.2160103321075,
                 "coord_origin": "TOPLEFT"
               },
               "row_span": 1,
@@ -10048,10 +11873,10 @@
             },
             {
               "bbox": {
-                "l": 96.62038511037827,
-                "t": 506.00261926651,
-                "r": 177.1599287390709,
-                "b": 517.2159810066223,
+                "l": 96.62037110328674,
+                "t": 506.00264859199524,
+                "r": 177.15991473197937,
+                "b": 517.2160103321075,
                 "coord_origin": "TOPLEFT"
               },
               "row_span": 1,
@@ -10068,10 +11893,10 @@
             },
             {
               "bbox": {
-                "l": 527.5157371759415,
-                "t": 507.07308745384216,
-                "r": 539.9082592725754,
-                "b": 517.6154820919037,
+                "l": 527.5157091617584,
+                "t": 507.0731167793274,
+                "r": 539.9082872867584,
+                "b": 517.6155114173889,
                 "coord_origin": "TOPLEFT"
               },
               "row_span": 1,
@@ -10090,10 +11915,10 @@
           [
             {
               "bbox": {
-                "l": 71.04026776179671,
-                "t": 522.1043634414673,
-                "r": 79.4933627769351,
-                "b": 535.3735589981079,
+                "l": 71.04026951268315,
+                "t": 522.104334115982,
+                "r": 79.49336102604866,
+                "b": 535.3734710216522,
                 "coord_origin": "TOPLEFT"
               },
               "row_span": 1,
@@ -10110,10 +11935,10 @@
             },
             {
               "bbox": {
-                "l": 87.55226059257984,
-                "t": 522.3904042243958,
-                "r": 103.16655030846596,
-                "b": 532.8254675865173,
+                "l": 87.55224658548832,
+                "t": 522.390433549881,
+                "r": 103.16652929782867,
+                "b": 532.8254969120026,
                 "coord_origin": "TOPLEFT"
               },
               "row_span": 1,
@@ -10130,10 +11955,10 @@
             },
             {
               "bbox": {
-                "l": 113.26113200187683,
-                "t": 523.423189163208,
+                "l": 113.26112499833107,
+                "t": 523.4232771396637,
                 "r": 232.6261202096939,
-                "b": 533.721830368042,
+                "b": 533.7218596935272,
                 "coord_origin": "TOPLEFT"
               },
               "row_span": 1,
@@ -10151,9 +11976,9 @@
             {
               "bbox": {
                 "l": 528.4947208166122,
-                "t": 522.2185275554657,
+                "t": 522.2184982299805,
                 "r": 539.811554312706,
-                "b": 532.865555524826,
+                "b": 532.8655261993408,
                 "coord_origin": "TOPLEFT"
               },
               "row_span": 1,
@@ -10172,10 +11997,10 @@
           [
             {
               "bbox": {
-                "l": 76.28252769261599,
-                "t": 548.6877398490906,
-                "r": 95.41295806318521,
-                "b": 559.5761752128601,
+                "l": 76.2825845964253,
+                "t": 548.6878278255463,
+                "r": 95.4129703193903,
+                "b": 559.5762631893158,
                 "coord_origin": "TOPLEFT"
               },
               "row_span": 1,
@@ -10192,7 +12017,7 @@
             },
             {
               "bbox": {
-                "l": 101.23497939109802,
+                "l": 101.23497238755226,
                 "t": 548.9199097156525,
                 "r": 232.49464964866638,
                 "b": 559.3325684070587,
@@ -10212,7 +12037,7 @@
             },
             {
               "bbox": {
-                "l": 101.23497939109802,
+                "l": 101.23497238755226,
                 "t": 548.9199097156525,
                 "r": 232.49464964866638,
                 "b": 559.3325684070587,
@@ -10254,10 +12079,10 @@
           [
             {
               "bbox": {
-                "l": 78.44452051818371,
-                "t": 564.8511848449707,
-                "r": 87.38890113681555,
-                "b": 575.9943413734436,
+                "l": 78.44452401995659,
+                "t": 564.8512728214264,
+                "r": 87.38891339302063,
+                "b": 575.9944293498993,
                 "coord_origin": "TOPLEFT"
               },
               "row_span": 1,
@@ -10274,10 +12099,10 @@
             },
             {
               "bbox": {
-                "l": 90.84329327940941,
-                "t": 564.937607049942,
-                "r": 118.03541412949562,
-                "b": 575.4394152164459,
+                "l": 90.84315145760775,
+                "t": 564.9378709793091,
+                "r": 118.03437060117722,
+                "b": 575.439679145813,
                 "coord_origin": "TOPLEFT"
               },
               "row_span": 1,
@@ -10294,9 +12119,9 @@
             },
             {
               "bbox": {
-                "l": 113.49890938401222,
+                "l": 113.49891988933086,
                 "t": 565.4013602733612,
-                "r": 173.74125292897224,
+                "r": 173.7413159608841,
                 "b": 575.9218194484711,
                 "coord_origin": "TOPLEFT"
               },
@@ -10315,9 +12140,9 @@
             {
               "bbox": {
                 "l": 528.4412697553635,
-                "t": 565.2632665634155,
+                "t": 565.263325214386,
                 "r": 540.8618620634079,
-                "b": 576.074517250061,
+                "b": 576.0745759010315,
                 "coord_origin": "TOPLEFT"
               },
               "row_span": 1,
@@ -10336,10 +12161,10 @@
           [
             {
               "bbox": {
-                "l": 78.23257440142334,
-                "t": 581.8821656703949,
-                "r": 91.09369630366564,
-                "b": 593.4291927814484,
+                "l": 78.23253675736487,
+                "t": 581.882048368454,
+                "r": 91.09364552795887,
+                "b": 593.4290754795074,
                 "coord_origin": "TOPLEFT"
               },
               "row_span": 1,
@@ -10356,10 +12181,10 @@
             },
             {
               "bbox": {
-                "l": 92.80155470967293,
-                "t": 580.84712266922,
-                "r": 110.75531235337257,
-                "b": 591.7488718032837,
+                "l": 92.80149868130684,
+                "t": 580.8470640182495,
+                "r": 110.75522831082344,
+                "b": 591.7488131523132,
                 "coord_origin": "TOPLEFT"
               },
               "row_span": 1,
@@ -10376,10 +12201,10 @@
             },
             {
               "bbox": {
-                "l": 112.15416556596756,
-                "t": 581.7935440540314,
-                "r": 307.49959921836853,
-                "b": 592.5330646038055,
+                "l": 112.15417256951332,
+                "t": 581.7935733795166,
+                "r": 307.4996272325516,
+                "b": 592.5330352783203,
                 "coord_origin": "TOPLEFT"
               },
               "row_span": 1,
@@ -10396,9 +12221,9 @@
             },
             {
               "bbox": {
-                "l": 528.8050619363785,
+                "l": 528.8050059080124,
                 "t": 581.511344909668,
-                "r": 540.800118803978,
+                "r": 540.8000627756119,
                 "b": 592.419017791748,
                 "coord_origin": "TOPLEFT"
               },
@@ -10418,9 +12243,9 @@
           [
             {
               "bbox": {
-                "l": 82.69042889028788,
+                "l": 82.69041926041245,
                 "t": 596.4901576042175,
-                "r": 100.94834527373314,
+                "r": 100.94832776486874,
                 "b": 608.0523166656494,
                 "coord_origin": "TOPLEFT"
               },
@@ -10438,10 +12263,10 @@
             },
             {
               "bbox": {
-                "l": 105.90745097398758,
-                "t": 595.7161993980408,
-                "r": 294.7867769598961,
-                "b": 606.8964819908142,
+                "l": 105.90740895271301,
+                "t": 595.7162873744965,
+                "r": 294.7861466407776,
+                "b": 606.8965113162994,
                 "coord_origin": "TOPLEFT"
               },
               "row_span": 1,
@@ -10458,9 +12283,9 @@
             },
             {
               "bbox": {
-                "l": 111.15494167804718,
+                "l": 111.15498369932175,
                 "t": 595.575407743454,
-                "r": 312.6273432970047,
+                "r": 312.62737131118774,
                 "b": 606.7195613384247,
                 "coord_origin": "TOPLEFT"
               },
